@@ -1,0 +1,54 @@
+============2015-05-29 13:17:12.008430===========
+============3===========
+ERROR Raukura Hauora O Tainui - Te Rengarenga: Cannot geolocate address: 64 Avalon Drive, Hamilton  (this clinic and the Temple View clinic have combined within the Nawton clinic premises)
+ERROR Raukura Hauora O Tainui - Temple View HAS MOVED, SEE RAUKURA'S TE RENGARENGA CLINIC: Cannot find address.
+ERROR Tokoroa Family Health: Cannot geolocate address: Ward 4, Tokoroa Hospital
+============40===========
+WARNING (well child/tamariki ora,mental health, home based support services, foot nurse, project energise at no cost - ring Thames Office for assistance): Could not get fees.
+WARNING Raukura Hauora O Tainui – Nawton: Could not get fees.
+WARNING Raukura Hauora O Tainui – Temple View: Could not get fees.
+WARNING Raungaiti Marae Clinic– enrolment only available to Raungaiti Marae members/ahikā (enquiries to the Practice Manager at Matamata Medical Centre): Could not get fees.
+WARNING Te Kohao Health Hamilton: Could not get fees.
+WARNING Te Kohao Health – Raglan Clinic: Could not get fees.
+WARNING Colville Community Health Centre Possible issue with: Fax: 07 866 6619
+WARNING Doctors Surgery Whitianga: Could not find fees in dict.
+WARNING Matamata Medical Centre Possible issue with: 07 881 9102 or 07 881 9104
+WARNING Paeroa Medical Centre Possible issue with: 07 862 8755     Fax
+WARNING Putaruru-Tirau Family Doctors Possible issue with: Phone - 07 883 3965
+WARNING Radius Medical Centre - Davies Corner, Chartwell: Cannot find phone.
+WARNING Radius Medical Centre - Huntly East: Cannot find phone.
+WARNING Radius Medical Centre - K'Aute: Cannot find phone.
+WARNING Radius Medical Centre - Rototuna: Cannot find phone.
+WARNING Radius Medical Centre - St Andrews, Te Rapa: Cannot find phone.
+WARNING Raukura Hauora O Tainui - Enderley Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Enderley Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Enderley Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Enderley Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Enderley Possible issue with: 07 853 3370     Fax
+WARNING Raukura Hauora O Tainui - Nga Miro Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Nga Miro Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Nga Miro Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Nga Miro Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Nga Miro Possible issue with: 07 824 8393     Fax
+WARNING Raukura Hauora O Tainui - Waahi Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Waahi Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Waahi Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Waahi Possible issue with prices: 1000.0
+WARNING Raukura Hauora O Tainui - Waahi Possible issue with: 07 828 9256     Fax
+WARNING Raungaiti Marae Health Clinic: Could not find fees in dict.
+WARNING Raungaiti Marae Health Clinic Possible issue with: Phone - 07 881 9102
+WARNING Te Kohao Health: Could not find fees in dict.
+WARNING Te Kohao Health Possible issue with: 07 856 1211     Fax
+WARNING Te Korowai Hauora o Hauraki – Paeroa Possible issue with: Phone - 07 862 9284
+WARNING Te Korowai Hauora o Hauraki – Te Aroha Possible issue with: Phone - 07 884 9208
+WARNING Te Korowai Hauora o Hauraki – Thames (Head Office) Possible issue with: Phone - 07 868 0033
+WARNING Te Korowai Hauora o Hauraki – Whitianga Possible issue with: Ph - 07 869  5244
+WARNING Waihi Family Doctors Possible issue with: Practice Manager-Raewyn Norman 078632112, 0211661718  orThis email address is being protected from spambots. You need JavaScript enabled to view it.//<!--
+ document.getElementById('cloak75864').innerHTML = '';
+ var prefix = '&#109;a' + 'i&#108;' + '&#116;o';
+ var path = 'hr' + 'ef' + '=';
+ var addy75864 = 'pm' + '&#64;';
+ addy75864 = addy75864 + 'w&#97;&#105;h&#105;f&#97;m&#105;lyd&#111;ct&#111;rs' + '&#46;' + 'c&#111;' + '&#46;' + 'nz';
+ var addy_text75864 = 'pm' + '&#64;' + 'w&#97;&#105;h&#105;f&#97;m&#105;lyd&#111;ct&#111;rs' + '&#46;' + 'c&#111;' + '&#46;' + 'nz';
+ document.getElementById('cloak75864').innerHTML += '<a ' + path + '\'' + prefix + ':' + addy75864 + '\'>'+addy_text75864+'<\/a>';
+ //-->

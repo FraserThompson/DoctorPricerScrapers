@@ -1,0 +1,557 @@
+[
+    {
+        "address": "7 Bayview Road, Paihia",
+        "coordinates": [
+            -35.280482,
+            174.0890039
+        ],
+        "name": "Bayview Medical Centre",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 402 7132",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            },
+            {
+                "age": 80,
+                "price": 17.5
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/bayview-medical"
+    },
+    {
+        "address": "5 Klinac Lane Waipapa ",
+        "coordinates": [
+            "-41.244772",
+            "172.617188"
+        ],
+        "name": "Broadway Health Centre - Waipapa",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 4017172",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 10.0
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 17.0
+            },
+            {
+                "age": 80,
+                "price": 17.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/broadway-health-centre"
+    },
+    {
+        "address": "broadway health centre, kaikohe",
+        "coordinates": [
+            "-35.407311",
+            "173.800514"
+        ],
+        "name": "Broadway Health Centre - Kaikohe",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 4011556",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 10.0
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 17.0
+            },
+            {
+                "age": 80,
+                "price": 17.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/broadway-health-centre-kaikohe"
+    },
+    {
+        "address": "8 Commercial Street, Kawakawa",
+        "coordinates": [
+            -35.3805839,
+            174.0683236
+        ],
+        "name": "Commercial Street Surgery",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 404 0885",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 17.0
+            },
+            {
+                "age": 80,
+                "price": 17.5
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/commercial-street"
+    },
+    {
+        "address": "2 Vogel Street, Kawakawa 0211",
+        "coordinates": [
+            -35.380385,
+            174.0695
+        ],
+        "name": "Hauora Whanui Kawakawa Medical Centre",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 404 0241",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 10.0
+            },
+            {
+                "age": 18,
+                "price": 15.0
+            },
+            {
+                "age": 25,
+                "price": 15.0
+            },
+            {
+                "age": 65,
+                "price": 15.0
+            },
+            {
+                "age": 80,
+                "price": 15.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/hauora-whanui-kawakawa"
+    },
+    {
+        "address": "Hokianga Hosp 163 Parnell St Rawene Kaikohe",
+        "coordinates": [
+            -35.4071941,
+            173.8039261
+        ],
+        "name": "Hokianga Health",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 404 0241",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 0.0
+            },
+            {
+                "age": 18,
+                "price": 0.0
+            },
+            {
+                "age": 25,
+                "price": 0.0
+            },
+            {
+                "age": 65,
+                "price": 0.0
+            },
+            {
+                "age": 80,
+                "price": 0.0
+            }
+        ],
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practitioners/hokianga-health-enterprise-trust"
+    },
+    {
+        "address": "30 Puckey Ave, Kaitaia",
+        "coordinates": [
+            -35.1132456,
+            173.2609662
+        ],
+        "name": "Kaitaia Health Centre",
+        "pho": "Te Tai Tokerau",
+        "phone": "Tel (09) 408 1300",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 0.0
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 12.0
+            },
+            {
+                "age": 80,
+                "price": 12.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/kaitaia-health"
+    },
+    {
+        "address": "4 Homestead Rd Kerikeri",
+        "coordinates": [
+            -35.2273862,
+            173.9476081
+        ],
+        "name": "Kerikeri Medical Centre",
+        "pho": "Te Tai Tokerau",
+        "phone": "Tel (09) 408 1300",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 17.0
+            },
+            {
+                "age": 18,
+                "price": 28.0
+            },
+            {
+                "age": 25,
+                "price": 32.0
+            },
+            {
+                "age": 65,
+                "price": 28.0
+            },
+            {
+                "age": 80,
+                "price": 28.0
+            }
+        ],
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/kerikeri-medical-centre"
+    },
+    {
+        "address": "2 Ranui Avenue, Kerikeri 0230",
+        "coordinates": [
+            -35.2325379,
+            173.9451325
+        ],
+        "name": "Kerimed Doctors Partnership",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 4070025",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 18.5
+            },
+            {
+                "age": 18,
+                "price": 30.0
+            },
+            {
+                "age": 25,
+                "price": 30.0
+            },
+            {
+                "age": 65,
+                "price": 28.5
+            },
+            {
+                "age": 80,
+                "price": 28.5
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/kerimed-doctors-partnership"
+    },
+    {
+        "address": "44 State Highway 1, Moerewa 2011",
+        "coordinates": [
+            -35.3883504,
+            174.0125301
+        ],
+        "name": "Moerewa Medical Services",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 404 0328",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 10.0
+            },
+            {
+                "age": 18,
+                "price": 15.0
+            },
+            {
+                "age": 25,
+                "price": 15.0
+            },
+            {
+                "age": 65,
+                "price": 15.0
+            },
+            {
+                "age": 80,
+                "price": 15.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/moerewa-medical-services"
+    },
+    {
+        "address": "7 Bayview Rd Paihia",
+        "coordinates": [
+            -35.280482,
+            174.0890039
+        ],
+        "name": "Paihia Medical Centre",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 404 0328",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            },
+            {
+                "age": 80,
+                "price": 17.5
+            }
+        ],
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/bayview-medical-centre"
+    },
+    {
+        "address": "16-18 Church St, Russell",
+        "coordinates": [
+            -35.2616618,
+            174.1231801
+        ],
+        "name": "Russell Medical Centre",
+        "pho": "Te Tai Tokerau",
+        "phone": "(09) 403 7690",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            },
+            {
+                "age": 80,
+                "price": 17.5
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/russell-medical-centre"
+    },
+    {
+        "address": "29 Redan Road, Kaitaia",
+        "coordinates": [
+            -35.1187972,
+            173.2614198
+        ],
+        "name": "Te Kohanga Whakaora",
+        "pho": "Te Tai Tokerau",
+        "phone": "29 Redan Road",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 8.0
+            },
+            {
+                "age": 18,
+                "price": 15.0
+            },
+            {
+                "age": 25,
+                "price": 15.0
+            },
+            {
+                "age": 65,
+                "price": 5.0
+            },
+            {
+                "age": 80,
+                "price": 5.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/te-kohanga-whakaora"
+    },
+    {
+        "address": "29 Redan Road, Kaitaia",
+        "coordinates": [
+            -35.1187972,
+            173.2614198
+        ],
+        "name": "Top Health",
+        "pho": "Te Tai Tokerau",
+        "phone": "Fax (09) 408 9183",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 8.0
+            },
+            {
+                "age": 18,
+                "price": 16.0
+            },
+            {
+                "age": 25,
+                "price": 16.0
+            },
+            {
+                "age": 65,
+                "price": 10.0
+            },
+            {
+                "age": 80,
+                "price": 10.0
+            }
+        ],
+        "url": "http://www.tttpho.co.nz/gp-clinics/top-health"
+    },
+    {
+        "address": "6652 Far North Rd Te Kao Kaitaia",
+        "coordinates": [
+            -34.6512794,
+            172.9706233
+        ],
+        "name": "Whakawhiti Ora Pai",
+        "pho": "Te Tai Tokerau",
+        "phone": "Fax (09) 408 9183",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 10.0
+            },
+            {
+                "age": 18,
+                "price": 15.0
+            },
+            {
+                "age": 25,
+                "price": 15.0
+            },
+            {
+                "age": 65,
+                "price": 10.0
+            },
+            {
+                "age": 80,
+                "price": 10.0
+            }
+        ],
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/whakawhiti-ora-pai-community-health-a-wellbeing-services"
+    }
+]

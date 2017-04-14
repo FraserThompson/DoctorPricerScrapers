@@ -1,0 +1,887 @@
+[
+    {
+        "address": "Aylmers Valley Road, AKAROA  7520",
+        "lat": -43.8172101,
+        "lng": 172.9647686,
+        "name": "Akaroa Health Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 304 7004",
+        "place_id": "ChIJ23viJIrLM20RgbT-8i99gDg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 25.0
+            },
+            {
+                "age": 18,
+                "price": 35.0
+            },
+            {
+                "age": 25,
+                "price": 38.0
+            },
+            {
+                "age": 45,
+                "price": 38.0
+            },
+            {
+                "age": 65,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/akaroa-health-centre/"
+    },
+    {
+        "address": "69-73 Harrison Street, ASHBURTON 7700",
+        "lat": -43.8872616,
+        "lng": 171.7425977,
+        "name": "Allenton Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 308 9139",
+        "place_id": "ChIJwTyF2s67LW0RzqXAZdorKM0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 37.0
+            },
+            {
+                "age": 18,
+                "price": 38.0
+            },
+            {
+                "age": 25,
+                "price": 38.0
+            },
+            {
+                "age": 45,
+                "price": 38.0
+            },
+            {
+                "age": 65,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/allenton-medical-centre/"
+    },
+    {
+        "address": "6 Hilton Drive, AMBERLEY 7441",
+        "lat": -43.1543888,
+        "lng": 172.732913,
+        "name": "Amberley Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 314 8504",
+        "place_id": "ChIJZSiRHTW7MW0RswlSiUiXHRo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 26.0
+            },
+            {
+                "age": 18,
+                "price": 36.0
+            },
+            {
+                "age": 25,
+                "price": 36.0
+            },
+            {
+                "age": 45,
+                "price": 36.0
+            },
+            {
+                "age": 65,
+                "price": 36.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/amberley-medical-centre/"
+    },
+    {
+        "address": "40 Wilkin St, ROTHERHAM 7379",
+        "lat": -42.6967708,
+        "lng": 172.9479605,
+        "name": "Amuri  Community Health Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 315 6328",
+        "place_id": "ChIJhS-GTrL1MG0RHsslovoNz8g",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 23.0
+            },
+            {
+                "age": 18,
+                "price": 29.0
+            },
+            {
+                "age": 25,
+                "price": 31.0
+            },
+            {
+                "age": 45,
+                "price": 31.0
+            },
+            {
+                "age": 65,
+                "price": 31.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/amuri-health-centre/"
+    },
+    {
+        "address": "Cnr Cass and Havelock Street, Ashburton 770",
+        "name": "Ashburton Health First",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 3081956",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 35.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/ashburton-health-first/"
+    },
+    {
+        "address": "Robinson St, CHEVIOT 7310",
+        "lat": -42.8128658,
+        "lng": 173.2794002,
+        "name": "Cheviot Community Health Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 319 8630",
+        "place_id": "ChIJuSWNfc_CMG0R0WpyIxDR_Ys",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 20.0
+            },
+            {
+                "age": 18,
+                "price": 30.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/cheviot-community-health-centre/"
+    },
+    {
+        "address": "2C Waipapa Avenue, DIAMOND HARBOUR 8972",
+        "lat": -43.6264563,
+        "lng": 172.7398977,
+        "name": "Diamond Harbour Medical",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 329 4402",
+        "place_id": "ChIJWxfUawMmMm0R4W-LhZCm3lY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 38.0
+            },
+            {
+                "age": 18,
+                "price": 44.0
+            },
+            {
+                "age": 25,
+                "price": 44.0
+            },
+            {
+                "age": 45,
+                "price": 44.0
+            },
+            {
+                "age": 65,
+                "price": 44.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/diamond-harbour-medical/"
+    },
+    {
+        "address": "42 Charles St, KAIAPOI 7630",
+        "lat": -43.381548,
+        "lng": 172.658214,
+        "name": "Dr Fairhall’s Practice",
+        "pho": "Rural Canterbury PHO",
+        "phone": "None supplied",
+        "place_id": "ChIJQasFkYYcdkgRt7OHDNwAwxE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 34.0
+            },
+            {
+                "age": 18,
+                "price": 36.0
+            },
+            {
+                "age": 25,
+                "price": 36.0
+            },
+            {
+                "age": 45,
+                "price": 36.0
+            },
+            {
+                "age": 65,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/kaiapoi-family-doctors/"
+    },
+    {
+        "address": "36 Victoria St, RANGIORA 7400",
+        "lat": -43.3085385,
+        "lng": 172.5966653,
+        "name": "Dr Martin’s Practice",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 313 7576",
+        "place_id": "ChIJQe52Wo6UMW0Rg4w9gJXmIXs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 29.0
+            },
+            {
+                "age": 18,
+                "price": 37.0
+            },
+            {
+                "age": 25,
+                "price": 37.0
+            },
+            {
+                "age": 45,
+                "price": 37.0
+            },
+            {
+                "age": 65,
+                "price": 37.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/dr-martins-practice/"
+    },
+    {
+        "address": "17 Good St, RANGIORA 7400",
+        "lat": -43.3020404,
+        "lng": 172.5938606,
+        "name": "Good St Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 313 8262",
+        "place_id": "ChIJr7lGrJKUMW0RF-xqF5JaL0w",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 25.0
+            },
+            {
+                "age": 18,
+                "price": 38.0
+            },
+            {
+                "age": 25,
+                "price": 38.0
+            },
+            {
+                "age": 45,
+                "price": 38.0
+            },
+            {
+                "age": 65,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/good-st-medical-centre/"
+    },
+    {
+        "address": "PO Box 86, 39 Tancred Street",
+        "lat": -43.9041666,
+        "lng": 171.7456147,
+        "name": "Gym Co Medical",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 308 9489",
+        "place_id": "ChIJzSFjMaS7LW0RC0YUw2A2KHc",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 35.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/gym-co-medical/"
+    },
+    {
+        "address": "PO Box 223, 59 Jacks Pass Road",
+        "lat": -42.5192622,
+        "lng": 172.8220005,
+        "name": "Hanmer Springs Health Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 315 7503",
+        "place_id": "ChIJJ9vSfYJjMG0RE8h6I7T5R74",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 24.0
+            },
+            {
+                "age": 18,
+                "price": 32.0
+            },
+            {
+                "age": 25,
+                "price": 32.0
+            },
+            {
+                "age": 45,
+                "price": 32.0
+            },
+            {
+                "age": 65,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/hanmer-springs-health-centre/"
+    },
+    {
+        "address": "42 Charles St, KAIAPOI 7630",
+        "lat": -43.381548,
+        "lng": 172.658214,
+        "name": "Kaiapoi Family Doctors",
+        "pho": "Rural Canterbury PHO",
+        "phone": "None supplied",
+        "place_id": "ChIJdbnqaY2RMW0RQ9o9wf6tUYM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 34.0
+            },
+            {
+                "age": 18,
+                "price": 36.0
+            },
+            {
+                "age": 25,
+                "price": 36.0
+            },
+            {
+                "age": 45,
+                "price": 36.0
+            },
+            {
+                "age": 65,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/kaiapoi-family-doctors/"
+    },
+    {
+        "address": "PO Box 50, 69 Fuller St",
+        "lat": -43.3852572,
+        "lng": 172.6556763,
+        "name": "Kaiapoi Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 327 5115",
+        "place_id": "ChIJt81RpvORMW0RAruFDuO7csE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 33.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/kaiapoi-medical-centre/"
+    },
+    {
+        "address": "131 Raven Quay, Kaiapoi",
+        "lat": -43.3837987,
+        "lng": 172.6577303,
+        "name": "Kaye Buchan Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 327 2622",
+        "place_id": "ChIJiQ-SwPKRMW0RqHOKIfHhZM8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 30.0
+            },
+            {
+                "age": 18,
+                "price": 48.0
+            },
+            {
+                "age": 25,
+                "price": 48.0
+            },
+            {
+                "age": 45,
+                "price": 48.0
+            },
+            {
+                "age": 65,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/kaye-buchan-medical-centre/"
+    },
+    {
+        "address": "PO Box 19, 237 High St",
+        "lat": -40.2043195,
+        "lng": 176.1085178,
+        "name": "Medical Corner Doctors",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 313 7877",
+        "place_id": "ChIJFYTc7SRjAHwRR4UrcbDGdb4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 29.0
+            },
+            {
+                "age": 18,
+                "price": 41.0
+            },
+            {
+                "age": 25,
+                "price": 41.0
+            },
+            {
+                "age": 45,
+                "price": 41.0
+            },
+            {
+                "age": 65,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/medical-corner-doctors/"
+    },
+    {
+        "address": "PO Box 413, 254 Moore St",
+        "lat": -43.9077584,
+        "lng": 171.7474622,
+        "name": "Moore St Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 308 3066",
+        "place_id": "ChIJizJ1cqa7LW0R___ccY7CAVs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 35.0
+            },
+            {
+                "age": 18,
+                "price": 40.0
+            },
+            {
+                "age": 25,
+                "price": 40.0
+            },
+            {
+                "age": 45,
+                "price": 40.0
+            },
+            {
+                "age": 65,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/moore-st-medical-centre/"
+    },
+    {
+        "address": "PO Box 78041, 8 Tahuna Street",
+        "lat": -43.31467199999999,
+        "lng": 172.6987413,
+        "name": "Pegasus Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 920 4060",
+        "place_id": "ChIJFwYcQCSXMW0RXXDvLEqV5TM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 27.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/pegasus-medical-centre/"
+    },
+    {
+        "address": "PO Box 36, 30 Elizabeth Avenue",
+        "lat": -43.75494,
+        "lng": 172.0197467,
+        "name": "Rakaia Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 303 5002",
+        "place_id": "ChIJp-EX7-ntLW0RxrgFZxgefbI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 22.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/rakaia-medical-centre/"
+    },
+    {
+        "address": "PO Box 85, 36 Victoria St",
+        "lat": -37.89553780000001,
+        "lng": 175.4708995,
+        "name": "Rangiora Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 313 7197",
+        "place_id": "ChIJQe52Wo6UMW0R2BMFxkXRa50",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 30.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/rangiora-medical-centre/"
+    },
+    {
+        "address": "PO Box 87, 70 Havelock Street",
+        "lat": -43.9004801,
+        "lng": 171.7445093,
+        "name": "Sealy St Medical Practice",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 308 1212",
+        "place_id": "ChIJizJ1cqa7LW0R___ccY7CAVs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 36.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 36.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/sealy-st-medical-practice/"
+    },
+    {
+        "address": "33 Archibald St, ASHBURTON 7700",
+        "lat": -43.9152401,
+        "lng": 171.7293115,
+        "name": "Tinwald Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 308 6565",
+        "place_id": "ChIJR9MGVfm6LW0RA9aiaYlHte8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 36.0
+            },
+            {
+                "age": 18,
+                "price": 38.0
+            },
+            {
+                "age": 25,
+                "price": 38.0
+            },
+            {
+                "age": 45,
+                "price": 38.0
+            },
+            {
+                "age": 65,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/tinwald-medical-centre/"
+    },
+    {
+        "address": "100 Princes Street, WAIKARI 7420",
+        "lat": -42.9665,
+        "lng": 172.6831871,
+        "name": "Waikari Health Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 314 4506",
+        "place_id": "ChIJZSiRHTW7MW0RswlSiUiXHRo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 27.0
+            },
+            {
+                "age": 18,
+                "price": 38.0
+            },
+            {
+                "age": 25,
+                "price": 38.0
+            },
+            {
+                "age": 45,
+                "price": 38.0
+            },
+            {
+                "age": 65,
+                "price": 37.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/waikari-health-centre/"
+    },
+    {
+        "address": "PO Box 85, 51 Main North Road",
+        "lat": -43.4944405,
+        "lng": 172.6092119,
+        "name": "Woodend Medical Centre",
+        "pho": "Rural Canterbury PHO",
+        "phone": "03 312 7333",
+        "place_id": "ChIJpRqFiLSWMW0RMUyTFo_2-Wg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 20.0
+            },
+            {
+                "age": 18,
+                "price": 35.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.rcpho.org.nz/practices/woodend-medical-centre/"
+    }
+]

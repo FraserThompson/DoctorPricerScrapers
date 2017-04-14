@@ -1,0 +1,314 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "170 Sandringham Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Sandringham",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "bc19846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": null,
+        "FridayMorningTo": null,
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": null,
+        "MondayMorningTo": null,
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$20.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$25.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$30.00"
+            }
+        ],
+        "PracticeName": "168 Medical Centre Limited",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 846 7311",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": null,
+        "ThursdayMorningTo": null,
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": null,
+        "TuesdayMorningTo": null,
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": null,
+        "WednesdayMorningTo": null
+    },
+    {
+        "Address1_City": "Whangaparaoa",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "6/651 Whangaparaoa Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Stanmore Bay",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ca758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$34.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$42.00"
+            }
+        ],
+        "PracticeName": "Family Doctors - Whangaparaoa",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 424 3001",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": "http://familydoctors.net.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "714 Swanson Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Swanson",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "320cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$11.50"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Swanson Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 833 9433",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Shop 17, 40 Stonefields Avenue",
+        "Address1_Line2": null,
+        "Address1_Line3": "Stonefields",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "7872a56f-a111-e611-aaf6-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "12:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$48.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$52.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$52.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$47.00"
+            }
+        ],
+        "PracticeName": "Stonefields Medical Centre Limited",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 320 0168",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "07:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": "http://www.stonemed.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    }
+]

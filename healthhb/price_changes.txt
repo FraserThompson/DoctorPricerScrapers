@@ -1,0 +1,13 @@
+============2015-09-16 19:00:04.701317===========
+CHEAPER: Carlyle Medical Centre 13 27.5 => 27.0
+EXPENSIVER:Carlyle Medical Centre 18 40 => 41.0
+EXPENSIVER:Carlyle Medical Centre 25 40 => 41.0
+EXPENSIVER:Carlyle Medical Centre 45 40 => 41.0
+EXPENSIVER:Carlyle Medical Centre 65 40 => 40.5
+CHEAPER: Greendale Family Health Centre 45 3900 => 39.0
+CHEAPER: Greendale Family Health Centre 65 3400 => 34.0
+EXPENSIVER:The Doctors, Greenmeadows 13 26.5 => 27.0
+EXPENSIVER:The Doctors, Greenmeadows 18 37 => 38.0
+EXPENSIVER:The Doctors, Greenmeadows 25 38 => 39.0
+EXPENSIVER:The Doctors, Greenmeadows 45 38 => 39.0
+EXPENSIVER:The Doctors, Greenmeadows 65 37 => 39.0

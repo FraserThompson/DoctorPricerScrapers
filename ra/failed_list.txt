@@ -1,0 +1,6 @@
+============2015-09-20 18:30:21.977675===========
+============0===========
+============3===========
+WARNING www.rotoruamedicalgroup.co.nz Rotorua Medical Group	- Central Health: Could not find prices.
+WARNING http://www.raphs.org.nz/community/general-practice-details/ Rotorua Medical Group - Fairy Springs: Could not find prices.
+WARNING http://www.raphs.org.nz/community/general-practice-details/ Surgery 10 - We have moved: Could not find prices.

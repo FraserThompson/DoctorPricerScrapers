@@ -1,0 +1,3363 @@
+[
+    {
+        "address": "19 Eden Street, OAMARU 9400",
+        "lat": -45.096573,
+        "lng": 170.9706678,
+        "name": "Central Medical",
+        "pho": "Southern PHO",
+        "phone": "03 434 8181",
+        "place_id": "ChIJvxF_OdeZKagRkgUqTQDLBls",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 32.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.5
+            },
+            {
+                "age": 25.0,
+                "price": 43.0
+            },
+            {
+                "age": 45.0,
+                "price": 43.0
+            },
+            {
+                "age": 65.0,
+                "price": 43.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=76"
+    },
+    {
+        "address": "8 Wynyard Street, KUROW 9435",
+        "lat": -44.733315,
+        "lng": 170.4691382,
+        "name": "Kurow Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 436 0760",
+        "place_id": "ChIJ90nl6JcNKqgRSy9P-HqBtfw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 26.5
+            },
+            {
+                "age": 18.0,
+                "price": 34.5
+            },
+            {
+                "age": 25.0,
+                "price": 34.5
+            },
+            {
+                "age": 45.0,
+                "price": 34.5
+            },
+            {
+                "age": 65.0,
+                "price": 34.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=83"
+    },
+    {
+        "address": "6 Coquet Street, Oamaru 9400",
+        "lat": -45.0977907,
+        "lng": 170.9722919,
+        "name": "Malcolm Lay Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 434 8291",
+        "place_id": "ChIJX7SlMdGZKagRsmLV6-OynIo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 27.0
+            },
+            {
+                "age": 18.0,
+                "price": 34.0
+            },
+            {
+                "age": 25.0,
+                "price": 34.0
+            },
+            {
+                "age": 45.0,
+                "price": 34.0
+            },
+            {
+                "age": 65.0,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=85"
+    },
+    {
+        "address": "4 Frome Street, Oamaru 9400",
+        "lat": -45.0798393,
+        "lng": 170.9823283,
+        "name": "North End Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 437 0347",
+        "place_id": "ChIJCTK0bYlw44kRC9x8_7tv_zU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 22.0
+            },
+            {
+                "age": 18.0,
+                "price": 43.0
+            },
+            {
+                "age": 25.0,
+                "price": 43.0
+            },
+            {
+                "age": 45.0,
+                "price": 43.0
+            },
+            {
+                "age": 65.0,
+                "price": 43.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=88"
+    },
+    {
+        "address": "8 Coquet Street, Oamaru 9400",
+        "lat": -45.0977377,
+        "lng": 170.9720681,
+        "name": "Oamaru Doctors",
+        "pho": "Southern PHO",
+        "phone": "03 434 1000",
+        "place_id": "ChIJX7SlMdGZKagRsmLV6-OynIo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 35.0
+            },
+            {
+                "age": 25.0,
+                "price": 41.0
+            },
+            {
+                "age": 45.0,
+                "price": 41.0
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=202"
+    },
+    {
+        "address": "11 Arun Street, Oamaru 9400",
+        "lat": -45.1061885,
+        "lng": 170.965054,
+        "name": "South Hill Family Practice",
+        "pho": "Southern PHO",
+        "phone": "03 434 8499",
+        "place_id": "ChIJFauEv0EIsokR-IIKof55ftM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 37.0
+            },
+            {
+                "age": 18.0,
+                "price": 41.0
+            },
+            {
+                "age": 25.0,
+                "price": 41.0
+            },
+            {
+                "age": 45.0,
+                "price": 41.0
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=93"
+    },
+    {
+        "address": "32 Ribble St Street Oamaru 9400",
+        "lat": -45.096615,
+        "lng": 170.9683456,
+        "name": "Whitestone Family Practice",
+        "pho": "Southern PHO",
+        "phone": "03 434 7697",
+        "place_id": "ChIJv8qR-dWZKagRPccYdmbAt84",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 35.0
+            },
+            {
+                "age": 18.0,
+                "price": 41.0
+            },
+            {
+                "age": 25.0,
+                "price": 41.0
+            },
+            {
+                "age": 45.0,
+                "price": 41.0
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=119"
+    },
+    {
+        "address": "29 Albany Street, North Dunedin, DUNEDIN 9016",
+        "lat": -45.8660991,
+        "lng": 170.50886919999994,
+        "name": "Albany Street Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 477 8812",
+        "place_id": "ChIJDxOIw3GsLqgRj9XACOjJDeU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.5
+            },
+            {
+                "age": 18.0,
+                "price": 42.5
+            },
+            {
+                "age": 25.0,
+                "price": 42.5
+            },
+            {
+                "age": 45.0,
+                "price": 42.5
+            },
+            {
+                "age": 65.0,
+                "price": 42.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=58"
+    },
+    {
+        "address": "343 Highgate, Roslyn, DUNEDIN 9010",
+        "lat": -45.8659244,
+        "lng": 170.4915901,
+        "name": "Amity Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 464 0041",
+        "place_id": "ChIJ0cmH4IurLqgRWrL1cheAxpA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 20.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=38"
+    },
+    {
+        "address": "70 Macandrew Road, South Dunedin, DUNEDIN 9012",
+        "lat": -45.8965682,
+        "lng": 170.4999257,
+        "name": "Aurora Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 455 0006",
+        "place_id": "ChIJOx9qrqWuLqgRcUJdma7pajk",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 27.0
+            },
+            {
+                "age": 18.0,
+                "price": 36.0
+            },
+            {
+                "age": 25.0,
+                "price": 36.0
+            },
+            {
+                "age": 45.0,
+                "price": 36.0
+            },
+            {
+                "age": 65.0,
+                "price": 36.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=39"
+    },
+    {
+        "address": "2 Broadway, DUNEDIN 9016",
+        "lat": -45.8780856,
+        "lng": 170.5001862,
+        "name": "Broadway Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 477 4335",
+        "place_id": "ChIJ66Q1-w6sLqgR719A6Q1s2eQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 12.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=40"
+    },
+    {
+        "address": "285 South Road, Caversham, DUNEDIN 9012",
+        "lat": -45.8963991,
+        "lng": 170.4808935,
+        "name": "Caversham Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 487 7169",
+        "place_id": "ChIJo54SMVKpLqgR7r-8QXf4nlE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 33.0
+            },
+            {
+                "age": 18.0,
+                "price": 36.0
+            },
+            {
+                "age": 25.0,
+                "price": 39.0
+            },
+            {
+                "age": 45.0,
+                "price": 39.0
+            },
+            {
+                "age": 65.0,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=59"
+    },
+    {
+        "address": "483 George Street, Dunedin",
+        "lat": -45.8663909,
+        "lng": 170.5076426,
+        "name": "Community Support Medical Practice",
+        "pho": "Southern PHO",
+        "phone": "03 477 7412",
+        "place_id": "ChIJuaRkHW6sLqgRfXVZYpzRsPU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 10.0
+            },
+            {
+                "age": 18.0,
+                "price": 10.0
+            },
+            {
+                "age": 25.0,
+                "price": 10.0
+            },
+            {
+                "age": 45.0,
+                "price": 10.0
+            },
+            {
+                "age": 65.0,
+                "price": 10.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=41"
+    },
+    {
+        "address": "15 St David Street, Dunedin North, DUNEDIN 9016",
+        "lat": -45.8623355,
+        "lng": 170.5111745,
+        "name": "Dunedin North Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 477 7583",
+        "place_id": "ChIJG9FJYmWsLqgRWykYKKf82ZY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.5
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 38.0
+            },
+            {
+                "age": 45.0,
+                "price": 39.0
+            },
+            {
+                "age": 65.0,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=100"
+    },
+    {
+        "address": "351 King Edward Street, Dunedin South, DUNEDIN 9012",
+        "lat": -45.8976952,
+        "lng": 170.5017307,
+        "name": "Dunedin South Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 455 4073",
+        "place_id": "ChIJjUJaYKSuLqgRihjwNzGvdwk",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 12.0
+            },
+            {
+                "age": 18.0,
+                "price": 32.0
+            },
+            {
+                "age": 25.0,
+                "price": 35.0
+            },
+            {
+                "age": 45.0,
+                "price": 35.0
+            },
+            {
+                "age": 65.0,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=61"
+    },
+    {
+        "address": "117 District Road, PALMERSTON 9430",
+        "lat": -45.4840466,
+        "lng": 170.7080704,
+        "name": "East Otago Health",
+        "pho": "Southern PHO",
+        "phone": "03 465 1444",
+        "place_id": "ChIJ6xGXNSxmKagRyY8D2ec7_34",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=51"
+    },
+    {
+        "address": "76-80 David Street, Caversham, DUNEDIN 9012",
+        "lat": -45.8989731,
+        "lng": 170.4841919,
+        "name": "Forbury Corner Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 455 2721",
+        "place_id": "ChIJZTlkWk2pLqgRhUOhFGXb1g0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 20.0
+            },
+            {
+                "age": 18.0,
+                "price": 37.0
+            },
+            {
+                "age": 25.0,
+                "price": 44.0
+            },
+            {
+                "age": 45.0,
+                "price": 44.0
+            },
+            {
+                "age": 65.0,
+                "price": 44.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=46"
+    },
+    {
+        "address": "26 Bank Street, North East Valley, DUNEDIN 9010",
+        "lat": -45.854575,
+        "lng": 170.5176819,
+        "name": "Gardens Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 473 0144",
+        "place_id": "ChIJYcWO9WGsLqgRcpZXJe9pcxA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 26.0
+            },
+            {
+                "age": 18.0,
+                "price": 36.0
+            },
+            {
+                "age": 25.0,
+                "price": 44.0
+            },
+            {
+                "age": 45.0,
+                "price": 46.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=47"
+    },
+    {
+        "address": "96 Gordon Road, MOSGIEL 9024",
+        "lat": -45.8769781,
+        "lng": 170.3490135,
+        "name": "Gordon Road Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 489 8881",
+        "place_id": "ChIJV_LO738BLKgReZAwKJqJQv0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 28.0
+            },
+            {
+                "age": 18.0,
+                "price": 28.0
+            },
+            {
+                "age": 25.0,
+                "price": 32.0
+            },
+            {
+                "age": 45.0,
+                "price": 32.0
+            },
+            {
+                "age": 65.0,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=54"
+    },
+    {
+        "address": "20 Shand Street, Green Island, DUNEDIN 9018",
+        "lat": -45.9028564,
+        "lng": 170.4301432,
+        "name": "Green Island Family Health Care",
+        "pho": "Southern PHO",
+        "phone": "03 488 2222",
+        "place_id": "ChIJr39gs5ipLqgRzdzV8SFzk0U",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 3.0
+            },
+            {
+                "age": 18.0,
+                "price": 41.0
+            },
+            {
+                "age": 25.0,
+                "price": 41.0
+            },
+            {
+                "age": 45.0,
+                "price": 41.0
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=62"
+    },
+    {
+        "address": "4 Howden Street, Green Island, DUNEDIN 9018",
+        "lat": -45.9028367,
+        "lng": 170.4291704,
+        "name": "Green Island Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 488 2754",
+        "place_id": "ChIJ3b7yu5ipLqgRlfoW_Djey9M",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 21.0
+            },
+            {
+                "age": 18.0,
+                "price": 35.0
+            },
+            {
+                "age": 25.0,
+                "price": 39.0
+            },
+            {
+                "age": 45.0,
+                "price": 39.0
+            },
+            {
+                "age": 65.0,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=48"
+    },
+    {
+        "address": "",
+        "lat": -45.9021554,
+        "lng": 170.4302825,
+        "name": "Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "None supplied",
+        "place_id": "ChIJ3b7yu5ipLqgRlfoW_Djey9M",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 1000
+            },
+            {
+                "age": 13.0,
+                "price": 1000
+            },
+            {
+                "age": 18.0,
+                "price": 1000
+            },
+            {
+                "age": 25.0,
+                "price": 1000
+            },
+            {
+                "age": 45.0,
+                "price": 1000
+            },
+            {
+                "age": 65.0,
+                "price": 1000
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=117"
+    },
+    {
+        "address": "47 George Street, Port Chalmers, DUNEDIN 9023",
+        "lat": -45.8169667,
+        "lng": 170.6208438,
+        "name": "Harbour Health Port Chalmers",
+        "pho": "Southern PHO",
+        "phone": "03 472 8026",
+        "place_id": "ChIJ12WeTk5NKagRswGFrxBGYWI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 42.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=63"
+    },
+    {
+        "address": "231 Helensburgh Road, Wakari, DUNEDIN 9010",
+        "lat": -45.8533778,
+        "lng": 170.4835649,
+        "name": "Helensburgh Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 476 4565",
+        "place_id": "ChIJ9flW1KOuiUgROtaMb8Pxt_M",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 24.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.5
+            },
+            {
+                "age": 25.0,
+                "price": 42.5
+            },
+            {
+                "age": 45.0,
+                "price": 42.5
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=64"
+    },
+    {
+        "address": "",
+        "lat": -45.8856022,
+        "lng": 170.52808519999996,
+        "name": "Larnach Surgery - refer Waverley Health",
+        "pho": "Southern PHO",
+        "phone": "None supplied",
+        "place_id": "ChIJVZj53y2sLqgRfETYLGPzATk",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 1000
+            },
+            {
+                "age": 13.0,
+                "price": 1000
+            },
+            {
+                "age": 18.0,
+                "price": 1000
+            },
+            {
+                "age": 25.0,
+                "price": 1000
+            },
+            {
+                "age": 45.0,
+                "price": 1000
+            },
+            {
+                "age": 65.0,
+                "price": 1000
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=49"
+    },
+    {
+        "address": "609 Highgate, Maori Hill, DUNEDIN 9010",
+        "lat": -45.8580827,
+        "lng": 170.5007968,
+        "name": "Maori Hill Clinic",
+        "pho": "Southern PHO",
+        "phone": "03 464 0044",
+        "place_id": "ChIJ8TeTwnisLqgRSMUbZnyrQWg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 33.0
+            },
+            {
+                "age": 18.0,
+                "price": 47.5
+            },
+            {
+                "age": 25.0,
+                "price": 47.5
+            },
+            {
+                "age": 45.0,
+                "price": 47.5
+            },
+            {
+                "age": 65.0,
+                "price": 33.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=65"
+    },
+    {
+        "address": "Suite 3, Car Park Level One, Meridian Mall, 267 George Street, DUNEDIN 9016",
+        "lat": -45.8704165,
+        "lng": 170.5054313,
+        "name": "Meridian Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 477 9927",
+        "place_id": "ChIJhcYL0G-sLqgRbdOg0_6HhOY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 21.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 38.0
+            },
+            {
+                "age": 45.0,
+                "price": 38.0
+            },
+            {
+                "age": 65.0,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=66"
+    },
+    {
+        "address": "169 Eglinton Road, Mornington, DUNEDIN 9011",
+        "lat": -45.8820309,
+        "lng": 170.4829375,
+        "name": "Mornington Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 466 5011",
+        "place_id": "ChIJm0httPurLqgRGZzidjpbNAY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 13.5
+            },
+            {
+                "age": 18.0,
+                "price": 39.5
+            },
+            {
+                "age": 25.0,
+                "price": 39.5
+            },
+            {
+                "age": 45.0,
+                "price": 39.5
+            },
+            {
+                "age": 65.0,
+                "price": 39.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=97"
+    },
+    {
+        "address": "21 Inglis Street , MOSGIEL 9024",
+        "lat": -45.8828617,
+        "lng": 170.3470692,
+        "name": "Mosgiel Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 489 5135",
+        "place_id": "ChIJgc9WtCwCLKgRse3tLPA1jWo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 28.0
+            },
+            {
+                "age": 18.0,
+                "price": 39.0
+            },
+            {
+                "age": 25.0,
+                "price": 39.0
+            },
+            {
+                "age": 45.0,
+                "price": 39.0
+            },
+            {
+                "age": 65.0,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=55"
+    },
+    {
+        "address": "59A Musselburgh Rise, Musselburgh, DUNEDIN 9013",
+        "lat": -45.8974139,
+        "lng": 170.5155077,
+        "name": "Musselburgh Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 455 4085",
+        "place_id": "ChIJ3fni45uuLqgRfYoraZPBYNM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 16.0
+            },
+            {
+                "age": 18.0,
+                "price": 43.0
+            },
+            {
+                "age": 25.0,
+                "price": 44.0
+            },
+            {
+                "age": 45.0,
+                "price": 44.0
+            },
+            {
+                "age": 65.0,
+                "price": 37.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=50"
+    },
+    {
+        "address": "12 Allans Beach Road, Portobello, DUNEDIN 9014",
+        "lat": -45.8412117,
+        "lng": 170.6537935,
+        "name": "Otago Peninsula Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 478 0880",
+        "place_id": "ChIJxYtfiyOzLqgR9wVi9qu3vsg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 48.0
+            },
+            {
+                "age": 18.0,
+                "price": 48.0
+            },
+            {
+                "age": 25.0,
+                "price": 48.0
+            },
+            {
+                "age": 45.0,
+                "price": 48.0
+            },
+            {
+                "age": 65.0,
+                "price": 48.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=67"
+    },
+    {
+        "address": "10 Beaumaris Street, OUTRAM 9019,",
+        "lat": -45.8603836,
+        "lng": 170.2288958,
+        "name": "Outram Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 486 2150",
+        "place_id": "ChIJi9d0_nAZ2jERGolby3YlJok",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 27.0
+            },
+            {
+                "age": 18.0,
+                "price": 39.0
+            },
+            {
+                "age": 25.0,
+                "price": 39.0
+            },
+            {
+                "age": 45.0,
+                "price": 39.0
+            },
+            {
+                "age": 65.0,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=57"
+    },
+    {
+        "address": "2 Pitt Street, North Dunedin, DUNEDIN 9016",
+        "lat": -45.8675867,
+        "lng": 170.506651,
+        "name": "Pitt Street Medical",
+        "pho": "Southern PHO",
+        "phone": "03 474 1348",
+        "place_id": "ChIJOYRNBXKsLqgR1v2hrP0yyxs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 13.5
+            },
+            {
+                "age": 18.0,
+                "price": 43.5
+            },
+            {
+                "age": 25.0,
+                "price": 43.5
+            },
+            {
+                "age": 45.0,
+                "price": 43.5
+            },
+            {
+                "age": 65.0,
+                "price": 43.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=68"
+    },
+    {
+        "address": "271 Highgate, Roslyn, DUNEDIN 9010",
+        "lat": -45.8676409,
+        "lng": 170.4889166,
+        "name": "Roslyn Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 477 6471",
+        "place_id": "ChIJEXGgfIyrLqgRsJQfGeAQanY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 26.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 41.0
+            },
+            {
+                "age": 45.0,
+                "price": 41.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=52"
+    },
+    {
+        "address": "100 Princes Street, Dunedin Central, DUNEDIN 9016",
+        "lat": -45.8757212,
+        "lng": 170.5024539,
+        "name": "Servants Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 477 7040",
+        "place_id": "ChIJc2eh2g2sLqgRg5JpLIKZioU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 0.0
+            },
+            {
+                "age": 18.0,
+                "price": 0.0
+            },
+            {
+                "age": 25.0,
+                "price": 0.0
+            },
+            {
+                "age": 45.0,
+                "price": 0.0
+            },
+            {
+                "age": 65.0,
+                "price": 0.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=69"
+    },
+    {
+        "address": "97 Larnach Road, Waverley, DUNEDIN 9013",
+        "lat": -45.8856022,
+        "lng": 170.52808519999996,
+        "name": "Waverley Health",
+        "pho": "Southern PHO",
+        "phone": "03 454 3001",
+        "place_id": "ChIJVZj53y2sLqgRfETYLGPzATk",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 50.0
+            },
+            {
+                "age": 45.0,
+                "price": 50.0
+            },
+            {
+                "age": 65.0,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=71"
+    },
+    {
+        "address": "93 Tarbert Street, Alexandra 9320",
+        "lat": -45.2530261,
+        "lng": 169.39468080000006,
+        "name": "Alexandra Family Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 440 0295",
+        "place_id": "ChIJYY8QU1EjK6gR_B3JWpVtisg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 35.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 45.0
+            },
+            {
+                "age": 45.0,
+                "price": 45.0
+            },
+            {
+                "age": 65.0,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=99"
+    },
+    {
+        "address": "93 Tarbert Street, Alexandra 9320",
+        "lat": -45.2530261,
+        "lng": 169.39468080000006,
+        "name": "Centennial Health",
+        "pho": "Southern PHO",
+        "phone": "03 440 0290",
+        "place_id": "ChIJwTG921MjK6gR3eRi4Re13Zg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=75"
+    },
+    {
+        "address": "93 Tarbert Street, ALEXANDRA 9320",
+        "lat": -45.2530133,
+        "lng": 169.3946942,
+        "name": "Central Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 440 0295",
+        "place_id": "ChIJYY8QU1EjK6gR_B3JWpVtisg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 35.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 45.0
+            },
+            {
+                "age": 45.0,
+                "price": 45.0
+            },
+            {
+                "age": 65.0,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=77"
+    },
+    {
+        "address": "93 Tarbert Street, Alexandra 9320",
+        "lat": -45.2530133,
+        "lng": 169.3946942,
+        "name": "Cornerstone Health",
+        "pho": "Southern PHO",
+        "phone": "03 440 0299",
+        "place_id": "ChIJ_3cn5VMjK6gRCLgbKm1DqKI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 45.0
+            },
+            {
+                "age": 45.0,
+                "price": 45.0
+            },
+            {
+                "age": 65.0,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=78"
+    },
+    {
+        "address": "Unit 3 Cromtrade, 2 McNulty Drive, Cromwell 9310",
+        "lat": -45.0496762,
+        "lng": 169.19456679999996,
+        "name": "Cromwell Family Practice",
+        "pho": "Southern PHO",
+        "phone": "03 445 4666",
+        "place_id": "ChIJK7A1FGVL5okRh8GCiq4yJv4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 20.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=177"
+    },
+    {
+        "address": "192 Waenga Drive, CROMWELL 9310",
+        "lat": -45.0376111,
+        "lng": 169.1968728,
+        "name": "Cromwell Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 445 1119",
+        "place_id": "ChIJ3Z7zTMDUKqgRnBED9fk9Lnw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.0
+            },
+            {
+                "age": 18.0,
+                "price": 44.0
+            },
+            {
+                "age": 25.0,
+                "price": 44.0
+            },
+            {
+                "age": 45.0,
+                "price": 44.0
+            },
+            {
+                "age": 65.0,
+                "price": 44.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=79"
+    },
+    {
+        "address": "1A Traders Lane, Cromwell 9310",
+        "lat": -45.0345125,
+        "lng": 169.2016905,
+        "name": "Junction Health",
+        "pho": "Southern PHO",
+        "phone": "03 445 4688",
+        "place_id": "ChIJ_____9vUKqgR-4rkyb0ReWs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.0
+            },
+            {
+                "age": 18.0,
+                "price": 48.0
+            },
+            {
+                "age": 25.0,
+                "price": 48.0
+            },
+            {
+                "age": 45.0,
+                "price": 48.0
+            },
+            {
+                "age": 65.0,
+                "price": 44.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=82"
+    },
+    {
+        "address": "1 Tyrone Street, Ranfurly 9332",
+        "lat": -45.1285615,
+        "lng": 170.1106391,
+        "name": "Ranfurly Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 444 1073",
+        "place_id": "ChIJ0XyrJZlNKqgRsL1ZZYfvAA8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 42.0
+            },
+            {
+                "age": 18.0,
+                "price": 43.0
+            },
+            {
+                "age": 25.0,
+                "price": 43.0
+            },
+            {
+                "age": 45.0,
+                "price": 43.0
+            },
+            {
+                "age": 65.0,
+                "price": 43.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=90"
+    },
+    {
+        "address": "65 Scotland Street, Roxburgh 9500",
+        "lat": -45.5384894,
+        "lng": 169.310832,
+        "name": "Roxburgh Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 446 8200",
+        "place_id": "ChIJYY8QU1EjK6gR_B3JWpVtisg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 34.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=92"
+    },
+    {
+        "address": "Located at Wanaka Lakes Health Centre, 23 Cardrona Valley Road, WANAKA 9305",
+        "lat": -44.70784769999999,
+        "lng": 169.1360214,
+        "name": "Aspiring Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 443 0725",
+        "place_id": "ChIJtQmAd09P1akRWpmGljslBgA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 18.0
+            },
+            {
+                "age": 18.0,
+                "price": 36.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=72"
+    },
+    {
+        "address": "38b Gorge Road, QUEENSTOWN 9300",
+        "lat": -45.0269086,
+        "lng": 168.661071,
+        "name": "Mountain Lakes Medical",
+        "pho": "Southern PHO",
+        "phone": "03 442 7188",
+        "place_id": "ChIJO1koMoMd1akRvzxd4qGbcX4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.0
+            },
+            {
+                "age": 18.0,
+                "price": 45.0
+            },
+            {
+                "age": 25.0,
+                "price": 45.0
+            },
+            {
+                "age": 45.0,
+                "price": 45.0
+            },
+            {
+                "age": 65.0,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=101"
+    },
+    {
+        "address": "9 Isle Street, Queenstown 9300",
+        "lat": -45.0299519,
+        "lng": 168.6582585,
+        "name": "Queenstown Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 441 0500",
+        "place_id": "ChIJTREQOIId1akRcrHV36W24IQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 28.0
+            },
+            {
+                "age": 18.0,
+                "price": 59.5
+            },
+            {
+                "age": 25.0,
+                "price": 59.5
+            },
+            {
+                "age": 45.0,
+                "price": 59.5
+            },
+            {
+                "age": 65.0,
+                "price": 59.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=16"
+    },
+    {
+        "address": "11 McBride Street, Queenstown 9300",
+        "lat": -45.0164674,
+        "lng": 168.7303428,
+        "name": "Wakatipu Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 442 2288",
+        "place_id": "ChIJ63nM-Wge1akRKEKHkKzClCI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 55.0
+            },
+            {
+                "age": 25.0,
+                "price": 55.0
+            },
+            {
+                "age": 45.0,
+                "price": 55.0
+            },
+            {
+                "age": 65.0,
+                "price": 55.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=94"
+    },
+    {
+        "address": "23 Cardrona Valley Road, WANAKA 9305",
+        "lat": -44.70784769999999,
+        "lng": 169.1360214,
+        "name": "Wanaka Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 443 0710",
+        "place_id": "ChIJPb8lT0ZP1akRcxeL5gZPgYg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 32.0
+            },
+            {
+                "age": 18.0,
+                "price": 32.0
+            },
+            {
+                "age": 25.0,
+                "price": 45.0
+            },
+            {
+                "age": 45.0,
+                "price": 45.0
+            },
+            {
+                "age": 65.0,
+                "price": 45.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=95"
+    },
+    {
+        "address": "29 Main Road, Owaka 9340",
+        "lat": -46.4504596,
+        "lng": 169.6647844,
+        "name": "Catlins Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 415 8006",
+        "place_id": "ChIJUbOZ9nWxLagRcZYBs3pEt-I",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.0
+            },
+            {
+                "age": 18.0,
+                "price": 34.0
+            },
+            {
+                "age": 25.0,
+                "price": 34.0
+            },
+            {
+                "age": 45.0,
+                "price": 34.0
+            },
+            {
+                "age": 65.0,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=74"
+    },
+    {
+        "address": "3 Charlotte Street, Balclutha 9230",
+        "lat": -46.2366572,
+        "lng": 169.7404173,
+        "name": "Clutha Health First General Practice",
+        "pho": "Southern PHO",
+        "phone": "03 419 0500",
+        "place_id": "ChIJo0GavKdPLKgRLBNo6FG0-LQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 28.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=73"
+    },
+    {
+        "address": "3 Charlotte Street, Balclutha 9230",
+        "lat": -46.2366572,
+        "lng": 169.7404173,
+        "name": "Doctor Visagie's Practice",
+        "pho": "Southern PHO",
+        "phone": "03 419 0400",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 26.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 38.0
+            },
+            {
+                "age": 45.0,
+                "price": 38.0
+            },
+            {
+                "age": 65.0,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=81"
+    },
+    {
+        "address": "43 Whitehaven Street, Lawrence 9532",
+        "lat": -45.9201013,
+        "lng": 169.6897078,
+        "name": "Lawrence Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 485 9056",
+        "place_id": "ChIJBQH0ZGtjLKgRG6d7oOAYPGY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 35.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=84"
+    },
+    {
+        "address": "7 Eden Street, Milton 9220",
+        "lat": -46.1206875,
+        "lng": 169.9583307,
+        "name": "Milton Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 417 8226",
+        "place_id": "ChIJ250pOPluK4gRJMfFHRDrBXA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=87"
+    },
+    {
+        "address": "50 Tapanui-Raes , Junction , Highway, TAPANUI 9522",
+        "lat": -45.9431253,
+        "lng": 169.2625141,
+        "name": "West Otago Health",
+        "pho": "Southern PHO",
+        "phone": "03 204 8668",
+        "place_id": "ChIJwVZudNKVLKgRkLIUNtOu-dk",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 41.0
+            },
+            {
+                "age": 25.0,
+                "price": 41.0
+            },
+            {
+                "age": 45.0,
+                "price": 41.0
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=96"
+    },
+    {
+        "address": "2 Tone Street, BLUFF 9814",
+        "lat": -46.6042543,
+        "lng": 168.3503409,
+        "name": "Bluff Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 212 7337",
+        "place_id": "ChIJfe2scTup9x4RMw7JgysNGpE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 6.0
+            },
+            {
+                "age": 13.0,
+                "price": 14.0
+            },
+            {
+                "age": 18.0,
+                "price": 17.5
+            },
+            {
+                "age": 25.0,
+                "price": 17.5
+            },
+            {
+                "age": 45.0,
+                "price": 17.5
+            },
+            {
+                "age": 65.0,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=20"
+    },
+    {
+        "address": "25 Luxmore Drive, TE ANAU 9600",
+        "lat": -45.4151031,
+        "lng": 167.71850659999996,
+        "name": "Fiordland Medical Practice",
+        "pho": "Southern PHO",
+        "phone": "03 249 7007",
+        "place_id": "ChIJWTK26ksO1KkRkoealj_xvPg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 29.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=11"
+    },
+    {
+        "address": "9 Birch Lane, GORE 9710",
+        "lat": -46.1030597,
+        "lng": 168.9369442,
+        "name": "Gore Health Centre",
+        "pho": "Southern PHO",
+        "phone": "03 209 3022",
+        "place_id": "ChIJjQZ0b5jPLKgR9xX8WCj0dJU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 25.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 38.0
+            },
+            {
+                "age": 45.0,
+                "price": 38.0
+            },
+            {
+                "age": 65.0,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=8"
+    },
+    {
+        "address": "12 Eccles Street, GORE 9710",
+        "lat": -46.104191,
+        "lng": 168.93870349999997,
+        "name": "Gore Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 208 9222",
+        "place_id": "ChIJZbomzZnPLKgR-C5yI0bv2wQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 24.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.7
+            },
+            {
+                "age": 25.0,
+                "price": 40.7
+            },
+            {
+                "age": 45.0,
+                "price": 40.7
+            },
+            {
+                "age": 65.0,
+                "price": 40.7
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=6"
+    },
+    {
+        "address": "58 Garden Street, LUMSDEN 9730",
+        "lat": -45.7358121,
+        "lng": 168.446105,
+        "name": "Lumsden Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 248 7146",
+        "place_id": "ChIJB1XtAPVm06kR6K4Sp8gJnMk",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 36.6
+            },
+            {
+                "age": 18.0,
+                "price": 36.6
+            },
+            {
+                "age": 25.0,
+                "price": 36.6
+            },
+            {
+                "age": 45.0,
+                "price": 36.6
+            },
+            {
+                "age": 65.0,
+                "price": 36.6
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=7"
+    },
+    {
+        "address": "11 Bridge Street, MATAURA 9712",
+        "lat": -46.1943008,
+        "lng": 168.8665056,
+        "name": "Mataura Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 203 8152",
+        "place_id": "ChIJTfLthCXRLKgRH_WdDDSCOzI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 22.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 38.0
+            },
+            {
+                "age": 45.0,
+                "price": 38.0
+            },
+            {
+                "age": 65.0,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=9"
+    },
+    {
+        "address": "Cnr Main and Chester , Streets, , OTAUTAU 9610",
+        "lat": -46.1447628,
+        "lng": 167.9984694,
+        "name": "Otautau Health",
+        "pho": "Southern PHO",
+        "phone": "03 225 8099",
+        "place_id": "ChIJNTifPx0B06kRO2hbVmLrgOY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 32.5
+            },
+            {
+                "age": 18.0,
+                "price": 32.5
+            },
+            {
+                "age": 25.0,
+                "price": 32.5
+            },
+            {
+                "age": 45.0,
+                "price": 32.5
+            },
+            {
+                "age": 65.0,
+                "price": 32.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=14"
+    },
+    {
+        "address": "104 Palmerston Street, RIVERTON 9822",
+        "lat": -46.3496398,
+        "lng": 168.0172065,
+        "name": "Riverton Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 234 8290",
+        "place_id": "ChIJ9cc_n3_w0qkRCQOUmIFPvGA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 32.0
+            },
+            {
+                "age": 18.0,
+                "price": 34.0
+            },
+            {
+                "age": 25.0,
+                "price": 34.0
+            },
+            {
+                "age": 45.0,
+                "price": 34.0
+            },
+            {
+                "age": 65.0,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=12"
+    },
+    {
+        "address": "69A Orawia Road, TUATAPERE 9620",
+        "lat": -46.1276521,
+        "lng": 167.6898631,
+        "name": "Tuatapere Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 226 6123",
+        "place_id": "ChIJl-sKfw-z06kR6uHsJezmeng",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 29.0
+            },
+            {
+                "age": 18.0,
+                "price": 32.0
+            },
+            {
+                "age": 25.0,
+                "price": 32.0
+            },
+            {
+                "age": 45.0,
+                "price": 32.0
+            },
+            {
+                "age": 65.0,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=13"
+    },
+    {
+        "address": "394 Great North Road, WINTON 9720",
+        "lat": -46.1342918,
+        "lng": 168.3257439,
+        "name": "Winton Medical Services",
+        "pho": "Southern PHO",
+        "phone": "03 236 7444",
+        "place_id": "ChIJtydA38AY06kRMoN8mvlbuuE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 35.0
+            },
+            {
+                "age": 18.0,
+                "price": 35.0
+            },
+            {
+                "age": 25.0,
+                "price": 35.0
+            },
+            {
+                "age": 45.0,
+                "price": 35.0
+            },
+            {
+                "age": 65.0,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=10"
+    },
+    {
+        "address": "106 Don Street, INVERCARGILL9810",
+        "lat": -46.4105509,
+        "lng": 168.3546024,
+        "name": "Bester McKay Family Doctors",
+        "pho": "Southern PHO",
+        "phone": "03 218 6325",
+        "place_id": "ChIJc5jdz5DE0qkR8RC0RCZjMZM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 38.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=19"
+    },
+    {
+        "address": "63 Catherine Street, INVERCARGILL 9810, , , , Invercargill",
+        "lat": -46.3958452,
+        "lng": 168.365916,
+        "name": "Catherine Street Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 217 6656",
+        "place_id": "ChIJeZoLQ7fE0qkRK7QPeJY0XrA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 12.0
+            },
+            {
+                "age": 13.0,
+                "price": 34.0
+            },
+            {
+                "age": 18.0,
+                "price": 44.0
+            },
+            {
+                "age": 25.0,
+                "price": 44.0
+            },
+            {
+                "age": 45.0,
+                "price": 44.0
+            },
+            {
+                "age": 65.0,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=21"
+    },
+    {
+        "address": "105 Don Street, INVERCARGILL 9810",
+        "lat": -46.4109638,
+        "lng": 168.3546104,
+        "name": "Doctor Finlayson's Practice",
+        "pho": "Southern PHO",
+        "phone": "03 218 3434",
+        "place_id": "ChIJUS-b3JDE0qkRdvlgxKasKoA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 35.0
+            },
+            {
+                "age": 25.0,
+                "price": 35.0
+            },
+            {
+                "age": 45.0,
+                "price": 35.0
+            },
+            {
+                "age": 65.0,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=23"
+    },
+    {
+        "address": "69 Don Street, INVERCARGILL 9810",
+        "lat": -46.4109069,
+        "lng": 168.3521167,
+        "name": "Doctor Johri's Practice",
+        "pho": "Southern PHO",
+        "phone": "03 218 8669",
+        "place_id": "ChIJsWCfCprE0qkR2ymMAI8o6Wo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 24.5
+            },
+            {
+                "age": 18.0,
+                "price": 24.5
+            },
+            {
+                "age": 25.0,
+                "price": 48.5
+            },
+            {
+                "age": 45.0,
+                "price": 48.5
+            },
+            {
+                "age": 65.0,
+                "price": 36.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=27"
+    },
+    {
+        "address": "Suite 1, 112 Don Street, INVERCARGILL 9810",
+        "lat": -46.4105505,
+        "lng": 168.3550502,
+        "name": "Doctors Allen, Adam & Cleveland",
+        "pho": "Southern PHO",
+        "phone": "03 218 6343",
+        "place_id": "ChIJnzws15DE0qkRBAHXsqsdpMM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 37.0
+            },
+            {
+                "age": 18.0,
+                "price": 39.5
+            },
+            {
+                "age": 25.0,
+                "price": 39.5
+            },
+            {
+                "age": 45.0,
+                "price": 39.5
+            },
+            {
+                "age": 65.0,
+                "price": 38.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=17"
+    },
+    {
+        "address": "60 Victoria Avenue, INVERCARGILL 9810",
+        "lat": -46.405535,
+        "lng": 168.3483666,
+        "name": "Doctors Baillie and Corkill",
+        "pho": "Southern PHO",
+        "phone": "03 218 9112",
+        "place_id": "ChIJEYlHtJjE0qkRYiWjrbOCwJ0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 26.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 44.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=18"
+    },
+    {
+        "address": "75 Glengarry Crescent, INVERCARGILL 9810",
+        "lat": -46.40181219999999,
+        "lng": 168.38546129999997,
+        "name": "Glengarry Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 217 4863",
+        "place_id": "ChIJ-cQFudvE0qkRf5w5cI8zoH0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 27.0
+            },
+            {
+                "age": 18.0,
+                "price": 33.0
+            },
+            {
+                "age": 25.0,
+                "price": 37.0
+            },
+            {
+                "age": 45.0,
+                "price": 36.0
+            },
+            {
+                "age": 65.0,
+                "price": 36.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=25"
+    },
+    {
+        "address": "92 Spey Street, INVERCARGILL 9810",
+        "lat": -46.4095554,
+        "lng": 168.34826339999995,
+        "name": "He Puna Waiora - NKMP Wellness Centre",
+        "pho": "Southern PHO",
+        "phone": "03 214 5260",
+        "place_id": "ChIJ-06fkZjE0qkR9PDDpV8-z-c",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 11.5
+            },
+            {
+                "age": 18.0,
+                "price": 17.5
+            },
+            {
+                "age": 25.0,
+                "price": 17.5
+            },
+            {
+                "age": 45.0,
+                "price": 17.5
+            },
+            {
+                "age": 65.0,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=195"
+    },
+    {
+        "address": "160 Don Street, INVERCARGILL 9810",
+        "lat": -46.4105866,
+        "lng": 168.3528971,
+        "name": "Invercargill Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 218 9116",
+        "place_id": "ChIJbWH9-pPE0qkR3E9aNqVM3oQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 37.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=28"
+    },
+    {
+        "address": "10 Deveron Street, Invercargill",
+        "lat": -46.412243,
+        "lng": 168.3535675,
+        "name": "Number 10 Youth One Stop Shop",
+        "pho": "Southern PHO",
+        "phone": "03 214 1013",
+        "place_id": "ChIJ6VPP4yGzQW0RYp1VfawlEMo",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 1000
+            },
+            {
+                "age": 13.0,
+                "price": 10.0
+            },
+            {
+                "age": 18.0,
+                "price": 0.0
+            },
+            {
+                "age": 25.0,
+                "price": 1000
+            },
+            {
+                "age": 45.0,
+                "price": 1000
+            },
+            {
+                "age": 65.0,
+                "price": 1000
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=102"
+    },
+    {
+        "address": "97 Gala Street, Queens Park, INVERCARGILL 9810",
+        "lat": -46.4066054,
+        "lng": 168.3529644,
+        "name": "Queens Park General Practice",
+        "pho": "Southern PHO",
+        "phone": "03 218 3189",
+        "place_id": "ChIJrQGXO5jE0qkRAZ38fPlex2g",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 30.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=29"
+    },
+    {
+        "address": "270 Elles Road, Strathern, INVERCARGILL 9812",
+        "lat": -46.4283857,
+        "lng": 168.3616411,
+        "name": "South City Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 218 4043",
+        "place_id": "ChIJ6fWD5V7E0qkRmWOT4Nv8bZU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 35.0
+            },
+            {
+                "age": 18.0,
+                "price": 42.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=31"
+    },
+    {
+        "address": "82 Elles Road, Georgetown, INVERCARGILL 9812",
+        "lat": -46.4192685,
+        "lng": 168.3617298,
+        "name": "Vercoe Brown & Associates",
+        "pho": "Southern PHO",
+        "phone": "03 214 6222",
+        "place_id": "ChIJWZQfNvPE0qkRE-SAjRIoGR0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 26.0
+            },
+            {
+                "age": 18.0,
+                "price": 35.0
+            },
+            {
+                "age": 25.0,
+                "price": 42.0
+            },
+            {
+                "age": 45.0,
+                "price": 42.0
+            },
+            {
+                "age": 65.0,
+                "price": 42.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=34"
+    },
+    {
+        "address": "60 Victoria Avenue, Avenal, INVERCARGILL 9810",
+        "lat": -46.405535,
+        "lng": 168.3483666,
+        "name": "Victoria Avenue Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 218 3282",
+        "place_id": "ChIJEYlHtJjE0qkRmQtBmomGXVU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 1000
+            },
+            {
+                "age": 13.0,
+                "price": 1000
+            },
+            {
+                "age": 18.0,
+                "price": 1000
+            },
+            {
+                "age": 25.0,
+                "price": 1000
+            },
+            {
+                "age": 45.0,
+                "price": 1000
+            },
+            {
+                "age": 65.0,
+                "price": 1000
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=35"
+    },
+    {
+        "address": "1 Herbert Street, Gladstone, INVERCARGILL 9810",
+        "lat": -46.394977,
+        "lng": 168.3477574,
+        "name": "Waihopai Health Services",
+        "pho": "Southern PHO",
+        "phone": "03 211 0999",
+        "place_id": "ChIJp6cb3qfE0qkR2s10-yNB44k",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 47.0
+            },
+            {
+                "age": 18.0,
+                "price": 51.0
+            },
+            {
+                "age": 25.0,
+                "price": 51.0
+            },
+            {
+                "age": 45.0,
+                "price": 51.0
+            },
+            {
+                "age": 65.0,
+                "price": 51.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=36"
+    },
+    {
+        "address": "233 North Road, Waikiwi, INVERCARGILL 9810",
+        "lat": -46.3791755,
+        "lng": 168.3472262,
+        "name": "Waikiwi Medical Centre",
+        "pho": "Southern PHO",
+        "phone": "03 215 8000",
+        "place_id": "ChIJ-cQFudvE0qkRf5w5cI8zoH0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6.0,
+                "price": 0.0
+            },
+            {
+                "age": 13.0,
+                "price": 40.0
+            },
+            {
+                "age": 18.0,
+                "price": 40.0
+            },
+            {
+                "age": 25.0,
+                "price": 40.0
+            },
+            {
+                "age": 45.0,
+                "price": 40.0
+            },
+            {
+                "age": 65.0,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.southernpho.health.nz/info.php?pg=det&pid=37"
+    }
+]

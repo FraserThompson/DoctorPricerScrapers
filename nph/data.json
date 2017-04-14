@@ -1,0 +1,81 @@
+[
+    {
+        "address": "Puhi Kaiti Clinic508 Wainui Road, Kaiti Mall, Gisborne",
+        "lat": -38.6795343,
+        "lng": 178.026876,
+        "name": "Puhi Kaiti Medical Centre",
+        "pho": "Ngati Porou Hauora",
+        "phone": "06 8678550",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 14,
+                "price": 5.0
+            },
+            {
+                "age": 18,
+                "price": 12.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.nph.org.nz/our-clinics/puhi-kaiti-medical-centre/"
+    },
+    {
+        "address": "3 Tuparoa Road, Ruatoria",
+        "lat": -37.8900027,
+        "lng": 178.3195398,
+        "name": "Ruatoria Community Health Centre",
+        "pho": "Ngati Porou Hauora",
+        "phone": "06 864 8316",
+        "prices": [],
+        "restriction": "",
+        "url": "http://www.nph.org.nz/our-clinics/ruatoria-community-health-centre/"
+    },
+    {
+        "address": "4 McKenzie St  Te Puia Springs ",
+        "lat": -38.055633,
+        "lng": 178.3049454,
+        "name": "Tawhiti Clinic in Te Puia Hospital",
+        "pho": "Ngati Porou Hauora",
+        "phone": " (06) 864 6803Fax (06) 864 1025",
+        "prices": [],
+        "restriction": "",
+        "url": "http://www.nph.org.nz/our-clinics/tawhiti-clinic-in-te-puia-hospital/"
+    },
+    {
+        "address": "4 Tokomaru Street,  Tokomaru Bay ",
+        "lat": -38.1254194,
+        "lng": 178.3157512,
+        "name": "Tokomaru Bay Community Health Centre",
+        "pho": "Ngati Porou Hauora",
+        "phone": " (06) 864 5859Fax (06) 864 5432",
+        "prices": [],
+        "restriction": "",
+        "url": "http://www.nph.org.nz/our-clinics/tokomaru-bay-community-health-centre/"
+    },
+    {
+        "address": "20 Solander Street,  Tolaga Bay ",
+        "lat": -38.3720426,
+        "lng": 178.3015825,
+        "name": "Uawa Community Health Centre",
+        "pho": "Ngati Porou Hauora",
+        "phone": " (06) 862 6650Fax (06) 862 6752",
+        "prices": [],
+        "restriction": "",
+        "url": "http://www.nph.org.nz/our-clinics/uawa-community-health-centre/"
+    },
+    {
+        "address": "22 Paikea St Te Araroa ",
+        "lat": -37.634216,
+        "lng": 178.3683406,
+        "name": "Matakaoa Community Health Centre Te Araroa",
+        "pho": "Ngati Porou Hauora",
+        "phone": " (06) 864 4801Fax (06) 864 4009",
+        "prices": [],
+        "restriction": "",
+        "url": "http://www.nph.org.nz/our-clinics/matakaoa-community-health-centre-te-araroa/"
+    }
+]

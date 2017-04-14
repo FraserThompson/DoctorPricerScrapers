@@ -1,0 +1,212 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "46 College Hill Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Freemans Bay",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ee19846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$24.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$49.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$32.00"
+            }
+        ],
+        "PracticeName": "College Hill Doctors",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 360 8008",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "1/1 Grenada Avenue",
+        "Address1_Line2": null,
+        "Address1_Line3": "Forrest Hill",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cf758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$45.00"
+            }
+        ],
+        "PracticeName": "Forrest Hill Family Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 410 5411",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": "http://www.healthpoint.co.nz/doctors/gp/forrest-hill-family-medical-centre/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "100 Wellington Street",
+        "Address1_Line2": null,
+        "Address1_Line3": "Freemans Bay",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d1758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$55.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$50.00"
+            }
+        ],
+        "PracticeName": "Freemans Bay Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 378 6653",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:30 PM"
+    }
+]

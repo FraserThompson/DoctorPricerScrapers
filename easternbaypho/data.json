@@ -1,0 +1,290 @@
+[
+    {
+        "address": "11 james Street,  WHAKATANE, new zealand",
+        "lat": -37.961367,
+        "lng": 176.98122,
+        "name": "Kopeopeo Health Centre",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 19.5
+            },
+            {
+                "age": 18,
+                "price": 33.5
+            },
+            {
+                "age": 25,
+                "price": 33.5
+            },
+            {
+                "age": 45,
+                "price": 33.5
+            },
+            {
+                "age": 65,
+                "price": 27.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=15&Itemid=149"
+    },
+    {
+        "address": "52B King Street, Whakatane, NZ",
+        "lat": -37.9609997,
+        "lng": 176.9819936,
+        "name": "Med Central",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 45,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=17&Itemid=156"
+    },
+    {
+        "address": "Phoenix House, Pyne Street, WHAKATANE",
+        "lat": -37.954401,
+        "lng": 176.989145,
+        "name": "Phoenix Health Centre",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 20.0
+            },
+            {
+                "age": 18,
+                "price": 33.5
+            },
+            {
+                "age": 25,
+                "price": 33.5
+            },
+            {
+                "age": 45,
+                "price": 33.5
+            },
+            {
+                "age": 65,
+                "price": 27.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=18&Itemid=157"
+    },
+    {
+        "address": "riverslea mall, college road, edgecumbe, new zealand",
+        "lat": -37.974769,
+        "lng": 176.827033,
+        "name": "Riverslea Medical Centre",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 45,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 17.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=21&Itemid=162"
+    },
+    {
+        "address": "262 Pohutukawa Avenue, OHOPE, new zealand",
+        "lat": -37.972039,
+        "lng": 177.058335,
+        "name": "Ohope Beach Medical Centre",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 20.0
+            },
+            {
+                "age": 18,
+                "price": 32.0
+            },
+            {
+                "age": 25,
+                "price": 32.0
+            },
+            {
+                "age": 45,
+                "price": 32.0
+            },
+            {
+                "age": 65,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=19&Itemid=158"
+    },
+    {
+        "address": "94 Church Street, OPOTIKI, new zealand",
+        "lat": -38.006925,
+        "lng": 177.284685,
+        "name": "Church Street Surgery",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 45,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=11&Itemid=138"
+    },
+    {
+        "address": "32A King Street, Opotiki",
+        "lat": -38.0066033,
+        "lng": 177.2854971,
+        "name": "Toi Ora",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 45,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 17.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=23&Itemid=161"
+    },
+    {
+        "address": "117 Church Street, Opotiki",
+        "lat": -38.0045744,
+        "lng": 177.2843756,
+        "name": "Whakatohea Health Centre",
+        "pho": "Eastern Bay PHO",
+        "phone": "See website",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 13,
+                "price": 10.0
+            },
+            {
+                "age": 18,
+                "price": 14.0
+            },
+            {
+                "age": 25,
+                "price": 14.0
+            },
+            {
+                "age": 45,
+                "price": 14.0
+            },
+            {
+                "age": 65,
+                "price": 14.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=24&Itemid=160"
+    }
+]

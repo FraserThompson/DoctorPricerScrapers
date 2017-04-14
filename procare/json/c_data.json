@@ -1,0 +1,72 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "9-11 Robert Ross Place",
+        "Address1_Line2": null,
+        "Address1_Line3": "Clendon",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "e719846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "09:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "09:00 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Clendon Family Health Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 267 2636",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "09:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "09:00 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "09:00 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    }
+]

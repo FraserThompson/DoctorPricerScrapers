@@ -1,0 +1,20 @@
+============2016-06-21 19:44:07.451645===========
+============0===========
+============17===========
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Bairds Road: Possible issue with: 09 274 3414  Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Dawson Road: Possible issue with: 09 274 3468     Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Glen Innes: Possible issue with: 09 528 9054   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Otara Mall: Possible issue with: 09 274 9354   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Dannemora : Possible issue with: 09 272 4163   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Mangere Town Centre: Possible issue with: 09 275 7954  Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC East Tamaki: Possible issue with: 09 274 9264   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Airport Oaks: Possible issue with: 09 275 1202   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Weymouth: Possible issue with: 09 264 1640   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Chapel Park: Possible issue with: 09 271 2670   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Otahuhu Whitecross: Possible issue with: 09 276 3000  Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Sylvia Park: Possible issue with: 09 573 1265   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Sandringham: Possible issue with: 09 849 2111   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Lincoln Road Medical Centre: Possible issue with: 09 837 2056   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Ranui Medical Centre: Possible issue with: 09 833 6033    Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC  Head Office : Possible issue with: 09 274 7823   Fax
+WARNING http://www.ethc.co.nz/121/all-clinics ETHC Wai Health Clinic : Possible issue with: 09 839 0280   Fax

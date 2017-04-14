@@ -1,0 +1,3 @@
+- I can't scrape from itsmyhealth since yahoo started charging for their BOSS API
+- I have the address/phone/other information already scraped in legacy_data.json so the new scraper just updates fee information
+and uses the existing other information

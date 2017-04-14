@@ -1,0 +1,376 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "94 Remuera Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Remuera",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ca19846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$60.00"
+            }
+        ],
+        "PracticeName": "Auckland Family Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "11:00 AM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 524 6249",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "119 Apollo Drive",
+        "Address1_Line2": null,
+        "Address1_Line3": "Rosedale",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f28bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "08:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "08:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$49.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$52.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$58.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$51.00"
+            }
+        ],
+        "PracticeName": "Apollo Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "08:00 AM",
+        "SaturdayMorningTo": "08:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": "08:00 AM",
+        "SundayMorningTo": "08:00 PM",
+        "Telephone": "(09) 477 3700",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "08:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "08:00 PM",
+        "WebSiteURL": "http://www.apollomedical.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "08:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Airlie Court",
+        "Address1_Line2": "320 Remuera Road",
+        "Address1_Line3": "Remuera",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "140cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$53.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$53.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$53.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$50.00"
+            }
+        ],
+        "PracticeName": "Remuera Doctors Ltd",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 524 6504",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "377A Remuera Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Remuera",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "150cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$61.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$61.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$61.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$61.00"
+            }
+        ],
+        "PracticeName": "Remuera Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 520 1565",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "1st Floor, Royal Oak Mall",
+        "Address1_Line2": "691 Manukau Road",
+        "Address1_Line3": "Royal Oak",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "200cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$35.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$32.00"
+            }
+        ],
+        "PracticeName": "Royal Oak Medical Centre Ltd",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "03:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 625 9221",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "08:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": "http://www.royaloakmedical.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    }
+]

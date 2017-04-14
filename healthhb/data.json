@@ -1,0 +1,902 @@
+[
+    {
+        "address": "19 Kenilworth Street, Waipawa",
+        "lat": -39.9437771,
+        "lng": 176.5862613,
+        "name": "The Doctors, Waipawa",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 857 8507",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 24.0
+            },
+            {
+                "age": 18,
+                "price": 34.0
+            },
+            {
+                "age": 25,
+                "price": 34.0
+            },
+            {
+                "age": 45,
+                "price": 34.0
+            },
+            {
+                "age": 65,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/central-hawkes-bay/the-doctors-waipawa/"
+    },
+    {
+        "address": "",
+        "lat": -40.900557,
+        "lng": 174.885971,
+        "name": "Tuki Tuki Medical Ltd",
+        "pho": "Health Hawke's Bay",
+        "phone": "None supplied",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 32.5
+            },
+            {
+                "age": 18,
+                "price": 32.5
+            },
+            {
+                "age": 25,
+                "price": 32.5
+            },
+            {
+                "age": 45,
+                "price": 32.5
+            },
+            {
+                "age": 65,
+                "price": 32.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/central-hawkes-bay/tuki-tuki-medical-ltd/"
+    },
+    {
+        "address": "26 Middle Road, Havelock North",
+        "lat": -39.6720344,
+        "lng": 176.8748705,
+        "name": "Dr Colin Wakefield",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 877 8011",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 24.0
+            },
+            {
+                "age": 18,
+                "price": 24.0
+            },
+            {
+                "age": 25,
+                "price": 28.0
+            },
+            {
+                "age": 45,
+                "price": 30.0
+            },
+            {
+                "age": 65,
+                "price": 30.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/dr-colin-wakefield/"
+    },
+    {
+        "address": "",
+        "lat": -40.900557,
+        "lng": 174.885971,
+        "name": "Hauora Heretaunga",
+        "pho": "Health Hawke's Bay",
+        "phone": "None supplied",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 0.0
+            },
+            {
+                "age": 18,
+                "price": 0.0
+            },
+            {
+                "age": 25,
+                "price": 16.0
+            },
+            {
+                "age": 45,
+                "price": 16.0
+            },
+            {
+                "age": 65,
+                "price": 16.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/hauora-heretaunga/"
+    },
+    {
+        "address": "615 Heretaunga Street West, Hastings",
+        "lat": -39.6356736,
+        "lng": 176.8373212,
+        "name": "Medical & Injury",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 878 8600",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 0.0
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            },
+            {
+                "age": 25,
+                "price": 17.0
+            },
+            {
+                "age": 45,
+                "price": 17.0
+            },
+            {
+                "age": 65,
+                "price": 17.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/medical-injury/"
+    },
+    {
+        "address": "110 Russell Street South, Hastings",
+        "lat": -39.6427489,
+        "lng": 176.8428494,
+        "name": "The Doctors, Hastings",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 876 8445",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 16.0
+            },
+            {
+                "age": 18,
+                "price": 28.0
+            },
+            {
+                "age": 25,
+                "price": 32.0
+            },
+            {
+                "age": 45,
+                "price": 32.0
+            },
+            {
+                "age": 65,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/the-doctors-hastings/"
+    },
+    {
+        "address": "101 Queen Street East, Hastings",
+        "lat": -39.6414748,
+        "lng": 176.844269,
+        "name": "The Hastings Health Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 873 8999",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 18.0
+            },
+            {
+                "age": 18,
+                "price": 35.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/the-hastings-health-centre/"
+    },
+    {
+        "address": "57 Middle Road, Havelock North",
+        "lat": -39.67347729999999,
+        "lng": 176.8741972,
+        "name": "Dr Maurice Jolly",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 877 6141",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 24.0
+            },
+            {
+                "age": 18,
+                "price": 32.0
+            },
+            {
+                "age": 25,
+                "price": 34.0
+            },
+            {
+                "age": 45,
+                "price": 34.0
+            },
+            {
+                "age": 65,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/dr-maurice-jolly/"
+    },
+    {
+        "address": "1/900 Tomoana Road, Mahora, Hastings",
+        "lat": -39.62872360000001,
+        "lng": 176.8489408,
+        "name": "Mahora Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 878 2722",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 25.0
+            },
+            {
+                "age": 18,
+                "price": 35.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/mahora-medical-centre/"
+    },
+    {
+        "address": "33-35 Napier Road, Havelock North\nTelephone: (06) 873 0752\nFax: (06) 873 0753\nEmail: tematapeak@hdl.net.nz",
+        "lat": -39.6670982,
+        "lng": 176.8798217,
+        "name": "Te Mata Peak Practice",
+        "pho": "Health Hawke's Bay",
+        "phone": "None supplied",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 15.0
+            },
+            {
+                "age": 18,
+                "price": 36.0
+            },
+            {
+                "age": 25,
+                "price": 38.0
+            },
+            {
+                "age": 45,
+                "price": 38.0
+            },
+            {
+                "age": 65,
+                "price": 38.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/te-mata-peak-practice/"
+    },
+    {
+        "address": "65 Geddis Avenue, Maraenui, Napier",
+        "lat": -39.5151922,
+        "lng": 176.9057722,
+        "name": "Maraenui Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 843 8010",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 45,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/maraenui-medical-centre/"
+    },
+    {
+        "address": "",
+        "lat": -40.900557,
+        "lng": 174.885971,
+        "name": "Carlyle Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "None supplied",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 27.0
+            },
+            {
+                "age": 18,
+                "price": 41.0
+            },
+            {
+                "age": 25,
+                "price": 41.0
+            },
+            {
+                "age": 45,
+                "price": 41.0
+            },
+            {
+                "age": 65,
+                "price": 40.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/carlyle-medical-centre/"
+    },
+    {
+        "address": "27/28 Douglas McLean Avenue, Napier",
+        "lat": -39.5001548,
+        "lng": 176.9035751,
+        "name": "Central Medical (HB) Ltd",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 843 2320",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 28.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 41.0
+            },
+            {
+                "age": 65,
+                "price": 41.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/central-medical-hb-ltd/"
+    },
+    {
+        "address": "1 Williamson Road, PO Box 2, Clive",
+        "lat": -39.583972,
+        "lng": 176.9154247,
+        "name": "Clive Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 870 0402Fax: (06) 870 0762Email: michelle@clivemed.co.nz",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 21.0
+            },
+            {
+                "age": 18,
+                "price": 33.0
+            },
+            {
+                "age": 25,
+                "price": 33.0
+            },
+            {
+                "age": 45,
+                "price": 34.0
+            },
+            {
+                "age": 65,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/clive-medical-centre/"
+    },
+    {
+        "address": "23 Clive Square West, Napier",
+        "lat": -39.4921585,
+        "lng": 176.9129147,
+        "name": "Dr Alex Luft",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 835 9604",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 35.0
+            },
+            {
+                "age": 18,
+                "price": 37.0
+            },
+            {
+                "age": 25,
+                "price": 37.0
+            },
+            {
+                "age": 45,
+                "price": 37.0
+            },
+            {
+                "age": 65,
+                "price": 37.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/dr-alex-luft/"
+    },
+    {
+        "address": "31 Charles Street, Westshore, Napier",
+        "lat": -39.4778548,
+        "lng": 176.8829241,
+        "name": "Dr Marjory Craig",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 835 5661",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 25.0
+            },
+            {
+                "age": 18,
+                "price": 20.0
+            },
+            {
+                "age": 25,
+                "price": 22.5
+            },
+            {
+                "age": 45,
+                "price": 22.0
+            },
+            {
+                "age": 65,
+                "price": 25.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/dr-marjory-craig/"
+    },
+    {
+        "address": "4a Peddie Street, Taradale",
+        "lat": -39.5338596,
+        "lng": 176.8510384,
+        "name": "Dr Paul Hendy",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 844 2930",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 25.0
+            },
+            {
+                "age": 18,
+                "price": 30.0
+            },
+            {
+                "age": 25,
+                "price": 36.0
+            },
+            {
+                "age": 45,
+                "price": 36.0
+            },
+            {
+                "age": 65,
+                "price": 36.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/dr-paul-hendy/"
+    },
+    {
+        "address": "Munroe Raffles Medical Centre\n1st Floor, Cnr Munroe & Raffles Street, Napier",
+        "lat": -39.4946336,
+        "lng": 176.9150111,
+        "name": "Dr Robert Harris",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 835 7376",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 18.0
+            },
+            {
+                "age": 18,
+                "price": 26.0
+            },
+            {
+                "age": 25,
+                "price": 32.0
+            },
+            {
+                "age": 45,
+                "price": 32.0
+            },
+            {
+                "age": 65,
+                "price": 32.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/dr-robert-harris/"
+    },
+    {
+        "address": "135 Gloucester Street, Taradale, Napier",
+        "lat": -39.5293389,
+        "lng": 176.8560784,
+        "name": "Greendale Family Health Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 844 8071",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 29.0
+            },
+            {
+                "age": 18,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/greendale-family-health-centre/"
+    },
+    {
+        "address": "",
+        "lat": -40.900557,
+        "lng": 174.885971,
+        "name": "Hawke's Bay Wellness Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "536 Kennedy Road, Greenmeadows, Napier",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 27.0
+            },
+            {
+                "age": 18,
+                "price": 34.0
+            },
+            {
+                "age": 25,
+                "price": 37.0
+            },
+            {
+                "age": 45,
+                "price": 37.0
+            },
+            {
+                "age": 65,
+                "price": 36.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/hawkes-bay-wellness-centre/"
+    },
+    {
+        "address": "24 Shakespeare Road, Napier",
+        "lat": -39.4881122,
+        "lng": 176.9156632,
+        "name": "Shakespeare Rd Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 835 7318",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 20.0
+            },
+            {
+                "age": 18,
+                "price": 25.0
+            },
+            {
+                "age": 25,
+                "price": 25.0
+            },
+            {
+                "age": 45,
+                "price": 25.0
+            },
+            {
+                "age": 65,
+                "price": 25.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/shakespeare-rd-medical-centre/"
+    },
+    {
+        "address": "18-20 Durham Avenue, Tamatea, Napier",
+        "lat": -39.5080936,
+        "lng": 176.8681644,
+        "name": "Tamatea Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 843 9048",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 28.0
+            },
+            {
+                "age": 18,
+                "price": 35.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/tamatea-medical-centre/"
+    },
+    {
+        "address": "20 Puketapu Road, Taradale, Napier, 4112",
+        "lat": -39.5371574,
+        "lng": 176.8461624,
+        "name": "Taradale Medical Centre",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 844 6831",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 38.0
+            },
+            {
+                "age": 18,
+                "price": 40.0
+            },
+            {
+                "age": 25,
+                "price": 40.0
+            },
+            {
+                "age": 45,
+                "price": 40.0
+            },
+            {
+                "age": 65,
+                "price": 40.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/taradale-medical-centre/"
+    },
+    {
+        "address": "524 Kennedy Road,\nGreenmeadows, Napier 4110\nTelephone: (06) 844 6277\nFax: (06) 844 3748",
+        "lat": -39.5229325,
+        "lng": 176.8685694,
+        "name": "The Doctors, Greenmeadows",
+        "pho": "Health Hawke's Bay",
+        "phone": "The Doctors Greenmeadows and EIT are satellite clinics of The Doctors, Napier Ltd.  This means that if you enrol with any one of these three practices you are able to see a health practitioner at any of the three sites and receive the same enrolled patient benefits.",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 27.0
+            },
+            {
+                "age": 18,
+                "price": 38.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/napier/the-doctors-greenmeadows/"
+    },
+    {
+        "address": "403 Nelson Street North, Hastings, 4122",
+        "lat": -39.6369091,
+        "lng": 176.844073,
+        "name": "Totara Health Centre – Nelson Street",
+        "pho": "Health Hawke's Bay",
+        "phone": "(06) 873 0101",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 13,
+                "price": 0.0
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            },
+            {
+                "age": 25,
+                "price": 17.5
+            },
+            {
+                "age": 45,
+                "price": 17.5
+            },
+            {
+                "age": 65,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthhb.co.nz/our-practices/hastings/totara-health-centre-nelson-street/"
+    }
+]

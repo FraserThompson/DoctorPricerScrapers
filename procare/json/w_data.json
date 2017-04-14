@@ -1,0 +1,282 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Level 5 , 205 Wairau Valley Rd",
+        "Address1_Line2": null,
+        "Address1_Line3": "Wairau Valley",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "aa758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "04:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "04:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$22.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$40.00"
+            }
+        ],
+        "PracticeName": "Health I-Care Clinic",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 444 8682",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "04:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "04:30 PM",
+        "WebSiteURL": "http://www.healthpoint.co.nz/doctors/gp/dr-ron-grieve/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "04:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "167 Luckens Rd",
+        "Address1_Line2": null,
+        "Address1_Line3": "West Harbour",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "170cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": null,
+        "FridayMorningTo": null,
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": null,
+        "MondayMorningTo": null,
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$0.00"
+            }
+        ],
+        "PracticeName": "Residential Healthcare Ltd.",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 836 0625",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": null,
+        "ThursdayMorningTo": null,
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": null,
+        "TuesdayMorningTo": null,
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": null,
+        "WednesdayMorningTo": null
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "6 Waimauku Station Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Waimauku",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d943b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$45.00"
+            }
+        ],
+        "PracticeName": "Waimauku Doctors",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "08:30 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 411 8094",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": "http://www.waimaukudoctors.co.nz/index.html",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "146 Garnet Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Westmere",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "df43b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$42.00"
+            }
+        ],
+        "PracticeName": "Westmere Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 378 6280",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    }
+]

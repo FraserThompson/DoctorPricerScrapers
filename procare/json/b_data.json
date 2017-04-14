@@ -1,0 +1,72 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "352 Rangatira Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Beach Haven",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d00e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$40.00"
+            }
+        ],
+        "PracticeName": "Healthwise Beachhaven",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 482 0105",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": "http://www.healthpoint.co.nz/doctors/gp/healthwise-beach-haven/?solo=treatments&index=10",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    }
+]

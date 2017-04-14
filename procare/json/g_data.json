@@ -1,0 +1,528 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "17 Elstree Avenue",
+        "Address1_Line2": null,
+        "Address1_Line3": "Glen Innes",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "fe19846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$20.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$25.00"
+            }
+        ],
+        "PracticeName": "Dr DM de Lacey Surgery",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 528 3323",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "85 Goodwood Drive",
+        "Address1_Line2": null,
+        "Address1_Line3": "Goodwood Heights",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "a6758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": null,
+        "FridayMorningTo": null,
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": null,
+        "MondayMorningTo": null,
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$35.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$35.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$35.00"
+            }
+        ],
+        "PracticeName": "Dr R Madhav",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(027) 488 8383",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": null,
+        "ThursdayMorningTo": null,
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": null,
+        "TuesdayMorningTo": null,
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": null,
+        "WednesdayMorningTo": null
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "70 Godley Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Green Bay",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d8758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$11.50"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Green Bay Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 827 4075",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": "http://www.gbmc.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "543 Great North Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Grey Lynn",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cc0e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$10.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Grey Lynn Family Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 378 6827",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "48A Ponsonby Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Grey Lynn",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "db0e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$32.00"
+            }
+        ],
+        "PracticeName": "Holistic Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 370 0650",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "4 Puriri Avenue",
+        "Address1_Line2": null,
+        "Address1_Line3": "Greenlane",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ec8bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$45.00"
+            }
+        ],
+        "PracticeName": "Maungakiekie Clinic",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "11:30 AM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 520 0925",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "07:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "26 Surrey Crescent",
+        "Address1_Line2": null,
+        "Address1_Line3": "Grey Lynn",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "310cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": "03:30 PM",
+        "FridayAfternoonTo": "05:30 PM",
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "12:00 PM",
+        "MondayAfternoonFrom": "03:30 PM",
+        "MondayAfternoonTo": "05:30 PM",
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "12:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$10.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.50"
+            }
+        ],
+        "PracticeName": "Surrey Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "11:00 AM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 376 4658",
+        "ThursdayAfternoonFrom": "03:30 PM",
+        "ThursdayAfternoonTo": "05:30 PM",
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "12:00 PM",
+        "TuesdayAfternoonFrom": "03:30 PM",
+        "TuesdayAfternoonTo": "05:30 PM",
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "12:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": "03:30 PM",
+        "WednesdayAfternoonTo": "05:30 PM",
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "12:00 PM"
+    }
+]

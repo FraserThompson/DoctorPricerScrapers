@@ -1,0 +1,7 @@
+============2015-09-16 18:43:08.175894===========
+============4===========
+ERROR http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=20&Itemid=159 Total Health Doctors: Couldn't geocode address: Phoenix+House,+Pyne+Street,+WHAKATANE
+ERROR http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=22&Itemid=163 Tarawera Medical Centre: Couldn't geocode address: Phoenix+House,+Pyne+Street,+WHAKATANE
+ERROR http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=13&Itemid=140 Kawerau Medical Centre: Couldn't geocode address: Phoenix+House,+Pyne+Street,+WHAKATANE
+ERROR http://www.ebpha.org.nz/index.php?option=com_content&view=article&id=54&Itemid=204 Cornerstone Accreditation: Couldn't geocode address: 94+Church+Street,+OPOTIKI,+new+zealand
+============0===========

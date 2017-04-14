@@ -1,0 +1,12 @@
+============2015-09-20 21:05:24.560573===========
+EXPENSIVER:Central Medical 13 0 => 29.0
+EXPENSIVER:Central Medical 18 32 => 40.0
+EXPENSIVER:Central Medical 25 38.5 => 46.0
+EXPENSIVER:Central Medical 45 43 => 47.0
+EXPENSIVER:Central Medical 65 43 => 44.0
+EXPENSIVER:Family Health Centre 13 17 => 20.0
+EXPENSIVER:Family Health Centre 18 35 => 36.0
+CHEAPER: Merrilands Medical Centre 13 20 => 15.0
+CHEAPER: Merrilands Medical Centre 18 40 => 35.0
+EXPENSIVER:Merrilands Medical Centre 45 46 => 48.0
+EXPENSIVER:Merrilands Medical Centre 65 40 => 44.0

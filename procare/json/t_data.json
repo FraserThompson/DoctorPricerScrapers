@@ -1,0 +1,438 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "74 Taharoto Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Takapuna",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cb758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "07:30 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "07:30 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$53.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$53.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$53.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$48.00"
+            }
+        ],
+        "PracticeName": "Family Doctors at Smales",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 488 3000",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "07:30 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "07:30 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": "http://www.familydoctorsatsmales.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "07:30 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "4 Auburn Street",
+        "Address1_Line2": null,
+        "Address1_Line3": "Takapuna",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "c80e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "09:30 AM",
+        "FridayMorningTo": "04:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "09:30 AM",
+        "MondayMorningTo": "04:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$36.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$38.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$44.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$40.00"
+            }
+        ],
+        "PracticeName": "Green Cross Clinic Takapuna",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 486 1001",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "09:30 AM",
+        "ThursdayMorningTo": "04:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "09:30 AM",
+        "TuesdayMorningTo": "04:30 PM",
+        "WebSiteURL": "http://www.healthpoint.co.nz/doctors/gp/green-cross-clinic/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "09:30 AM",
+        "WednesdayMorningTo": "04:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "382 Te Atatu Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Te Atatu Peninsula",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "fd0bbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$29.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$39.00"
+            }
+        ],
+        "PracticeName": "Peninsula Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 834 6300",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:30 PM",
+        "WebSiteURL": "http://peninsulamed.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "259 Te Atatu Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Te Atatu South",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "bb43b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$39.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$39.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$32.00"
+            }
+        ],
+        "PracticeName": "Te Atatu South Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 834 6600",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "2 Rangiwai Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Titirangi",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cc43b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "07:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "07:30 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$50.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$44.00"
+            }
+        ],
+        "PracticeName": "Titirangi Medical Centre Ltd",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 817 8069",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "07:30 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "07:30 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "07:30 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "296 Te Atatu Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Te Atatu South",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cd43b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": null,
+        "FridayMorningTo": null,
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": null,
+        "MondayMorningTo": null,
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "TL Care",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 834 7670",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": null,
+        "ThursdayMorningTo": null,
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": null,
+        "TuesdayMorningTo": null,
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": null,
+        "WednesdayMorningTo": null
+    }
+]

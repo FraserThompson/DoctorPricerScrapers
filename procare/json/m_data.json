@@ -1,0 +1,1940 @@
+[
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "820 Mt Eden Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Eden",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cb19846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$42.00"
+            }
+        ],
+        "PracticeName": "Auckland Integrative Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 630 0067",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "337 Dominion Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Eden",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f419846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "04:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "04:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$42.50"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.50"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$42.50"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$42.50"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$42.50"
+            }
+        ],
+        "PracticeName": "Gavin Lobo Health Ltd",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 631 5305",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "04:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "04:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "01:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Fowey Lodge",
+        "Address1_Line2": "215 Bleakhouse Road",
+        "Address1_Line3": "Mellons Bay",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "001a846f-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "07:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Dr JA Hanne Family Practice",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 538 0022",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "04:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "738 Massey Rd",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mangere",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "a4758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "09:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "09:00 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Dr Patel's Surgery",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 275 6476",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "09:00 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "09:00 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "09:00 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "2 Graeme Avenue",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mangere East",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ad758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "09:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "09:00 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$5.00"
+            }
+        ],
+        "PracticeName": "Dr Upsdell Surgery",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 278 7214",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "09:00 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "09:00 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "09:00 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "33 Fellbrook Street",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manurewa",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ce758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$11.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.00"
+            }
+        ],
+        "PracticeName": "Fellbrook Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 269 0088",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "880 New North Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Albert",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d0758375-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:45 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:45 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$37.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$43.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$43.00"
+            }
+        ],
+        "PracticeName": "Four Kauri Family Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 846 0002",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:45 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:45 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:45 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "1259 Dominion Road Extension",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Roskill",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "cf0e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$26.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$31.50"
+            }
+        ],
+        "PracticeName": "Healthcare Roskill South",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 620 8573",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "32 Dennis Avenue",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manurewa",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d70e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$25.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$25.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$25.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$20.00"
+            }
+        ],
+        "PracticeName": "Hillpark Family Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "01:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 267 8066",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "100 Weymouth Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manurewa",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f10e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Leabank Health Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 267 1580",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Unit 1, 29 Coronation Rd",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mangere Bridge",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f90e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "09:00 AM",
+        "FridayMorningTo": "04:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "09:00 AM",
+        "MondayMorningTo": "04:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$6.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.50"
+            }
+        ],
+        "PracticeName": "Mangere Bridge Surgery",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:30 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 634 2542",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "09:00 AM",
+        "ThursdayMorningTo": "04:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "09:00 AM",
+        "TuesdayMorningTo": "04:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "09:00 AM",
+        "WednesdayMorningTo": "04:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "359 Massey Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mangere East",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "fb0e7e7b-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "09:00 AM",
+        "FridayMorningTo": "02:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "09:00 AM",
+        "MondayMorningTo": "04:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Mangere East Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:30 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 275 8587",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "09:00 AM",
+        "ThursdayMorningTo": "04:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "09:00 AM",
+        "TuesdayMorningTo": "04:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "09:00 AM",
+        "WednesdayMorningTo": "04:30 PM"
+    },
+    {
+        "Address1_City": "Whangaparaoa",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "58 Rawhiti Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manly",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "e28bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "02:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$28.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$45.00"
+            }
+        ],
+        "PracticeName": "Manly Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "08:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 424 9050",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": "http://www.manlymedical.co.nz/Manly_Medical/Home.html",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "9/597 Great South Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manukau",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "e38bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:45 AM",
+        "FridayMorningTo": "05:45 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:45 AM",
+        "MondayMorningTo": "05:45 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$15.00"
+            }
+        ],
+        "PracticeName": "Manukau Family Doctors, Accident & Medical",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": "09:30 AM",
+        "SundayMorningTo": "12:00 PM",
+        "Telephone": "(09) 277 5777",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:45 AM",
+        "ThursdayMorningTo": "05:45 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:45 AM",
+        "TuesdayMorningTo": "05:45 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:45 AM",
+        "WednesdayMorningTo": "05:45 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "210 Great South Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manurewa",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "e68bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$11.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$17.50"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Manurewa Healthcare Medical Group",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 266 4477",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "394 Don Buck Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Massey",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "eb8bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "07:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$35.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$37.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$37.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$34.00"
+            }
+        ],
+        "PracticeName": "Massey Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 831 0170",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "07:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "07:00 PM",
+        "WebSiteURL": "http://www.healthpoint.co.nz/doctors/gp/massey-medical-centre/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "P O Box 87155",
+        "Address1_Line2": null,
+        "Address1_Line3": "Meadowbank",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ef8bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$48.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$52.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$54.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$54.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$54.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$54.00"
+            }
+        ],
+        "PracticeName": "Meadowbank Family Doctors",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "12:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 528 3446",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "25 St Johns Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Meadowbank",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f08bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$48.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$60.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$58.00"
+            }
+        ],
+        "PracticeName": "Meadowbank General Practice",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 521 5128",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "50 East Coast Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Milford",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f38bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$48.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$55.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$55.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$55.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$50.00"
+            }
+        ],
+        "PracticeName": "Milford Family Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "08:30 AM",
+        "SaturdayMorningTo": "12:30 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 449 0005",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": "http://www.healthpoint.co.nz/doctors/gp/milford-family-medical-centre/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "575 Mt Eden Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Eden",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "f88bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$41.50"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$45.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$42.50"
+            }
+        ],
+        "PracticeName": "Mt Eden 575 Doctors Ltd",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 623 4599",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:30 PM",
+        "WebSiteURL": "http://www.mteden575.co.nz/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "283 Penrose Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Wellington",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "fe8bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$20.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$32.00"
+            }
+        ],
+        "PracticeName": "Mt Wellington Family Health Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "09:00 AM",
+        "SaturdayMorningTo": "11:00 AM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 570 2999",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "350 Ellerslie Panmure Highway",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Wellington",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "ff8bb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "06:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "06:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$24.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$35.00"
+            }
+        ],
+        "PracticeName": "Mt Wellington Medical Clinic",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 579 6953",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "06:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "06:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "06:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "545 Richardson Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Mt Roskill",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "0c8cb681-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "05:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$12.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$18.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$18.00"
+            }
+        ],
+        "PracticeName": "Onehunga Doctors Limited",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 620 8148",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "05:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Royal Heights Shopping Centre",
+        "Address1_Line2": "138 Royal Road",
+        "Address1_Line3": "Massey",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "1f0cbd87-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "06:30 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "06:30 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$32.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$40.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$41.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$38.00"
+            }
+        ],
+        "PracticeName": "Royal Heights Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 833 7347",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "06:30 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "06:30 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "06:30 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "179 Hill Road",
+        "Address1_Line2": null,
+        "Address1_Line3": "Manurewa",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "c443b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:30 AM",
+        "FridayMorningTo": "05:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:30 AM",
+        "MondayMorningTo": "07:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$15.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$33.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$33.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$33.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$23.00"
+            }
+        ],
+        "PracticeName": "Gardens Medical Limited",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 267 1679",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:30 AM",
+        "ThursdayMorningTo": "05:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:30 AM",
+        "TuesdayMorningTo": "05:00 PM",
+        "WebSiteURL": null,
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:30 AM",
+        "WednesdayMorningTo": "01:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Building 28, Entry 3",
+        "Address1_Line2": "Carrington Road",
+        "Address1_Line3": "Mt Albert",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "d143b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "04:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "04:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$8.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$30.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$30.00"
+            }
+        ],
+        "PracticeName": "Unitec Health Centre Student Wellbeing",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": null,
+        "SaturdayMorningTo": null,
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": null,
+        "SundayMorningTo": null,
+        "Telephone": "(09) 815 2948",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "04:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "04:00 PM",
+        "WebSiteURL": "http://www.unitec.ac.nz/current-students/services-and-facilities/health-and-fitness/student-health-centre",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "04:00 PM"
+    },
+    {
+        "Address1_City": "Auckland",
+        "Address1_Latitude": 0.0,
+        "Address1_Line1": "Westgate Shopping Centre",
+        "Address1_Line2": "1 Fernhill Drive",
+        "Address1_Line3": "Massey",
+        "Address1_Longitude": 0.0,
+        "FacilityId": "de43b58d-1bf0-e211-8976-005056824f1d",
+        "FridayAfternoonFrom": null,
+        "FridayAfternoonTo": null,
+        "FridayMorningFrom": "08:00 AM",
+        "FridayMorningTo": "08:00 PM",
+        "MondayAfternoonFrom": null,
+        "MondayAfternoonTo": null,
+        "MondayMorningFrom": "08:00 AM",
+        "MondayMorningTo": "08:00 PM",
+        "PracticeFees": [
+            {
+                "AgeBand": "00 – 05 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "06 - 12 years",
+                "Fee": "$0.00"
+            },
+            {
+                "AgeBand": "13 - 17 years",
+                "Fee": "$35.00"
+            },
+            {
+                "AgeBand": "18 – 24 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "25 – 44 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "45 – 64 years",
+                "Fee": "$42.00"
+            },
+            {
+                "AgeBand": "65 years and over",
+                "Fee": "$36.00"
+            }
+        ],
+        "PracticeName": "Westgate Medical Centre",
+        "SaturdayAfternoonFrom": null,
+        "SaturdayAfternoonTo": null,
+        "SaturdayMorningFrom": "08:00 AM",
+        "SaturdayMorningTo": "08:00 PM",
+        "SundayAfternoonFrom": null,
+        "SundayAfternoonTo": null,
+        "SundayMorningFrom": "08:00 AM",
+        "SundayMorningTo": "08:00 PM",
+        "Telephone": "(09) 833 3134",
+        "ThursdayAfternoonFrom": null,
+        "ThursdayAfternoonTo": null,
+        "ThursdayMorningFrom": "08:00 AM",
+        "ThursdayMorningTo": "08:00 PM",
+        "TuesdayAfternoonFrom": null,
+        "TuesdayAfternoonTo": null,
+        "TuesdayMorningFrom": "08:00 AM",
+        "TuesdayMorningTo": "08:00 PM",
+        "WebSiteURL": "http://www.wgmc.co.nz/wp/",
+        "WednesdayAfternoonFrom": null,
+        "WednesdayAfternoonTo": null,
+        "WednesdayMorningFrom": "08:00 AM",
+        "WednesdayMorningTo": "08:00 PM"
+    }
+]

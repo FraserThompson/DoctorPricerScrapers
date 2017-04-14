@@ -1,0 +1,6 @@
+============2015-09-29 21:49:16.534780===========
+============0===========
+============3===========
+WARNING http://nmo.org.nz/our-services/gp-clinics Pirirākau Hauora: Possible issue with: Ph (07) 552 4573
+WARNING http://nmo.org.nz/our-services/gp-clinics Tauranga Moana City Clinic: Possible issue with: Ph (07) 571 2017
+WARNING http://nmo.org.nz/our-services/gp-clinics Te Ākau Hauora: Possible issue with: Ph (07) 574 9830

@@ -1,0 +1,20 @@
+============2017-04-11 17:49:47.198220===========
+============0===========
+============17===========
+WARNING http://procare.co.nz/ University of Auckland Health & Counselling Service: Could not geocode address: Students Common Building, 3rd Floor, Auckland Central, Auckland
+WARNING http://procare.co.nz/ Caliburn Medical Services Auckland: Could not geocode address: Caliburn Medical Services Limited, Kohimarama, Auckland
+WARNING http://procare.co.nz/ Caliburn Medical Services Manukau: Could not get place ID: ZERO_RESULTS
+WARNING http://www.unitec.ac.nz/current-students/services-and-facilities/health-and-fitness/student-health-centre Unitec Health Centre Student Wellbeing: Could not geocode address: Building 28, Entry 3, Mt Albert, Auckland
+WARNING http://procare.co.nz/ OneCare Health Partnership: Could not get place ID: ZERO_RESULTS
+WARNING http://www.royaloakmedical.co.nz/ Royal Oak Medical Centre Ltd: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://procare.co.nz/ 168 Medical Centre Limited: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://procare.co.nz/ Swanson Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.familydoctorsatsmales.co.nz/ Family Doctors at Smales: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.healthpoint.co.nz/doctors/gp/green-cross-clinic/ Green Cross Clinic Takapuna: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://procare.co.nz/ Te Atatu South Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://procare.co.nz/ Titirangi Medical Centre Ltd: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://procare.co.nz/ TL Care: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.healthpoint.co.nz/doctors/gp/dr-ron-grieve/ Health I-Care Clinic: Could not geocode address: Level 5 , 205 Wairau Valley Rd, Wairau Valley, Auckland
+WARNING http://procare.co.nz/ Residential Healthcare Ltd.: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.waimaukudoctors.co.nz/index.html Waimauku Doctors: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://procare.co.nz/ Westmere Medical Centre: Could not get place ID: OVER_QUERY_LIMIT

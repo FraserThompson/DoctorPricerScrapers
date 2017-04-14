@@ -1,0 +1,7 @@
+============2015-09-16 20:27:05.802918===========
+============4===========
+ERROR http://www.manaiapho.co.nz/node/104 James Street Doctors: Not enrolling patients.
+ERROR http://www.manaiapho.co.nz/node/93 Northland Environmental Health: Not enrolling patients.
+ERROR http://www.manaiapho.co.nz/node/103 Rust Ave Medical Centre: Not enrolling patients.
+ERROR http://www.manaiapho.co.nz/node/100 Te Aroha Noa Medical Centre: Not enrolling patients.
+============0===========

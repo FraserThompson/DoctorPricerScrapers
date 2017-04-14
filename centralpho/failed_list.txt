@@ -1,0 +1,23 @@
+============2016-12-04 16:13:56.600316===========
+============19===========
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3799/Default.aspx 169 Medical Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3802/Default.aspx Broadway Medical Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3804/Default.aspx City Doctors: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3805/Default.aspx Cook Street Health Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3809/Default.aspx Dr Parry's Surgery: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3811/Default.aspx Group Medical Chambers: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3812/Default.aspx Highbury Medical Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3813/Default.aspx Hokowhitu Medical Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3794/Default.aspx Horowhenua Community Practice: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/6742/Default.aspx Kauri HealthCare: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/4417/Default.aspx Masonic Medical Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3714/Default.aspx Milson Medical Chambers: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3815/Default.aspx Riverdale Health & Linton Health Ltd: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3731/Default.aspx Short Surgery Dannevirke: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3817/Default.aspx Sydney Street Health Centre: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3818/Default.aspx Victoria Medical: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/5411/Default.aspx Village Medical: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3808/Default.aspx West End Medical Centre - Dr S Zambazos: Not enrolling patients.
+ERROR http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/3820/Default.aspx Whakapai Hauora: Not enrolling patients.
+============1===========
+WARNING http://www.centralpho.org.nz/PracticesandFees/GeneralPractices/tabid/100/ctl/Map/mid/484/practice/4953/Default.aspx Health Hub Project NZ : Possible issue with: 174 Featherston Street, CBD

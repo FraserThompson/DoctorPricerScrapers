@@ -1,0 +1,410 @@
+[
+    {
+        "address": "144 Somme Pde Aramoho Whanganui",
+        "lat": -39.9097926,
+        "lng": 175.0541919,
+        "name": "Aramoho Health Centre",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 343 9050",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 28.0
+            },
+            {
+                "age": 15,
+                "price": 34.0
+            },
+            {
+                "age": 25,
+                "price": 34.0
+            },
+            {
+                "age": 45,
+                "price": 34.0
+            },
+            {
+                "age": 65,
+                "price": 34.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/aramoho-health-centre"
+    },
+    {
+        "address": "71 High St Bulls",
+        "lat": -40.1741064,
+        "lng": 175.3860573,
+        "name": "Bulls Medical Centre",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 322 1222",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 27.0
+            },
+            {
+                "age": 15,
+                "price": 32.0
+            },
+            {
+                "age": 25,
+                "price": 33.0
+            },
+            {
+                "age": 45,
+                "price": 33.0
+            },
+            {
+                "age": 65,
+                "price": 33.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/bulls-medical-centre"
+    },
+    {
+        "address": "174 Wicksteed St Whanganui",
+        "lat": -39.9299972,
+        "lng": 175.0498218,
+        "name": "Jabulani Medical Ltd",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 345 2720",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 33.0
+            },
+            {
+                "age": 15,
+                "price": 33.0
+            },
+            {
+                "age": 25,
+                "price": 33.0
+            },
+            {
+                "age": 45,
+                "price": 33.0
+            },
+            {
+                "age": 65,
+                "price": 33.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/jabulani-medical-centre"
+    },
+    {
+        "address": "42 Suncrest Drive, Hobsonville, Waitakere City 0618",
+        "lat": -36.8039012,
+        "lng": 174.63884,
+        "name": "Dr Moore",
+        "pho": "Whanganui Regional PHO",
+        "phone": "(09) 416 8712",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 25.0
+            },
+            {
+                "age": 15,
+                "price": 30.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpoint.co.nz/doctors/gp/hobsonville-medical-centre/"
+    },
+    {
+        "address": "40 Fitzherbert Ave Springvale Whanganui",
+        "lat": -39.9317441,
+        "lng": 175.0214717,
+        "name": "Springvale Medical Centre",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 344 5885",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 37.0
+            },
+            {
+                "age": 15,
+                "price": 37.0
+            },
+            {
+                "age": 25,
+                "price": 37.0
+            },
+            {
+                "age": 45,
+                "price": 37.0
+            },
+            {
+                "age": 65,
+                "price": 37.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/springvale-medical-centre"
+    },
+    {
+        "address": "345 Wicksteed St Whanganui",
+        "lat": -39.9248409,
+        "lng": 175.0403676,
+        "name": "St Johns Medical Centre",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 348 7775",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 25.0
+            },
+            {
+                "age": 15,
+                "price": 35.0
+            },
+            {
+                "age": 25,
+                "price": 35.0
+            },
+            {
+                "age": 45,
+                "price": 35.0
+            },
+            {
+                "age": 65,
+                "price": 35.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/st-johns-medical-centre"
+    },
+    {
+        "address": "26 Stewart St Marton",
+        "lat": -40.0696138,
+        "lng": 175.3766792,
+        "name": "Stewart Street Surgery (Marton)",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 327 8884",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 25.0
+            },
+            {
+                "age": 15,
+                "price": 33.0
+            },
+            {
+                "age": 25,
+                "price": 33.0
+            },
+            {
+                "age": 45,
+                "price": 33.0
+            },
+            {
+                "age": 65,
+                "price": 33.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/stewart-street-surgery"
+    },
+    {
+        "address": "220 Wicksteed St Whanganui",
+        "lat": -39.9289486,
+        "lng": 175.0479409,
+        "name": "Wicksteed House",
+        "pho": "Whanganui Regional PHO",
+        "phone": "06 349 1800",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 39.0
+            },
+            {
+                "age": 15,
+                "price": 39.0
+            },
+            {
+                "age": 25,
+                "price": 39.0
+            },
+            {
+                "age": 45,
+                "price": 39.0
+            },
+            {
+                "age": 65,
+                "price": 39.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/wicksteed-house-medical-centre"
+    },
+    {
+        "address": "43 Carson St Castlecliff Whanganui",
+        "lat": -39.938929,
+        "lng": 174.9930574,
+        "name": "Castlecliff Health",
+        "pho": "Whanganui Regional PHO (VLCA)",
+        "phone": "06 349 0002",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/castlecliff-healthcare-ltd"
+    },
+    {
+        "address": "44B Abbot St Whanganui",
+        "lat": -39.9423778,
+        "lng": 175.0229826,
+        "name": "Gonville Health Ltd",
+        "pho": "Whanganui Regional PHO (VLCA)",
+        "phone": "06 344 4090",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/gonville-health"
+    },
+    {
+        "address": "3 Hospital Rd Taihape",
+        "lat": -39.6812849,
+        "lng": 175.7956141,
+        "name": "Taihape Health Ltd",
+        "pho": "Whanganui Regional PHO (VLCA)",
+        "phone": "06 388 0926",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/taihape-medical-centre"
+    },
+    {
+        "address": "174 Wicksteed St Whanganui",
+        "lat": -39.9299972,
+        "lng": 175.0498218,
+        "name": "Dr Douglas (Jabulani Medical Ltd)",
+        "pho": "Whanganui Regional PHO (VLCA)",
+        "phone": "06 345 2720",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practices/jabulani-medical-centre"
+    },
+    {
+        "address": "38 Seddon St Raetihi",
+        "lat": -39.4273612,
+        "lng": 175.2805712,
+        "name": "Waimarino Health Ltd (Raetihi)",
+        "pho": "Whanganui Regional PHO (VLCA)",
+        "phone": "06 385 4211",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 6,
+                "price": 11.5
+            },
+            {
+                "age": 18,
+                "price": 17.5
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.healthpages.co.nz/doctors-a-general-practices/general-practitioners/corbett-j"
+    }
+]

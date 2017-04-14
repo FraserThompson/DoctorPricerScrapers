@@ -1,0 +1,29 @@
+============2015-09-27 21:40:39.597348===========
+============0===========
+============26===========
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: No phone number.
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=117 Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre: Possible issue with: Green Island Medical Centre - Jenkins Street - refer to Green Island Medical Centre
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: No phone number.
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=49 Larnach Surgery - refer Waverley Health: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=81 Doctor Visagie's Practice: Could not get place ID: ZERO_RESULTS
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=102 Number 10 Youth One Stop Shop: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=102 Number 10 Youth One Stop Shop: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=102 Number 10 Youth One Stop Shop: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=102 Number 10 Youth One Stop Shop: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=35 Victoria Avenue Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=35 Victoria Avenue Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=35 Victoria Avenue Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=35 Victoria Avenue Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=35 Victoria Avenue Medical Centre: Possible issue with prices: 1000
+WARNING http://www.southernpho.health.nz/info.php?pg=det&pid=35 Victoria Avenue Medical Centre: Possible issue with prices: 1000

@@ -1,0 +1,41 @@
+============2016-12-04 17:20:28.126403===========
+============0===========
+============38===========
+WARNING http://www.easthealth.co.nz/companies/4/35/Beachlands-Medical-Centre/ Beachlands Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/21/35/Botany-Doctor-Medical-Practice/ Botany Doctor Medical Practice: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/1/35/Botany-Junction-Medical-Ltd/ Botany Junction Medical Ltd: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/2/35/Botany-Terrace-Medical-Centre/ Botany Terrace Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/2/35/Botany-Terrace-Medical-Centre/ Botany Terrace Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/22/35/Botany-Town-Centre-Medical-Practice/ Botany Town Centre Medical Practice: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/22/35/Botany-Town-Centre-Medical-Practice/ Botany Town Centre Medical Practice: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/6/35/Clevedon-Medical-Centre/ Clevedon Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/7/35/Crawford-Medical-Centre/ Crawford Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/7/35/Crawford-Medical-Centre/ Crawford Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/8/35/Eastern-Family-Doctors/ Eastern Family Doctors: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/8/35/Eastern-Family-Doctors/ Eastern Family Doctors: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/3/35/Eastside-Family-Doctors/ Eastside Family Doctors: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/3/35/Eastside-Family-Doctors/ Eastside Family Doctors: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/9/35/Highgate-Surgery/ Highgate Surgery: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/9/35/Highgate-Surgery/ Highgate Surgery: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/10/35/Highland-Park-Medical-Centre/ Highland Park Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/10/35/Highland-Park-Medical-Centre/ Highland Park Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/11/35/Howick-House-Medical-Centre/ Howick House Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/11/35/Howick-House-Medical-Centre/ Howick House Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/12/35/Juliet-Avenue-Surgery/ Juliet Avenue Surgery: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/12/35/Juliet-Avenue-Surgery/ Juliet Avenue Surgery: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/14/35/Marina-Medical/ Marina Medical: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/14/35/Marina-Medical/ Marina Medical: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/15/35/Millhouse-Integrative-Medical-Centre/ Millhouse Integrative Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/15/35/Millhouse-Integrative-Medical-Centre/ Millhouse Integrative Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/13/35/MIT-Health-Centre/ MIT Health Centre: No prices.
+WARNING http://www.easthealth.co.nz/companies/13/35/MIT-Health-Centre/ MIT Health Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/13/35/MIT-Health-Centre/ MIT Health Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/5/35/Pakuranga-Medical-Centre/ Pakuranga Medical Centre: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/5/35/Pakuranga-Medical-Centre/ Pakuranga Medical Centre: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/16/35/Picton-Surgery/ Picton Surgery: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/16/35/Picton-Surgery/ Picton Surgery: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/18/35/Sommerville-Surgery/ Sommerville Surgery: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/18/35/Sommerville-Surgery/ Sommerville Surgery: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/19/35/The-Doctors/ The Doctors: Could not get place ID: OVER_QUERY_LIMIT
+WARNING http://www.easthealth.co.nz/companies/19/35/The-Doctors/ The Doctors: Possible issue with: +64 09 538 0599
+WARNING http://www.easthealth.co.nz/companies/20/35/Vincent-Street-Family-Doctors/ Vincent Street Family Doctors: Possible issue with: +64 09 538 0599

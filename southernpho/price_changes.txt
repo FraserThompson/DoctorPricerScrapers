@@ -1,0 +1,21 @@
+============2015-09-27 21:40:39.599851===========
+CHEAPER: Central Medical 6.0 29 => 0.0
+CHEAPER: Central Medical 13.0 40 => 32.0
+CHEAPER: Central Medical 18.0 46 => 38.5
+CHEAPER: Central Medical 25.0 47 => 43.0
+CHEAPER: Central Medical 45.0 44 => 43.0
+CHEAPER: Mountain Lakes Medical 6.0 25 => 0.0
+EXPENSIVER:Clutha Health First General Practice 13.0 26 => 28.0
+EXPENSIVER:Clutha Health First General Practice 18.0 38 => 40.0
+EXPENSIVER:Clutha Health First General Practice 25.0 38 => 40.0
+EXPENSIVER:Clutha Health First General Practice 45.0 38 => 40.0
+EXPENSIVER:Clutha Health First General Practice 65.0 38 => 40.0
+EXPENSIVER:Winton Medical Services 13.0 31 => 35.0
+EXPENSIVER:Winton Medical Services 18.0 31 => 35.0
+EXPENSIVER:Winton Medical Services 25.0 31 => 35.0
+EXPENSIVER:Winton Medical Services 45.0 31 => 35.0
+EXPENSIVER:Winton Medical Services 65.0 31 => 35.0
+CHEAPER: Number 10 Youth One Stop Shop 0 999 => 0
+EXPENSIVER:Number 10 Youth One Stop Shop 6.0 0 => 1000
+CHEAPER: Number 10 Youth One Stop Shop 13.0 999 => 10.0
+CHEAPER: Waikiwi Medical Centre 6.0 40 => 0.0
