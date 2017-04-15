@@ -1,5 +1,25 @@
 # Scrapers for DoctorPricer
 
+## Starting it up
+
+### Dependencies
+
+If you want a virtualenv (it's like node_modules but for python) then do this:
+
+`pip install virtualenv`
+`virtualenv my_project`
+`./my_project/Scripts/activate` 
+
+Then:
+
+`npm install`
+`pip install -r py-requirements.txt`
+
+### Running it
+
+`.\node_modules\.bin\webpack --config webpack.config.js --watch` to make Webpack pick up changes
+`python manage.py runserver` to actually run the damn thing.
+
 ## Scraping
 `python run.py` will scrape all practices
 `python run.py [name]` will scrape individual practice

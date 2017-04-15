@@ -1,0 +1,14 @@
+{% load render_bundle from webpack_loader %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    {% render_bundle 'main' 'css' %}
+    <title>Doctor Pricer Scrapers</title>
+  </head>
+
+  <body>
+    <div id="react-app"></div>
+    {% render_bundle 'main' 'js' %}
+  </body>
+</html>

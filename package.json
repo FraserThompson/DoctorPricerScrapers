@@ -1,0 +1,29 @@
+{
+  "name": "doctor-pricer-scrapers",
+  "version": "1.0.0",
+  "description": "Scrapers for DoctorPricer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/FraserThompson/DoctorPricerScrapers.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FraserThompson/DoctorPricerScrapers/issues"
+  },
+  "homepage": "https://github.com/FraserThompson/DoctorPricerScrapers#readme",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "webpack": "^2.4.1",
+    "webpack-bundle-tracker": "^0.2.0"
+  }
+}

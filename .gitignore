@@ -1,0 +1,6 @@
+node_modules
+python_virtualenv
+__pycache__
+env
+.env
+webpack-stats.json
