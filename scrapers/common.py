@@ -106,26 +106,9 @@ class Scraper:
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
     def finish(self):
-        if ((len(self.error_list) > 0) or (len(self.warning_list) > 0)):
-            errorcount = str(len(self.error_list))
-            warningcount = str(len(self.warning_list))
-            Scraper.cprint(errorcount +  " practices had errors.", "FAIL")
-            Scraper.cprint(warningcount +  " practices had warnings.", "FAIL")
-            failed_file = codecs.open(self.current_dir + '//failed_list.txt', encoding='utf-8', mode='w')
-            failed_file.write("============" + str(datetime.now()) + "===========\r\n")
-            failed_file.write("============" + errorcount + "===========\r\n")
-            for f in self.error_list:
-                failed_file.write("ERROR %s\r\n" % f)
-            failed_file.write("============" + warningcount + "===========\r\n")
-            for w in self.warning_list:
-                failed_file.write("WARNING %s\r\n" % w)
-            failed_file.close()
-
-        with open(self.current_dir + '//data.json', 'w') as outFile:
-            json.dump(self.practice_list, outFile, ensure_ascii=False, sort_keys=True, indent=4)
+        return {"name": self.name, "scraped": self.practice_list, "errors": self.error_list, "warnings": self.warning_list}
 
     def newPractice(self, name, url, pho, restriction):
-        print("Found: " + url or name)
         self.practice = {'name': name, 'url': url, 'pho': pho, 'restriction': ''}
 
     def finishPractice(self):

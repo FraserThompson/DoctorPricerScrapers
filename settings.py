@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'webpack_loader',
+    'rest_framework',
     'scrapers_ui'
 )
 
@@ -116,4 +117,11 @@ WEBPACK_LOADER = {
         'TIMEOUT': None,
         'IGNORE': ['.+\.hot-update.js', '.+\.map']
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+    'PAGE_SIZE': 10
 }

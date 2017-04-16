@@ -9,7 +9,7 @@ def scrape(name):
 	url = 'http://www.southernpho.health.nz/'
 	coord = [0.00, 0.00]
 
-	for i in range(1, 8):
+	for i in [1]:
 		print("================" + str(i) + "===============")
 		listUrlSouped = scrapers.openAndSoup(url + 'info.php?rid=' + str(i))
 		rows = listUrlSouped.find('div', {'class': 'content'}).find_all('table')[1].find_all('tr')
@@ -27,7 +27,7 @@ def scrape(name):
 				scriptElement = practiceUrlSouped.findAll('script', {"type":"text/javascript"})
 				first = scriptElement[3].text.split("LatLng(", 1)
 				if (len(first) > 1):
-					coord = first[1].split("),", 1)[0].split(", ");
+					coord = first[1].split("),", 1)[0].split(", ")
 					coord[0] = float(coord[0])
 					coord[1] = float(coord[1])
 			except IndexError:
@@ -105,4 +105,4 @@ def scrape(name):
 
 			scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()

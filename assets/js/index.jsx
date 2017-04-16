@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PHOList from './PHOList';
-
-var phoList = [
-    {"title": "Southern PHO", "module": "southernpho"}
-]
+import AdminForm from './AdminForm';
 
 ReactDOM.render(
-  <PHOList list={phoList}/>,
-   document.getElementById('react-app')
+    <div>
+        <PHOList/>
+        <AdminForm/>
+    </div>,
+    document.getElementById('react-app')
 );

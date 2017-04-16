@@ -49,18 +49,10 @@ def all():
 
 def one(name):
     try:
-        modules[name].scrape(name)
+        return modules[name].scrape(name)
     except Exception as e:
         print("Failed!")
-        failed.append("%s: %s \n" % (name, traceback.format_exc()))
         print(traceback.format_exc())
-
-    if len(failed) > 0:
-        fail_file = codecs.open('not_scraped' + str(time.time()) + '.txt', encoding='utf-8', mode='w')
-        for fail in failed:
-            fail_file.write(fail)
-
-        fail_file.close()
 
 if __name__ == "__main__":
     import sys
