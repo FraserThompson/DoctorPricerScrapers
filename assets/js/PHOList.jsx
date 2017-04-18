@@ -6,29 +6,23 @@ import Utils from './Utils';
 class PHOList extends React.Component {
   
   constructor(props) {
-    
     super(props);
-
-    var self = this;
-    this.state = { 
-      phoList: []
-    };
-
-    Utils.JsonGet('/scrapers/pho', function(response) {
-        self.setState({ phoList: JSON.parse(response.data).results });
-    });
-
   }
 
   render(){
 
-    var phoList = this.state.phoList.map(function (pho, index) {
+    var phoList = this.props.list.map(function (pho, index) {
       return (
         <PHOListItem
           key={index}
           name={pho.name}
           last_run={pho.last_run}
+          number_of_practices={pho.number_of_practices}
           module={pho.module}
+					remove={this.props.remove.bind(this, pho)}
+          start={this.props.start.bind(this, pho)}
+          select={this.props.select.bind(this, pho)}
+          state={pho.state}
         />
       );
     }, this);

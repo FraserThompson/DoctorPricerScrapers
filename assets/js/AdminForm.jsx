@@ -1,30 +1,30 @@
 import React from 'react';
-import Utils from './Utils';
 
 class AdminForm extends React.Component {
   
   constructor(props) {
     super(props);
+
+    this.state = { 
+      'name': "",
+      'module': ""
+    };
   }
 
-  submit (e){
-    e.preventDefault()
+  handleChange(e) {
+    e.preventDefault();
 
-    var formData = new FormData(e.target)
-
-    var module = e.currentTarget.getAttribute('data-module')
-    var response = Utils.JsonPost("/scrapers/pho/", {"name": formData.get('name'), "module": formData.get('module')}, function(res) {
-        console.log(res);
-    })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   render(){
+
     return (
-        <form onSubmit={this.submit} id="adminForm">
-            <input type="text" name="name"/>
-            <input type="text" name="module"/>
-            <button type="submit">Add</button>
-        </form>
+      <div>
+        <input type="text" name="name" value={this.state.name} onChange={this.handleChange.bind(this)}/>
+        <input type="text" name="module" value={this.state.module} onChange={this.handleChange.bind(this)}/>
+        <button onClick={this.props.add.bind(this, this.state)}>Add</button>
+      </div>
     )
   }
 }

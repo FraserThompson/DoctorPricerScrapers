@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PHOList from './PHOList';
-import AdminForm from './AdminForm';
+import ScraperApp from './ScraperApp';
+
+import '../css/foundation.min.css';
+import '../css/app.css';
 
 ReactDOM.render(
-    <div>
-        <PHOList/>
-        <AdminForm/>
-    </div>,
+    <ScraperApp/>,
     document.getElementById('react-app')
 );

@@ -7,22 +7,16 @@ class PHOListItem extends React.Component {
     super(props);
   }
 
-  submit (e){
-    e.preventDefault()
-
-    var module = e.currentTarget.getAttribute('data-module')
-    Utils.JsonPost("/scrapers/start", {"module": module}, function(res) {
-      console.log(res)
-    })
-  }
-
   render(){
     return (
-      <li>
+      <a onClick={this.props.select} href="#"><li>
         <h1>{this.props.name}</h1>
         <h4>{this.props.last_run}</h4>
-        <button type="submit" onClick={this.submit} data-module={this.props.module}>Start</button>
-      </li>
+        <h4>{this.props.number_of_practices}</h4>
+        <button type="submit" onClick={this.props.start}>Start</button>
+        <button type="submit" onClick={this.props.remove}>Remove</button>
+        <h5>{this.props.state}</h5>
+      </li></a>
     )
   }
 }

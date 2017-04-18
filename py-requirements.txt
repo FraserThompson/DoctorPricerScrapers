@@ -2,5 +2,10 @@ Django==1.11
 django-webpack-loader==0.3.2
 djangorestframework==3.6.2
 wheel==0.26.0
-whitenoise
-requests
+psycopg2==2.7.1
+bs4
+html5lib
+pygeocoder==1.2.5
+httplib2
+whitenoise==3.3.0
+requests==2.13.0

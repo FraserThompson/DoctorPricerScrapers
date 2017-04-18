@@ -17,8 +17,9 @@ Then:
 
 ### Running it
 
-`.\node_modules\.bin\webpack --config webpack.config.js --watch` to make Webpack pick up changes
-`python manage.py runserver` to actually run the damn thing.
+Webpack: `.\node_modules\.bin\webpack --config webpack.config.js --watch`
+Django: `python manage.py runserver`
+Postgres: `docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=password123 -d postgres`
 
 ## Scraping
 `python run.py` will scrape all practices

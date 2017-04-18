@@ -48,11 +48,16 @@ def all():
             continue
 
 def one(name):
+
+    return_object = {'data': None, 'error': None}
+
     try:
-        return modules[name].scrape(name)
+        return_object['data'] = modules[name].scrape(name)
     except Exception as e:
-        print("Failed!")
         print(traceback.format_exc())
+        return_object['error'] = traceback.format_exc()
+    
+    return return_object
 
 if __name__ == "__main__":
     import sys
