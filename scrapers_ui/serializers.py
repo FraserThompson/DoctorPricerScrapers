@@ -17,15 +17,15 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         model = User
         fields = ('url', 'username', 'email', 'groups')
 
-class PracticeSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = models.Practice
-        fields = ('id', 'name', 'address', 'pho', 'phone', 'url', 'location', 'restriction', 'place_id')
-
 class PricesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Prices
         fields = ('id', 'practice', 'pho', 'from_age', 'to_age', 'price')
+
+class PracticeSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Practice
+        fields = ('id', 'name', 'address', 'pho', 'phone', 'url', 'location', 'restriction', 'place_id', 'price')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

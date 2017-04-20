@@ -59,10 +59,14 @@ class PracticeViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(pho=pho)
 
         # Location lookup
-        if lat is not None and lng is not None and age is not None and distance is not None:
+        if lat is not None and lng is not None:
             pnt = 'POINT('+str(lng)+' '+str(lat)+')'
-            # get prices here too somehow
             queryset = queryset.filter(location__distance_lte=(pnt, D(km=distance)))
+
+        # Prices
+        if age is not None:
+            for practice in queryset:
+                practice.price = practice.get_price(age=age)
 
         return queryset
 
