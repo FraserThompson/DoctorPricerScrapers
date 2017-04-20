@@ -17,6 +17,8 @@ class LogsListItem extends React.Component {
         <pre>{this.props.warnings}</pre>
         <h4>Errors</h4>
         <pre>{this.props.errors}</pre>
+        <h4>Changes</h4>
+        <pre>{this.props.changes}</pre>
       </li>
     )
   }

@@ -15,9 +15,10 @@ class LogsList extends React.Component {
         <LogsListItem
           key={index}
           date={item.date}
-          scraped={item.scraped}
-          warnings={item.warnings}
-          errors={item.errors}
+          scraped={JSON.stringify(item.scraped)}
+          warnings={JSON.stringify(item.warnings)}
+          errors={JSON.stringify(item.errors)}
+          changes={JSON.stringify(item.changes)}
         />
       );
     }, this);

@@ -18,6 +18,7 @@ class PHOList extends React.Component {
           name={pho.name}
           last_run={pho.last_run}
           number_of_practices={pho.number_of_practices}
+          average_prices={JSON.stringify(pho.average_prices)}
           module={pho.module}
 					remove={this.props.remove.bind(this, pho)}
           start={this.props.start.bind(this, pho)}
@@ -28,7 +29,7 @@ class PHOList extends React.Component {
     }, this);
 
     return (
-      <ul className="pho-list">
+      <ul className="pho-list side-nav">
         {phoList}
       </ul>
     )

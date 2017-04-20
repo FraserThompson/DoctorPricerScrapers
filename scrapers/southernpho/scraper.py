@@ -14,7 +14,7 @@ def scrape(name):
 		listUrlSouped = scrapers.openAndSoup(url + 'info.php?rid=' + str(i))
 		rows = listUrlSouped.find('div', {'class': 'content'}).find_all('table')[1].find_all('tr')
 
-		for row in rows:
+		for row in rows[:1]:
 			scraper.newPractice(row.find("a").text, url + row.find("a").get("href"), "Southern PHO", "")
 
 			#### GO DEEPER #####

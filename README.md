@@ -1,34 +1,20 @@
 # Scrapers for DoctorPricer
 
-## Starting it up
+## Usage
 
-### Dependencies
+### Setup
 
-If you want a virtualenv (it's like node_modules but for python) then do this:
-
-`pip install virtualenv`
-`virtualenv my_project`
-`./my_project/Scripts/activate` 
-
-Then:
-
-`npm install`
-`pip install -r py-requirements.txt`
+You'll just need Docker and docker-compose.
 
 ### Running it
 
-Webpack: `.\node_modules\.bin\webpack --config webpack.config.js --watch`
-Django: `python manage.py runserver`
-Postgres: `docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=password123 -d postgres`
+Start it up with `docker-compose up --build`
 
-## Scraping
-`python run.py` will scrape all practices
-`python run.py [name]` will scrape individual practice
+Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
 
-## Deleting
-`python delete.py [name']`
+Then `docker-compose exec server webpack-watch` and start develpoing.
 
-## Adding scrapers
+### Adding scrapers
 Needs a file called scraper.py in the folder named after the pho.
 
 1. Start by importing the global module: `import scrapers`

@@ -27,7 +27,7 @@ class ScraperApp extends React.Component {
   getLogsList(name) {
     var self = this;
 
-    Utils.JsonReq('/scrapers/api/logs/?scraper=' + name, null, "GET", function(response) {
+    Utils.JsonReq('/scrapers/api/logs/?source=' + name, null, "GET", function(response) {
         self.setState({ 'logs': JSON.parse(response.data) });
     })
   }
@@ -49,8 +49,8 @@ class ScraperApp extends React.Component {
   handleSelect(item) {
       
     var self = this;
-    this.setState({ 'selected': item.name });
-    this.getLogsList(item.name)
+    this.setState({ 'selected': item.module });
+    this.getLogsList(item.module)
 
   }
 
@@ -58,7 +58,7 @@ class ScraperApp extends React.Component {
     var self = this;
     item.last_run = "Never";
 
-    var response = Utils.JsonReq("/scrapers/api/pho/", {"name": item.name, "module": item.module}, "POST", function(res) {
+    var response = Utils.JsonReq("/scrapers/api/pho/", {"name": item.name, "module": item.module, "average_prices": {}}, "POST", function(res) {
         self.state.scrapers.push(item);
         self.setState({scrapers: self.state.scrapers});
     })
@@ -83,7 +83,7 @@ class ScraperApp extends React.Component {
 
     this.setItemState(item.module, "Running")
 
-    Utils.JsonReq("/scrapers/start", {"module": item.module}, "POST", function(res) {
+    Utils.JsonReq("/scrapers/scrape", {"module": item.module}, "POST", function(res) {
 
         if (res.error) {
             self.setItemState(item.module, "Error")
@@ -92,6 +92,7 @@ class ScraperApp extends React.Component {
         }
 
         self.getPhoList();
+        self.handleSelect(item);
 
     })
 

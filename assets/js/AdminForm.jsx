@@ -20,11 +20,11 @@ class AdminForm extends React.Component {
   render(){
 
     return (
-      <div>
+      <form onSubmit={this.props.add.bind(this, this.state)}>
         <input type="text" name="name" value={this.state.name} onChange={this.handleChange.bind(this)}/>
         <input type="text" name="module" value={this.state.module} onChange={this.handleChange.bind(this)}/>
-        <button onClick={this.props.add.bind(this, this.state)}>Add</button>
-      </div>
+        <button type="submit" className="button">Add</button>
+      </form>
     )
   }
 }

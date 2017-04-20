@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    postgres:
+        image: mdillon/postgis
+        environment:
+            - POSTGRES_PASSWORD=password123
+        ports:
+            - '5432:5432'
+
+    server:
+        build: ./
+        links:
+           - postgres
+        ports:
+            - '8000:8000'
+        volumes:
+            - ./scrapers_ui:/code/scrapers_ui
+            - ./scrapers:/code/scrapers

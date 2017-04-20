@@ -5,12 +5,12 @@ from rest_framework import serializers
 class PhoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Pho
-        fields = ('name', 'module', 'last_run', 'number_of_practices')
+        fields = ('id', 'name', 'module', 'last_run', 'number_of_practices', 'average_prices')
 
 class LogsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Logs
-        fields = ('source', 'scraped', 'date', 'warnings', 'errors')
+        fields = ('id', 'source', 'scraped', 'date', 'warnings', 'errors', 'changes')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -20,7 +20,12 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 class PracticeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Practice
-        fields = ('name', 'address', 'pho', 'phone', 'url', 'prices', 'lat', 'lng', 'restriction', 'place_id')
+        fields = ('id', 'name', 'address', 'pho', 'phone', 'url', 'location', 'restriction', 'place_id')
+
+class PricesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Prices
+        fields = ('id', 'practice', 'pho', 'from_age', 'to_age', 'price')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
