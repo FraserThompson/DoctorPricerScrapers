@@ -77,7 +77,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         # Prices
         if age is not None:
             for practice in queryset:
-                practice.price = practice.get_price(age=age)
+                practice.price = practice.price(age=age)
 
         return queryset
 

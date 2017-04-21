@@ -34,7 +34,6 @@ class Practice(models.Model):
     location = models.PointField(srid=4326)
     restriction = models.TextField(default='')
     place_id = models.TextField(default='', blank=True)
-    price = models.DecimalField(max_digits=5, decimal_places=2, default=999.99)
 
     def lat(self):
         return self.location.y
@@ -42,8 +41,11 @@ class Practice(models.Model):
     def lng(self):
         return self.location.x
 
-    def get_price(self, age=0):
-        return self.prices_set.filter(to_age__gte=age, from_age__lte=age).first().price
+    def price(self, age=0):
+        if age:
+            return self.prices_set.filter(to_age__gte=age, from_age__lte=age).first().price
+        else:
+            return -1
 
     def __str__(self):
         return self.name

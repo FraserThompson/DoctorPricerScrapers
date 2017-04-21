@@ -1,7 +1,7 @@
 import csv, json
 import os, sys, codecs
 from scrapers import common as scrapers
-current_dir = './scrapers/#manual/'
+current_dir = './scrapers/_manual/'
 
 def scrape(name):
 

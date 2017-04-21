@@ -1,41 +1,14 @@
 import importlib, codecs, time
 import traceback
+from scrapers_ui import models
 
-phos = [
-    'alliance',
-    'aucklandpho',
-    'centralpho',
-    'compasshealth',
-    'comprehensivecare',
-    'easternbaypho',
-    'easthealth',
-    #'haurakipho',
-    'healthhb',
-    'lowerhutt',
-    'malborough',
-    'manaia',
-    'midlands',
-    'nationalhauora',
-    'nelsonbays',
-    'nmo',
-    'nph',
-    'procare',
-    'ra',
-    'rcpho',
-    'scdhb',
-    'southernpho',
-    'tetaitokerau',
-    'wboppho',
-    'westcoast',
-    'wrpho',
-    '#manual'
-]
+phos = models.Pho.objects.all()
 
 modules = {}
 failed = []
 
-for name in phos:
-    modules[name] = importlib.import_module("scrapers." + name + ".scraper")
+for obj in phos:
+    modules[obj.module] = importlib.import_module("scrapers." + obj.module + ".scraper")
 
 def all():
     for name, module in modules.items():
