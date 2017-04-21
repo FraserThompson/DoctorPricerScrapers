@@ -11,6 +11,7 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 
 from scrapers_ui import serializers
+from django.core import serializers as core_serializers
 from scrapers_ui import models
 
 import logging, json
@@ -35,6 +36,16 @@ class GroupViewSet(viewsets.ModelViewSet):
 class PricesViewSet(viewsets.ModelViewSet):
     queryset = models.Prices.objects.all()
     serializer_class = serializers.PricesSerializer
+
+    def get_queryset(self):
+        queryset = models.Prices.objects.all()
+
+        name = self.request.query_params.get('name', None)
+
+        if name is not None:
+            queryset = queryset.filter(practice__name=name)
+
+        return queryset
 
 class PracticeViewSet(viewsets.ModelViewSet):
     queryset = models.Practice.objects.all()
@@ -79,10 +90,28 @@ class LogsViewSet(viewsets.ModelViewSet):
         source = self.request.query_params.get('source', None)
 
         if source is not None:
-            queryset = queryset.filter(source__module=source)
+            queryset = queryset.filter(source__module=source).order_by('-id')
 
         return queryset
 
+######################################################
+# Returns the history of price changes for a particular 
+# practice OR averages for a PHO.
+######################################################
+def price_history(request):
+
+    practice = request.GET.get('practice', None)
+    pho = request.GET.get('pho', None)
+    response = {}
+
+    if practice is not None:
+        queryset = models.Prices.history.filter(practice__name=practice).order_by('-history_date')
+        response = core_serializers.serialize('json', list(queryset), fields=('price','from_age','to_age', 'history_date', 'history_id'))
+    elif pho is not None:
+        queryset = models.Pho.history.filter(name=pho).order_by('-history_date')
+        response = core_serializers.serialize('json', list(queryset), fields=('average_prices', 'history_date', 'history_id'))
+
+    return HttpResponse(response, content_type="application/json")
 
 ######################################################
 # Renders the index page
@@ -136,13 +165,15 @@ def submit(data, module):
 
         new_practice = models.Practice.objects.update_or_create( 
             name=practice['name'], 
-            address=practice['address'],
-            pho=practice['pho'],
-            phone=practice['phone'],
-            url=practice['url'],
-            location=GEOSGeometry('POINT('+str(practice['lng'])+' '+str(practice['lat'])+')'),
-            restriction=practice['restriction'],
-            place_id=practice['place_id']
+            defaults={
+                'address': practice['address'],
+                'pho': practice['pho'],
+                'phone': practice['phone'],
+                'url': practice['url'],
+                'location': GEOSGeometry('POINT('+str(practice['lng'])+' '+str(practice['lat'])+')'),
+                'restriction': practice['restriction'],
+                'place_id': practice['place_id'] or ''
+            }
         )
 
         for i, price in enumerate(practice['prices']):
@@ -154,12 +185,15 @@ def submit(data, module):
             else:
                 to_age = 150
 
+            print('Submitting price for: ' + practice['name'])
             new_prices = models.Prices.objects.update_or_create(
                 practice = new_practice[0],
                 pho = pho,
                 from_age = from_age,
                 to_age = to_age,
-                price = price['price']
+                defaults={
+                    'price': price['price']
+                }
             )
 
     # Update the average

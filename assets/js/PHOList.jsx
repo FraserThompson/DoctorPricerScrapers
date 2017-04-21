@@ -20,7 +20,6 @@ class PHOList extends React.Component {
           number_of_practices={pho.number_of_practices}
           average_prices={JSON.stringify(pho.average_prices)}
           module={pho.module}
-					remove={this.props.remove.bind(this, pho)}
           start={this.props.start.bind(this, pho)}
           select={this.props.select.bind(this, pho)}
           state={pho.state}

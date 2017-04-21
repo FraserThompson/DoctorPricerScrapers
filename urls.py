@@ -16,7 +16,9 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+admin.autodiscover()
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^scrapers/', include('scrapers_ui.urls')),
+    url(r'^dp/', include('scrapers_ui.urls')),
 ]

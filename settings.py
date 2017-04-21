@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'webpack_loader',
     'rest_framework',
-    'scrapers_ui'
+    'scrapers_ui',
+    'simple_history',
 )
 
 MIDDLEWARE_CLASSES = (

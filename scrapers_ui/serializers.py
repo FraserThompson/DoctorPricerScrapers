@@ -5,29 +5,29 @@ from rest_framework import serializers
 class PhoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Pho
-        fields = ('id', 'name', 'module', 'last_run', 'number_of_practices', 'average_prices')
+        fields = ('name', 'module', 'last_run', 'number_of_practices', 'average_prices')
 
 class LogsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Logs
-        fields = ('id', 'source', 'scraped', 'date', 'warnings', 'errors', 'changes')
+        fields = ('source', 'date', 'changes', 'scraped', 'errors', 'warnings', 'id')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups')
+        fields = ('__all__')
 
 class PricesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Prices
-        fields = ('id', 'practice', 'pho', 'from_age', 'to_age', 'price')
+        fields = ('practice', 'pho', 'from_age', 'to_age', 'price')
 
 class PracticeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Practice
-        fields = ('id', 'name', 'address', 'pho', 'phone', 'url', 'location', 'restriction', 'place_id', 'price')
+        fields = ('name', 'address', 'pho', 'phone', 'url', 'lat', 'lng', 'restriction', 'place_id', 'price')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'name')
+        fields = ('__all__')

@@ -9,3 +9,4 @@ pygeocoder==1.2.5
 httplib2
 whitenoise==3.3.0
 requests==2.13.0
+django-simple-history

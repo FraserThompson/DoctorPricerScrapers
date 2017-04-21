@@ -15,7 +15,6 @@ class PHOListItem extends React.Component {
         <h5>Number of practices: {this.props.number_of_practices}</h5>
         <pre>{this.props.average_prices}</pre>
         <button type="submit" className="button" onClick={this.props.start}>Start</button>
-        <button type="submit" className="button" onClick={this.props.remove}>Remove</button>
         <h5>{this.props.state}</h5>
       </li></a>
     )

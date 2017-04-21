@@ -25,6 +25,6 @@ ADD *.py ./
 ADD *.js ./
 
 ADD usrlocalbin /usr/local/bin
-RUN chmod +x /usr/local/bin/migrate && chmod +x /usr/local/bin/webpack-watch
+RUN chmod +x /usr/local/bin/migrate && chmod +x /usr/local/bin/webpack-watch && chmod +x /usr/local/bin/createsuperuser
 
-CMD python manage.py runserver 0.0.0.0:8000
+CMD /code/node_modules/.bin/webpack --config webpack.config.js && python manage.py runserver 0.0.0.0:8000

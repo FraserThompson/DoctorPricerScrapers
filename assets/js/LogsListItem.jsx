@@ -10,7 +10,7 @@ class LogsListItem extends React.Component {
   render(){
     return (
       <li>
-        <h3>{this.props.date}</h3>
+        <h3>{this.props.id}: {this.props.date}</h3>
         <h4>Scraped</h4>
         <pre>{this.props.scraped}</pre>
         <h4>Warnings</h4>

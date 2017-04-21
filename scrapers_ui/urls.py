@@ -13,5 +13,6 @@ router.register(r'prices', views.PricesViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^$', views.index, name='index'),
+    url(r'^history$', views.price_history, name='history'),
     url(r'^scrape$', views.scrape, name='scrape')
 ]

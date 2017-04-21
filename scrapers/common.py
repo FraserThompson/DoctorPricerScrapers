@@ -93,7 +93,7 @@ class Scraper:
     # Called before each submission. Gets the place_id from Google using the coordinates
     # If there are no coords it will try to geolocate based on address.
     def geolocate(self):
-        if not self.practice.get('lat'):
+        if not self.practice['lat']:
             try:
                 result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
                 coord = result_array[0].coordinates
@@ -142,15 +142,15 @@ class Scraper:
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": ''}
 
     def finishPractice(self):
-        self.exists = Database.findPractice(self.practice["name"])
+        # self.exists = Database.findPractice(self.practice["name"])
 
-        # Get Google place ID and/or geolocate the address if it's not already there
-        if  self.exists == 0 or not self.exists["place_id"]:
-            self.geolocate()
-        else:
-            self.practice["place_id"] = self.exists["place_id"]
-            self.practice["lat"] = self.exists["lat"]
-            self.practice["lng"] = self.exists["lng"]
+        # # Get Google place ID and/or geolocate the address if it's not already there
+        # if  self.exists == 0 or not self.exists["place_id"]:
+        #     self.geolocate()
+        # else:
+        #     self.practice["place_id"] = self.exists["place_id"]
+        #     self.practice["lat"] = self.exists["lat"]
+        #     self.practice["lng"] = self.exists["lng"]
 
         if not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"

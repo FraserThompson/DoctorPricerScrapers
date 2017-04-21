@@ -1,13 +1,15 @@
 from django.db import models
 from django.contrib.postgres.fields import JSONField
 from django.contrib.gis.db import models
+from simple_history.models import HistoricalRecords
 
 class Pho(models.Model):
     name = models.CharField(unique=True, max_length=30)
     module = models.CharField(unique=True,max_length=30)
     last_run = models.DateTimeField(auto_now=True)
     number_of_practices = models.IntegerField(default=0)
-    average_prices = JSONField(default={})
+    average_prices = JSONField(default={"0":0})
+    history = HistoricalRecords()
 
     def __str__(self):
         return self.name
@@ -25,17 +27,23 @@ class Logs(models.Model):
 
 class Practice(models.Model):
     name = models.TextField(unique=True,)
-    address = models.TextField(unique=True,)
+    address = models.TextField()
     pho = models.TextField()
-    phone = models.TextField(unique=True, blank=True)
-    url = models.TextField(unique=True)
-    location = models.PointField(unique=True, srid=4326)
+    phone = models.TextField(blank=True)
+    url = models.TextField()
+    location = models.PointField(srid=4326)
     restriction = models.TextField(default='')
-    place_id = models.TextField(default='', unique=True)
+    place_id = models.TextField(default='', blank=True)
     price = models.DecimalField(max_digits=5, decimal_places=2, default=999.99)
 
+    def lat(self):
+        return self.location.y
+
+    def lng(self):
+        return self.location.x
+
     def get_price(self, age=0):
-        return self.prices_set.filter(to_age__gte=age, from_age__lte=age).first()
+        return self.prices_set.filter(to_age__gte=age, from_age__lte=age).first().price
 
     def __str__(self):
         return self.name
@@ -46,6 +54,7 @@ class Prices(models.Model):
     from_age = models.IntegerField()
     to_age = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
+    history = HistoricalRecords()
 
     def __str__(self):
-        return str(self.price)
+        return str(self.practice.name)
