@@ -14,7 +14,7 @@ from pygeocoder import Geocoder
 # Contains all logic for interacting with the database.
 # Not to be instantiated.
 class Database:
-    apiUrl = 'http://localhost:8000/scrapers/api/practice/'
+    apiUrl = 'http://localhost:8000/dp/api/'
 
     #################################################
     # Post a practice to the database
@@ -59,17 +59,17 @@ class Database:
     ################################################
     # Find a practice in the database
     def findPractice(name):
-        exists = requests.get(Database.apiUrl + urllib.parse.quote(name))
+        exists = requests.get(Database.apiUrl + 'practice?name=' + urllib.parse.quote(name))
 
         if exists.status_code != 200 or len(exists.json()) == 0:
             return 0
         else:
-            return exists.json()
+            return exists.json()[0]
 
    ################################################
     # Find all via a query
     def findQuery(name):
-        exists = requests.get(Database.apiUrl + 'practices?' + urllib.parse.quote(name))
+        exists = requests.get(Database.apiUrl + 'practice?' + urllib.parse.quote(name))
         if exists.status_code != 200 or len(exists.json()) == 0:
             return 0
         else:
@@ -121,36 +121,21 @@ class Scraper:
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
     def finish(self):
-        # changes = []
-
-        # for practice in self.practice_list:
-        #     r = Database.addPractice(practice, self.exists)
-        #     request = r["request"]
-
-        #     if (request and request.status_code != 200 and request.status_code != 201):
-        #         print("Inserting " + practice["name"] + " produced HTTP error: " + str(request.status_code))
-        #         if (request.json()):
-        #             print("More: " + json.dumps(request.json()))
-        #         self.error_list.append(practice["name"] + ": " + "Failed to insert because of this: " + json.dumps(request.json()))
-            
-        #     if len(r["changes"]) > 0:
-        #         changes.append(r["changes"])
-
         return {"name": self.name, "scraped": self.practice_list, "errors": self.error_list, "warnings": self.warning_list }
 
     def newPractice(self, name, url, pho, restriction):
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": ''}
 
     def finishPractice(self):
-        # self.exists = Database.findPractice(self.practice["name"])
+        self.exists = Database.findPractice(self.practice["name"])
 
-        # # Get Google place ID and/or geolocate the address if it's not already there
-        # if  self.exists == 0 or not self.exists["place_id"]:
-        #     self.geolocate()
-        # else:
-        #     self.practice["place_id"] = self.exists["place_id"]
-        #     self.practice["lat"] = self.exists["lat"]
-        #     self.practice["lng"] = self.exists["lng"]
+        # Get Google place ID and/or geolocate the address if it's not already there
+        if self.exists == 0 or not self.exists["place_id"]:
+            self.geolocate()
+        else:
+            self.practice["place_id"] = self.exists["place_id"]
+            self.practice["lat"] = self.exists["lat"]
+            self.practice["lng"] = self.exists["lng"]
 
         if not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
@@ -171,7 +156,7 @@ class Scraper:
         if len(self.practice["address"]) > 100:
             self.addWarning("Possible issue with: " + self.practice["address"])
 
-        self.practice_list.append(self.practice)
+        self.practice_list.append({'practice': self.practice, 'exists': self.exists})
 
     def setLatLng(self, coord):
         self.practice["lat"] = coord[0]

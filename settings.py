@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'webpack_loader',
     'rest_framework',
     'scrapers_ui',
-    'simple_history',
+    'simple_history'
 )
 
 MIDDLEWARE_CLASSES = (

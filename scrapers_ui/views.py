@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from scrapers import run
 from django.views.decorators.csrf import csrf_exempt
-from django.db.models import Avg
+from django.db.models import Avg, Max, Min
 
 from django.contrib.gis.geos import GEOSGeometry
 from django.contrib.gis.measure import D
@@ -146,22 +146,26 @@ def scrape(request):
 def submit(data, module):
 
     average_prices = [
-        {'age': 0, 'price': 0},
-        {'age': 6, 'price': 0},
-        {'age': 13, 'price': 0},
-        {'age': 18, 'price': 0},
-        {'age': 25, 'price': 0}, 
-        {'age': 45, 'price': 0},
-        {'age': 65, 'price': 0}
+        {'age': 0, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 6, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 13, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 18, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 25, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 45, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 65, 'average': 0, 'min': 0, 'max': 0}
     ]
 
-    changes = []
+    changes = {}
 
     # Get the PHO
     pho = models.Pho.objects.get(module=module)
 
     # Add the practices
-    for practice in data['scraped']:
+    for result in data['scraped']:
+
+        practice = result['practice']
+        exists = result['exists']
+
 
         new_practice = models.Practice.objects.update_or_create( 
             name=practice['name'], 
@@ -176,29 +180,61 @@ def submit(data, module):
             }
         )
 
-        for i, price in enumerate(practice['prices']):
+        # Work out price changes
+        if exists:
+            old_prices = models.Prices.objects.filter(practice__name=exists['name']).order_by('from_age')
+            new_prices = practice['prices']
 
-            from_age = price['age']
-
-            if i < len(practice['prices']) - 1:
-                to_age = practice['prices'][i+1]['age'] - 1
+            if len(old_prices) != len(new_prices):
+                print("something strange")
             else:
-                to_age = 150
+                # Iterate the prices
+                i = 0
+                for old_price in old_prices:
 
-            print('Submitting price for: ' + practice['name'])
-            new_prices = models.Prices.objects.update_or_create(
-                practice = new_practice[0],
-                pho = pho,
-                from_age = from_age,
-                to_age = to_age,
-                defaults={
-                    'price': price['price']
-                }
-            )
+                    # There's a change
+                    if old_price.price != new_prices[i]['price']:
+
+                        if practice['name'] not in changes:
+                            changes[practice['name']] = {}
+
+                        # add it to the changes object
+                        changes[practice['name']][str(old_price.from_age)] = [str(old_price.price), str(new_prices[i]['price'])]
+
+                        # change the thing in the database
+                        old_price.price = new_prices[i]['price']
+                        old_price.save()
+                                        
+                    i = i + 1
+        # Or just submit them if they're not already there
+        else:
+            for i, price in enumerate(practice['prices']):
+
+                from_age = price['age']
+
+                if i < len(practice['prices']) - 1:
+                    to_age = practice['prices'][i+1]['age'] - 1
+                else:
+                    to_age = 150
+
+                print('Submitting price for: ' + practice['name'])
+                new_prices = models.Prices.objects.update_or_create(
+                    practice = new_practice[0],
+                    pho = pho,
+                    from_age = from_age,
+                    to_age = to_age,
+                    defaults={
+                        'price': price['price']
+                    }
+                )
 
     # Update the average
     for price in average_prices:
-        price['price'] = get_pho_average(pho.id, price['age'])
+        stats = get_pho_average(pho.id, price['age'])
+        print(stats)
+        price['average'] = stats['price__avg']
+        price['min'] = str(stats['price__min'])
+        price['max'] = str(stats['price__max'])
 
     # Update the PHO
     pho.number_of_practices = len(data['scraped']) 
@@ -214,5 +250,5 @@ def submit(data, module):
 # for a particular age over a PHO.
 ######################################################
 def get_pho_average(pho, age):
-    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age).aggregate(Avg('price'))
-    return result['price__avg']
+    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age).aggregate(Avg('price'), Max('price'), Min('price'))
+    return result

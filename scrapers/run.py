@@ -2,15 +2,21 @@ import importlib, codecs, time
 import traceback
 from scrapers_ui import models
 
-phos = models.Pho.objects.all()
 
 modules = {}
 failed = []
 
-for obj in phos:
-    modules[obj.module] = importlib.import_module("scrapers." + obj.module + ".scraper")
+def do_the_import():
+
+    phos = models.Pho.objects.all()
+
+    for obj in phos:
+        modules[obj.module] = importlib.import_module("scrapers." + obj.module + ".scraper")
 
 def all():
+    
+    do_the_import()
+
     for name, module in modules.items():
         try:
             module.scrape(name)
@@ -21,6 +27,8 @@ def all():
             continue
 
 def one(name):
+    
+    do_the_import()
 
     return_object = {'data': None, 'error': None}
 
