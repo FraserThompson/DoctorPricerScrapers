@@ -14,24 +14,47 @@ module.exports = {
 
   plugins: [
     new BundleTracker({filename: './webpack-stats.json'}),
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    }),
   ],
 
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+              sourceMap: true,
+              importLoaders: 1,
+              localIdentName: "[name]--[local]--[hash:base64:8]"
+            }
+          },
+          "postcss-loader" // has separate config, see postcss.config.js nearby
+        ]
+      },
+      {
+        test: /.js?$/,
+        loader: 'babel-loader'
+      },
       { 
         test: /\.jsx?$/, 
         exclude: /node_modules/, 
         loader: 'babel-loader',
         query: { presets:['es2015', 'react'] }
-      },
-      { 
-        test: /\.css?$/,
-        loader: "style-loader!css-loader",
-      }
-    ],
+      }]
   },
-
   resolve: {
     extensions: ['.js', '.jsx']
-  },
+  }
 }

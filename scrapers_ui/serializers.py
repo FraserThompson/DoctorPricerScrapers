@@ -10,7 +10,7 @@ class PhoSerializer(serializers.HyperlinkedModelSerializer):
 class LogsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Logs
-        fields = ('source', 'date', 'changes', 'scraped', 'errors', 'warnings', 'id')
+        fields = ('module', 'date', 'changes', 'scraped', 'errors', 'warnings', 'id')
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

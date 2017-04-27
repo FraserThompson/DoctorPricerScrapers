@@ -6,6 +6,7 @@ from simple_history.models import HistoricalRecords
 class Pho(models.Model):
     name = models.CharField(unique=True, max_length=30)
     module = models.CharField(unique=True,max_length=30)
+    region = models.TextField(blank=True)
     last_run = models.DateTimeField(auto_now=True)
     number_of_practices = models.IntegerField(default=0)
     average_prices = JSONField(default={"0":0})
@@ -22,11 +23,14 @@ class Logs(models.Model):
     errors = JSONField(default={})
     warnings = JSONField(default={})
 
+    def module(self):
+        return self.source.module
+
     def __str__(self):
         return self.scraped
 
 class Practice(models.Model):
-    name = models.TextField(unique=True,)
+    name = models.TextField(unique=True)
     address = models.TextField()
     pho = models.TextField()
     phone = models.TextField(blank=True)

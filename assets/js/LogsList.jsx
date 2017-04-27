@@ -2,6 +2,9 @@ import React from 'react';
 import Utils from './Utils';
 import LogsListItem from './LogsListItem'
 
+import { Panel } from 'react-toolbox';
+import { Button } from 'react-toolbox/lib/button';
+
 class LogsList extends React.Component {
 
   constructor(props) {
@@ -16,18 +19,23 @@ class LogsList extends React.Component {
           key={index}
           date={item.date}
           id={item.id}
-          scraped={JSON.stringify(item.scraped)}
-          warnings={JSON.stringify(item.warnings)}
-          errors={JSON.stringify(item.errors)}
-          changes={JSON.stringify(item.changes)}
+          scraped={JSON.stringify(item.scraped, null, 2)}
+          warnings={JSON.stringify(item.warnings, null, 2)}
+          errors={JSON.stringify(item.errors, null, 2)}
+          changes={JSON.stringify(item.changes, null, 2)}
         />
       );
     }, this);
     
     return (
-      <ul className="log-list">
+      <div>
+        { this.props.list.length > 0 && 
+          <div className="header">
+            <Button type="submit" onClick={this.props.start} label={"Start scraping " + this.props.selected }/> 
+          </div>
+        }
         {logsList}
-      </ul>
+      </div>
     )
   }
 }

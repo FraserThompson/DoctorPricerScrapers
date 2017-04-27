@@ -1,5 +1,6 @@
 import React from 'react';
 import Utils from './Utils';
+import { ListItem } from 'react-toolbox/lib/list';
 
 class PHOListItem extends React.Component {
 
@@ -9,14 +10,7 @@ class PHOListItem extends React.Component {
 
   render(){
     return (
-      <a onClick={this.props.select} href="#"><li>
-        <h3>{this.props.name}</h3>
-        <h5>Last run: {this.props.last_run}</h5>
-        <h5>Number of practices: {this.props.number_of_practices}</h5>
-        <pre>{this.props.average_prices}</pre>
-        <button type="submit" className="button" onClick={this.props.start}>Start</button>
-        <h5>{this.props.state}</h5>
-      </li></a>
+      <ListItem caption={this.props.name} legend={"Last Run: " + this.props.last_run + " Number of Practices: " + this.props.number_of_practices + " " + this.props.state} onClick={this.props.select}/>
     )
   }
 }

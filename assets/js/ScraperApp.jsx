@@ -3,11 +3,21 @@ import PHOList from './PHOList';
 import Utils from './Utils';
 import LogsList from './LogsList';
 
+import AppBar from 'react-toolbox/lib/app_bar';
+
 class ScraperApp extends React.Component {
-  
+
   constructor(props) {
     super(props);
-    
+
+    this.flexCell = {
+      "flex": "1",
+    }
+
+    this.flexLayout = {
+      "display": "flex"
+    }
+
     this.state = { 
       scrapers: [],
       logs: [],
@@ -53,21 +63,21 @@ class ScraperApp extends React.Component {
 
   }
 
-  handleStart(item) {
+  handleStart() {
     var self = this;
 
-    this.setItemState(item.module, "Running")
+    this.setItemState(this.state.selected, "Running")
 
-    Utils.JsonReq("/dp/scrape", {"module": item.module}, "POST", function(res) {
+    Utils.JsonReq("/dp/scrape", {"module": this.state.selected}, "POST", function(res) {
 
         if (res.error) {
-            self.setItemState(item.module, "Error")
+            self.setItemState(self.state.selected, "Error")
         }  else {
-            self.setItemState(item.module, "")
+            self.setItemState(self.state.selected, "")
         }
 
         self.getPhoList();
-        self.handleSelect(item);
+        self.handleSelect({'module': self.state.selected});
 
     })
 
@@ -75,12 +85,15 @@ class ScraperApp extends React.Component {
 
   render(){
     return (
-      <div className="row">
-        <div className="large-6 columns">
-            <PHOList list={this.state.scrapers} start={this.handleStart.bind(this)} select={this.handleSelect.bind(this)}/>
-        </div>
-        <div className="large-6 columns">
-            <LogsList list={this.state.logs}/>
+      <div>
+        <AppBar title='Doctor Pricer Scrapers'/>
+        <div style={this.flexLayout}>
+          <div style={this.flexCell}>
+            <PHOList list={this.state.scrapers} select={this.handleSelect.bind(this)}/>
+          </div>
+          <div style={this.flexCell}>
+            <LogsList selected={this.state.selected} list={this.state.logs} start={this.handleStart.bind(this)}/>
+          </div>
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react';
 import PHOListItem from './PHOListItem';
 import Utils from './Utils';
-
+import { List, ListSubHeader} from 'react-toolbox/lib/list';
 
 class PHOList extends React.Component {
   
@@ -18,9 +18,6 @@ class PHOList extends React.Component {
           name={pho.name}
           last_run={pho.last_run}
           number_of_practices={pho.number_of_practices}
-          average_prices={JSON.stringify(pho.average_prices)}
-          module={pho.module}
-          start={this.props.start.bind(this, pho)}
           select={this.props.select.bind(this, pho)}
           state={pho.state}
         />
@@ -28,9 +25,10 @@ class PHOList extends React.Component {
     }, this);
 
     return (
-      <ul className="pho-list side-nav">
+      <List selectable ripple>
+        <ListSubHeader caption='Scrapers' />
         {phoList}
-      </ul>
+      </List>
     )
 
   }

@@ -24,8 +24,6 @@ ADD assets ./assets
 ADD *.py ./
 ADD *.js ./
 
-RUN cp ./node_modules/chart.js/dist/Chart.bundle.min.js ./assets/js/vendor/Chart.bundle.min.js
-
 ADD usrlocalbin /usr/local/bin
 RUN chmod +x /usr/local/bin/migrate && chmod +x /usr/local/bin/webpack-watch && chmod +x /usr/local/bin/createsuperuser
 

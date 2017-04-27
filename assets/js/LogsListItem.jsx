@@ -1,25 +1,44 @@
 import React from 'react';
 import Utils from './Utils';
 
+import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
+import Chip from 'react-toolbox/lib/chip';
+import {Tab, Tabs} from 'react-toolbox';
+
 class LogsListItem extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      index: 1
+    }
   }
+
+  handleTabChange(index) {
+    this.setState({index});
+  };
 
   render(){
     return (
-      <li>
-        <h3>{this.props.id}: {this.props.date}</h3>
-        <h4>Scraped</h4>
-        <pre>{this.props.scraped}</pre>
-        <h4>Warnings</h4>
-        <pre>{this.props.warnings}</pre>
-        <h4>Errors</h4>
-        <pre>{this.props.errors}</pre>
-        <h4>Changes</h4>
-        <pre>{this.props.changes}</pre>
-      </li>
+      <Card>
+        <CardTitle title={this.props.id + " - " + this.props.date}/>
+        <CardText>
+          <Tabs index={this.state.index} onChange={this.handleTabChange.bind(this)}>
+            <Tab label={"Errors " + this.props.errors.length}>
+              <pre>{this.props.errors}</pre>
+            </Tab>
+            <Tab label={"Warnings " + this.props.warnings.length}>
+              <pre>{this.props.warnings}</pre>
+            </Tab>
+            <Tab label={"Changes " + this.props.changes.length}>
+              <pre>{this.props.changes}</pre>
+            </Tab>
+            <Tab label={"Scraped " + this.props.scraped.length}>
+              <pre>{this.props.scraped}</pre>
+            </Tab>
+          </Tabs>
+        </CardText>
+      </Card>
     )
   }
 }
