@@ -12,8 +12,6 @@ Start it up with `docker-compose up --build`
 
 Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
 
-Then `docker-compose exec server webpack-watch` and start develpoing.
-
 ### Adding scrapers
 Needs a file called scraper.py in the folder named after the pho.
 

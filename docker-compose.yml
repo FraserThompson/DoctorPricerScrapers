@@ -17,5 +17,3 @@ services:
         volumes:
             - ./scrapers_ui:/code/scrapers_ui
             - ./scrapers:/code/scrapers
-            - ./assets/js:/code/assets/js
-            - ./assets/css:/code/assets/css
