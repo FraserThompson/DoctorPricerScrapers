@@ -5,5 +5,5 @@ env
 .env
 webpack-stats.json
 /assets/bundles
-/scrapers_ui/migrations
+/dp_server/migrations
 db.sqlite3

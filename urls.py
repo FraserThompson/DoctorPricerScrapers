@@ -20,5 +20,5 @@ admin.autodiscover()
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^dp/', include('scrapers_ui.urls')),
+    url(r'^dp/', include('dp_server.urls')),
 ]

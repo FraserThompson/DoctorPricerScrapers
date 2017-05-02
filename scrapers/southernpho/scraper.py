@@ -9,12 +9,12 @@ def scrape(name):
 	url = 'http://www.southernpho.health.nz/'
 	coord = [0.00, 0.00]
 
-	for i in [1]:
+	for i in range(1, 8):
 		print("================" + str(i) + "===============")
 		listUrlSouped = scrapers.openAndSoup(url + 'info.php?rid=' + str(i))
 		rows = listUrlSouped.find('div', {'class': 'content'}).find_all('table')[1].find_all('tr')
 
-		for row in rows[:1]:
+		for row in rows:
 			scraper.newPractice(row.find("a").text, url + row.find("a").get("href"), "Southern PHO", "")
 
 			#### GO DEEPER #####

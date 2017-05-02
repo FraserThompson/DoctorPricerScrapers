@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.gis',
     'webpack_loader',
     'rest_framework',
-    'scrapers_ui',
+    'dp_server',
     'simple_history',
     'corsheaders'
 )

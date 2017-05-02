@@ -16,46 +16,6 @@ from pygeocoder import Geocoder
 class Database:
     apiUrl = 'http://localhost:8000/dp/api/'
 
-    #################################################
-    # Post a practice to the database
-    def addPractice(practice, exists):
-        headers = {'Content-type': 'application/json'}
-        return_object = {"request": False, "changes": []}
-
-        if exists == 0:
-            Scraper.cprint("Inserting: " + json.dumps(practice), "OKGREEN")
-            r = requests.post(Database.apiUrl, headers=headers, json=practice)
-        else:
-            Scraper.cprint("Updating: " + json.dumps(practice), "OKGREEN")
-
-            # Has anything changed?
-            diffkeys = [k for k in practice if practice[k] != exists[k]]
-
-            # Have prices changed? (need to go deeper)
-            diffprices = []
-            for index, k in enumerate(practice['prices']):
-                if k['age'] != exists['prices'][index]['age'] and k['price'] != exists['prices'][index]['price']:
-                    diffprices.append({'old': j, 'new': exists['prices'][index]})
-
-            # Post if there are differences
-            if len(diffkeys) == 0 and len(diffprices) == 0:
-                Scraper.cprint("No changes.", "OKBLUE")
-            else:
-                r = requests.put(Database.apiUrl + urllib.parse.quote(practice["name"]) + "/", headers=headers, json=practice)
-                return_object["request"] = r
-                return_object["changes"] = diffprices
-
-        return return_object
-
-    ################################################
-    # Delete a practice from the database
-    def deletePractice(name):
-        r = requests.post(Database.apiUrl + 'update/' + name, auth=('c7b20243-5b68-4ab8-81b6-6a89c954da22', '1dde7cea-4f71-4437-ace5-49a338c6b13c'))
-        Scraper.cprint("Deleting...", "WARNING")
-        if (r.status_code != 200):
-            print("Deleting " + name + " produced HTTP error: " + str(r.status_code))
-        print(r)
-
     ################################################
     # Find a practice in the database
     def findPractice(name):
@@ -89,6 +49,15 @@ class Scraper:
     UNDERLINE = '\033[4m'
     google_key = 'AIzaSyCoNNjdQ4ZGHJhP5HwiLf0mnjydOc2iwik'
 
+    def newPractice(self, name, url, pho, restriction):
+        self.practice = {"name": name, "url": url, "pho": pho, "restriction": ''}
+
+    def openAndSoup(self):
+        print("Accessing URL: " + self.practice["url"])
+        req = Request(self.practice["url"], None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'})
+        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+        return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
+
     # geolocate()
     # Called before each submission. Gets the place_id from Google using the coordinates
     # If there are no coords it will try to geolocate based on address.
@@ -111,20 +80,22 @@ class Scraper:
             print('GOOGLE MAPS API OVER LIMIT')
             self.addWarning("Could not get place ID: " + req.json()["status"])
 
+    def setLatLng(self, coord):
+        self.practice["lat"] = coord[0]
+        self.practice["lng"] = coord[1]
+
+    def addWarning(self, message):
+        self.warning_list.append(self.practice["url"] + " " + self.practice["name"] + ": " + message)
+
+    def addError(self, message):
+        self.error_list.append(self.practice["url"] + " " + self.practice["name"] + ": " + message)
+
+    def notEnrolling(self):
+        Scraper.cprint("Not enrolling.", "WARNING")
+        self.addError("Not enrolling patients.")
+
     def cprint(message, style):
         print(getattr(Scraper, style) + message + Scraper.ENDC)
-
-    def openAndSoup(self):
-        print("Accessing URL: " + self.practice["url"])
-        req = Request(self.practice["url"], None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'})
-        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
-        return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
-
-    def finish(self):
-        return {"name": self.name, "scraped": self.practice_list, "errors": self.error_list, "warnings": self.warning_list }
-
-    def newPractice(self, name, url, pho, restriction):
-        self.practice = {"name": name, "url": url, "pho": pho, "restriction": ''}
 
     def finishPractice(self):
         self.exists = Database.findPractice(self.practice["name"])
@@ -158,21 +129,8 @@ class Scraper:
 
         self.practice_list.append({'practice': self.practice, 'exists': self.exists})
 
-    def setLatLng(self, coord):
-        self.practice["lat"] = coord[0]
-        self.practice["lng"] = coord[1]
-
-    def addWarning(self, message):
-        self.warning_list.append(self.practice["url"] + " " + self.practice["name"] + ": " + message)
-
-    def addError(self, message):
-        self.error_list.append(self.practice["url"] + " " + self.practice["name"] + ": " + message)
-
-    def notEnrolling(self):
-        Scraper.cprint("Not enrolling.", "WARNING")
-        self.addError("Not enrolling patients.")
-        if Database.findPractice(self.practice["name"]):
-            Database.deletePractice(self.practice["name"])
+    def finish(self):
+        return {"name": self.name, "scraped": self.practice_list, "errors": self.error_list, "warnings": self.warning_list }
 
     def __init__(self, name):
         Scraper.cprint("SCRAPING: " + name, "OKBLUE")
@@ -181,78 +139,6 @@ class Scraper:
         self.practice_list = []
         self.warning_list = []
         self.error_list = []
-
-#####################################################################
-# Delete a practice from the database
-def deletePractice(practice_name):
-    r = requests.post(apiUrl + 'update/' + practice_name, auth=('c7b20243-5b68-4ab8-81b6-6a89c954da22', '1dde7cea-4f71-4437-ace5-49a338c6b13c'))
-    print(bcolors.WARNING + "Deleting..." + bcolors.ENDC)
-    if (r.status_code != 200):
-        print("Deleting " + practice_name + " produced HTTP error: " + str(r.status_code))
-    print(r)
-
-#####################################################################
-# Find a practice in the database
-def findInDatabase(name):
-    exists = requests.get(apiUrl + 'practices?name=' + name)
-    if exists.json()["rowCount"] == 0:
-        return 0
-    else:
-        return exists.json()["rows"][0]
-
-#####################################################################
-# Post a practice to the database
-def postToDatabase(practice, warning_list):
-    print("posting: " + str(practice))
-
-    # Verify data
-    for price in practice["prices"]:
-        if price["age"] > 70:
-            print("warning");
-            warning_list.append(practice["name"] + " Possible issue with ages: " + str(price["age"]))
-        if price["price"] > 100 and price["price"] != 999:
-            print("warning")
-            warning_list.append(practice["name"] + " Possible issue with prices: " + str(price["price"]))
-
-    if len(practice["name"]) > 60:
-        print("warning")
-        warning_list.append(practice["name"] + " Possible issue with: " + practice["name"])
-
-    if len(practice["phone"]) > 14:
-        print("warning")
-        warning_list.append(practice["name"] + " Possible issue with: " + practice["phone"])
-
-    if len(practice["address"]) > 100:
-        print("warning")
-        warning_list.append(practice["name"] + " Possible issue with: " + practice["address"])
-
-    headers = {'Content-type': 'application/json'}
-
-    exists = findInDatabase(practice["name"])
-    if exists == 0:
-        print(bcolors.HEADER + "Inserting..." + bcolors.ENDC)
-        r = requests.post(apiUrl + 'update', headers=headers, json=practice, auth=('c7b20243-5b68-4ab8-81b6-6a89c954da22', '1dde7cea-4f71-4437-ace5-49a338c6b13c'))
-    else:
-        print(bcolors.HEADER + "Updating..." + bcolors.ENDC)
-        # check if changed
-        oldPrices = exists["prices"]
-        try:
-            for i, price in enumerate(practice["prices"]):
-                if price["price"] > oldPrices[i]["price"]:
-                    print(bcolors.WARNING + "EXPENSIVER: Old for " + str(price["age"]) + " was " + str(oldPrices[i]["price"]) + " new is " + str(price["price"]) + bcolors.ENDC) 
-                elif price["price"] < oldPrices[i]["price"]:
-                    print(bcolors.WARNING + "CHEAPER: Old for " + str(price["age"]) + " was " + str(oldPrices[i]["price"]) + " new is " + str(price["price"]) + bcolors.ENDC)
-        except IndexError:
-            print("whatever")
-
-        r = requests.put(apiUrl + 'update/' + practice["name"], headers=headers, json=practice, auth=('c7b20243-5b68-4ab8-81b6-6a89c954da22', '1dde7cea-4f71-4437-ace5-49a338c6b13c'))
-
-    if (r.status_code != 200):
-        print("Posting practice " + practice["name"] + " produced HTTP error" + str(r.status_code))
-    try:
-        return r.json()
-    except ValueError:
-        return r
 
 #####################################################################
 # Return student if student is contained in the string
@@ -315,15 +201,6 @@ def getHealthpagesURLFromSearch(name):
         return 0
     if results["bossresponse"]["web"]["totalresults"] != '0':
         return results["bossresponse"]["web"]["results"][0]["url"]
-
-#####################################################################
-# DOESNT WORK ANYMORE
-def bingSearch(searchString):
-    BING_KEY = 'c19k1i8ZrV/k6NISLuTWF/94wndoxwst8FstA1OTDSU='
-    url = 'https://api.datamarket.azure.com/Bing/Search/Web?Query=%27' + urlify(searchString) + '%27&$top=10&$format=json'
-    auth = HTTPBasicAuth(BING_KEY, BING_KEY)
-    req = requests.get(url, auth=auth)
-    return req.json()
 
 #########################################################################
 # Try's to find a practice URL by searching health websites.
@@ -424,38 +301,9 @@ def openAndSoup(url):
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
-def dealWithFailure(error_list, warning_list, current_dir):
-    if ((len(error_list) > 0) or (len(warning_list) > 0)):
-        errorcount = str(len(error_list))
-        warningcount = str(len(warning_list))
-        print(errorcount +  " practices had errors.")
-        print(warningcount +  " practices had warnings.")
-        failed_file = codecs.open(current_dir + '//failed_list.txt', encoding='utf-8', mode='w')
-        failed_file.write("============" + str(datetime.now()) + "===========\r\n")
-        failed_file.write("============" + errorcount + "===========\r\n")
-        for f in error_list:
-            failed_file.write("ERROR %s\r\n" % f)
-        failed_file.write("============" + warningcount + "===========\r\n")
-        for w in warning_list:
-            failed_file.write("WARNING %s\r\n" % w)
-        failed_file.close()
-
 def normalize(input):
     string = re.sub('[^0-9a-zA-Z ]+', '', input.strip().lower().replace('mt ', 'mount '))
     return re.sub(' +',' ', string).replace(' ', '')
-
-    
-def geolocate(address):
-    # Try find the coordinates of the address for Google Maps to display
-    if address == "":
-        return [0, 0]
-    try:
-        result_array = Geocoder.geocode(address + ", New Zealand")
-        coord = result_array[0].coordinates
-    except:
-        print("Could not geocode address: " + address)
-        return [0, 0]
-    return coord
 
 def replaceSpacesWithDashes(input):
     normal = re.sub('[^0-9a-zA-Z ]+', '', input.strip())

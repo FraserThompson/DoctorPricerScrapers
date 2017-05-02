@@ -1,21 +1,22 @@
 import importlib, codecs, time
 import traceback
-from scrapers_ui import models
+from dp_server import models
 
-
-modules = {}
 failed = []
 
-def do_the_import():
+def import_all():
 
+    modules = {}
     phos = models.Pho.objects.all()
 
     for obj in phos:
         modules[obj.module] = importlib.import_module("scrapers." + obj.module + ".scraper")
 
+    return modules
+
 def all():
     
-    do_the_import()
+    modules = import_all()
 
     for name, module in modules.items():
         try:
@@ -28,12 +29,12 @@ def all():
 
 def one(name):
     
-    do_the_import()
+    module = importlib.import_module("scrapers." + name + ".scraper")
 
     return_object = {'data': None, 'error': None}
 
     try:
-        return_object['data'] = modules[name].scrape(name)
+        return_object['data'] = module.scrape(name)
     except Exception as e:
         print(traceback.format_exc())
         return_object['error'] = traceback.format_exc()

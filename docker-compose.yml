@@ -15,5 +15,5 @@ services:
         ports:
             - '8000:8000'
         volumes:
-            - ./scrapers_ui:/code/scrapers_ui
+            - ./dp_server:/code/dp_server
             - ./scrapers:/code/scrapers

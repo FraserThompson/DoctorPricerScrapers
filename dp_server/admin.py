@@ -1,5 +1,5 @@
 from django.contrib import admin
-from scrapers_ui import models
+from dp_server import models
 
 admin.site.register(models.Practice)
 admin.site.register(models.Prices)

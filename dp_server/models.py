@@ -10,6 +10,7 @@ class Pho(models.Model):
     last_run = models.DateTimeField(auto_now=True)
     number_of_practices = models.IntegerField(default=0)
     average_prices = JSONField(default={"0":0})
+    last_scrape = JSONField(default=[])
     history = HistoricalRecords()
 
     def __str__(self):

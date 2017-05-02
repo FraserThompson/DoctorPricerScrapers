@@ -15,7 +15,7 @@ RUN pip install -r py-requirements.txt
 
 ADD *.py ./
 ADD scrapers ./scrapers
-ADD scrapers_ui ./scrapers_ui
+ADD dp_server ./dp_server
 
 ADD usrlocalbin /usr/local/bin
 RUN chmod +x /usr/local/bin/migrate && chmod +x /usr/local/bin/createsuperuser

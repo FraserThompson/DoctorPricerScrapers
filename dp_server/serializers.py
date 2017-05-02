@@ -1,11 +1,11 @@
-from scrapers_ui import models
+from dp_server import models
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 class PhoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Pho
-        fields = ('name', 'module', 'last_run', 'number_of_practices', 'average_prices')
+        fields = ('name', 'module', 'last_run', 'last_scrape', 'number_of_practices', 'average_prices')
 
 class LogsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
