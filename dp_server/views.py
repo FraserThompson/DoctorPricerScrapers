@@ -1,8 +1,10 @@
 from django.http import HttpResponse
+from django.http import JsonResponse
 from django.shortcuts import render
 from scrapers import run
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Avg, Max, Min
+from django.forms.models import model_to_dict
 
 from django.contrib.gis.geos import GEOSGeometry
 from django.contrib.gis.measure import D
@@ -136,6 +138,7 @@ def scrape(request):
         if not response['error']:
             pho = models.Pho.objects.get(module=json_body['module'])
             pho.last_scrape = response['data']
+            pho.save()
         else:
             return_code = 400
 
@@ -153,13 +156,15 @@ def submit(request):
         json_body = json.loads(data)
 
         module = json_body['module']
-        data = json_body['data']
 
         # Get the PHO
         pho = models.Pho.objects.get(module=module)
 
-        if not data:
+        # Have we been supplied JSON to submit?
+        if 'data' not in json_body:
             data = pho.last_scrape
+        else:
+            data = json_body['data']
 
         average_prices = [
             {'age': 0, 'average': 0, 'min': 0, 'max': 0},
@@ -244,7 +249,6 @@ def submit(request):
         # Update the average
         for price in average_prices:
             stats = get_pho_average(pho.id, price['age'])
-            print(stats)
             price['average'] = stats['price__avg']
             price['min'] = str(stats['price__min'])
             price['max'] = str(stats['price__max'])
@@ -258,7 +262,7 @@ def submit(request):
         log = models.Logs(source=pho, scraped=data['scraped'], errors=data['errors'], warnings=data['warnings'], changes=changes)
         log.save()
 
-        return HttpResponse(json.dumps(log), content_type="application/json", status=return_code)
+        return JsonResponse(  model_to_dict(log), status=return_code )
 
 ######################################################
 # Helper: Gets the average price

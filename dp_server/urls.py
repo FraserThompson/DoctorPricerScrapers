@@ -15,5 +15,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^history$', views.price_history, name='history'),
     url(r'^scrape$', views.scrape, name='scrape'),
-    url(r'^submit$', views.scrape, name='submit')
+    url(r'^submit$', views.submit, name='submit')
 ]
