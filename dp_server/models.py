@@ -10,7 +10,7 @@ class Pho(models.Model):
     last_run = models.DateTimeField(auto_now=True)
     number_of_practices = models.IntegerField(default=0)
     average_prices = JSONField(default={"0":0})
-    last_scrape = JSONField(default=[])
+    last_scrape = JSONField(blank=True, default=[])
     history = HistoricalRecords()
 
     def __str__(self):
@@ -47,10 +47,15 @@ class Practice(models.Model):
         return self.location.x
 
     def price(self, age=0):
+        return_obj = -1
+
         if age:
-            return self.prices_set.filter(to_age__gte=age, from_age__lte=age).first().price
-        else:
-            return -1
+            prices = self.prices_set.filter(to_age__gte=age, from_age__lte=age).first()
+
+            if prices:
+                return_obj = prices.price
+
+        return return_obj
 
     def __str__(self):
         return self.name

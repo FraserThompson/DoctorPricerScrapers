@@ -38,6 +38,7 @@ def one(name):
     except Exception as e:
         print(traceback.format_exc())
         return_object['error'] = traceback.format_exc()
+        return return_object
     
     return return_object
 

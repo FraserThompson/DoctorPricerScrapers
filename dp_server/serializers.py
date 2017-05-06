@@ -22,10 +22,17 @@ class PricesSerializer(serializers.HyperlinkedModelSerializer):
         model = models.Prices
         fields = ('practice', 'pho', 'from_age', 'to_age', 'price')
 
+class DistanceField(serializers.Field):
+
+    def to_representation(self, obj):
+        return obj.m
+
 class PracticeSerializer(serializers.HyperlinkedModelSerializer):
+    distance = DistanceField()
+
     class Meta:
         model = models.Practice
-        fields = ('name', 'address', 'pho', 'phone', 'url', 'lat', 'lng', 'restriction', 'place_id', 'price')
+        fields = ('name', 'address', 'pho', 'phone', 'url', 'lat', 'lng', 'restriction', 'place_id', 'price', 'distance')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

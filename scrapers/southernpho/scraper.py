@@ -6,7 +6,7 @@ from scrapers import common as scrapers
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
-	url = 'http://www.southernpho.health.nz/'
+	url = 'http://www.wellsouth.org.nz/'
 	coord = [0.00, 0.00]
 
 	for i in range(1, 8):
@@ -50,7 +50,22 @@ def scrape(name):
 
 			# Try get all the prices regardless of formatting lol
 			prices = []
-			if (first_price == ""):
+
+			if scraper.practice['name'] == "Number 10 Youth One Stop Shop":
+				prices = [
+				{
+					'age': 0,
+					'price': 999
+				},
+				{
+					'age': 10,
+					'price': 0
+				},
+				{
+					'age': 25,
+					'price': 999
+				}]
+			elif (first_price == ""):
 				scraper.addWarning("No price list.")
 			else:
 				prices.append({
@@ -81,20 +96,6 @@ def scrape(name):
 				except IndexError:
 					scraper.addWarning("Weird price list.")	
 
-			if name == "Number 10 Youth One Stop Shop":
-				prices = [
-				{
-					'age': 0,
-					'price': 999
-				},
-				{
-					'age': 10,
-					'price': 0
-				},
-				{
-					'age': 25,
-					'price': 999
-				}]
 			if not prices:
 				scraper.addWarning("Weird price list.")	
 

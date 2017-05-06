@@ -19,7 +19,7 @@ class Database:
     ################################################
     # Find a practice in the database
     def findPractice(name):
-        exists = requests.get(Database.apiUrl + 'practice?name=' + urllib.parse.quote(name))
+        exists = requests.get(Database.apiUrl + 'practice/?name=' + urllib.parse.quote(name))
 
         if exists.status_code != 200 or len(exists.json()) == 0:
             return 0
@@ -29,7 +29,7 @@ class Database:
    ################################################
     # Find all via a query
     def findQuery(name):
-        exists = requests.get(Database.apiUrl + 'practice?' + urllib.parse.quote(name))
+        exists = requests.get(Database.apiUrl + 'practice/?' + urllib.parse.quote(name))
         if exists.status_code != 200 or len(exists.json()) == 0:
             return 0
         else:

@@ -6,7 +6,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Avg, Max, Min
 from django.forms.models import model_to_dict
 
-from django.contrib.gis.geos import GEOSGeometry
+from django.contrib.gis.geos import Point
+from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 
 from django.contrib.auth.models import User, Group
@@ -61,7 +62,18 @@ class PracticeViewSet(viewsets.ModelViewSet):
         lng = self.request.query_params.get('lng', None)
         age = self.request.query_params.get('age', None)
         pho = self.request.query_params.get('pho', None)
-        distance = self.request.query_params.get('distance', '2')
+        sort = self.request.query_params.get('sort', None)
+        distance = self.request.query_params.get('distance', '60000')
+
+        radius = [
+            {'value': 0, 'data': []},
+            {'value': 2000, 'data': []},
+            {'value': 5000, 'data': []},
+            {'value': 10000, 'data': []},
+            {'value': 15000, 'data': []},
+            {'value': 30000, 'data': []},
+            {'value': 60000, 'data': []}
+        ]
 
         # Specific practice
         if name is not None:
@@ -73,8 +85,8 @@ class PracticeViewSet(viewsets.ModelViewSet):
 
         # Location lookup
         if lat is not None and lng is not None:
-            pnt = 'POINT('+str(lng)+' '+str(lat)+')'
-            queryset = queryset.filter(location__distance_lte=(pnt, D(km=distance)))
+            pnt = Point(float(lng), float(lat))
+            queryset = queryset.filter(location__dwithin=(pnt, distance)).annotate(distance=Distance('location', pnt)).order_by('distance')
 
         # Prices
         if age is not None:
@@ -184,6 +196,10 @@ def submit(request):
             practice = result['practice']
             exists = result['exists']
 
+            if 'place_id' in practice:
+                place_id = practice['place_id']
+            else:
+                place_id = ''
 
             new_practice = models.Practice.objects.update_or_create( 
                 name=practice['name'], 
@@ -192,9 +208,9 @@ def submit(request):
                     'pho': practice['pho'],
                     'phone': practice['phone'],
                     'url': practice['url'],
-                    'location': GEOSGeometry('POINT('+str(practice['lng'])+' '+str(practice['lat'])+')'),
+                    'location': Point( practice['lng'], practice['lat'] ),
                     'restriction': practice['restriction'],
-                    'place_id': practice['place_id'] or ''
+                    'place_id': place_id
                 }
             )
 
