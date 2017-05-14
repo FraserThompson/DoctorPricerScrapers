@@ -25,7 +25,10 @@ class PricesSerializer(serializers.HyperlinkedModelSerializer):
 class DistanceField(serializers.Field):
 
     def to_representation(self, obj):
-        return obj.m
+        if obj != -1:
+            return obj.m
+        else:
+            return obj
 
 class PracticeSerializer(serializers.HyperlinkedModelSerializer):
     distance = DistanceField()

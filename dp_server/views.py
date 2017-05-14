@@ -1,17 +1,21 @@
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import render
-from scrapers import run
 from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Avg, Max, Min
 from django.forms.models import model_to_dict
+
+from scrapers import run
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 
 from django.contrib.auth.models import User, Group
+
 from rest_framework import viewsets
+from rest_framework.decorators import api_view
+from rest_framework.permissions import IsAuthenticated
 
 from dp_server import serializers
 from django.core import serializers as core_serializers
@@ -29,10 +33,14 @@ class PhoViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.PhoSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = serializers.UserSerializer
 
 class GroupViewSet(viewsets.ModelViewSet):
+    permission_classes = (IsAuthenticated,)
+
     queryset = Group.objects.all()
     serializer_class = serializers.GroupSerializer
 
@@ -109,9 +117,10 @@ class LogsViewSet(viewsets.ModelViewSet):
         return queryset
 
 ######################################################
-# Returns the history of price changes for a particular 
-# practice OR averages for a PHO.
+# Normal views
 ######################################################
+
+# Returns the history of price changes for a particular practice OR averages for a PHO.
 def price_history(request):
 
     practice = request.GET.get('practice', None)
@@ -127,19 +136,12 @@ def price_history(request):
 
     return HttpResponse(response, content_type="application/json")
 
-######################################################
-# Renders the index page
-######################################################
-def index(request):
-    context = {}
-    return render(request, 'home/index.html', context)
-
-######################################################
 # Runs a scraper
-######################################################
 @csrf_exempt
+@api_view(['POST'])
 def scrape(request):
-    if request.method == "POST":
+    print(request.user)
+    if request.method == "POST" and request.user.is_authenticated():
 
         return_code = 200
         data = request.body.decode('utf-8')
@@ -155,13 +157,14 @@ def scrape(request):
             return_code = 400
 
         return HttpResponse(json.dumps(response), content_type="application/json", status=return_code)
+    else:
+        return HttpResponse(status=400)
 
-######################################################
 # Submits scraped data to the database.
-######################################################
 @csrf_exempt
+@api_view(['POST'])
 def submit(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.user.is_authenticated():
 
         return_code = 200
         data = request.body.decode('utf-8')
@@ -279,11 +282,11 @@ def submit(request):
         log.save()
 
         return JsonResponse(  model_to_dict(log), status=return_code )
+    else:
+        return HttpResponse(status=400)
 
-######################################################
-# Helper: Gets the average price
-# for a particular age over a PHO.
-######################################################
+
+# Helper: Gets the average price for a particular age over a PHO.
 def get_pho_average(pho, age):
     result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age).aggregate(Avg('price'), Max('price'), Min('price'))
     return result

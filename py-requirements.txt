@@ -1,5 +1,4 @@
 Django==1.11
-django-webpack-loader==0.3.2
 djangorestframework==3.6.2
 wheel==0.26.0
 psycopg2==2.7.1

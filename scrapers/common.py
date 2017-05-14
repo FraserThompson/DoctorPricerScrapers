@@ -14,12 +14,12 @@ from pygeocoder import Geocoder
 # Contains all logic for interacting with the database.
 # Not to be instantiated.
 class Database:
-    apiUrl = 'http://localhost:8000/dp/api/'
+    apiUrl = 'https://api.doctorpricer.co.nz/api/dp/'
 
     ################################################
     # Find a practice in the database
     def findPractice(name):
-        exists = requests.get(Database.apiUrl + 'practice/?name=' + urllib.parse.quote(name))
+        exists = requests.get(Database.apiUrl + 'practices?name=' + urllib.parse.quote(name))
 
         if exists.status_code != 200 or len(exists.json()) == 0:
             return 0
@@ -29,7 +29,7 @@ class Database:
    ################################################
     # Find all via a query
     def findQuery(name):
-        exists = requests.get(Database.apiUrl + 'practice/?' + urllib.parse.quote(name))
+        exists = requests.get(Database.apiUrl + 'practices?' + urllib.parse.quote(name))
         if exists.status_code != 200 or len(exists.json()) == 0:
             return 0
         else:

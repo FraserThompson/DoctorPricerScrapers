@@ -1,5 +1,7 @@
 from django.conf.urls import url, include
 from rest_framework import routers
+from rest_framework.authtoken import views as rest_views
+
 from . import views
 
 router = routers.DefaultRouter()
@@ -12,8 +14,8 @@ router.register(r'prices', views.PricesViewSet)
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
-    url(r'^$', views.index, name='index'),
     url(r'^history$', views.price_history, name='history'),
     url(r'^scrape$', views.scrape, name='scrape'),
-    url(r'^submit$', views.submit, name='submit')
+    url(r'^submit$', views.submit, name='submit'),
+    url(r'^login/', rest_views.obtain_auth_token)
 ]
