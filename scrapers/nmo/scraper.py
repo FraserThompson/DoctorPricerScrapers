@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json, io
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 url = 'http://nmo.org.nz/our-services/gp-clinics'
 
@@ -42,6 +42,6 @@ def scrape(name):
 		scraper.practice['phone'] = lines[5].replace('\t', '')
 		scraper.practice['prices'] = prices
 
-		scraper.postPractice()
+		scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()

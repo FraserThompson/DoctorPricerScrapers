@@ -2,7 +2,7 @@ import sys, codecs, os
 import json, io
 import re
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
@@ -81,6 +81,6 @@ def scrape(name):
 			scraper.addError("Cannot geolocate address: " + scraper.practice['address'])
 			continue
 
-		scraper.postPractice()
+		scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()

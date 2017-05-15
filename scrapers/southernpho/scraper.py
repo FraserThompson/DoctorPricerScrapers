@@ -106,4 +106,4 @@ def scrape(name):
 
 			scraper.finishPractice()
 
-	return scraper.finish()
+	return return scraper.finish()

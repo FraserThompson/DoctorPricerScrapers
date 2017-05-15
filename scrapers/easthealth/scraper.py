@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 # Get the list of practices for Wellington
 def scrape(name):
@@ -70,5 +70,5 @@ def scrape(name):
 			scraper.practice['prices'] = []
 			scraper.addWarning("No prices.")
 
-		scraper.postPractice()
-	scraper.finish()
+		scraper.finishPractice()
+	return scraper.finish()

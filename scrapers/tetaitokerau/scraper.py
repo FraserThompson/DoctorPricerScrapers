@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '\\..\\')
-import scrapers
+from scrapers import common as scrapers
 
 def scrape():
 	# Get the list of practices for Wellington

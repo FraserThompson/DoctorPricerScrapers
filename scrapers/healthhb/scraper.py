@@ -2,7 +2,7 @@
 import sys, codecs, os, re
 import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 def normalize(input):
 	return scrapers.normalize(input).replace('st', 'street')
@@ -100,6 +100,6 @@ def scrape(name):
 				'price': float(cells[6].get_text(strip=True).replace("$", "")),
 				},
 			] 
-		scraper.postPractice()
+		scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()

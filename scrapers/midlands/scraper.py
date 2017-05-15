@@ -2,7 +2,7 @@ import sys, codecs, os
 import json
 import re
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 details_dict = {}
 
@@ -75,5 +75,5 @@ def scrape(name):
 					scraper.addError("Couldn't get info.")
 					continue
 
-				scraper.postPractice()
-	scraper.finish()
+				scraper.finishPractice()
+	return scraper.finish()

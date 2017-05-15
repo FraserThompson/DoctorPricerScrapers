@@ -1,7 +1,7 @@
 import sys, codecs, os, time
 import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 def scrape(name):
 	things = [
@@ -101,8 +101,9 @@ def scrape(name):
 						'price': float(cells[7].get_text(strip=True).replace("$", "")),
 						},
 				]
-				scraper.practice['lat'] = coord[0]
-				scraper.practice['lng'] = coord[1]
-				scraper.postPractice()
+
+				scraper.setLatLng(coord)
+				scraper.finishPractice()
 				time.sleep(5)
-	scraper.finish()
+
+	return scraper.finish()

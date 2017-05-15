@@ -2,7 +2,7 @@ import sys, codecs, os
 import json, io
 import time
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 import re
 
 def scrape():

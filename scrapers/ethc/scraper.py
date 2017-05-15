@@ -3,7 +3,7 @@ import json
 import re
 import requests
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 prices_south_gi = [
 	{
@@ -61,6 +61,6 @@ def scrape(name):
 		else:
 			scraper.practice['prices'] = prices_south_gi
 
-		scraper.postPractice()
+		scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()

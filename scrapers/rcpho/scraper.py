@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json, io
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 import re
 
 def scrape(name):
@@ -64,6 +64,6 @@ def scrape(name):
 				{'from_age': 65, 'to_age': 150, 'price': float(cells[6].get_text(strip=True).replace("$", ""))}
 			]
 		
-		scraper.postPractice()
+		scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()

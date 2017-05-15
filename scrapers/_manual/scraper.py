@@ -7,7 +7,7 @@ def scrape(name):
 
 	scraper = scrapers.Scraper(name)
 
-	with open(current_dir + 'data.manual.json', 'r') as inFile:
+	with open(current_dir + 'data.json', 'r') as inFile:
 
 		prac_dict = json.load(inFile)
 

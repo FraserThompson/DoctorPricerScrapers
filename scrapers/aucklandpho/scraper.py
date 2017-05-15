@@ -3,13 +3,12 @@ import sys, codecs, os
 import json
 import re
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 details_dict = {}
 
 def normalize(input):
 	return scrapers.normalize(input).replace(' st', 'street')
-
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
@@ -52,8 +51,7 @@ def scrape(name):
 			scraper.practice['phone'] = prac_details[0][2]
 			coord = prac_details[0][3]
 
-		scraper.practice['lat'] = coord[0]
-		scraper.practice['lng'] = coord[1]
+		scraper.setLatLng(coord)
 
 		# grr one of them has a different format >:(
 		if cells[0].get_text(strip=True) != "Meadowbank Medical Centre":
@@ -116,5 +114,6 @@ def scrape(name):
 					}
 				]
 
-		scraper.postPractice()
-	scraper.finish()
+		scraper.finishPractice()
+
+	return scraper.finish()

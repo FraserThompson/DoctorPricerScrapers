@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json, io
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 url = 'http://www.haurakipho.org.nz/medical-centres/our-medical-centres'
 fees_url = 'http://www.haurakipho.org.nz/medical-centres/hpho-practice-fees'

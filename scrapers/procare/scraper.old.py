@@ -1,7 +1,7 @@
 import csv, json
 import os, sys, codecs
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
-import scrapers
+from scrapers import common as scrapers
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
@@ -15,9 +15,9 @@ def scrape(name):
 			scraper.practice['prices'] = practice['prices']
 			scraper.setLatLng(practice['coordinates'])
 
-			scraper.postPractice()
+			scraper.finishPractice()
 
-	scraper.finish()
+	return scraper.finish()
 
 # def scrape(name):
 # 	scraper = scrapers.Scraper(name)
@@ -120,6 +120,6 @@ def scrape(name):
 # 			scraper.practice['prices'] = prices
 # 			count += 1
 
-# 			scraper.postPractice()
+# 			scraper.finishPractice()
 
-# 	scraper.finish()
+# 	return scraper.finish()

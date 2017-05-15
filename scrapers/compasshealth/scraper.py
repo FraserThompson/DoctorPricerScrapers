@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 def scrape(name):
 	things = [
@@ -107,8 +107,7 @@ def scrape(name):
 						},
 				]
 
-				scraper.practice['lat'] = coord[0]
-				scraper.practice['lng'] = coord[1]
-				scraper.postPractice()
-				
-	scraper.finish()
+				scraper.setLatLng(coord)
+				scraper.finishPractice()
+
+	return scraper.finish()

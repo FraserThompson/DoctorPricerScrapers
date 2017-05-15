@@ -1,7 +1,7 @@
 import sys, codecs, os
 import json, io
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 import re
 
 regex = re.compile(r'[\n\r\t]')
@@ -130,5 +130,5 @@ def scrape(name):
 		# Make the dictionary object
 		scraper.practice['phone'] = "See website"
 		scraper.practice['prices'] = fees
-		scraper.postPractice()
-	scraper.finish()
+		scraper.finishPractice()
+	return scraper.finish()

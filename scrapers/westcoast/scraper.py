@@ -2,7 +2,7 @@ import sys, codecs, os
 import json, io
 import time
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 import re
 
 def scrape(name):
@@ -48,7 +48,7 @@ def scrape(name):
 			scraper.addWarning("No prices.")
 
 		scraper.practice['prices'] = prices
-		scraper.postPractice()
+		scraper.finishPractice()
 		time.sleep(1.5)
 
-	scraper.finish()
+	return scraper.finish()

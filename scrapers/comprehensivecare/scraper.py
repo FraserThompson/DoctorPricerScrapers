@@ -2,7 +2,7 @@ import sys, codecs, os
 import json
 import re
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
-import scrapers
+from scrapers import common as scrapers
 
 details_dict = {}
 coords_list = []
@@ -54,5 +54,5 @@ def scrape(name):
 				scraper.addWarning("Couldn't get all the prices?")
 
 		scraper.practice['prices'] = prices
-		scraper.postPractice()
-	scraper.finish()
+		scraper.finishPractice()
+	return scraper.finish()

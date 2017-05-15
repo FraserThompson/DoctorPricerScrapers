@@ -2,7 +2,7 @@ import csv, json
 import os, sys, codecs
 import requests, time
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '/../')
-import scrapers
+from scrapers import common as scrapers
 
 #stupid shit because the windows console can't print stuff properly
 sys.stdout = codecs.getwriter('cp850')(sys.stdout.buffer, 'xmlcharrefreplace')

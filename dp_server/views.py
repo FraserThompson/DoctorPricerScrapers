@@ -140,7 +140,6 @@ def price_history(request):
 @csrf_exempt
 @api_view(['POST'])
 def scrape(request):
-    print(request.user)
     if request.method == "POST" and request.user.is_authenticated():
 
         return_code = 200
