@@ -22,6 +22,9 @@ from django.core import serializers as core_serializers
 from dp_server import models
 
 import logging, json
+from django.db.models.base import ObjectDoesNotExist
+
+from collections import defaultdict
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +32,7 @@ logger = logging.getLogger(__name__)
 # Django REST Framework views
 ######################################################
 class PhoViewSet(viewsets.ModelViewSet):
-    queryset = models.Pho.objects.all()
+    queryset = models.Pho.objects.all().order_by('name')
     serializer_class = serializers.PhoSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -149,9 +152,37 @@ def scrape(request):
         response = run.one(json_body['module'])
 
         if not response['error']:
-            pho = models.Pho.objects.get(module=json_body['module'])
-            pho.last_scrape = response['data']
-            pho.save()
+
+            # If we're dealing with a normal import
+            if json_body['module'] != "_manual":
+
+                pho = models.Pho.objects.get(module=json_body['module'])
+                pho.last_scrape = response['data']
+                pho.save()
+
+            # If we're dealing with a special manual import
+            else:
+
+                sorted_by_pho = defaultdict(list)
+
+                # Make sure the PHO objects exist
+                for value in response['data']['scraped']:
+
+                    sorted_by_pho[value["practice"]["pho"]].append(value)
+
+                    try:
+                        pho = models.Pho.objects.get(name=value["practice"]["pho"])
+                    except ObjectDoesNotExist:
+                        print('making new pho:' + value["practice"]["pho"])
+                        pho = models.Pho(name=value["practice"]["pho"], module=value["practice"]["pho"].lower().replace(" ", ""))
+                        pho.save()
+
+                # Add our scraped objects to the PHO's last_scrape
+                for key, value in sorted_by_pho.items():
+                    pho_obj = models.Pho.objects.get(name=key)
+                    pho_obj.last_scrape = {"name": key, "scraped": value, "errors": [], "warnings": []}
+                    pho_obj.save()
+
         else:
             return_code = 400
 
@@ -198,7 +229,7 @@ def submit(request):
             practice = result['practice']
             exists = result['exists']
 
-            if 'place_id' in practice:
+            if 'place_id' in practice and practice['place_id'] is not None:
                 place_id = practice['place_id']
             else:
                 place_id = ''
@@ -210,7 +241,7 @@ def submit(request):
                     'pho': practice['pho'],
                     'phone': practice['phone'],
                     'url': practice['url'],
-                    'location': Point( practice['lng'], practice['lat'] ),
+                    'location': Point( float(practice['lng']), float(practice['lat']) ),
                     'restriction': practice['restriction'],
                     'place_id': place_id
                 }

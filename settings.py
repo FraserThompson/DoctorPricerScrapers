@@ -20,13 +20,23 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'pc4k_+p(w+*x%183f)u43p_v@^3@ujl6!&+^a2qy735y66_2bh'
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'pc4k_+p(w+*x%183f)u43p_v@^3@ujl6!&+^a2qy735y66_2bh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Memcache for cache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
+        'LOCATION': 'memcached:11211',
+    }
+}
+
+# Cached sessions
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
 
 # Application definition
 
@@ -85,8 +95,8 @@ DATABASES = {
     'default': {
         'ENGINE' : 'django.contrib.gis.db.backends.postgis',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'password123',
+        'USER':  'postgres',
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD') or 'password123',
         'HOST': 'postgres',
         'PORT': '',
     }

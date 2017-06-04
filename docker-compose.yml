@@ -1,10 +1,13 @@
 version: '3'
 
 services:
+    memcached:
+        image: memcached:alpine
+
     postgres:
         image: mdillon/postgis
         environment:
-            - POSTGRES_PASSWORD=password123
+            POSTGRES_PASSWORD: "${DATABASE_PASSWORD:-password123}"
         ports:
             - '5432:5432'
 

@@ -5,7 +5,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main' 9.6 > /
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | \
     apt-key add -
 
-RUN apt-get update && apt-get install postgresql-9.6 postgresql-9.6-postgis postgresql-server-dev-9.6 python-psycopg2 -y
+RUN apt-get update && apt-get install postgresql-9.6 postgresql-9.6-postgis postgresql-server-dev-9.6 python-psycopg2 libmemcached-dev zlib1g-dev -y
 
 RUN mkdir /code
 WORKDIR /code

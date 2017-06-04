@@ -8,9 +8,21 @@ You'll just need Docker and docker-compose.
 
 ### Running it
 
+#### Environment variables 
+
+* DATABASE_PASSWORD
+* SECRET_KEY
+
 Start it up with `docker-compose up --build`
 
 Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
+
+#### Doing a Manual import
+
+1. Put data.json into `_manual`
+2. Create a PHO with the module name `_manual`
+3. Run `scrape` on `_manual`, this will create PHOs too
+4. Run `submit`on the new PHOs
 
 ### Adding scrapers
 Needs a file called scraper.py in the folder named after the pho.
