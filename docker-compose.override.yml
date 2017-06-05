@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+
+    server:
+        volumes:
+            - ./dp_server:/var/www/dp_server
+            - ./scrapers:/var/www/scrapers

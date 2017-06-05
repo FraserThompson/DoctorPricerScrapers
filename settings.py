@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = "/var/www/dp_server/"
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,7 +23,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = os.environ.get('SECRET_KEY') or 'pc4k_+p(w+*x%183f)u43p_v@^3@ujl6!&+^a2qy735y66_2bh'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ENV') == "production":
+    DEBUG = False
+else:
+    DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -34,6 +37,15 @@ CACHES = {
         'LOCATION': 'memcached:11211',
     }
 }
+
+# Database connection pooling
+CONN_MAX_AGE = 60
+
+# Security stuff
+if os.environ.get('ENV') == "production":
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 # Cached sessions
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
@@ -122,9 +134,7 @@ USE_TZ = True
 
 STATIC_URL = '/assets/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'assets'), 
-)
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',

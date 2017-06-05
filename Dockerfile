@@ -7,8 +7,8 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main' 9.6 > /
 
 RUN apt-get update && apt-get install postgresql-9.6 postgresql-9.6-postgis postgresql-server-dev-9.6 python-psycopg2 libmemcached-dev zlib1g-dev -y
 
-RUN mkdir /code
-WORKDIR /code
+RUN mkdir -p /var/www/dp_server/assets
+WORKDIR /var/www
 
 ADD py-requirements.txt .
 RUN pip install -r py-requirements.txt
@@ -18,6 +18,7 @@ ADD scrapers ./scrapers
 ADD dp_server ./dp_server
 
 ADD usrlocalbin /usr/local/bin
+ADD conf /conf
 RUN chmod +x /usr/local/bin/migrate && chmod +x /usr/local/bin/createsuperuser
 
-CMD python manage.py runserver 0.0.0.0:8000
+CMD python manage.py collectstatic --noinput && gunicorn --config /conf/gunicorn.conf wsgi

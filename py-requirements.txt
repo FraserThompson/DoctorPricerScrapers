@@ -11,3 +11,4 @@ requests==2.13.0
 django-simple-history
 django-cors-headers
 pylibmc
+gunicorn
