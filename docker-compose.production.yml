@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+
+    server:
+        environment:
+           - GUNICORN_WORKERS=2
+           - GUNICORN_BIND=unix:/socks/gunicorn.sock
+           - ENV=production

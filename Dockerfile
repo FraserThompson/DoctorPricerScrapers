@@ -21,4 +21,4 @@ ADD usrlocalbin /usr/local/bin
 ADD conf /conf
 RUN chmod +x /usr/local/bin/migrate && chmod +x /usr/local/bin/createsuperuser
 
-CMD python manage.py collectstatic --noinput && gunicorn --config /conf/gunicorn.conf wsgi
+CMD python manage.py collectstatic --noinput && gunicorn --config /conf/gunicorn.conf --reload wsgi

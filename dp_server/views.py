@@ -190,6 +190,28 @@ def scrape(request):
     else:
         return HttpResponse(status=400)
 
+def update_pho_averages(pho):
+
+    average_prices = [
+        {'age': 0, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 6, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 13, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 18, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 25, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 45, 'average': 0, 'min': 0, 'max': 0},
+        {'age': 65, 'average': 0, 'min': 0, 'max': 0}
+    ]
+
+    # Update the average
+    for price in average_prices:
+        stats = get_pho_average(pho.id, price['age'])
+        price['average'] = stats['price__avg']
+        price['min'] = str(stats['price__min'])
+        price['max'] = str(stats['price__max'])
+
+    pho.average_prices = average_prices
+    pho.save()
+
 # Submits scraped data to the database.
 @csrf_exempt
 @api_view(['POST'])
@@ -210,16 +232,6 @@ def submit(request):
             data = pho.last_scrape
         else:
             data = json_body['data']
-
-        average_prices = [
-            {'age': 0, 'average': 0, 'min': 0, 'max': 0},
-            {'age': 6, 'average': 0, 'min': 0, 'max': 0},
-            {'age': 13, 'average': 0, 'min': 0, 'max': 0},
-            {'age': 18, 'average': 0, 'min': 0, 'max': 0},
-            {'age': 25, 'average': 0, 'min': 0, 'max': 0},
-            {'age': 45, 'average': 0, 'min': 0, 'max': 0},
-            {'age': 65, 'average': 0, 'min': 0, 'max': 0}
-        ]
 
         changes = {}
 
@@ -269,43 +281,37 @@ def submit(request):
                             changes[practice['name']][str(old_price.from_age)] = [str(old_price.price), str(new_prices[i]['price'])]
 
                             # change the thing in the database
-                            old_price.price = new_prices[i]['price']
-                            old_price.save()
-                                            
+                            # old_price.price = new_prices[i]['price']
+                            # old_price.save()
+
                         i = i + 1
+
             # Or just submit them if they're not already there
-            else:
-                for i, price in enumerate(practice['prices']):
+            for i, price in enumerate(practice['prices']):
 
-                    from_age = price['age']
+                from_age = price['age']
 
-                    if i < len(practice['prices']) - 1:
-                        to_age = practice['prices'][i+1]['age'] - 1
-                    else:
-                        to_age = 150
+                if i < len(practice['prices']) - 1:
+                    to_age = practice['prices'][i+1]['age'] - 1
+                else:
+                    to_age = 150
 
-                    print('Submitting price for: ' + practice['name'])
-                    new_prices = models.Prices.objects.update_or_create(
-                        practice = new_practice[0],
-                        pho = pho,
-                        from_age = from_age,
-                        to_age = to_age,
-                        defaults={
-                            'price': price['price']
-                        }
-                    )
-
-        # Update the average
-        for price in average_prices:
-            stats = get_pho_average(pho.id, price['age'])
-            price['average'] = stats['price__avg']
-            price['min'] = str(stats['price__min'])
-            price['max'] = str(stats['price__max'])
+                print('Submitting price for: ' + practice['name'])
+                new_prices = models.Prices.objects.update_or_create(
+                    practice = new_practice[0],
+                    pho = pho,
+                    from_age = from_age,
+                    to_age = to_age,
+                    defaults={
+                        'price': price['price']
+                    }
+                )
 
         # Update the PHO
-        pho.number_of_practices = len(data['scraped']) 
-        pho.average_prices = average_prices
+        pho.number_of_practices = len(data['scraped'])
         pho.save()
+
+        update_pho_averages(pho)
 
         # Add a log item
         log = models.Logs(source=pho, scraped=data['scraped'], errors=data['errors'], warnings=data['warnings'], changes=changes)
