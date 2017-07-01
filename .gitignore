@@ -7,3 +7,4 @@ webpack-stats.json
 /assets/bundles
 /dp_server/migrations
 db.sqlite3
+conf/ssl
