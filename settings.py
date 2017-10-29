@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-
 BASE_DIR = "/var/www/dp_server/"
 
 
@@ -67,7 +66,9 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'dp_server',
     'simple_history',
-    'corsheaders'
+    'corsheaders',
+    'celery',
+    'django_celery_results',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -153,3 +154,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication'
     ]
 }
+
+# Celery
+CELERY_BROKER_URL = 'amqp://myuser:mypass@rabbit:5672/'
+CELERY_RESULT_BACKEND = 'django-db'

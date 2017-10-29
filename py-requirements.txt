@@ -12,3 +12,5 @@ django-simple-history
 django-cors-headers
 pylibmc
 gunicorn
+celery
+django-celery-results

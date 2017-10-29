@@ -5,7 +5,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.db.models import Avg, Max, Min
 from django.forms.models import model_to_dict
 
-from scrapers import run
+from dp_server import tasks
+
+from scrapers import run # someday we'll seperate these scrapers from the server
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
@@ -25,6 +27,8 @@ import logging, json
 from django.db.models.base import ObjectDoesNotExist
 
 from collections import defaultdict
+
+from django_celery_results.models import TaskResult
 
 logger = logging.getLogger(__name__)
 
@@ -141,54 +145,33 @@ def price_history(request):
 
 # Runs a scraper
 @csrf_exempt
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 def scrape(request):
+
     if request.method == "POST" and request.user.is_authenticated():
 
-        return_code = 200
         data = request.body.decode('utf-8')
         json_body = json.loads(data)
 
-        response = run.one(json_body['module'])
+        task = tasks.scrape.delay(json_body['module'])
 
-        if not response['error']:
+        return JsonResponse({'task_id': task.task_id}, status=200)
 
-            # If we're dealing with a normal import
-            if json_body['module'] != "_manual":
+    elif request.method == "GET":
 
-                pho = models.Pho.objects.get(module=json_body['module'])
-                pho.last_scrape = response['data']
-                pho.save()
+        data = request.query_params
 
-            # If we're dealing with a special manual import
-            else:
+        try:
+            task_result = TaskResult.objects.get(task_id=data['task_id'])
+        except TaskResult.DoesNotExist:
+            return JsonResponse({'error': 'Does not exist'}, status=400)
 
-                sorted_by_pho = defaultdict(list)
-
-                # Make sure the PHO objects exist
-                for value in response['data']['scraped']:
-
-                    sorted_by_pho[value["practice"]["pho"]].append(value)
-
-                    try:
-                        pho = models.Pho.objects.get(name=value["practice"]["pho"])
-                    except ObjectDoesNotExist:
-                        print('making new pho:' + value["practice"]["pho"])
-                        pho = models.Pho(name=value["practice"]["pho"], module=value["practice"]["pho"].lower().replace(" ", ""))
-                        pho.save()
-
-                # Add our scraped objects to the PHO's last_scrape
-                for key, value in sorted_by_pho.items():
-                    pho_obj = models.Pho.objects.get(name=key)
-                    pho_obj.last_scrape = {"name": key, "scraped": value, "errors": [], "warnings": []}
-                    pho_obj.save()
-
+        if (task_result.status != "FAILURE"):
+            return JsonResponse(task_result.as_dict(), status=200, safe=False)
         else:
-            return_code = 400
+            return JsonResponse(task_result.as_dict(), status=400, safe=False)
 
-        return HttpResponse(json.dumps(response), content_type="application/json", status=return_code)
-    else:
-        return HttpResponse(status=400)
+    return HttpResponse(status=400)
 
 def update_pho_averages(pho):
 

@@ -8,3 +8,4 @@ webpack-stats.json
 /dp_server/migrations
 db.sqlite3
 conf/ssl
+npm-debug.log

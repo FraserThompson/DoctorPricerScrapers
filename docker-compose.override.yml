@@ -1,8 +1,17 @@
 version: '3'
 
 services:
+    nginx:
+        build: ../dp_nginx
+        restart: "no"
 
     server:
+        build: ../dp_scrapers
         volumes:
             - ./dp_server:/var/www/dp_server
             - ./scrapers:/var/www/scrapers
+        restart: "no"
+
+    worker:
+        build: ../dp_scrapers
+        restart: "no"

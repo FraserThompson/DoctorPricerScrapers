@@ -6,6 +6,24 @@
 
 You'll just need Docker and docker-compose.
 
+### Model
+
+#### PHO
+
+Create a PHO For each scraper.
+
+#### Practice
+
+Scrapers make these when they scrape. Each is associated with a PHO.
+
+#### Log
+
+A log is made each time a scraper is run.
+
+##### Prices
+
+Each practice has prices associated with it.
+
 ### Running it
 
 #### Environment variables 
@@ -16,6 +34,11 @@ You'll just need Docker and docker-compose.
 Start it up with `docker-compose up --build`
 
 Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
+
+#### Accessing the admin backend
+
+1. `docker-compose exec server createsuperuser` to make a superuser
+2. Navigate to https://localhost:8443/admin and log in with those credentials
 
 #### Doing a Manual import
 

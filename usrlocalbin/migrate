@@ -1,2 +1,2 @@
 #!/bin/bash
-python /code/manage.py makemigrations && python /code/manage.py migrate
+python /var/www/manage.py makemigrations && python /var/www/manage.py migrate

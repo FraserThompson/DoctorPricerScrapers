@@ -1,9 +1,23 @@
 version: '3'
 
 services:
+
+    # Memcached for Django
     memcached:
         image: memcached:alpine
 
+    # Rabbit for Celery
+    rabbit:
+        hostname: rabbit
+        image: rabbitmq:3.6.0
+        environment:
+            - RABBITMQ_DEFAULT_USER=myuser
+            - RABBITMQ_DEFAULT_PASS=mypass
+        ports:
+            - "5672:5672"  # we forward this port because it's useful for debugging
+            - "15672:15672"  # here, we can access rabbitmq management plugin
+
+    # Postgres for our database
     postgres:
         image: mdillon/postgis
         environment:
@@ -12,26 +26,35 @@ services:
             - '5432'
         restart: always
 
+    # Django
     server:
-        build: fraserthompson/doctorpricerscrapers
-        links:
-           - postgres
+        image: fraserthompson/doctorpricerscrapers
+        command: /run_server.sh
         environment:
-           - GUNICORN_WORKERS=2
-           - GUNICORN_BIND=unix:/socks/gunicorn.sock
            - ENV=${ENV:-staging}
         volumes:
             - socks:/socks
-            - static_files:/var/www/dp_server/assets
+            - static_files:/var/www/dp_server/assets  
+        depends_on:
+            - postgres
         restart: always
 
+    # Celery worker
+    worker:
+        image: fraserthompson/doctorpricerscrapers
+        command: /run_celery.sh
+        depends_on:
+            - rabbit
+        restart: always
+
+    # Nginx sits in front
     nginx:
         image: fraserthompson/doctorpricernginx
         ports:
             - 8443:443
             - 8000:80
         volumes:
-            - ./conf/ssl:/etc/nginx/ssl:ro
+            - ./conf/ssl:/etc/nginx/ssl
             - static_files:/var/www/dp_server/assets
             - socks:/socks
         restart: always
