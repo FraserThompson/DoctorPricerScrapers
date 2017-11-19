@@ -9,7 +9,7 @@ router.register(r'pho', views.PhoViewSet)
 router.register(r'logs', views.LogsViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
-router.register(r'practice', views.PracticeViewSet)
+router.register(r'practices', views.PracticeViewSet)
 router.register(r'prices', views.PricesViewSet)
 
 urlpatterns = [

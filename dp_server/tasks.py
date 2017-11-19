@@ -24,17 +24,18 @@ def scrape(module):
     task_result.meta = "Scraping"
     task_result.save()
 
+    pho = models.Pho.objects.get(module=module)
+    pho.current_task_id = scrape.request.id
+    pho.save()
+
     response = run.one(module)
 
-    # If we're dealing with a normal import
-    if module != "_manual":
-
-        pho = models.Pho.objects.get(module=module)
-        pho.last_scrape = response['data']
-        pho.save()
+    pho.last_scrape = response['data']
+    pho.current_task_id = None
+    pho.save()
 
     # If we're dealing with a special manual import
-    else:
+    if module == "_manual" or module == "_legacy":
 
         sorted_by_pho = defaultdict(list)
 

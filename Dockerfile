@@ -12,6 +12,7 @@ ADD run_server.sh /run_server.sh
 ADD run_celery.sh /run_celery.sh
 
 RUN mkdir -p /var/www/dp_server/assets
+RUN chown www-data:www-data /var/www/dp_server/assets
 WORKDIR /var/www
 
 ADD py-requirements.txt .

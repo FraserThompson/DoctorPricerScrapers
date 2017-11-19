@@ -5,7 +5,7 @@ from rest_framework import serializers
 class PhoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Pho
-        fields = ('name', 'module', 'last_run', 'last_scrape', 'number_of_practices', 'average_prices', 'website')
+        fields = ('name', 'module', 'last_run', 'last_scrape', 'current_task_id', 'number_of_practices', 'average_prices', 'website')
 
 class LogsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

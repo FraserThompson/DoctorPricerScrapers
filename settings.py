@@ -158,3 +158,4 @@ REST_FRAMEWORK = {
 # Celery
 CELERY_BROKER_URL = 'amqp://' + os.environ.get('RABBITMQ_DEFAULT_USER') + ':' + os.environ.get('RABBITMQ_DEFAULT_PASS') + '@rabbit:5672/'
 CELERY_RESULT_BACKEND = 'django-db'
+CELERYD_TASK_SOFT_TIME_LIMIT = 60 * 60 # 60 minute timeout on all tasks

@@ -24,6 +24,11 @@ services:
     worker:
         build: ../dp_scrapers
         restart: "no"
+        environment:
+            - DATABASE_PASSWORD=password123
+            - RABBITMQ_DEFAULT_USER=myuser
+            - RABBITMQ_DEFAULT_PASS=mypass
+            - SECRET_KEY=hugesecretdontsharewithanyone
     
     rabbit:
         environment:

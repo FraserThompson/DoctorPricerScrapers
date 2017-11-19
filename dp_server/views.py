@@ -1,7 +1,9 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseBadRequest
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+
+from dp_server.celery import app
 
 from dp_server import tasks
 
@@ -106,6 +108,18 @@ class PracticeViewSet(viewsets.ModelViewSet):
             for practice in queryset:
                 practice.price = practice.price(age=age)
 
+        # Sorting into radius buckets
+        # [TODO] Figure out how to actually do something with this (might need to break the django REST api stuff and make it a normal view)
+        if sort is not None:
+            for practice in queryset:
+
+                for radii in radius:
+                    if practice.distance.km >= radii["value"]:
+                        continue
+                    else:
+                        radii["data"].append(practice)
+                        break
+            
         return queryset
 
 class LogsViewSet(viewsets.ModelViewSet):
@@ -153,12 +167,17 @@ def scrape(request):
         data = request.body.decode('utf-8')
         json_body = json.loads(data)
 
+        pho = models.Pho.objects.get(module=json_body['module'])
+
+        if pho.current_task_id:
+            return HttpResponseBadRequest("We're already scraping: " + pho.current_task_id)
+
         task = tasks.scrape.delay(json_body['module'])
 
         return JsonResponse({'task_id': task.task_id}, status=200)
 
     else:
-        return HttpResponse(status=400)
+        return HttpResponseBadRequest("You're not cool enough to do that.")
 
 ####################################################
 # Submits to database
@@ -176,24 +195,38 @@ def submit(request):
         return JsonResponse({'task_id': task.task_id}, status=200)
 
     else:
-        return HttpResponse(status=400)
+        return HttpResponseBadRequest("You're not cool enough to do that.")
 
 
 ####################################################
-# GETs the status of a task
-# Expects 'task_id' param
+# GETs the status of a task or DELETES one
+# Expects 'task_id' param, to DELETE it also needs 'module'
 @csrf_exempt
-@api_view(['GET'])
+@api_view(['GET', 'DELETE'])
 def task_status(request):
 
     data = request.query_params
 
-    try:
-        task_result = TaskResult.objects.get(task_id=data['task_id'])
-    except TaskResult.DoesNotExist:
-        return False
+    if request.method == 'GET':
+        try:
+            task_result = TaskResult.objects.get(task_id=data['task_id'])
+        except TaskResult.DoesNotExist:
+            return HttpResponseBadRequest('Task object does not exist.')
 
-    if (task_result.status != "FAILURE"):
-        return JsonResponse(task_result.as_dict(), status=200, safe=False)
-    else:
-        return JsonResponse(task_result.as_dict(), status=400, safe=False)
+        if (task_result.status != "FAILURE"):
+            return JsonResponse(task_result.as_dict(), status=200, safe=False)
+        else:
+            return JsonResponse(task_result.as_dict(), status=400, safe=False)
+
+    elif request.method == 'DELETE':
+        if request.user.is_authenticated():
+
+            app.control.terminate(data['task_id'])
+
+            pho = models.Pho.objects.get(module=data['module'])
+            pho.current_task_id = None
+            pho.save()
+
+            return HttpResponse('Killed it')
+    
+    return HttpResponseBadRequest("You're not cool enough to do that.")

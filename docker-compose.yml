@@ -47,6 +47,12 @@ services:
     worker:
         image: fraserthompson/doctorpricerscrapers
         command: /run_celery.sh
+        environment:
+            - ENV=${ENV:-staging}
+            - RABBITMQ_DEFAULT_USER
+            - RABBITMQ_DEFAULT_PASS
+            - SECRET_KEY
+            - DATABASE_PASSWORD
         depends_on:
             - rabbit
         restart: always
