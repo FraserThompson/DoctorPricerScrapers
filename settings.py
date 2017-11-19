@@ -19,7 +19,7 @@ BASE_DIR = "/var/www/dp_server/"
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY') or 'pc4k_+p(w+*x%183f)u43p_v@^3@ujl6!&+^a2qy735y66_2bh'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == "production":
@@ -112,7 +112,7 @@ DATABASES = {
         'ENGINE' : 'django.contrib.gis.db.backends.postgis',
         'NAME': 'postgres',
         'USER':  'postgres',
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD') or 'password123',
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
         'HOST': 'postgres',
         'CONN_MAX_AGE': 600,
         'PORT': '',
@@ -156,5 +156,5 @@ REST_FRAMEWORK = {
 }
 
 # Celery
-CELERY_BROKER_URL = 'amqp://myuser:mypass@rabbit:5672/'
+CELERY_BROKER_URL = 'amqp://' + os.environ.get('RABBITMQ_DEFAULT_USER') + ':' + os.environ.get('RABBITMQ_DEFAULT_PASS') + '@rabbit:5672/'
 CELERY_RESULT_BACKEND = 'django-db'

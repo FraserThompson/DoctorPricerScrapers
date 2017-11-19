@@ -5,8 +5,17 @@ services:
         build: ../dp_nginx
         restart: "no"
 
+    postgres:
+        environment:
+            - POSTGRES_PASSWORD=password123
+
     server:
         build: ../dp_scrapers
+        environment:
+            - DATABASE_PASSWORD=password123
+            - RABBITMQ_DEFAULT_USER=myuser
+            - RABBITMQ_DEFAULT_PASS=mypass
+            - SECRET_KEY=hugesecretdontsharewithanyone
         volumes:
             - ./dp_server:/var/www/dp_server
             - ./scrapers:/var/www/scrapers
@@ -15,3 +24,8 @@ services:
     worker:
         build: ../dp_scrapers
         restart: "no"
+    
+    rabbit:
+        environment:
+            - RABBITMQ_DEFAULT_USER=myuser
+            - RABBITMQ_DEFAULT_PASS=mypass

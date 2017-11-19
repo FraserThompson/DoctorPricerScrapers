@@ -21,7 +21,7 @@ services:
     postgres:
         image: mdillon/postgis
         environment:
-            POSTGRES_PASSWORD: "${DATABASE_PASSWORD:-password123}"
+            - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
         ports:
             - '5432'
         restart: always
@@ -31,7 +31,11 @@ services:
         image: fraserthompson/doctorpricerscrapers
         command: /run_server.sh
         environment:
-           - ENV=${ENV:-staging}
+            - ENV=${ENV:-staging}
+            - RABBITMQ_DEFAULT_USER
+            - RABBITMQ_DEFAULT_PASS
+            - SECRET_KEY
+            - DATABASE_PASSWORD
         volumes:
             - socks:/socks
             - static_files:/var/www/dp_server/assets  
