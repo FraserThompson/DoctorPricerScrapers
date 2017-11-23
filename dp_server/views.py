@@ -65,6 +65,13 @@ class PricesViewSet(viewsets.ModelViewSet):
 
         return queryset
 
+
+####################################################
+# Returns some practices
+# Params: Lat (latitude), lng (longitude) will return practices within 60km or distance if that's specified
+#         name will return a specific practice
+#         pho will return all practices from a pho
+#         if age is specified it will also calculate prices.
 class PracticeViewSet(viewsets.ModelViewSet):
     queryset = models.Practice.objects.all()
     serializer_class = serializers.PracticeSerializer
@@ -77,18 +84,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         lng = self.request.query_params.get('lng', None)
         age = self.request.query_params.get('age', None)
         pho = self.request.query_params.get('pho', None)
-        sort = self.request.query_params.get('sort', None)
         distance = self.request.query_params.get('distance', '60000')
-
-        radius = [
-            {'value': 0, 'data': []},
-            {'value': 2000, 'data': []},
-            {'value': 5000, 'data': []},
-            {'value': 10000, 'data': []},
-            {'value': 15000, 'data': []},
-            {'value': 30000, 'data': []},
-            {'value': 60000, 'data': []}
-        ]
 
         # Specific practice
         if name is not None:
@@ -107,18 +103,6 @@ class PracticeViewSet(viewsets.ModelViewSet):
         if age is not None:
             for practice in queryset:
                 practice.price = practice.price(age=age)
-
-        # Sorting into radius buckets
-        # [TODO] Figure out how to actually do something with this (might need to break the django REST api stuff and make it a normal view)
-        if sort is not None:
-            for practice in queryset:
-
-                for radii in radius:
-                    if practice.distance.km >= radii["value"]:
-                        continue
-                    else:
-                        radii["data"].append(practice)
-                        break
             
         return queryset
 
