@@ -24,7 +24,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == "production":
     DEBUG = False
-    ALLOWED_HOSTS = ['api.doctorpricer.co.nz']
+    ALLOWED_HOSTS = ['scrapers.doctorpricer.co.nz']
 else:
     ALLOWED_HOSTS = []
     DEBUG = True
