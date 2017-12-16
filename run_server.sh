@@ -1,5 +1,7 @@
 #!/bin/bash
 
+touch /socks/gunicorn.sock
+
 sleep 10
 
 /usr/local/bin/migrate
