@@ -9,7 +9,7 @@ services:
         environment:
             - POSTGRES_PASSWORD=password123
 
-    server:
+    django:
         build: ../dp_scrapers
         environment:
             - DATABASE_PASSWORD=password123

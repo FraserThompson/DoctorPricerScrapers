@@ -34,3 +34,5 @@ USER www-data
 COPY ["*.py", "./"]
 COPY ["scrapers", "./scrapers"]
 COPY ["dp_server", "./dp_server"]
+
+VOLUME ["/socks"]

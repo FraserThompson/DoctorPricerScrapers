@@ -27,7 +27,7 @@ services:
     restart: always
 
   # Django
-  server:
+  django:
     image: fraserthompson/doctorpricerscrapers
     command: /run_server.sh
     environment:
