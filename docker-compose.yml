@@ -32,6 +32,7 @@ services:
     command: /run_server.sh
     environment:
       - ENV=${ENV:-staging}
+      - ADMIN_PASSWORD
       - RABBITMQ_DEFAULT_USER
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY
@@ -60,14 +61,18 @@ services:
   # Nginx sits in front
   nginx:
     image: fraserthompson/doctorpricernginx
+    environment:
+      - ENV=${ENV:-staging}
     ports:
       - 8443:443
       - 8000:80
     volumes:
       - socks:/socks
       - static_files:/var/www/dp_server/assets
+      - nginx-certs:/etc/letsencrypt
     restart: always
 
 volumes:
   socks:
   static_files:
+  nginx-certs:
