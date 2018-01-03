@@ -12,6 +12,7 @@ services:
     django:
         build: ../dp_scrapers
         environment:
+            - ADMIN_PASSWORD=dev
             - DATABASE_PASSWORD=password123
             - RABBITMQ_DEFAULT_USER=myuser
             - RABBITMQ_DEFAULT_PASS=mypass
