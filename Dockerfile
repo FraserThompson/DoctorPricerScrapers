@@ -17,9 +17,6 @@ RUN chmod +x /usr/local/bin/migrate && \
     chmod +x /run_server.sh && \
     chmod +x /run_celery.sh
 
-RUN mkdir -p /var/www/dp_server/assets && \
-    chown www-data:www-data /var/www/dp_server/assets
-
 WORKDIR /var/www
 
 COPY ["py-requirements.txt", "."]
@@ -36,7 +33,9 @@ COPY ["dp_server", "./dp_server"]
 RUN  groupadd varwwwusers && \
     adduser www-data varwwwusers && \
     chown -R www-data:varwwwusers /var/www/ && \
-    chmod -R 760 /var/www/
+    chmod -R 760 /var/www/ && \
+    mkdir -p /var/www/dp_server/assets && \
+    chown www-data:www-data /var/www/dp_server/assets
 
 USER www-data
 
