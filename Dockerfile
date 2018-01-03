@@ -17,8 +17,8 @@ RUN chmod +x /usr/local/bin/migrate && \
     chmod +x /run_server.sh && \
     chmod +x /run_celery.sh
 
-RUN mkdir -p /var/www/dp_server/assets
-RUN chown www-data:www-data /var/www/dp_server/assets
+RUN mkdir -p /var/www/dp_server/assets && \
+    chown www-data:www-data /var/www/dp_server/assets
 
 WORKDIR /var/www
 
@@ -29,10 +29,15 @@ COPY ["conf", "/conf"]
 
 RUN mkdir /socks && chown www-data:www-data /socks
 
-USER www-data
-
 COPY ["*.py", "./"]
 COPY ["scrapers", "./scrapers"]
 COPY ["dp_server", "./dp_server"]
+
+RUN  groupadd varwwwusers && \
+    adduser www-data varwwwusers && \
+    chown -R www-data:varwwwusers /var/www/ && \
+    chmod -R 760 /var/www/
+
+USER www-data
 
 VOLUME ["/socks"]
