@@ -61,29 +61,29 @@ class Scraper:
         context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
-    #  geolocate()
-    # Does two things: 
-    # 1. If there are no coordinates for a practice it will geolocate it using Google Maps API
-    # 2. If there is no existing place_id it will get it
-    # It's called for each practice before submission to the database
+    # Geolocate using Google Maps API
     def geolocate(self):
-        if not self.practice['lat']:
-            try:
-                result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
-                coord = result_array[0].coordinates
-            except:
-                self.addWarning("Could not geocode address: " + self.practice["address"])
-                return 0
+        try:
+            result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
+            coord = result_array[0].coordinates
+        except:
+            self.addWarning("Could not geocode address: " + self.practice["address"])
+            return 0
 
-            self.practice["lat"] = coord[0]
-            self.practice["lng"] = coord[1]
+        self.practice["lat"] = coord[0]
+        self.practice["lng"] = coord[1]
 
+    # Gets the place ID
+    def get_place_id(self):
         req = requests.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyD2fzuhGAI8NIym12WKRkKKzQt-AzJqClE&location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30&query=" + self.practice["name"] + ' &key=' + self.google_key)
+
         if req.json()["status"] == 'OK':
             self.practice["place_id"] = req.json()["results"][0]["place_id"]
+            return 1
         else:
             print('GOOGLE MAPS API OVER LIMIT')
             self.addWarning("Could not get place ID: " + req.json()["status"])
+            return 0
 
     def setLatLng(self, coord):
         self.practice["lat"] = coord[0]
@@ -106,13 +106,19 @@ class Scraper:
     def finishPractice(self):
         self.exists = Database.findPractice(self.practice["name"])
 
-        # Get Google place ID and/or geolocate the address if it's not already there
-        if self.exists == 0 or not self.exists["place_id"]:
-            self.geolocate()
-        else:
+        # Use existing information if address hasn't changed
+        if self.exists and self.exists["address"] == self.practice["address"]:
             self.practice["place_id"] = self.exists["place_id"]
             self.practice["lat"] = self.exists["lat"]
             self.practice["lng"] = self.exists["lng"]
+
+        # If we don't have coordinate data then geolocate
+        if not self.practice['lat']:
+            self.geolocate()
+
+        # If we still don't have the place ID then get it
+        if not self.practice["place_id"]:
+            self.get_place_id()
 
         if not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
