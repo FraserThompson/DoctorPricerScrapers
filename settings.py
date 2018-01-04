@@ -11,8 +11,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os, sys
-from django.utils.log import DEFAULT_LOGGING
+import os
 
 BASE_DIR = "/var/www/dp_server/"
 
@@ -26,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == "production":
     DEBUG = False
-    ALLOWED_HOSTS = ['localhost:8080', 'localhost:9001', '.doctorpricer.co.nz', 'doctorpricer.co.nz']
+    ALLOWED_HOSTS = ['localhost:8443', 'localhost:8080', 'localhost:9001', '.doctorpricer.co.nz', 'doctorpricer.co.nz']
 else:
     DEBUG = True
     ALLOWED_HOSTS = []
@@ -109,20 +108,32 @@ WSGI_APPLICATION = 'wsgi.application'
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse'
+        }
+    },
+    'formatters': {
+        'verbose': {
+            'format': '[contactor] %(levelname)s %(asctime)s %(message)s'
+        },
+    },
     'handlers': {
+        # Send all messages to console
         'console': {
+            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
         },
     },
     'loggers': {
-        'django': {
+        # This is the "catch all" logger
+        '': {
             'handlers': ['console'],
-            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+            'level': 'DEBUG',
+            'propagate': False,
         },
-    },
+    }
 }
-
-DEFAULT_LOGGING['handlers']['console']['filters'] = []
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
