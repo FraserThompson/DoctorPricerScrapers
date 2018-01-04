@@ -53,7 +53,7 @@ class Scraper:
     google_key = 'AIzaSyCoNNjdQ4ZGHJhP5HwiLf0mnjydOc2iwik'
 
     def newPractice(self, name, url, pho, restriction):
-        self.practice = {"name": name, "url": url, "pho": pho, "restriction": ''}
+        self.practice = {"name": name, "url": url, "pho": pho, "restriction": '', "active": True}
 
     def openAndSoup(self):
         print("Accessing URL: " + self.practice["url"])
@@ -61,9 +61,11 @@ class Scraper:
         context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
-    # geolocate()
-    # Called before each submission. Gets the place_id from Google using the coordinates
-    # If there are no coords it will try to geolocate based on address.
+    #  geolocate()
+    # Does two things: 
+    # 1. If there are no coordinates for a practice it will geolocate it using Google Maps API
+    # 2. If there is no existing place_id it will get it
+    # It's called for each practice before submission to the database
     def geolocate(self):
         if not self.practice['lat']:
             try:
@@ -95,6 +97,7 @@ class Scraper:
 
     def notEnrolling(self):
         Scraper.cprint("Not enrolling.", "WARNING")
+        self.practice["active"] = False
         self.addError("Not enrolling patients.")
 
     def cprint(message, style):

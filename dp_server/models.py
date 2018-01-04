@@ -50,6 +50,7 @@ class Practice(models.Model):
     location = models.PointField(srid=4326)
     restriction = models.TextField(default='')
     place_id = models.TextField(default='', blank=True)
+    active = models.BooleanField(default=True)
 
     def lat(self):
         return self.location.y

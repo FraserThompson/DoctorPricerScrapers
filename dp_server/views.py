@@ -86,6 +86,9 @@ class PracticeViewSet(viewsets.ModelViewSet):
         pho = self.request.query_params.get('pho', None)
         distance = self.request.query_params.get('distance', '60000')
 
+        # We only want active ones
+        queryset = queryset.filter(active=True)
+
         # Specific practice
         if name is not None:
             queryset = queryset.filter(name=name)
