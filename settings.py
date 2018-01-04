@@ -11,7 +11,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os, sys
+from django.utils.log import DEFAULT_LOGGING
+
 BASE_DIR = "/var/www/dp_server/"
 
 
@@ -103,6 +105,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'wsgi.application'
 
+# Log to Stdout because we're in Docker
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO'),
+        },
+    },
+}
+
+DEFAULT_LOGGING['handlers']['console']['filters'] = []
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
