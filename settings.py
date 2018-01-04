@@ -141,11 +141,6 @@ STATIC_URL = '/assets/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:8080',
-    'localhost:9001'
-)
-
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticatedOrReadOnly'
