@@ -9,11 +9,12 @@ authorizedkeys:
 django:
   command: /run_server.sh
   environment:
-    - DATABASE_PASSWORD=databasepassword
+    - ADMIN_PASSWORD=HotPotatoCarpetMagnet23
+    - DATABASE_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
     - ENV=production
-    - RABBITMQ_DEFAULT_PASS=mypass
-    - RABBITMQ_DEFAULT_USER=myuser
-    - SECRET_KEY=wowbigsecret
+    - RABBITMQ_DEFAULT_PASS=ZLAZzkkxYHLTPffIETzoPqsksmgpjYdp
+    - RABBITMQ_DEFAULT_USER=rabbituser
+    - SECRET_KEY=VasA8Qcn8OOTjVkW15QGLVvc301em19W
   image: 'fraserthompson/doctorpricerscrapers:latest'
   links:
     - memcached
@@ -22,29 +23,34 @@ django:
     - worker
   restart: always
   volumes:
-    - /socks
+    - /run/django
     - /var/www/dp_server/assets
 memcached:
   image: 'memcached:alpine'
 nginx:
+  environment:
+    - ENV=live
   image: 'fraserthompson/doctorpricernginx:latest'
   ports:
     - '80:80'
     - '443:443'
-  restart: always
+  volumes:
+    - '/home/letsencrypt:/etc/letsencrypt'
   volumes_from:
     - django
 postgres:
   environment:
-    - POSTGRES_PASSWORD=databasepassword
+    - POSTGRES_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
   image: 'mdillon/postgis:latest'
   ports:
     - '5432'
   restart: always
+  volumes:
+    - '/home/postgres-data:/var/lib/postgresql/data'
 rabbit:
   environment:
-    - RABBITMQ_DEFAULT_PASS=mypass
-    - RABBITMQ_DEFAULT_USER=myuser
+    - RABBITMQ_DEFAULT_PASS=ZLAZzkkxYHLTPffIETzoPqsksmgpjYdp
+    - RABBITMQ_DEFAULT_USER=rabbituser
   hostname: rabbit
   image: 'rabbitmq:3.6.0'
   ports:
@@ -53,11 +59,11 @@ rabbit:
 worker:
   command: /run_celery.sh
   environment:
-    - DATABASE_PASSWORD=databasepassword
+    - DATABASE_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
     - ENV=production
-    - RABBITMQ_DEFAULT_PASS=mypass
-    - RABBITMQ_DEFAULT_USER=myuser
-    - SECRET_KEY=wowbigsecret
+    - RABBITMQ_DEFAULT_PASS=ZLAZzkkxYHLTPffIETzoPqsksmgpjYdp
+    - RABBITMQ_DEFAULT_USER=rabbituser
+    - SECRET_KEY=VasA8Qcn8OOTjVkW15QGLVvc301em19W
   image: 'fraserthompson/doctorpricerscrapers:latest'
   links:
     - memcached
