@@ -94,7 +94,7 @@ def submit(module, data):
                 'url': practice['url'],
                 'location': Point( float(practice['lng']), float(practice['lat']) ),
                 'restriction': practice['restriction'],
-                'active': practice['active'],
+                'active': practice['active'] or True,
                 'place_id': practice['place_id'] if 'place_id' in practice and practice['place_id'] is not None else ''
             }
         )
