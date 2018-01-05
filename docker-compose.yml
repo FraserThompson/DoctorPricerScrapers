@@ -31,7 +31,7 @@ services:
     image: fraserthompson/doctorpricerscrapers
     command: /run_server.sh
     environment:
-      - ENV=${ENV:-staging}
+      - ENV=${ENV:-dev}
       - ADMIN_PASSWORD
       - RABBITMQ_DEFAULT_USER
       - RABBITMQ_DEFAULT_PASS
@@ -49,7 +49,7 @@ services:
     image: fraserthompson/doctorpricerscrapers
     command: /run_celery.sh
     environment:
-      - ENV=${ENV:-staging}
+      - ENV=${ENV:-dev}
       - RABBITMQ_DEFAULT_USER
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY
@@ -62,7 +62,7 @@ services:
   nginx:
     image: fraserthompson/doctorpricernginx
     environment:
-      - ENV=${ENV:-staging}
+      - ENV=${ENV:-dev}
     ports:
       - 8443:443
       - 8000:80
