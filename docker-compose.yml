@@ -38,7 +38,7 @@ services:
       - SECRET_KEY
       - DATABASE_PASSWORD
     volumes:
-      - socks:/socks
+      - socks:/run/django
       - static_files:/var/www/dp_server/assets  
     depends_on:
       - postgres
@@ -67,7 +67,7 @@ services:
       - 8443:443
       - 8000:80
     volumes:
-      - socks:/socks
+      - socks:/run/django
       - static_files:/var/www/dp_server/assets
       - nginx-certs:/etc/letsencrypt
     restart: always

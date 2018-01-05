@@ -24,7 +24,7 @@ RUN pip install -r py-requirements.txt
 
 COPY ["conf", "/conf"]
 
-RUN mkdir /socks && chown www-data:www-data /socks
+RUN mkdir /run/django && chown www-data:www-data /run/django
 
 COPY ["*.py", "./"]
 COPY ["scrapers", "./scrapers"]
@@ -39,4 +39,4 @@ RUN  groupadd varwwwusers && \
 
 USER www-data
 
-VOLUME ["/socks"]
+VOLUME ["/run/django"]
