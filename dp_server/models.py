@@ -47,7 +47,7 @@ class Practice(models.Model):
     pho = models.TextField()
     phone = models.TextField(blank=True)
     url = models.TextField()
-    location = models.PointField(srid=4326)
+    location = models.PointField(srid=4326, geography=True)
     restriction = models.TextField(default='')
     place_id = models.TextField(default='', blank=True)
     active = models.BooleanField(default=True)
