@@ -100,7 +100,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         # Location lookup
         if lat is not None and lng is not None:
             pnt = Point(x=float(lng), y=float(lat), srid=4326)
-            queryset = queryset.filter(point__distance_lte=(pnt, D(m=distance))).annotate(distance=Distance('location', pnt)).order_by('distance')
+            queryset = queryset.filter(location__distance_lte=(pnt, D(m=distance))).annotate(distance=Distance('location', pnt)).order_by('distance')
 
         # Prices
         if age is not None:
