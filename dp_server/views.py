@@ -99,7 +99,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
 
         # Location lookup
         if lat is not None and lng is not None:
-            pnt = Point(float(lng), float(lat))
+            pnt = Point(x=float(lng), y=float(lat), srid=4326)
             queryset = queryset.filter(location__distance_lte=(pnt, D(m=distance))).annotate(distance=Distance('location', pnt)).order_by('distance')
 
         # Prices
