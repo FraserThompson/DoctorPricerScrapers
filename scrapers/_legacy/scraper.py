@@ -13,9 +13,9 @@ def scrape(name):
 
 		for practice in prac_dict:
 			if practice['prices'] and practice['lat']:
-				print(practice['name'])
 				scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
 				scraper.practice = practice
+				scraper.practice['active'] = True
 				scraper.finishPractice()
 
 	return scraper.finish()
