@@ -33,7 +33,6 @@ def scrape(name):
 				try:
 					if info_dict[scraper.practice['name']][0]:
 						scraper.notEnrolling()
-						continue
 				except KeyError:
 					print("couldn't find in dict: " + scraper.practice['name'])
 					deep = 1
