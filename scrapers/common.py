@@ -113,14 +113,14 @@ class Scraper:
             self.practice["lng"] = self.exists["lng"]
 
         # If we don't have coordinate data then geolocate
-        if not self.practice['lat']:
+        if 'lat' not in self.practice or not self.practice['lat']:
             self.geolocate()
 
         # If we still don't have the place ID then get it
-        if not self.practice["place_id"]:
+        if 'place_id' not in self.practice or not self.practice["place_id"]:
             self.get_place_id()
 
-        if not self.practice.get('phone'):
+        if 'phone' not in self.practice or not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
         
          # Verify data
@@ -138,7 +138,7 @@ class Scraper:
 
         if len(self.practice["address"]) > 100:
             self.addWarning("Possible issue with: " + self.practice["address"])
-
+        print(self.practice_list)
         self.practice_list.append({'practice': self.practice, 'exists': self.exists})
 
     def finish(self):
