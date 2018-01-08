@@ -59,3 +59,11 @@ Needs a file called scraper.py in the folder named after the pho.
 1. When you've completed all practices `return scraper.finish()` 
 
 other: `scraper.addError()`, `scraper.addWarning()`, `scraper.setLatLng([0, 0])`
+
+### Testing scrapers
+
+Because of weirdness you've got to run a scraper like this when you're devving on them or testing them or whatever:
+
+`python -c "from scrapers import run; run.one('alliancehealthplus');"`
+
+Some day I'll improve this.
