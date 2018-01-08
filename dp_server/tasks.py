@@ -29,7 +29,7 @@ def scrape(module):
     pho.save()
 
     response = run.one(module)
-
+    print(response)
     pho.last_scrape = response['data']
     pho.current_task_id = None
     pho.save()

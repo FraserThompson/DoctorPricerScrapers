@@ -138,7 +138,7 @@ class Scraper:
 
         if len(self.practice["address"]) > 100:
             self.addWarning("Possible issue with: " + self.practice["address"])
-        print(self.practice_list)
+
         self.practice_list.append({'practice': self.practice, 'exists': self.exists})
 
     def finish(self):
