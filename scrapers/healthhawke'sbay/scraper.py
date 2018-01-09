@@ -35,7 +35,6 @@ def scrape(name):
 
 	print("Iterating table...")
 	for row in rows:
-		coord = (0.000, 0.000)
 		cells = row.find_all('td')
 		name = cells[0].get_text().replace("&#8211;", "-").replace("’", "'")
 		if(name is "" or name is None):
@@ -68,10 +67,6 @@ def scrape(name):
 			continue
 
 		scraper.practice['address'] = addressElement.get_text()
-		coord = scraper.geolocate()
-		if coord == 1:
-			scraper.addError(scraper.practice['address'] + " Could not geocode address.")
-			continue
 
 		# Make the dictionary object
 		scraper.practice['prices'] = [

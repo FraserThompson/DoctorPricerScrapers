@@ -128,8 +128,15 @@ class Scraper:
         if 'phone' not in self.practice or not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
         
-         # Verify data
+        # Verify data
+        ages = []
         for price in self.practice["prices"]:
+
+            if price["age"] in ages:
+                self.addWarning("Price already exists for this age: " + str(price["age"]))
+
+            ages.append(price["age"])
+
             if price["age"] > 70:
                 self.addWarning("Possible issue with ages: " + str(price["age"]))
             if price["price"] > 100 and price["price"] != 999:

@@ -11,7 +11,7 @@ def scrape(name):
 	prices = []
 	for row in feesList[2:6]:
 		cells = row.find_all('td')
-		prices.append({'age': scrapers.getFirstNumber(cells[0].get_text(strip=True)), 'price': float(cells[1].get_text(strip=True).replace("Free", "0").replace("$", ""))})
+		prices.append({'age': scrapers.getFirstNumber(cells[0].get_text(strip=True).replace("Under 18s", "6")), 'price': float(cells[1].get_text(strip=True).replace("Free", "0").replace("$", ""))})
 
 	practiceListUrlSouped = scrapers.openAndSoup('http://www.korowai.co.nz/contact_us')
 	practiceRoot = practiceListUrlSouped.find('div', {'class': 'contact-info'})
