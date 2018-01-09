@@ -70,7 +70,7 @@ class Scraper:
                 self.practice["lat"] = coord[0]
                 self.practice["lng"] = coord[1]
             except:
-                self.addWarning("Could not geocode address: " + self.practice["address"])
+                self.addError("Could not geocode address: " + self.practice["address"])
                 return 0
         else:
             coord = ['-45.86101900000001', '170.51175549999994'] # dummy cordinates in dev so we don't deplete our google supply
@@ -117,9 +117,10 @@ class Scraper:
             self.practice["lat"] = self.exists["lat"]
             self.practice["lng"] = self.exists["lng"]
 
-        # If we don't have coordinate data then geolocate
+        # If we don't have coordinate data then geolocate, if that fails then don't add it
         if 'lat' not in self.practice or not self.practice['lat']:
-            self.geolocate()
+            if not self.geolocate():
+                return
 
         # If we still don't have the place ID then get it
         if 'place_id' not in self.practice or not self.practice["place_id"]:
