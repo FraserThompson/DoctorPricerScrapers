@@ -13,55 +13,64 @@ def scrape(name):
 	root_url = 'http://www.midlandshn.health.nz/patient-fees/'
 	extensions = ['lakes/', 'tairawhiti/', 'taranaki/', 'waikato/']
 
-	with open('./' + name + '/legacy_data.json', 'r') as inFile:
+	with open('./scrapers/' + name + '/legacy_data.json', 'r') as inFile:
 		prac_dict = json.load(inFile)
 
 	for extension in extensions:
 		listUrlSouped = scrapers.openAndSoup(root_url + extension)
 		tables = listUrlSouped.find_all('table')
+
 		for table in tables:
-			rows = table.find_all('tr')[1:]
+
+			rows = table.find_all('tr')
+
 			for row in rows:
+
 				cells = row.find_all('td')
+				name = cells[0].get_text(strip=True)
+
+				if len(cells) == 1 or not name:
+					continue
+				
+				# the first row contains the ages
+				if name == "Medical Centre":
+					ages = []
+					for cell in cells[1:]:
+
+						age = scrapers.getFirstNumber(cell.get_text(strip=True))
+
+						if age != 1000:
+							ages.append(age)
+
+					continue
+				elif name == "Enrolled" or name == "Casual":
+					continue
 
 				scraper.newPractice(cells[0].get_text(strip=True), "https://www.midlandshn.health.nz", 'Midlands Health Network', "")
 
-				try:
-					p45 = float(cells[5].get_text(strip=True).replace("$", ""))
-					p65 = float(cells[6].get_text(strip=True).replace("$", ""))
-				except IndexError:
-					p45 = 999
-					p65 = 999
-				try:
-					scraper.practice['prices'] = [
-						{
-						'age': 0,
-						'price': float(cells[1].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 13,
-						'price': float(cells[2].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 18,
-						'price': float(cells[3].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 25,
-						'price': float(cells[4].get_text(strip=True).replace("$", "").replace('4300', '43.00')),
-						},
-						{
-						'age': 45,
-						'price': p45,
-						},
-						{
-						'age': 65,
-						'price': p65,
-						}
-					]
-				except (ValueError, IndexError):
-					scraper.addError("Couldn't get prices because of a weird format.")
-					continue
+				print(ages)
+				print(cells)
+
+				if scraper.practice['name'] == "Hakanoa Health Centre":
+					ages[1] = 10
+
+				# now we can give each of those ages a price (if we're not students)
+				if name != "Wintec Health Services":
+					scraper.practice['prices'] = []
+
+					for index, age in enumerate(ages):
+
+						if cells[index + 1].get_text(strip=True):
+
+							if scraper.practice['name'] == "Hakanoa Health Centre" and (index + 1) < 3: # this guy's weird
+								price = float(cells[index + 1].get_text(strip=True).split(")")[1].replace("$", ""))
+							else:
+								price = float(cells[index + 1].get_text(strip=True).replace("$", ""))
+
+						scraper.practice['prices'].append({'age': age, 'price': price })
+				else:
+					scraper.practice['prices'] = [{'age': 0, 'price': 10.00}]
+					scraper.practice["restriction"] = "Student"
 
 				for thing in prac_dict:
 					if (thing['name'] == scraper.practice['name']):
