@@ -59,7 +59,7 @@ class Practice(models.Model):
         return self.location.x
 
     def price(self, age=0):
-        return_obj = 999
+        return_obj = 1000
 
         if age:
             prices = self.prices_set.filter(to_age__gte=age, from_age__lte=age).first()
