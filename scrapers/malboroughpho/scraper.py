@@ -73,11 +73,6 @@ def scrape(name):
 		except IndexError:
 			scraper.practice['phone'] = prac_website_souped[1].get_text(strip=True).split('Phone:')[1].split('Fax:')[0]
 
-		coord = scraper.geolocate()
-		if coord:
-			scraper.addError("Couldn't geocode address: " + address)
-			continue
-
 		scraper.finishPractice()
 
 	return scraper.finish()
