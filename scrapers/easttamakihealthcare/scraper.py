@@ -48,14 +48,6 @@ def scrape(name):
 		scraper.practice['address'] = row.find('img')['src'].split('center=')[1].split('&')[0]
 		scraper.practice['phone'] = row.find('h3').get_text().split(': ')[1].split('Fax: ')[0]
 
-		coord = scrapers.geolocate(scraper.practice['address'])
-		if coord[0] == 0 or coord[1] == 0:
-			scraper.addError("Bad coords." + str(coord[0]) + ", " + str(coord[1]))
-			continue
-
-		scraper.practice['lat'] = coord[0]
-		scraper.practice['lng'] = coord[1]
-
 		if (scraper.practice['name'] in prices_exception):
 			scraper.practice['prices'] = prices_dan
 		else:
