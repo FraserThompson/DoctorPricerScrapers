@@ -61,7 +61,6 @@ def scrape(name):
 
 		if row.find('span', {'class': 'accepting'}).get_text(strip=True) == 'No':
 			scraper.notEnrolling()
-			continue
 
 		try:
 			scraper.practice['url'] = row.find('a').get('href')
