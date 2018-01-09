@@ -4,12 +4,9 @@ import re
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
-practices_list = []
-error_list = []
-warning_list = []
-current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+def scrape(name):
+	scraper = scrapers.Scraper(name)
 
-def scrape():
 	# Access the URLs
 	listUrlSouped = scrapers.openAndSoup('http://www.nbph.org.nz/programmes-and-services/general-practice/')
 	rows = listUrlSouped.find_all('table')[2].find_all('tr')[2:]
@@ -20,25 +17,25 @@ def scrape():
 		if (len(cells) != 4):
 			continue
 
-		isnt_enrolling = cells[0].find('img')
-		if (isnt_enrolling):
-			error_list.append(name + ': Is not taking patients')
-			continue
-
-		coord = [0,0]
 		try:
 			name = cells[1].find('a').get_text(strip=True)
 		except AttributeError: 
 			continue
 
 		url = cells[1].find('a').get('href')
-		address = cells[2].get_text(strip=True)
-		phone = cells[3].get_text(strip=True)
-		print(name)
+
+		scraper.newPractice(name, url, 'Nelson Bays PHO', "")
+
+		isnt_enrolling = cells[0].find('img')
+		if (isnt_enrolling):
+			scraper.notEnrolling()
+
+		scraper.practice['address'] = cells[2].get_text(strip=True)
+		scraper.practice['phone'] = cells[3].get_text(strip=True)
 
 		prac_website_souped = scrapers.openAndSoup(url)
 		fees_table_rows = prac_website_souped.find_all('tr')
-		prices = [
+		scraper.practice['prices'] = [
 			{
 			'age': 0,
 			'price': float(fees_table_rows[1].find_all('td')[1].get_text(strip=True).replace("No Charge", "0").replace("$", "")),
@@ -69,27 +66,10 @@ def scrape():
 			coord = prac_website_souped.find_all('script')[15].get_text().split('"position":[')[1].split('"]}', 1)[0].replace('"', '').split(',')
 			coord[0] = float(coord[0])
 			coord[1] = float(coord[1])
+			scraper.setLatLng(coord)
 		except IndexError:
-			coord = scrapers.geolocate(address)
-			if coord[0] == 0:
-				error_list.append(website + ": Couldn't geocode address: " + address)
-				continue
+			print("no coords")
 
-		practice = {
-			'name': name,
-			'url': url,
-			'address': address,
-			'phone': phone,
-			'restriction': '',
-			'pho': "Nelson Bays PHO",
-			'lat': coord[0],
-			'lng': coord[1],
-			'prices': prices
-			}
-		scrapers.postToDatabase(practice, warning_list);
-		practices_list.append(practice)
+		scraper.finishPractice()
 
-	with open(current_dir + '//data.json', 'w') as outFile:
-		json.dump(practices_list, outFile, ensure_ascii=False, sort_keys=True, indent=4)
-
-	scrapers.dealWithFailure(error_list, warning_list, current_dir)
+	return scraper.finish()

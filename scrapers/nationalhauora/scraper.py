@@ -4,19 +4,18 @@ import re
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
-practices_list = []
-error_list = []
-warning_list = []
-current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 regions = ['Auckland-Central', 'Auckland-South', 'auckland-east', 'Auckland-West', 'Tairawhiti', 'midlands-region']
 
-def scrape():
-	with open(current_dir + '\legacy_data.json', 'r') as inFile:
+def scrape(name):
+	scraper = scrapers.Scraper(name)
+
+	with open('./scrapers/' + name + '/legacy_data.json', 'r') as inFile:
 		prac_dict = json.load(inFile)
 
 	# Access the URLs
 	for region in regions:
-		listUrlSouped = scrapers.openAndSoup('http://www.nhc.maori.nz/index.php?page=' + region)
+		url = 'http://www.nhc.maori.nz/index.php?page=' + region
+		listUrlSouped = scrapers.openAndSoup(url)
 		rows = listUrlSouped.find_all('div', {'class': 'news_post'})
 		print("Done. Iterating rows...")
 
@@ -27,10 +26,6 @@ def scrape():
 			right_panel = row.find('div', {'class': 'c_right'})
 			pho_name = left_panel.find('p').get_text(strip=True).split(':')[1]
 
-			if 'is taking new patients' not in right_panel.find_all('p')[2].get_text():
-				error_list.append(name + ': Is not taking patients')
-				continue
-
 			if right_panel.find('a'):
 				website = right_panel.find('a').get('href')
 			else:
@@ -39,47 +34,32 @@ def scrape():
 						website = thing['url']
 
 			if not website:
-				warning_list.append(name + ": Couldn't find website.")
+				scraper.addWarning("Couldn't find website.")
+				website = url
 
-			address = right_panel.find_all('p')[1].get_text(strip=True)
-			phone = right_panel.find_all('p')[0].get_text().splitlines()[1].split(':')[1].strip()
+			scraper.newPractice(name, website, pho_name, "")
 
-			# Try find the coordinates of the address for Google Maps to display
-			coord = scrapers.geolocate(address)
-			if coord[0] == 0:
-				error_list.append(website + ": Couldn't geocode address: " + address)
-				continue
+			if 'is taking new patients' not in right_panel.find_all('p')[2].get_text():
+				scraper.notEnrolling()
+
+			scraper.practice['address'] = right_panel.find_all('p')[1].get_text(strip=True)
+			scraper.practice['phone'] = right_panel.find_all('p')[0].get_text().splitlines()[1].split(':')[1].strip()
 
 			fees_table = left_panel.find('table', {'class': 'tbl fees'}).find_all('tr')
-			prices = []
+			scraper.practice['prices'] = []
 			count = 0
 			for tr in fees_table:
 				cells = tr.find_all('td')
 				count += 1
 				try:
-					prices.append({
+					scraper.practice['prices'].append({
 						'age': scrapers.getFirstNumber(cells[0].get_text()) if count != 1 else 0,
 						'price': scrapers.getFirstNumber(cells[1].get_text())
 					})
 				except IndexError:
 					print("================================WTF====================")
-					warning_list.append("WARNING " + website + ": Couldn't get all the prices?")
+					scraper.addWarning("Couldn't get all the prices?")
 
-			practice = {
-				'name': name,
-				'url': website,
-				'address': address,
-				'phone': phone,
-				'pho': pho_name,
-				'restriction': '',
-				'lat': coord[0],
-				'lng': coord[1],
-				'prices': prices
-				}
-			scrapers.postToDatabase(practice, warning_list);
-			practices_list.append(practice)
-
-	with open(current_dir + '//data.json', 'w') as outFile:
-		json.dump(practices_list, outFile, ensure_ascii=False, sort_keys=True, indent=4)
-
-	scrapers.dealWithFailure(error_list, warning_list, current_dir)
+			scraper.finishPractice()
+	
+	return scraper.finish()

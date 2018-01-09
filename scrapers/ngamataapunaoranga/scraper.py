@@ -15,16 +15,12 @@ def scrape(name):
 	                "price": 0.0
 	            },
 	            {
-	                "age": 6,
-	                "price": 7.0
-	            },
-	            {
 	                "age": 13,
-	                "price": 11.0
+	                "price": 12.0
 	            },
 	            {
 	                "age": 18,
-	                "price": 17.0
+	                "price": 18.0
 	            }
 	        ]
 
