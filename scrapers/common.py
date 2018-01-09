@@ -5,7 +5,7 @@ import urllib.parse
 import requests, ssl
 from requests.auth import HTTPBasicAuth
 import httplib2
-import re, sys
+import re, sys, os
 import codecs
 from datetime import datetime, date
 from pygeocoder import Geocoder
@@ -63,27 +63,32 @@ class Scraper:
 
     # Geolocate using Google Maps API
     def geolocate(self):
-        try:
-            result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
-            coord = result_array[0].coordinates
-        except:
-            self.addWarning("Could not geocode address: " + self.practice["address"])
-            return 0
-
-        self.practice["lat"] = coord[0]
-        self.practice["lng"] = coord[1]
+        if os.environ['ENV'] != "dev":
+            try:
+                result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
+                coord = result_array[0].coordinates
+                self.practice["lat"] = coord[0]
+                self.practice["lng"] = coord[1]
+            except:
+                self.addWarning("Could not geocode address: " + self.practice["address"])
+                return 0
+        else:
+            coord = ['-45.86101900000001', '170.51175549999994'] # dummy cordinates in dev so we don't deplete our google supply
 
     # Gets the place ID
     def get_place_id(self):
-        req = requests.get("https://maps.googleapis.com/maps/api/place/textsearch/json?key=AIzaSyD2fzuhGAI8NIym12WKRkKKzQt-AzJqClE&location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30&query=" + self.practice["name"] + ' &key=' + self.google_key)
+        if os.environ['ENV'] != "dev":
+            req = requests.get("https://maps.googleapis.com/maps/api/place/textsearch/json?location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30&query=" + self.practice["name"] + ' &key=' + self.google_key)
 
-        if req.json()["status"] == 'OK':
-            self.practice["place_id"] = req.json()["results"][0]["place_id"]
-            return 1
+            if req.json()["status"] == 'OK':
+                self.practice["place_id"] = req.json()["results"][0]["place_id"]
+                return 1
+            else:
+                print('GOOGLE MAPS API OVER LIMIT')
+                self.addWarning("Could not get place ID: " + req.json()["status"])
+                return 0
         else:
-            print('GOOGLE MAPS API OVER LIMIT')
-            self.addWarning("Could not get place ID: " + req.json()["status"])
-            return 0
+            self.practice["place_id"] = "100"
 
     def setLatLng(self, coord):
         self.practice["lat"] = coord[0]

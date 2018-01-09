@@ -33,7 +33,6 @@ def scrape(name):
 			cells = row.findAll('td')
 			if len(cells) > 0:
 				deep = 0
-				coord = (0.000, 0.000)
 				scraper.newPractice(cells[0].find('a').get_text(), cells[0].find('a').get('href'), "Compass Health", "")
 
 				try:
@@ -61,19 +60,20 @@ def scrape(name):
 					scraper.practice['phone'] = info_dict[scraper.practice['name']][1]
 					scraper.practice['address'] = info_dict[scraper.practice['name']][2]
 
-				#### GOING IN REALLY DEEP ####
+				#### Getting coordinates from the google maps script
 				scriptElement = practiceUrlSouped.find('body').findAll('script', {"type":"text/javascript"})
-				first = scriptElement[2].text.split("LatLng(", 1)
-				if (len(first) > 1):
-					coord = first[1].split(");", 1)[0].split(", ");
-					coord[0] = float(coord[0])
-					coord[1] = float(coord[1])
-				else:
-					coord = scrapers.geolocate(scraper.practice['address'])
 
-				if coord[0] == 0 or coord[1] == 0:
-					scraper.addError("Bad coords." + str(coord[0]) + ", " + str(coord[1]))
-					continue
+				first = scriptElement[2].text.split("LatLng(", 1)
+
+				if (len(first) > 1):
+					coord = first[1].split(");", 1)[0].split(", ")
+
+					try:
+						coord[0] = float(coord[0])
+						coord[1] = float(coord[1])
+						scraper.setLatLng(coord)
+					except ValueError:
+						print("No coords, will geolocate.")
 
 				scraper.practice['prices'] = [
 						{
@@ -106,7 +106,6 @@ def scrape(name):
 						},
 				]
 
-				scraper.setLatLng(coord)
 				scraper.finishPractice()
 
 	return scraper.finish()
