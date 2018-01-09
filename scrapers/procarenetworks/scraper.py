@@ -10,7 +10,7 @@ def scrape(name):
     suburbs = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
     headers = {'authorization-apikey': 'C66B0FDF-AA8C-4851-8642-9694840D7C17'}
 
-    for suburb in suburbs:B
+    for suburb in suburbs:
 
         time.sleep(3)
         print("Getting: " + root_url + suburb)
