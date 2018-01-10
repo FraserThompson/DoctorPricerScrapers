@@ -1,8 +1,0 @@
-============2015-08-21 16:55:15.591161===========
-============1===========
-ERROR Tikitiki Community Health Centre: Cannot geolocate address: 25 Rangitukia Rd Box 84 Tikitiki 
-============4===========
-WARNING Tawhiti Clinic in Te Puia Hospital Possible issue with:  (06) 864 6803Fax (06) 864 1025
-WARNING Tokomaru Bay Community Health Centre Possible issue with:  (06) 864 5859Fax (06) 864 5432
-WARNING Uawa Community Health Centre Possible issue with:  (06) 862 6650Fax (06) 862 6752
-WARNING Matakaoa Community Health Centre Te Araroa Possible issue with:  (06) 864 4801Fax (06) 864 4009

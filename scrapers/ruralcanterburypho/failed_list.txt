@@ -1,4 +1,0 @@
-============2015-09-30 22:25:26.164421===========
-============0===========
-============1===========
-WARNING https://www.rcpho.org.nz/practices/ashburton-health-first/ Ashburton Health First: Could not geocode address: Cnr Cass and Havelock Street, Ashburton 770

@@ -1,9 +1,0 @@
-============2015-09-16 18:29:02.450916===========
-EXPENSIVER: Old for 13.0 was 5 new is 31.0
-EXPENSIVER: Old for 18.0 was 31 new is 45.0
-CHEAPER: Old for 65.0 was 45 new is 43.0
-EXPENSIVER: Old for 13.0 was 5 new is 37.0
-EXPENSIVER: Old for 18.0 was 37 new is 48.0
-EXPENSIVER: Old for 25.0 was 48 new is 53.0
-EXPENSIVER: Old for 45.0 was 53 new is 54.0
-CHEAPER: Old for 65.0 was 54 new is 42.0
