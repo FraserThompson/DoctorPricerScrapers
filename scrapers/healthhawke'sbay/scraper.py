@@ -26,6 +26,7 @@ def scrape(name):
 		if index == 0 or wairoa:
 
 			if wairoa:
+				ages = []
 				cells = cells [0:4]
 				wairoa = False
 
