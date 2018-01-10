@@ -29,7 +29,7 @@ def scrape(module):
     pho.save()
 
     response = run.one(module)
-    print(response)
+
     pho.last_scrape = response['data']
     pho.current_task_id = None
     pho.save()
@@ -101,30 +101,34 @@ def submit(module, data):
 
         # Work out price changes if it already exists
         if exists:
+
             old_prices = models.Prices.objects.filter(practice__name=exists['name']).order_by('from_age')
-            new_prices = practice['prices']
 
-            if len(old_prices) != len(new_prices):
-                print("something strange")
-            else:
-                # Iterate the prices
-                i = 0
-                for old_price in old_prices:
+            if old_prices.exists():
 
-                    # There's a change
-                    if old_price.price != new_prices[i]['price']:
+                new_prices = practice['prices']
 
-                        if practice['name'] not in changes:
-                            changes[practice['name']] = {}
+                if len(old_prices) != len(new_prices):
+                    print("something strange")
+                else:
+                    # Iterate the prices
+                    i = 0
+                    for old_price in old_prices:
 
-                        # add it to the changes object
-                        changes[practice['name']][str(old_price.from_age)] = [str(old_price.price), str(new_prices[i]['price'])]
+                        # There's a change
+                        if old_price.price != new_prices[i]['price']:
 
-                        # change the thing in the database
-                        # old_price.price = new_prices[i]['price']
-                        # old_price.save()
+                            if practice['name'] not in changes:
+                                changes[practice['name']] = {}
 
-                    i = i + 1
+                            # add it to the changes object
+                            changes[practice['name']][str(old_price.from_age)] = [str(old_price.price), str(new_prices[i]['price'])]
+
+                            # change the thing in the database
+                            # old_price.price = new_prices[i]['price']
+                            # old_price.save()
+
+                        i = i + 1
 
         # Submit prices
         for i, price in enumerate(practice['prices']):
