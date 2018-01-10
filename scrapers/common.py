@@ -326,6 +326,11 @@ def openAndSoup(url):
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
+# Give it a find('a').stripped_strings and it MIGHT end up with a better result than strip=true
+# good for addresses
+def better_strip(string):
+	return ', '.join(string).replace('\xa0', ' ').replace('  ', ' ').strip()
+
 def normalize(input):
     string = re.sub('[^0-9a-zA-Z ]+', '', input.strip().lower().replace('mt ', 'mount '))
     return re.sub(' +',' ', string).replace(' ', '')
