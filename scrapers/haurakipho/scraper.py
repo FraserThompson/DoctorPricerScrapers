@@ -16,7 +16,7 @@ def scrape(name):
 	for index, row in enumerate(fees_rows[1:]):
 
 		cells = row.find_all('td')
-		everything = cells[0].get_text(strip=True).replace('\xa0', '')
+		everything = cells[0].get_text(strip=True).replace('\xa0', '').replace('–', '-')
 
 		# Get ages
 		if index == 0:
@@ -45,7 +45,7 @@ def scrape(name):
 			name_split = everything.split("  ")
 
 		try:
-			phone_split = name_split[1].split(" – Ph:")
+			phone_split = name_split[1].split(" - Ph:")
 		except IndexError:
 			print("Problem: " + str(name_split))
 			continue
@@ -58,7 +58,11 @@ def scrape(name):
 		for index, age in enumerate(ages):
 	
 			if cells[index + 1].get_text(strip=True):
-				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True).replace('Koha', '$0'))
+				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True).replace('Koha', '$0').replace('(CSC)', '$15'))
+
+				# If it couldn't find a number it's PROBABLY because it's one of the ones where you're ineligible, right? Yeah.
+				if price == 1000:
+					price = 999
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
 		
