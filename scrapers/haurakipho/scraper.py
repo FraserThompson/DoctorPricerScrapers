@@ -3,96 +3,67 @@ import json, io
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
-url = 'http://www.haurakipho.org.nz/medical-centres/our-medical-centres'
-fees_url = 'http://www.haurakipho.org.nz/medical-centres/hpho-practice-fees'
+url = 'http://www.haurakipho.org.nz/medical-centres/hpho-practice-fees'
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	listUrlSouped = scrapers.openAndSoup(url)
-	feesUrlSouped = scrapers.openAndSoup(fees_url)
 
-	fees_rows = feesUrlSouped.find('table', {'style': 'border: currentColor; border-collapse: collapse;'}).find_all('tr')[1:]
-	fees_dict = {}
+	fees_rows = listUrlSouped.find('table', {'style': 'width: 780px; border-collapse: collapse;'}).find_all('tr')
+	ages = []
 
-	current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+	for index, row in enumerate(fees_rows[1:]):
 
-	# Fees, assemble!
-	for row in fees_rows:
 		cells = row.find_all('td')
-		name = cells[1].get_text(strip=True)
-		if name == '0.00' or name == '-':
-			name = cells[0].get_text(strip=True)
-		try:
-			prices = [
-						{
-						'age': 0,
-						'price': 0,
-						},
-						{
-						'age': 6,
-						'price': float(cells[2].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-						},
-						{
-						'age': 18,
-						'price': float(cells[3].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-						},
-						{
-						'age': 25,
-						'price': float(cells[4].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-						},
-						{
-						'age': 45,
-						'price': float(cells[5].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-						},
-						{
-						'age': 65,
-						'price': float(cells[6].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-						},
-					]
-			fees_dict[scrapers.normalize(name)] = prices
-		except (ValueError, IndexError):
-			scraper.addWarning("Could not get fees.")
+		everything = cells[0].get_text(strip=True).replace('\xa0', '')
 
-	# Iterate practices
-	for i in range(0, 25):
-		address = ''
-		phone = ''
-		practice = listUrlSouped.find('div', {'class': 'items-row cols-1 row-'+str(i)}).find('div', {'class': 'item column-1'})
-		name = practice.find('h2').get_text(strip='true')
-		lines = practice.find_all('p')
+		# Get ages
+		if index == 0:
 
-		scraper.newPractice(name, url, "Hauraki PHO", "")
+			for cell in cells[1:]:
+				age = scrapers.getFirstNumber(cell.get_text(strip=True))
 
-		try:
-			scraper.practice['prices'] = scrapers.partial_match(scrapers.normalize(name), fees_dict)
-		except:
-			scraper.addWarning('Could not get fees because of an exception.')
-
-		if len(scraper.practice['prices']) == 0:
-			scraper.practice['prices'] = scrapers.partial_match(scrapers.normalize('hamilton ' + name.replace('centre', 'centres')), fees_dict)
-			if len(scraper.practice['prices']) == 0:
-				scraper.addWarning('Could not find fees in dict.')
-
-		if '-' in lines[0].get_text():
-			scraper.practice['address'] = ', '.join(lines[0].strings).split('-')[1].strip()
-
-		for line in lines:
-			if 'Location:' in line.get_text(strip='true'):
-				scraper.practice['address'] = ', '.join(line.strings).split('Location:')[1].replace(',,', ',').strip()
-			if 'Contact details:' in line.get_text(strip='true'):
-				scraper.practice['phone'] = line.get_text(strip='true').split('Contact details:')[1].split('     ')[0].strip()
-			if 'Contact Details:' in line.get_text(strip='true'):
-				scraper.practice['phone'] = line.get_text(strip='true').split('Contact Details:')[1].split('     ')[0].strip()
-			if 'Contact:' in line.get_text(strip='true'):
-				scraper.practice['phone'] = line.get_text(strip='true').split('Contact:')[1].split('     ')[0].strip()
-
-		if address == '':
-			scraper.addError("Cannot find address.")
+				if age != 1000:
+					ages.append(age)
+			
 			continue
 
-		if ' - ' in scraper.practice['phone']:
-			scraper.practice['phone'] = scraper.practice['phone'].split(' - ')[1]
+		# Some of them don't do double spaces between name and address, most do
+		if everything.split(" ")[0] == "Raukura" or everything.split(" ")[1] == "Korowai":
+			working = everything.split(" ")
+			name_split = [' '.join(working[0:7]), ' '.join(working[7:])]
+		elif everything.split(" ")[0] == "Avalon":
+			working = everything.split(" ")
+			name_split = [' '.join(working[0:2]), ' '.join(working[2:])]
+		elif everything.split(" ")[0] == "University":
+			working = everything.split(" ")
+			name_split = [' '.join(working[0:3]), ' '.join(working[4:])]
+		elif everything.split(" ")[0] == "Raungaiti":
+			continue
+		else:
+			name_split = everything.split("  ")
+
+		try:
+			phone_split = name_split[1].split(" – Ph:")
+		except IndexError:
+			print("Problem: " + str(name_split))
+			continue
+
+		scraper.newPractice(name_split[0], "http://www.haurakipho.org.nz/medical-centres/our-medical-centres", "Hauraki PHO", "")
+
+		scraper.practice['prices'] = []
+
+		# Assign fees to prices
+		for index, age in enumerate(ages):
+	
+			if cells[index + 1].get_text(strip=True):
+				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True).replace('Koha', '$0'))
+
+			scraper.practice['prices'].append({'age': age, 'price': price })
+		
+		scraper.practice['address'] = phone_split[0].strip()
+		scraper.practice['phone'] = phone_split[1].strip()
 
 		scraper.finishPractice()
 
