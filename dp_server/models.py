@@ -14,7 +14,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 
 class Pho(models.Model):
     name = models.CharField(unique=True, max_length=30)
-    module = models.CharField(unique=True,max_length=30)
+    module = models.CharField(unique=True, max_length=30, null=True, blank=True)
     website = models.TextField(blank=True, null=True)
     region = models.TextField(blank=True)
     last_run = models.DateTimeField(auto_now=True)
