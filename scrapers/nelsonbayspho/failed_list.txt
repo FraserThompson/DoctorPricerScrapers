@@ -1,6 +1,0 @@
-============2015-08-16 16:10:28.639536===========
-============3===========
-ERROR Harley Street Medical: Is not taking patients
-ERROR Dr. Janice Jolly: Is not taking patients
-ERROR Dr. Janice Jolly: Is not taking patients
-============0===========

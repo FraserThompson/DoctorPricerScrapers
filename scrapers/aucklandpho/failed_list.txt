@@ -1,5 +1,0 @@
-============2017-04-09 12:42:45.537685===========
-============2===========
-ERROR None AUT Health Counselling and Wellbeing: Could not find details.
-ERROR None Three Kings Medical Centre: Could not find details.
-============0===========
