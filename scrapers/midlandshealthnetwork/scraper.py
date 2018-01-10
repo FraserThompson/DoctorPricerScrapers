@@ -48,9 +48,6 @@ def scrape(name):
 
 				scraper.newPractice(cells[0].get_text(strip=True), "https://www.midlandshn.health.nz", 'Midlands Health Network', "")
 
-				print(ages)
-				print(cells)
-
 				if scraper.practice['name'] == "Hakanoa Health Centre":
 					ages[1] = 10
 
