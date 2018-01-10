@@ -14,28 +14,14 @@ def scrape(name):
 	for row in prac_rows:
 		name = row.get_text(strip=True)
 		url = 'http://www.nph.org.nz' + row['href']
+
 		scraper.newPractice(name, url, 'Ngati Porou Hauora', "")
 
 		scraper.practice['prices'] = []
 		prac_page = scrapers.openAndSoup(url)
 		contact_box = prac_page.find_all('div', {'class', 'grid_4'})[1].find_all('p')
 
-		if name == "Puhi Kaiti Medical Centre":
-			scraper.practice['prices'] = [
-	            {
-	                "age": 0,
-	                "price": 0.0
-	            },
-	            {
-	                "age": 14,
-	                "price": 5.0
-	            },
-	            {
-	                "age": 18,
-	                "price": 12.0
-	            }
-			]
-
+		if name == "Puhi Kaiti Community Health Centre":
 			contact = contact_box[1].get_text().split('Ph: ')
 			scraper.practice['address'] = contact[0]
 			scraper.practice['phone'] = contact[1]

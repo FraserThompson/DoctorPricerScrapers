@@ -67,13 +67,13 @@ class Scraper:
             try:
                 result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
                 coord = result_array[0].coordinates
-                self.practice["lat"] = coord[0]
-                self.practice["lng"] = coord[1]
+                self.setLatLng(coord)
             except:
                 self.addError("Could not geocode address: " + self.practice["address"])
                 return 0
         else:
             coord = ['-45.86101900000001', '170.51175549999994'] # dummy cordinates in dev so we don't deplete our google supply
+            self.setLatLng(coord)
 
     # Gets the place ID
     def get_place_id(self):
@@ -119,7 +119,7 @@ class Scraper:
 
         # If we don't have coordinate data then geolocate, if that fails then don't add it
         if 'lat' not in self.practice or not self.practice['lat']:
-            if not self.geolocate():
+            if self.geolocate() == 0:
                 return
 
         # If we still don't have the place ID then get it
