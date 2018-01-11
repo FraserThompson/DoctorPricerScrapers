@@ -194,11 +194,6 @@ def coordsToFloat(coords):
     return [float(string) for string in coords]
 
 #####################################################################
-# Returns the first number in a string
-def getFirstNumber(string):
-    return float(re.findall('[-+]?\d*\.\d+|\d+', string)[0])
-
-#####################################################################
 # Checks if a string is contained in something
 def partial_match(string, dictin):
     result = ""
@@ -362,9 +357,11 @@ def replaceSpacesWithPluses(input):
 def urlify(input):
     return input.replace("'", '%27').replace('"', '%27').replace('+', '%2b').replace(' ', '%20').replace(':', '%3a')
 
+#####################################################################
+# Returns the first number in a string. Also does some replacing of common words into numbers. Good for prices.
 def getFirstNumber(string):
     try:
-        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.replace("No charge", "0"))[0])
+        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.replace("No charge", "0").replace("No Charge", "0").replace("Free", "0").replace("N/A", "999"))[0])
     except IndexError:
         result = 1000
     return result

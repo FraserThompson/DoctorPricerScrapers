@@ -6,103 +6,67 @@ from scrapers import common as scrapers
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
-	url = 'http://www.wellsouth.org.nz/'
-	coord = [0.00, 0.00]
 
-	for i in range(1, 8):
-		print("================" + str(i) + "===============")
-		listUrlSouped = scrapers.openAndSoup(url + 'info.php?rid=' + str(i))
-		rows = listUrlSouped.find('div', {'class': 'content'}).find_all('table')[1].find_all('tr')
+	regions = scrapers.openAndSoup('https://wellsouth.nz/community/find-a-general-practice/').find_all('a', {'class': 'button location'})
 
-		for row in rows:
-			scraper.newPractice(row.find("a").text, url + row.find("a").get("href"), "Southern PHO", "")
+	for region in regions:
+		region_url = "https://wellsouth.nz" + region.attrs['href']
 
-			#### GO DEEPER #####
-			practiceUrlSouped = scraper.openAndSoup()
-			practice_rows = practiceUrlSouped.find('div', {'class': 'contentws'}).find('table').find_all('tr')
-			practice_info_cells = practice_rows[0].find_all('td')
+		practices = scrapers.openAndSoup(region_url).find_all('a', {'class': 'button location'})
 
-			#### GOING IN REALLY DEEP ####
-			try:
-				scriptElement = practiceUrlSouped.findAll('script', {"type":"text/javascript"})
-				first = scriptElement[3].text.split("LatLng(", 1)
-				if (len(first) > 1):
-					coord = first[1].split("),", 1)[0].split(", ")
-					coord[0] = float(coord[0])
-					coord[1] = float(coord[1])
-			except IndexError:
-				scraper.addError("No coordinates.")
-				coord = coord
+		for practice in practices:
+			name = practice.get_text(strip=True)
+			url = "https://wellsouth.nz" + practice.attrs['href']
 
-			try:
-				address = practice_info_cells[1].find_all('p')[0].text.split("Location")[1].replace("\n", "").strip()
-			except IndexError:
-				scraper.addWarning("No address.")
-				address = "None supplied"
-			try:
-				phone = practice_info_cells[1].find_all('p')[1].text.split("Phone: ")[1].strip()
-			except IndexError:
-				scraper.addWarning("No phone number.")
-				phone = "None supplied"
+			if name == "Junction Doctors":
+				# This practice is literally at north end so we don't need it
+				continue
 
-			price_rows = practice_info_cells[2].find('table').find_all('tr')
-			first_price = price_rows[0].find_all('td')[1].get_text(strip=True).replace(" ", "")
+			scraper.newPractice(name, url, "Southern PHO")
 
-			# Try get all the prices regardless of formatting lol
-			prices = []
+			practice_page = scrapers.openAndSoup(url)
 
-			if scraper.practice['name'] == "Number 10 Youth One Stop Shop":
-				prices = [
-				{
-					'age': 0,
-					'price': 999
-				},
-				{
-					'age': 10,
-					'price': 0
-				},
-				{
-					'age': 25,
-					'price': 999
-				}]
-			elif (first_price == ""):
-				scraper.addWarning("No price list.")
+			# Completely non standard formatting means we have a different number of cells for a select few
+			practice_details = practice_page.find_all('td', {'class': 'table-content'})
+			number_of_cells = len(practice_details)
+
+			if name == "Doctors Allen, Adam and Ceveland":
+				details_modifier = 1
+				fees_modifier = 2
+			elif name == "Number 10 Youth Stop Shop":
+				details_modifier = 0
+				fees_modifier = 1
+			elif name == "Vercoe Brown and Associates" or name == "Lumsden Medical Centre":
+				details_modifier = 1
+				fees_modifier = 1
+			elif number_of_cells > 3 and name != "Mornington Health Centre":
+				details_modifier = 0
+				fees_modifier = details_modifier
 			else:
-				prices.append({
-					'age': 0,
-					'price': 0
-				})
-				try:
-					for i in range(1, 7):
-						cells = price_rows[i].find_all('td')
-						print("working on : " + str(cells))
-						if 'and' not in cells[1].get_text(strip=True) and ',' not in cells[1].get_text(strip=True):
-							prices.append({
-								'age': scrapers.getFirstNumber(cells[0].get_text(strip=True)),
-								'price': scrapers.getFirstNumber(cells[1].get_text(strip=True))
-							})
-						else:
-							price_search = re.split('and|,', cells[1].get_text(strip=True))
-							for price_bracket in price_search:
-								price_bracket = price_bracket.split()
-								print("Brackets: " + str(price_bracket))
-								try:
-									prices.append({
-										'age': scrapers.getFirstNumber(price_bracket[0]),
-										'price': scrapers.getFirstNumber(price_bracket[len(price_bracket)-1])
-									})
-								except IndexError: 
-									scraper.addWarning("Weird price list.")
-				except IndexError:
-					scraper.addWarning("Weird price list.")	
+				details_modifier = 1
+				fees_modifier = details_modifier
 
-			if not prices:
-				scraper.addWarning("Weird price list.")	
+			# The order of address/phone varies too
+			if "Phone: " in practice_details[1 - details_modifier].find_all('p')[1].get_text(strip=True):
+				scraper.practice['phone'] = practice_details[1 - details_modifier].find_all('p')[1].get_text(strip=True).replace('Phone: ', '')
+				scraper.practice['address'] = practice_details[1 - details_modifier].find_all('p')[0].get_text(strip=True)
+			else:
+				scraper.practice['phone'] = practice_details[1 - details_modifier].find_all('p')[0].get_text(strip=True).replace('Phone: ', '')
 
-			scraper.practice['address'] = address
-			scraper.practice['phone'] = phone
-			scraper.setLatLng(coord)
-			scraper.practice['prices'] = prices
+			# These guys messed up and put their address instead of their email address lol
+			if name == "Gore Medical Centre":
+				scraper.practice['address'] = practice_details[1 - details_modifier].find_all('p')[2].get_text(strip=True).replace('Email: ', '')
+
+			fees = practice_details[3 - fees_modifier].find('table').find_all('tr')
+
+			for fee_row in fees:
+				cells = fee_row.find_all('td')
+
+				age = scrapers.getFirstNumber(cells[0].get_text(strip=True).replace("Under 6", "0").replace("Under 18", "0"))
+				price = scrapers.getFirstNumber(cells[1].get_text(strip=True).replace("Age 10-24", ""))
+
+				if age != 1000 and price != 1000:
+					scraper.practice['prices'].append({'age': age, 'price': price})
 
 			scraper.finishPractice()
 
