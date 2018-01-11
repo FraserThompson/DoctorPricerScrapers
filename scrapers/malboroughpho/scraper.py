@@ -9,69 +9,49 @@ current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	listUrlSouped = scrapers.openAndSoup('http://www.marlboroughpho.org.nz/general_practices_fees.php')
-	rows = listUrlSouped.find('table', {'id': 'fees'}).find_all('tr')[1:]
+	listUrlSouped = scrapers.openAndSoup('http://www.marlboroughpho.org.nz/general-practices-fees/')
+	rows = listUrlSouped.find('table', {'class': 'omsc-custom-table omsc-style-1'}).find_all('tr')
+	deets = listUrlSouped.find_all('h6')
 
-	for row in rows:
-		cells = row.find_all('td')
-		try:
-			name = cells[0].find('a').get_text(strip=True).replace("# ", "")
-		except AttributeError:
-			print("Skipping empty row")
+	phone_numbers = {}
+	ages = []
+
+	for deet in deets:
+		pairs = list(deet.stripped_strings)
+		phone_numbers[pairs[0]] = pairs[1]
+
+	for index, row in enumerate(rows):
+
+		if index == 0:
+			cells = row.find_all('th')
+		else:
+			cells = row.find_all('td')
+
+		name = cells[0].get_text(strip=True).replace('#', '')
+
+		# Get ages
+		if index == 0:
+
+			for cell in cells[1:]:
+
+				age = scrapers.getFirstNumber(cell.get_text(strip=True))
+
+				if age != 1000:
+					ages.append(age)
+			
 			continue
 
-		url = cells[0].find('a').get('href')
-		if (name == "Marlborough Urgent GP Afterhours"):
-			continue
-		scraper.newPractice(name, url, "Malborough PHO", "")
+		scraper.newPractice(name, "http://www.marlboroughpho.org.nz/general-practices-fees/", "Malborough PHO", "")
 
-		is_enrolling = cells[1].get_text(strip=True)
-		if (is_enrolling == "No"):
-			scraper.notEnrolling()
-			continue
-		elif (is_enrolling != "Yes"):
-			scraper.practice['restriction'] = is_enrolling;
+		# Assign fees to prices
+		for index, age in enumerate(ages):
+	
+			if cells[index + 1].get_text(strip=True):
+				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
 
-		scraper.practice['prices'] = [
-			{
-			'age': 0,
-			'price': float(cells[2].get_text(strip=True).replace("$", "")),
-			},
-			{
-			'age': 13,
-			'price': float(cells[3].get_text(strip=True).replace("$", "")),
-			},
-			{
-			'age': 18,
-			'price': float(cells[4].get_text(strip=True).replace("$", "")),
-			},
-			{
-			'age': 25,
-			'price': float(cells[5].get_text(strip=True).replace("$", "")),
-			},
-			{
-			'age': 45,
-			'price': float(cells[6].get_text(strip=True).replace("$", "")),
-			},
-			{
-			'age': 65,
-			'price': float(cells[7].get_text(strip=True).replace("$", "")),
-			}
-		]
+			scraper.practice['prices'].append({'age': age, 'price': price })
 
-		prac_website_souped = scraper.openAndSoup().find_all('p')
-		i = 0
-		j = 4
-		k = 0
-		address = prac_website_souped[i].get_text()
-		address = re.sub(' +', ' ', address).split('\n')[k:j]
-		address[:] = [part.strip() for part in address if part != '']
-		scraper.practice['address'] = ', '.join(address).replace('c/0', '')
-
-		try:
-			scraper.practice['phone'] = prac_website_souped[2].get_text(strip=True).split('Phone:')[1].split('Fax:')[0]
-		except IndexError:
-			scraper.practice['phone'] = prac_website_souped[1].get_text(strip=True).split('Phone:')[1].split('Fax:')[0]
+		scraper.practice['phone'] = phone_numbers[name]
 
 		scraper.finishPractice()
 
