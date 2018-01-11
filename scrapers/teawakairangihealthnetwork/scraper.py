@@ -43,7 +43,10 @@ def scrape(name):
 			if cells[index + 1].get_text(strip=True):
 				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
 
-			fees_dict[name].append({'age': age, 'price': price })
+				if price == 1000:
+					continue
+
+				fees_dict[name].append({'age': age, 'price': price })
 
 
 	# Get practice details from the other table
