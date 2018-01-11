@@ -7,59 +7,58 @@ import re
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	areas = ['fairlie', 'geraldine', 'pleasant-point', 'temuka', 'twizel', 'waimate']
-	for area in areas:
-		url = "http://www.scdhb.health.nz/a-healthy-community/primary-care/finding-a-gp/" + area + ".html"
-		areaUrlSouped = scrapers.openAndSoup(url)
+	practice_list = scrapers.openAndSoup('https://www.scdhb.health.nz/info-for-you/gps').find('div', {'id': 'gpList'}).find_all('li') #this won't work because it's populated via javascript! need phantomjs or something
+	fees_list = scrapers.openAndSoup('https://www.scdhb.health.nz/info-for-you/gps/fees').find('table').find_all('tr')
 
-		prac_rows = areaUrlSouped.find_all('table', {'cellpadding': '6'})
-		fees_rows = areaUrlSouped.find_all('table', {'bgcolor': ['#fff8dc', 'cornsilk']})
-		i = 0
+	ages = []
+	practice_prices = {}
 
-		# get practices
-		for prac in prac_rows:
-			rows = prac.find_all('tr')
+	for index, row in enumerate(fees_list):
 
-			scraper.newPractice(rows[0].find('h4').get_text(strip=True), url, "SCDHB", "")
+		header_cells = row.find_all('th')
+		cells = row.find_all('td')
 
-			try:
-				more_info = rows[1].find('td').find_all('span')
-				scraper.practice['address'] = more_info[0].get_text(strip=True).split(":")[1]
-				scraper.practice['phone'] = more_info[1].get_text(strip=True).split(":")[1]
-			except IndexError:
-				more_info = rows[0].find_all('td')[2].find_all('span')
-				scraper.practice['address'] = more_info[0].get_text(strip=True).split(":")[1]
-				scraper.practice['phone'] = more_info[1].get_text(strip=True).split(":")[1]
+		# Get ages
+		if index == 0:
 
-			try:
-				fees = fees_rows[i].find_all('tr')
-			except IndexError:
-				print("Not enough numbers for the fee thing")
-				continue
+			for cell in header_cells[1:]:
 
-			i = i + 1
-			# assemble fees
-			scraper.practice['prices'] = []
-			for thing in fees:
-				cells = thing.find_all('td')
+				age = scrapers.getFirstNumber(cell.get_text(strip=True).replace("Under 13", "0"))
 
-				if (len(cells) < 2):
-					continue
+				if age != 1000:
+					ages.append(age)
+			
+			continue
 
-				if cells[0].get_text(strip=True).strip() == "":
-					continue
+		name = header_cells[0].get_text(strip=True)
 
-				age = scrapers.getFirstNumber(cells[0].get_text(strip=True))
-				price = scrapers.getFirstNumber(cells[1].get_text(strip=True).replace("No charge", "0").replace("No Charge", "0"))
+		prices = []
 
-				if age == -1 or price == -1:
-					continue
+		# Assign fees to prices
+		for index, age in enumerate(ages):
+	
+			if cells[index].get_text(strip=True):
+				price = scrapers.getFirstNumber(cells[index].get_text(strip=True))
 
-				scraper.practice['prices'].append({
-						"age": age,
-						"price": price
-					})
+			prices.append({'age': age, 'price': price })
 
-			scraper.finishPractice()
+		practice_prices[name] = prices
+
+	for practice in practice_list:
+
+		name = practice.find('h3').get_text(strip=True)
+		url = practice.find('a').attrs['href']
+
+		scraper.newPractice(name, url, "SCDHB")
+
+		deets = practice.find_all('p')
+
+		scraper.practice['address'] = deets[0].get_text(strip=True)
+		scraper.practice['phone'] = deets[1].get_text(strip=True).replace('Phone: ', '')
+		scraper.practice['prices'] = practice_prices[name]
+
+		print(scraper.practice)
+
+		#scraper.finishPractice()
 
 	return scraper.finish()
