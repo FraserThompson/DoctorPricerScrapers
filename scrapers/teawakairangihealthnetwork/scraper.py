@@ -6,62 +6,63 @@ from scrapers import common as scrapers
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	url = 'http://www.teawakairangihealth.org.nz/practice-and-fees'
+	url = 'http://teawakairangihealth.org.nz/practice-info/practice-information-fees/'
 	listUrlSouped = scrapers.openAndSoup(url)
 
+	ages = []
 	fees_dict = {}
-	fees_rows = listUrlSouped.find_all('table', {'class', 'tw'})[1].find_all('tr')[1:]
 
-	for row in fees_rows:
-		cells = row.find_all('td')
+	fees_rows = listUrlSouped.find('table', {'class', 'tg practice-price'}).find_all('tr')
+
+	# Get the fees into a dict
+	for index, row in enumerate(fees_rows):
+
+		if index == 0:
+			cells = row.find_all('th')
+		else:
+			cells = row.find_all('td')
+
+		# Get ages
+		if index == 0:
+
+			for cell in cells[1:]:
+
+				age = scrapers.getFirstNumber(cell.get_text(strip=True).replace('Under 13', '0'))
+
+				if age != 1000:
+					ages.append(age)
+			
+			continue
+		
 		name = cells[0].get_text(strip=True)
-		if name == "Fitzherbert St Medical Centre":
-			name = "Fitzherbert Road Medical Centre"
-		try:
-			prices = [
-				{
-				'age': 0,
-				'price': 0,
-				},
-				{
-				'age': 13,
-				'price': float(cells[2].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-				},
-				{
-				'age': 18,
-				'price': float(cells[3].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-				},
-				{
-				'age': 25,
-				'price': float(cells[4].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-				},
-				{
-				'age': 45,
-				'price': float(cells[5].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-				},
-				{
-				'age': 65,
-				'price': float(cells[6].get_text(strip=True).replace('-', '1000').replace("Koha", "1000").replace("$", "")),
-				},
-			]
-			fees_dict[scrapers.normalize(name)] = prices
-		except (ValueError, IndexError):
-			print('no fees')
+		fees_dict[name] = []
 
-	prac_rows = listUrlSouped.find_all('table', {'class', 'tw'})[0].find_all('tr')[1:]
+		# Assign prices to ages
+		for index, age in enumerate(ages):
+	
+			if cells[index + 1].get_text(strip=True):
+				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
+
+			fees_dict[name].append({'age': age, 'price': price })
+
+
+	# Get practice details from the other table
+	prac_rows = listUrlSouped.find('table', {'class', 'practice-info'}).find_all('tr')[1:]
+
 	for row in prac_rows:
 		cells = row.find_all('td')
-		scraper.newPractice(cells[0].get_text(strip=True), 'http://www.teawakairangihealth.org.nz/practice-and-fees', 'Te Awakairangi Health Network', "")
-		scraper.practice['address'] = cells[1].get_text(strip=True)
-		scraper.practice['phone'] = cells[2].get_text(strip=True)
 
-		try:
-			scraper.practice['prices'] = scrapers.partial_match(scrapers.normalize(scraper.practice['name'].replace(' Street ', ' st ')), fees_dict)
-		except:
-			scraper.addWarning('Could not get fees because of an exception.')
+		name = row.find('td', {'class': 'practice-name'}).get_text(strip=True)
+		url = row.find('td', {'class': 'practice-name'}).find('a').attrs['href']
 
-		if 'prices' not in scraper.practice:
-			scraper.addWarning("Cannot get prices")
+		scraper.newPractice(name, url, 'Te Awakairangi Health Network', "")
+
+		if cells[1].get_text(strip=True) == "No":
+			scraper.notEnrolling()
+
+		scraper.practice['phone'] = row.find('td', {'class': 'practice-phone'}).get_text(strip=True)
+		scraper.practice['address'] = row.find('td', {'class': 'practice-address'}).get_text(strip=True).replace('\n', ', ')
+		scraper.practice['prices'] = fees_dict[name]
 
 		scraper.finishPractice()
 
