@@ -52,7 +52,7 @@ class Scraper:
     UNDERLINE = '\033[4m'
     google_key = 'AIzaSyCoNNjdQ4ZGHJhP5HwiLf0mnjydOc2iwik'
 
-    def newPractice(self, name, url, pho, restriction):
+    def newPractice(self, name, url, pho, restriction=""):
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
 
     def openAndSoup(self):
