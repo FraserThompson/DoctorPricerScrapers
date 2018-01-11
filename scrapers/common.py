@@ -154,7 +154,7 @@ class Scraper:
 
             ages.append(price["age"])
 
-            if price["age"] > 70:
+            if price["age"] > 80:
                 self.addWarning("Possible issue with ages: " + str(price["age"]))
             if price["price"] > 100 and price["price"] != 999:
                 self.addWarning("Possible issue with prices: " + str(price["price"]))

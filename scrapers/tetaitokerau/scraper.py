@@ -3,127 +3,55 @@ import json
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '\\..\\')
 from scrapers import common as scrapers
 
-def scrape():
-	# Get the list of practices for Wellington
-	listUrlSouped = scrapers.openAndSoup('http://www.tttpho.co.nz/gp-clinics/our-fees')
-	rows = listUrlSouped.find('table', {'class': 'fees'}).find_all('tr')
-	prac_details = listUrlSouped.find_all('ul')[3].find_all('li')
-	prac_url_dict = {}
+def scrape(name):
+	scraper = scrapers.Scraper(name)
 
-	practices_list = []
-	error_list = []
-	warning_list = []
-	current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+	options = scrapers.openAndSoup('http://www.tttpho.co.nz/find-nearest-doctor/').find_all('select', {'name': 'city'})
 
-	with open(current_dir + '\legacy_data.json', 'r') as inFile:
-		prac_dict = json.load(inFile)
+	for select in options:
+		city_slugs = select.find_all('option')[1:]
 
-	for prac in prac_details[2:]:
-		name = prac.find('span').get_text()
-		if name == "Bayview Medical Centre - Paihia":
-			name = "Bayview Medical Centre"
-		if name == "Commercial Street Surgery - Kawakawa":
-			name = "Commercial Street Surgery"
-		if name == "Kawakawa Medical Centre":
-			name = "Hauora Whanui Kawakawa Medical Centre"
-		if name == "Top Health Kaitaia":
-			name = "Top Health"
-		if name == "Te Kohanga Whakaora - Kaitaia":
-			name = "Te Kohanga Whakaora"
-		url = prac.find('a').get('href')
-		prac_url_dict[name.lower()] = url
+		for slug in city_slugs:
+			city_page_url = "http://www.tttpho.co.nz/practitioners/" + slug.attrs['data-slug']
+			practice_list = scrapers.openAndSoup(city_page_url).find('div', {'class': 'practitionerlist'}).find_all('h2')
 
-	print("Iterating table...")
-	for row in rows[1:]:
-		skip = 0
-		cells = row.findAll('td')
-		coord = (0, 0)
-		name = cells[0].get_text()
+			for practice_link in practice_list:
 
-		try:
-			practiceURL = prac_url_dict[name.lower()]
-		except KeyError:
-			for thing in prac_dict:
-				if (thing['name'] == name):
-					address = thing['address']
-					practiceURL = thing['url']
-					phone = thing['phone']
-					coord = thing['coordinates']
+				name = practice_link.get_text(strip=True)
+				url = practice_link.find('a').attrs['href']
 
-			# practiceURL = scrapers.getHealthpagesURLFromSearch(name)
-			# if not practiceURL:
-			# 	error_list.append(name + ": Couldn't find healthpages URL.")
-			# 	continue
-			# address = scrapers.scrapeHealthpagesAddress(scrapers.openAndSoup(practiceURL))
-			# coord = scrapers.geolocate(address)
-			skip = 1
+				scraper.newPractice(name, url, "Te Tai Tokerau", "")
 
-		if not skip:
-			print("Found: " + practiceURL)
+				practice_page = scrapers.openAndSoup(url).find('div', {'class': 'maincol'})
 
-			practiceContent = scrapers.openAndSoup(practiceURL).find('section', {'class': 'content'})
-			info = practiceContent.find_all('p')
-			phone = info[1].get_text().replace("Tel ", "")
+				scraper.practice['phone'] = list(practice_page.find(text='Contact us').findNext('p').stripped_strings)[1]
+				scraper.practice['address'] = scrapers.better_strip(practice_page.find(text='Find us').findNext('p').stripped_strings)
 
-			if not practiceContent.find('iframe'):
-				for index, thing in enumerate(info):
-					if thing.get_text(strip=True).lower() == "find us:":
-						address = ", ".join([info[index + 1].get_text(strip=True), info[index + 2].get_text(strip=True)])
-						coord = scrapers.geolocate(address)
-			else:
-				print('found iframe')
-				maps_url = practiceContent.find('iframe').get('src')
-				address = maps_url.split('q=')[1].split('&')[0].replace('+', ' ')
-				coord = maps_url.split('ll=')[1].split('&')[0].split(',')
+				fees_list = list(practice_page.find(text='Clinic Fees').findNext('p').stripped_strings)
 
-		if (coord[0] == 0):
-			error_list.append(name + ": Cannot geolocate address: " + address)
-			continue
+				if len(fees_list) == 1:
+					if fees_list[0] == "$0.00":
+						scraper.practice['prices'].append({'age': 0, 'price': 0})
+				else:
 
-		prices = [
-				{
-				'age': 0,
-				'price': float(cells[2].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 13,
-				'price': float(cells[3].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 18,
-				'price': float(cells[4].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 25,
-				'price': float(cells[5].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 65,
-				'price': float(cells[6].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 80,
-				'price': float(cells[7].get_text(strip=True).replace("$", "")),
-				},
-			]
+					fees_table = dict(zip(fees_list[::2], fees_list[1::2]))
 
-		# Make the dictionary object
-		practice = {
-			'name': name,
-			'url': practiceURL,
-			'address': address,
-			'phone': phone,
-			'restriction': '',
-			'pho': 'Te Tai Tokerau',
-			'lat': coord[0],
-			'lng': coord[1],
-			'prices': prices
-		}
-		
-		scrapers.postToDatabase(practice, warning_list);
-		practices_list.append(practice)
-			
-	with open(current_dir + '\\data.json', 'w') as outFile:
-		json.dump(practices_list, outFile, ensure_ascii=False, sort_keys=True, indent=4)
+					for raw_age, raw_price in fees_table.items():
 
-	scrapers.dealWithFailure(error_list, warning_list, current_dir)
+						# We don't care about casuals
+						if raw_age == "Casual":
+							continue
+
+						# Probably means something didn't work and we ended up with an age in place of a price
+						if '-' in raw_price:
+							continue
+
+						age = scrapers.getFirstNumber(raw_age.replace('Under 13', '0'))
+						price = scrapers.getFirstNumber(raw_price)
+
+						if age != 1000 and price != 1000:
+							scraper.practice['prices'].append({'age': age, 'price': price})
+
+				scraper.finishPractice()
+
+	return scraper.finish()
