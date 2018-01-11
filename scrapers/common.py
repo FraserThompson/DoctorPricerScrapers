@@ -53,7 +53,7 @@ class Scraper:
     google_key = 'AIzaSyCoNNjdQ4ZGHJhP5HwiLf0mnjydOc2iwik'
 
     def newPractice(self, name, url, pho, restriction):
-        self.practice = {"name": name, "url": url, "pho": pho, "restriction": '', "active": True}
+        self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
 
     def openAndSoup(self):
         print("Accessing URL: " + self.practice["url"])
@@ -77,11 +77,27 @@ class Scraper:
 
     # Gets the place ID
     def get_place_id(self):
+
         if os.environ['ENV'] != "dev":
-            req = requests.get("https://maps.googleapis.com/maps/api/place/textsearch/json?location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30&query=" + self.practice["name"] + ' &key=' + self.google_key)
+
+            req_string = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + self.practice["name"] + ' &key=' + self.google_key
+
+            if 'lat' in self.practice:
+                req_string = req_string + "&location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30"
+                
+            req = requests.get(req_string)
 
             if req.json()["status"] == 'OK':
+
                 self.practice["place_id"] = req.json()["results"][0]["place_id"]
+
+                if "address" not in self.practice:
+                    self.practice["address"] = req.json()["results"][0]["formatted_address"]
+
+                if "lat" not in self.practice:
+                    self.practice["lat"] = req.json()["results"][0]["geometry"]["location"]["lat"]
+                    self.practice["lng"] = req.json()["results"][0]["geometry"]["location"]["lng"]
+
                 return 1
             else:
                 print('GOOGLE MAPS API OVER LIMIT')
@@ -112,19 +128,19 @@ class Scraper:
         self.exists = Database.findPractice(self.practice["name"])
 
         # Use existing information if address hasn't changed
-        if self.exists and self.exists["address"] == self.practice["address"]:
+        if self.exists and 'address' in self.practice and self.exists["address"] == self.practice["address"]:
             self.practice["place_id"] = self.exists["place_id"]
             self.practice["lat"] = self.exists["lat"]
             self.practice["lng"] = self.exists["lng"]
 
-        # If we don't have coordinate data then geolocate, if that fails then don't add it
+        # If we still don't have the place ID then get it (this will get the address too if that's not a thing)
+        if 'place_id' not in self.practice or not self.practice["place_id"] or 'address' not in self.practice or not self.practice["address"]:
+            self.get_place_id()
+
+        # If we still don't have coordinate data then geolocate, if that fails then don't add it
         if 'lat' not in self.practice or not self.practice['lat']:
             if self.geolocate() == 0:
                 return
-
-        # If we still don't have the place ID then get it
-        if 'place_id' not in self.practice or not self.practice["place_id"]:
-            self.get_place_id()
 
         if 'phone' not in self.practice or not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
