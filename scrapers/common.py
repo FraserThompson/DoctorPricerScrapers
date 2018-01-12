@@ -361,7 +361,7 @@ def urlify(input):
 # Returns the first number in a string. Also does some replacing of common words into numbers. Good for prices.
 def getFirstNumber(string):
     try:
-        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.replace("No charge", "0").replace("No Charge", "0").replace("Free", "0").replace("N/A", "999"))[0])
+        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.replace("No charge", "0").replace("No Charge", "0").replace('Zero', '0').replace("Free", "0").replace("N/A", "999"))[0])
     except IndexError:
         result = 1000
     return result
