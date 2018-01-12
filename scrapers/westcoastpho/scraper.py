@@ -8,47 +8,43 @@ import re
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	url = 'http://www.westcoastpho.org.nz/General-Practices-Fees'
+	url = 'http://www.westcoastpho.org.nz/general-practices'
 	listUrlSouped = scrapers.openAndSoup(url)
-	prac_links = listUrlSouped.find('table', {'id': 'dnn_ctr9792_Latest_ctl00'}).find_all('a', href=True)
+	prac_links = listUrlSouped.find('div', {'id': 'block-views-locations-block'}).find_all('div', {'class': 'views-row'})
 
 	for link in prac_links:
-		prices = []
-		scraper.newPractice(link.get_text(strip=True), link['href'], "West Coast PHO", "")
-		prac_page = scraper.openAndSoup()
+		name = link.find('div', {'class': 'views-field-title'}).find('a').get_text(strip=True)
+		url = "http://www.westcoastpho.org.nz" + link.find('div', {'class': 'views-field-title'}).find('a').attrs['href']
 
-		print(name)
-		info = prac_page.find('table', {'cellpadding': '3px'}).find_all('tr')
-		contact_info = info[len(info) - 2].get_text().strip().splitlines()
-		scraper.practice['address'] = contact_info[1]
-		scraper.practice['phone'] = contact_info[2].split(": ")[1]
+		scraper.newPractice(name, url, "West Coast PHO", "")
 
-		if len(info) > 2:
-			fee_info = info[0].find('td').contents
-			fee_rows = [x for x in fee_info if not hasattr(x, "name") or not x.name == "br"][1:]
-			prices = []
-			if len(fee_rows) > 1:
-				for fee in fee_rows[1:]:
-					fee = fee.replace("Zero", "$0")
-					try:
-						price = {
-							'age': scrapers.getFirstNumber(fee.split(' $')[0]),
-							'price': scrapers.getFirstNumber(fee.split(' $')[1].replace("Free", "0"))
-						}
+		scraper.practice['address'] =  scrapers.better_strip(link.find('div', {'class': 'views-field-location'}).stripped_strings)
 
-						if price['age'] == -1:
-							price['age'] = prices[len(prices) - 1]['age'] + 1
+		practice_page = scrapers.openAndSoup(url).find('div', {'id': 'primary'})
 
-						prices.append(price);
-					except IndexError:
-						print("index error: " + fee)
-						continue
+		scraper.practice['phone'] = practice_page.find(text=re.compile('Phone')).parent.parent.get_text(strip=True).split("Phone:")[1].split("Fax:")[0].replace('\xa0', '')
 
-		if len(prices) == 0:
-			scraper.addWarning("No prices.")
+		fees_list = list(practice_page.find(text=re.compile('Price to Patient')).findNext('p').stripped_strings)
 
-		scraper.practice['prices'] = prices
+		for fee in fees_list:
+			split = fee.split(' - ')
+
+			if split[0] == "Adult":
+				split[0] = "18"
+
+			# Coast Medical Limited has slightly different formatting (doesn't split prices with - for the first two)
+			if len(split) != 2:
+				working_split = fee.split(" ")
+				split = [(' ').join(working_split[0:2]), working_split[2]]
+	
+			age = scrapers.getFirstNumber(split[0])
+			try:
+				price = scrapers.getFirstNumber(split[1])
+			except:
+				print(name + ": Weird fees")
+				continue
+			scraper.practice['prices'].append({'age': age, 'price': price})
+
 		scraper.finishPractice()
-		time.sleep(1.5)
 
 	return scraper.finish()
