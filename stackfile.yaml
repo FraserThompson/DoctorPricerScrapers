@@ -6,6 +6,14 @@ authorizedkeys:
   image: 'dockercloud/authorizedkeys:latest'
   volumes:
     - '/root:/user'
+backup:
+  command: "/bin/sh -c 'pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup.tar.gz'"
+  environment:
+    - PGPASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+    - POSTGRES_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+  image: 'mdillon/postgis:latest'
+  volumes:
+    - '/home/backups:/backups'
 django:
   command: /run_server.sh
   environment:

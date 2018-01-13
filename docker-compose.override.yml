@@ -30,6 +30,12 @@ services:
             - RABBITMQ_DEFAULT_USER=myuser
             - RABBITMQ_DEFAULT_PASS=mypass
             - SECRET_KEY=hugesecretdontsharewithanyone
+
+    backup:
+        image: mdillon/postgis
+        environment:
+            - POSTGRES_PASSWORD=password123
+            - PGPASSWORD=password123
     
     rabbit:
         environment:
