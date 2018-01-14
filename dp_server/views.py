@@ -14,6 +14,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 
 from django.contrib.auth.models import User, Group
+from django.db.models import F
 
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -84,6 +85,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         lng = self.request.query_params.get('lng', None)
         age = self.request.query_params.get('age', None)
         pho = self.request.query_params.get('pho', None)
+        all_prices = self.request.query_params.get('all_prices', None)
         distance = self.request.query_params.get('distance', '60000')
 
         # We only want active ones
@@ -95,7 +97,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
 
         # All pho's practices
         if pho is not None:
-            queryset = queryset.filter(pho=pho)
+            queryset = queryset.filter(pho_link__name=pho)
 
         # Location lookup
         if lat is not None and lng is not None:
@@ -106,7 +108,10 @@ class PracticeViewSet(viewsets.ModelViewSet):
         if age is not None:
             for practice in queryset:
                 practice.price = practice.price(age=age)
-            
+        elif all_prices:
+            for practice in queryset:
+                practice.all_prices = practice.all_prices(True)
+
         return queryset
 
 class LogsViewSet(viewsets.ModelViewSet):

@@ -35,7 +35,7 @@ class PracticeSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = models.Practice
-        fields = ('name', 'address', 'pho', 'phone', 'url', 'lat', 'lng', 'restriction', 'place_id', 'price', 'distance')
+        fields = ('name', 'address', 'pho', 'phone', 'url', 'lat', 'lng', 'restriction', 'place_id', 'price', 'distance', 'all_prices')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
