@@ -25,7 +25,7 @@ class Pho(models.Model):
     history = HistoricalRecords()
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 class Logs(models.Model):
     source = models.ForeignKey(Pho, on_delete=models.CASCADE)
@@ -39,7 +39,7 @@ class Logs(models.Model):
         return self.source.module
 
     def __str__(self):
-        return self.scraped
+        return str(self.scraped)
 
 class Practice(models.Model):
     name = models.TextField(unique=True)
@@ -53,7 +53,7 @@ class Practice(models.Model):
     active = models.BooleanField(default=True)
 
     def pho(self):
-        return self.pho_link.name
+        return str(self.pho_link.name) if self.pho_link else 'None'
 
     def lat(self):
         return self.location.y
@@ -76,7 +76,7 @@ class Practice(models.Model):
         return -1
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 class Prices(models.Model):
     practice = models.ForeignKey(Practice, on_delete=models.CASCADE)
