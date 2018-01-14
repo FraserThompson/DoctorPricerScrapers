@@ -9,3 +9,4 @@ webpack-stats.json
 db.sqlite3
 conf/ssl
 npm-debug.log
+backup

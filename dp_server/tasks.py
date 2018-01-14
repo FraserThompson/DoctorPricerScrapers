@@ -84,12 +84,14 @@ def submit(module, data):
         practice = result['practice']
         exists = result['exists'] # whether or not it exists already in the database
 
+        practice_pho = models.Pho.objects.get_or_create(name=practice['pho'])
+
         # Make the practice
         new_practice = models.Practice.objects.update_or_create( 
             name=practice['name'], 
             defaults={
                 'address': practice['address'],
-                'pho': practice['pho'],
+                'pho_link': practice_pho,
                 'phone': practice['phone'],
                 'url': practice['url'],
                 'location': Point( float(practice['lng']), float(practice['lat']) ),

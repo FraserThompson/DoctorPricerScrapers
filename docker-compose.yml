@@ -28,26 +28,6 @@ services:
     volumes:
       - 'database:/var/lib/postgresql/data'
 
-  backup:
-    image: mdillon/postgis
-    environment:
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - PGPASSWORD=${DATABASE_PASSWORD}
-    restart: "no"
-    command: /bin/sh -c "pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup.tar.gz"
-    volumes:
-      - ./backups:/backups
-  
-  restore:
-    image: mdillon/postgis
-    environment:
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
-      - PGPASSWORD=${DATABASE_PASSWORD}
-    restart: "no"
-    command: /bin/sh -c "psql --dbname=postgres --username=postgres --host=postgres postgres < /backups/backup.tar.gz"
-    volumes:
-      - ./backups:/backups
-
   # Django
   django:
     image: fraserthompson/doctorpricerscrapers
