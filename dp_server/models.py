@@ -1,4 +1,5 @@
 from django.db import models
+from django.core import serializers
 from django.contrib.postgres.fields import JSONField
 from django.contrib.gis.db import models
 from simple_history.models import HistoricalRecords
@@ -74,6 +75,18 @@ class Practice(models.Model):
 
     def distance(self):
         return -1
+
+    def all_prices(self, do=False):
+
+        return_obj = []
+
+        if do:
+            raw_prices =  serializers.serialize('python', self.prices_set.all().order_by('from_age'), fields=('price','from_age'))
+
+            if raw_prices:
+                return_obj = [d['fields'] for d in raw_prices]
+        
+        return return_obj
 
     def __str__(self):
         return str(self.name)
