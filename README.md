@@ -6,24 +6,6 @@
 
 You'll just need Docker and docker-compose.
 
-### Model
-
-#### PHO
-
-Create a PHO For each scraper.
-
-#### Practice
-
-Scrapers make these when they scrape. Each is associated with a PHO.
-
-#### Log
-
-A log is made each time a scraper is run.
-
-##### Prices
-
-Each practice has prices associated with it.
-
 ### Running it
 
 #### Environment variables 
@@ -35,10 +17,17 @@ Start it up with `docker-compose up --build`
 
 Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
 
+### Backups
+
+To backup run `docker-compose -f docker-compose.extra.yml run backup` and it'll backup to `./backups` in a file called backup.
+
+To restore run `docker-compose -f docker-compose.extra.yml run restore` and it'll restore `./backups/backup`.
+
 #### Accessing the admin backend
 
-1. `docker-compose exec server createsuperuser` to make a superuser
-2. Navigate to https://localhost:8443/admin and log in with those credentials
+1. Navigate to https://localhost:8443/admin and log in with your credentials
+
+In dev this is `fraser` and `dev`.
 
 #### Doing a Manual import
 
@@ -67,3 +56,21 @@ Because of weirdness you've got to run a scraper like this when you're devving o
 `python -c "from scrapers import run; run.one('alliancehealthplus');"`
 
 Some day I'll improve this.
+
+### Model
+
+#### PHO
+
+Create a PHO For each scraper.
+
+#### Practice
+
+Scrapers make these when they scrape. Each is associated with a PHO.
+
+#### Log
+
+A log is made each time a scraper is run.
+
+##### Prices
+
+Each practice has prices associated with it.

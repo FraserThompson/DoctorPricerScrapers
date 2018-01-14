@@ -1,0 +1,22 @@
+version: '3'
+
+services: 
+  backup:
+    image: mdillon/postgis
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
+      - PGPASSWORD=${DATABASE_PASSWORD:-password123}
+    restart: "no"
+    command: /bin/sh -c "pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup"
+    volumes:
+      - ./backups:/backups
+  
+  restore:
+    image: mdillon/postgis
+    environment:
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
+      - PGPASSWORD=${DATABASE_PASSWORD:-password123}
+    restart: "no"
+    command: /bin/sh -c "pg_restore --dbname=postgres --username=postgres --host=postgres /backups/backup"
+    volumes:
+      - ./backups:/backups
