@@ -45,7 +45,7 @@ class Practice(models.Model):
     name = models.TextField(unique=True)
     address = models.TextField()
     pho = models.TextField()
-    pho_link = models.ForeignKey(Pho, on_delete=models.CASCADE, blank=True, null=True)
+    pho_link = models.ForeignKey(Pho, on_delete=models.CASCADE, blank=True, null=True, default=0)
     phone = models.TextField(blank=True)
     url = models.TextField()
     location = models.PointField(srid=4326, geography=True)
