@@ -35,7 +35,9 @@ RUN  groupadd varwwwusers && \
     chown -R www-data:varwwwusers /var/www/ && \
     chmod -R 760 /var/www/ && \
     mkdir -p /var/www/dp_server/assets && \
-    chown www-data:www-data /var/www/dp_server/assets
+    mkdir -p /var/www/dp_server/migrations && \
+    chown www-data:www-data /var/www/dp_server/assets && \
+    chown www-data:www-data /var/www/dp_server/migrations
 
 USER www-data
 
