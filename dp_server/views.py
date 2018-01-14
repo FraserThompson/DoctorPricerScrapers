@@ -142,15 +142,6 @@ def price_history(request):
 
     return HttpResponse(response, content_type="application/json")
 
-# Temporary function to convert my pho name into foreign keys
-@csrf_exempt
-@api_view(['GET'])
-def link_phos(request):
-    for practice in models.Practice.objects.all():
-        pho, created = models.Pho.objects.get_or_create(name=practice.pho)
-        practice.pho_link = pho
-        practice.save()
-
 ####################################################
 # Runs a scraper
 # Expects a 'module' param specifying what to run
