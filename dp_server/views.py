@@ -14,7 +14,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 
 from django.contrib.auth.models import User, Group
-from django.db.models import F
+from django.db.models import Avg, Max, Min
 
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -134,7 +134,10 @@ class LogsViewSet(viewsets.ModelViewSet):
 # Normal views
 ######################################################
 
-# Returns the history of price changes for a particular practice OR averages for a PHO.
+####################################################
+# Returns the history of price changes for a particular practice or the history of PHO averages
+@csrf_exempt
+@api_view(['GET'])
 def price_history(request):
 
     practice = request.GET.get('practice', None)
@@ -149,6 +152,29 @@ def price_history(request):
         response = core_serializers.serialize('json', list(queryset), fields=('average_prices', 'history_date', 'history_id'))
 
     return HttpResponse(response, content_type="application/json")
+
+####################################################
+# Gets averages for all practices
+# or for a PHO
+@csrf_exempt
+@api_view(['GET'])
+def averages(request):
+
+    ages = [0, 6, 13, 18, 45, 65]
+    response = []
+    pho = request.GET.get('pho', None)
+
+    for age in ages:
+        
+        if pho is not None:
+            queryset = models.Prices.objects.filter(pho__name=pho, to_age__gte=age, from_age__lte=age, price__lt=999)
+        else:
+            queryset = models.Prices.objects.filter(to_age__gte=age, from_age__lte=age, price__lt=999)
+
+        queryset = queryset.aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
+        response.append(queryset)
+
+    return JsonResponse(response, status=200, safe=False)
 
 ####################################################
 # Runs a scraper
