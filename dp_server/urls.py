@@ -15,6 +15,7 @@ router.register(r'prices', views.PricesViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^history$', views.price_history, name='history'),
+    url(r'^averages$', views.averages, name='averages'),
     url(r'^scrape$', views.scrape, name='scrape'),
     url(r'^submit$', views.submit, name='submit'),
     url(r'^task_status$', views.task_status, name='task_status'),
