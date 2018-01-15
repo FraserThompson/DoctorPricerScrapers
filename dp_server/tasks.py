@@ -192,5 +192,5 @@ def update_pho_averages(pho):
 # Helper: Gets the average price for a particular age over a PHO.
 # Params: pho name, age
 def get_pho_average(pho, age):
-    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age).aggregate(Avg('price'), Max('price'), Min('price'))
+    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age, price__lt=999).aggregate(Avg('price'), Max('price'), Min('price'))
     return result

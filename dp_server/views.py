@@ -7,7 +7,7 @@ from dp_server.celery import app
 
 from dp_server import tasks
 
-from scrapers import run # someday we'll seperate these scrapers from the server
+from scrapers import run
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
@@ -69,10 +69,13 @@ class PricesViewSet(viewsets.ModelViewSet):
 
 ####################################################
 # Returns some practices
-# Params: Lat (latitude), lng (longitude) will return practices within 60km or distance if that's specified
+# Params: 
 #         name will return a specific practice
 #         pho will return all practices from a pho
+#         lat=x,lng=x will return practices within 60,000km of that coordinate.
+#         distance=x will override the default 60,000km distance setting.
 #         if age is specified it will also calculate prices.
+#         all_prices=true will return the price set for each practice (expensive)
 class PracticeViewSet(viewsets.ModelViewSet):
     queryset = models.Practice.objects.all()
     serializer_class = serializers.PracticeSerializer
