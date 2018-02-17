@@ -35,6 +35,7 @@ services:
     environment:
       - ENV=${ENV:-dev}
       - ADMIN_PASSWORD
+      - ADMIN_USER=fraser
       - RABBITMQ_DEFAULT_USER
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY

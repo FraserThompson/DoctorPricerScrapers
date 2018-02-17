@@ -27,7 +27,7 @@ To restore run `docker-compose -f docker-compose.extra.yml run restore` and it'l
 
 1. Navigate to https://localhost:8443/admin and log in with your credentials
 
-In dev this is `fraser` and `dev`.
+In dev this is `fraserdev` and `dev`.
 
 #### Doing a Manual import
 

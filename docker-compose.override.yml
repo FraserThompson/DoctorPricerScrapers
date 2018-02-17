@@ -13,6 +13,7 @@ services:
         build: ../dp_scrapers
         environment:
             - ADMIN_PASSWORD=dev
+            - ADMIN_USER=fraserdev
             - DATABASE_PASSWORD=password123
             - RABBITMQ_DEFAULT_USER=myuser
             - RABBITMQ_DEFAULT_PASS=mypass
