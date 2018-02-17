@@ -1,6 +1,6 @@
 #!/bin/bash
 
-USER="fraser"
+USER="$ADMIN_USER"
 PASS="$ADMIN_PASSWORD"
 MAIL="doctorpricernz@gmail.com"
 script="

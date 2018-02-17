@@ -4,6 +4,7 @@ __pycache__
 env
 .env
 webpack-stats.json
+backups
 /assets/bundles
 /dp_server/migrations
 db.sqlite3
