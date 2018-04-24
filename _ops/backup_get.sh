@@ -1,0 +1,1 @@
+rsync -avzhe "ssh -i C:\Users\fraser-fraser\.ssh\id_rsa" root@${DP_SERVER}:~/backups .
