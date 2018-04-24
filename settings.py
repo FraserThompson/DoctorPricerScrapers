@@ -23,7 +23,7 @@ BASE_DIR = "/var/www/dp_server/"
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == "production":
+if os.environ.get('ENV') == "live":
     DEBUG = False
     ALLOWED_HOSTS = ['localhost:8443', 'localhost:8080', 'localhost:9001', 'localhost', '127.0.0.1', '.doctorpricer.co.nz', 'doctorpricer.co.nz']
 else:

@@ -11,8 +11,8 @@ services:
     hostname: rabbit
     image: rabbitmq:3.6.0
     environment:
-      - RABBITMQ_DEFAULT_USER=myuser
-      - RABBITMQ_DEFAULT_PASS=mypass
+      - RABBITMQ_DEFAULT_USER=rabbituser
+      - RABBITMQ_DEFAULT_PASS
     ports:
       - "5672:5672"  # we forward this port because it's useful for debugging
       - "15672:15672"  # here, we can access rabbitmq management plugin
@@ -34,9 +34,9 @@ services:
     command: /run_server.sh
     environment:
       - ENV=${ENV:-dev}
-      - ADMIN_PASSWORD
       - ADMIN_USER=fraser
-      - RABBITMQ_DEFAULT_USER
+      - RABBITMQ_DEFAULT_USER=rabbituser
+      - ADMIN_PASSWORD
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY
       - DATABASE_PASSWORD
@@ -53,7 +53,7 @@ services:
     command: /run_celery.sh
     environment:
       - ENV=${ENV:-dev}
-      - RABBITMQ_DEFAULT_USER
+      - RABBITMQ_DEFAULT_USER=rabbituser
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY
       - DATABASE_PASSWORD
@@ -67,8 +67,8 @@ services:
     environment:
       - ENV=${ENV:-dev}
     ports:
-      - 8443:443
-      - 8000:80
+      - 443:443
+      - 80:80
     volumes:
       - socks:/run/django
       - static_files:/var/www/dp_server/assets

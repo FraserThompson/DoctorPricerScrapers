@@ -11,3 +11,4 @@ db.sqlite3
 conf/ssl
 npm-debug.log
 backup
+restore
