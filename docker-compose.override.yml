@@ -4,6 +4,9 @@ services:
     nginx:
         build: ../dp_nginx
         restart: "no"
+        ports:
+            - 8443:443
+            - 8000:80
 
     postgres:
         environment:

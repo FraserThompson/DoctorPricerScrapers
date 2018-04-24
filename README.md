@@ -6,16 +6,30 @@
 
 You'll just need Docker and docker-compose.
 
-### Running it
+### Running it in production
 
-#### Environment variables 
+#### Environment variables
 
 * DATABASE_PASSWORD
 * SECRET_KEY
+* ADMIN_PASSWORD
+* RABBITMQ_DEFAULT_PASS
+* DOCKER_USERNAME
+* DOCKER_PASSWORD
 
 Start it up with `docker-compose up --build`
 
 Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
+
+#### Deploying it
+
+Scripts in `./_ops` are for managing the live deployment.
+
+We user Dockerhub for our docker images, and it builds from git, so first commit and push changes to git.
+
+To deploy it cd into `_/ops` and then run `DP_SERVER=[server adddress] ./deploy.sh`.
+
+To provision a new server run `DP_SERVER=[server adddress] ./provision.sh`.
 
 ### Backups
 
@@ -23,13 +37,13 @@ To backup run `docker-compose -f docker-compose.extra.yml run backup` and it'll 
 
 To restore run `docker-compose -f docker-compose.extra.yml run restore` and it'll restore `./backups/backup`.
 
-#### Accessing the admin backend
+### Accessing the admin backend
 
 1. Navigate to https://localhost:8443/admin and log in with your credentials
 
 In dev this is `fraserdev` and `dev`.
 
-#### Doing a Manual import
+### Doing a Manual import
 
 1. Put data.json into `_manual`
 2. Create a PHO with the module name `_manual`
