@@ -1,0 +1,80 @@
+authorizedkeys:
+  autodestroy: always
+  deployment_strategy: every_node
+  environment:
+    - AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAu298P73mNQmwGIih1KNUqacksioF6CazH5nM39X+lzP/+ebTQQvU/I0WCyZRTA+VGyloYpQxWC969dimj6e34hpCdcWcuHl1wr3afLpd7RqcUnaubLins3s5xStWD5oNWREkZ/mpqUWgPWEQsG7n1cADW0Es4UyM0jzz/wo8wNE=
+  image: 'dockercloud/authorizedkeys:latest'
+  volumes:
+    - '/root:/user'
+backup:
+  command: "/bin/sh -c 'pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup'"
+  environment:
+    - PGPASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+    - POSTGRES_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+  image: 'mdillon/postgis:latest'
+  volumes:
+    - '/home/backups:/backups'
+django:
+  command: /run_server.sh
+  environment:
+    - ADMIN_PASSWORD=HotPotatoCarpetMagnet23
+    - DATABASE_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+    - ENV=production
+    - RABBITMQ_DEFAULT_PASS=ZLAZzkkxYHLTPffIETzoPqsksmgpjYdp
+    - RABBITMQ_DEFAULT_USER=rabbituser
+    - SECRET_KEY=VasA8Qcn8OOTjVkW15QGLVvc301em19W
+  image: 'fraserthompson/doctorpricerscrapers:latest'
+  links:
+    - memcached
+    - postgres
+    - rabbit
+    - worker
+  restart: always
+  volumes:
+    - /run/django
+    - /var/www/dp_server/assets
+memcached:
+  image: 'memcached:alpine'
+nginx:
+  environment:
+    - ENV=live
+  image: 'fraserthompson/doctorpricernginx:latest'
+  ports:
+    - '80:80'
+    - '443:443'
+  volumes:
+    - '/home/letsencrypt:/etc/letsencrypt'
+  volumes_from:
+    - django
+postgres:
+  environment:
+    - POSTGRES_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+  image: 'mdillon/postgis:latest'
+  ports:
+    - '5432'
+  restart: always
+  volumes:
+    - '/home/postgres-data:/var/lib/postgresql/data'
+rabbit:
+  environment:
+    - RABBITMQ_DEFAULT_PASS=ZLAZzkkxYHLTPffIETzoPqsksmgpjYdp
+    - RABBITMQ_DEFAULT_USER=rabbituser
+  hostname: rabbit
+  image: 'rabbitmq:3.6.0'
+  ports:
+    - '5672:5672'
+    - '15672:15672'
+worker:
+  command: /run_celery.sh
+  environment:
+    - DATABASE_PASSWORD=q1kkXbunXoU35f291B6hxWs7rNNn0qGi
+    - ENV=production
+    - RABBITMQ_DEFAULT_PASS=ZLAZzkkxYHLTPffIETzoPqsksmgpjYdp
+    - RABBITMQ_DEFAULT_USER=rabbituser
+    - SECRET_KEY=VasA8Qcn8OOTjVkW15QGLVvc301em19W
+  image: 'fraserthompson/doctorpricerscrapers:latest'
+  links:
+    - memcached
+    - postgres
+    - rabbit
+  restart: always
