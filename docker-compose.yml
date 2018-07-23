@@ -73,7 +73,6 @@ services:
       - socks:/run/django
       - static_files:/var/www/dp_server/assets
       - nginx-certs:/etc/letsencrypt
-    restart: always
 
 volumes:
   socks:
