@@ -8,7 +8,7 @@
 source .env
 
 # Ensure the directory is there
-ssh fraser@${DP_SERVER} "mkdir -p ~/docker-services/doctorpricer"
+ssh -v fraser@${DP_SERVER} "mkdir -p ~/docker-services/doctorpricer"
 
 # Copy the docker-compose files and remote scripts
 scp ../{docker-compose,docker-compose.extra}.yml ./remote_scripts/*.sh fraser@${DP_SERVER}:~/docker-services/doctorpricer
