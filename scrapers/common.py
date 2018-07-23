@@ -14,7 +14,7 @@ from pygeocoder import Geocoder
 # Contains all logic for interacting with the database.
 # Not to be instantiated.
 class Database:
-    apiUrl = 'https://api.doctorpricer.co.nz/dp/api/'
+    apiUrl = 'https://api2.doctorpricer.co.nz/dp/api/'
 
     ################################################
     # Find a practice in the database
