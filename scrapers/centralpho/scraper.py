@@ -4,98 +4,86 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
 def scrape(name):
-	things = [
-		{
-		'listUrl': 'http://www.centralpho.org.nz/PracticesandFees/PracticeFees.aspx',
-		'infoUrl': 'http://www.centralpho.org.nz/PracticesandFees.aspx',
-		'addressEl': "dnn_ctr484_Map_AddressLabel",
-		'phoneEl': "dnn_ctr484_Map_PhoneLabel"}
-	]
+
+	infoUrl = "http://www.centralpho.org.nz/general-practices"
+	listUrl = "http://www.centralpho.org.nz/practice-fees"
 
 	scraper = scrapers.Scraper(name)
-	for thing in things:
-		listUrlSouped = scrapers.openAndSoup(thing['listUrl'])
-		infoURLSouped = scrapers.openAndSoup(thing['infoUrl'])
-		rows = listUrlSouped.find('table', {'class': 'FeesTable'}).find_all('tr')
-		info_table = infoURLSouped.find('table', {'class': 'PracticeTable'})
-		info_list = [[cell.get_text(strip=True) or cell.find('img').get('alt') == "No" for cell in row("td")] for row in info_table("tr")[1:]]
-		info_dict = {}
-		for item in info_list:
-			info_dict[item[0]] = item[1:]
 
-		print("Iterating table...")
-		for row in rows:
-			cells = row.findAll('td')
-			if len(cells) > 0:
-				deep = 0
-				scraper.newPractice(cells[0].find('a').get_text(), cells[0].find('a').get('href'), "Central PHO", "")
+	listUrlSouped = scrapers.openAndSoup(listUrl)
+	infoURLSouped = scrapers.openAndSoup(infoUrl)
 
-				try:
-					if info_dict[scraper.practice['name']][0]:
-						scraper.notEnrolling()
-				except KeyError:
-					print("couldn't find in dict: " + scraper.practice['name'])
-					deep = 1
+	fees_rows = listUrlSouped.find('div', {'class': 'view-id-general_practices_and_fees'}).find_all('tr')
+	info_rows = infoURLSouped.find('div', {'class': 'view-id-general_practices_and_fees'}).find_all('tr')
+	
+	practices = {}
 
-				try:
-					practiceUrlSouped = scraper.openAndSoup()
-				except:
-					continue
+	# Build a dictionary for the details
+	for row in info_rows[1:]:
+		practice = {}
+		practice['enrolling'] = row.find('td', {'class': 'views-field-field-enrolling-patients'}).get_text(strip=True)
+		practice['phone'] = row.find('td', {'class': 'views-field views-field-field-phone'}).get_text(strip=True)
+		practice['address'] = row.find('td', {'class': 'views-field views-field-field-address'}).get_text(strip=True)
+		practices[row.find('td', {'class': 'views-field-title'}).get_text(strip=True)] = practice
 
-				if deep:
-					addressElement = practiceUrlSouped.find('span', {"id": thing['addressEl']})
-					phoneElement = practiceUrlSouped.find('span', {"id": thing['phoneEl']})
-					if addressElement is None:
-						scraper.addError("No address.")
-						continue
-					else:
-						scraper.practice['address'] = addressElement.get_text(strip=True)
-						scraper.practice['phone'] = addressElement.get_text(strip=True) if phoneElement else "None supplied"
-				else:
-					scraper.practice['phone'] = info_dict[scraper.practice['name']][1]
-					scraper.practice['address'] = info_dict[scraper.practice['name']][2]
+	# Get prices
+	for row in fees_rows[1:]:
+		cells = row.findAll('td')
+		title_element = row.find('td', {'class': 'views-field-title'})
+		title = title_element.get_text(strip=True)
+		url = title_element.find('a').get('href')
+		
+		print(title)
 
-				#### GOING IN REALLY DEEP ####
-				scriptElement = practiceUrlSouped.find('body').findAll('script', {"type":"text/javascript"})
-				first = scriptElement[2].text.split("LatLng(", 1)
-				if (len(first) > 1 and first[1].split(");", 1)[0].split(", ")[0]):
-					coord = first[1].split(");", 1)[0].split(", ")
-					coord[0] = float(coord[0])
-					coord[1] = float(coord[1])
-					scraper.setLatLng(coord)
+		scraper.newPractice(title, url, "Central PHO", "")
+		scraper.practice['phone'] = practices[title]['phone']
+		scraper.practice['address'] = practices[title]['address']
+		
+		if practices[title]['enrolling']:
+			scraper.notEnrolling()
 
-				scraper.practice['prices'] = [
-						{
-						'age': 0,
-						'price': float(cells[1].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 6,
-						'price': float(cells[2].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 13,
-						'price': float(cells[3].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 18,
-						'price': float(cells[4].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 25,
-						'price': float(cells[5].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 45,
-						'price': float(cells[6].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 65,
-						'price': float(cells[7].get_text(strip=True).replace("$", "")),
-						},
-				]
+		zero = row.find('td', {'class': 'views-field-field-under-6'}).get_text(strip=True)
 
-				scraper.finishPractice()
-				time.sleep(5)
+		# If there's no zero column then probably no prices so skip it
+		if zero != "":
+			six = row.find('td', {'class': 'views-field-field-6-to-12'}).get_text(strip=True)
+			thirteen = row.find('td', {'class': 'views-field-field-13-to-17'}).get_text(strip=True)
+			eighteen = row.find('td', {'class': 'views-field-field-18-to-24'}).get_text(strip=True)
+			twentyfive = row.find('td', {'class': 'views-field-field-25-to-44'}).get_text(strip=True)
+			fortyfive = row.find('td', {'class': 'views-field-field-45-to-65'}).get_text(strip=True)
+			oversixtyfive = row.find('td', {'class': 'views-field-field-over-65'}).get_text(strip=True)
+
+			scraper.practice['prices'] = [
+				{
+				'age': 0,
+				'price': float(zero.replace("$", "")),
+				},
+				{
+				'age': 6,
+				'price': float(six.replace("$", "")),
+				},
+				{
+				'age': 13,
+				'price': float(thirteen.replace("$", "")),
+				},
+				{
+				'age': 18,
+				'price': float(eighteen.replace("$", "")),
+				},
+				{
+				'age': 25,
+				'price': float(twentyfive.replace("$", "")),
+				},
+				{
+				'age': 45,
+				'price': float(fortyfive.replace("$", "")),
+				},
+				{
+				'age': 65,
+				'price': float(oversixtyfive.replace("$", "")),
+				},
+			]
+
+		scraper.finishPractice()
 
 	return scraper.finish()

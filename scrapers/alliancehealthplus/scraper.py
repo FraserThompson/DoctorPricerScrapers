@@ -2,27 +2,34 @@ import sys, codecs, os
 import json
 from scrapers import common as scrapers
 
+
+#### THIS SCRAPER DOESNT WORK BECAUSE THEIR ENTIRE SITE IS JS
+#### WILL NEED TO USE PHANTOMJS OR SOMETHING
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	root = 'http://www.alliancehealth.org.nz'
 	listUrlSouped = scrapers.openAndSoup(root + '/find-a-gp')
 
-	print(listUrlSouped)
-
-	clinics = listUrlSouped.find('a', {'class': 'g-transparent-a'})
+	clinics = listUrlSouped.find_all('a', {'class': 'g-transparent-a'})
 
 	for clinic in clinics:
 		coord = [0,0]
 		prices_list = []
+
+		if not clinic.get('href'):
+			continue
+
+		if clinic.get('href') == "https://www.alliancehealth.org.nz/contact-us":
+			continue
 
 		# Info
 		scraper.newPractice(clinic.get_text(), clinic.get('href'), "Alliance Health Plus", "")
 
 		infoUrlSouped = scrapers.openAndSoup(clinic.get('href'))
 
-		scraper.practice['address'] = infoUrlSouped.find('div', {'[style]': 'left: 779px; width: 304px; position: absolute; top: 148px;'})
-		scraper.practice['phone'] = infoUrlSouped.find('div', {'[style]': 'left: 779px; width: 164px; position: absolute; top: 431px;'}).split(':')[1].split('Fax')[0]
+		scraper.practice['address'] = infoUrlSouped.find('div', {'[style]': 'left: 778px; width: 169px; position: absolute; top: 207px;'}).get_text()
+		scraper.practice['phone'] = infoUrlSouped.find('div', {'[style]': 'left: 773px; width: 195px; position: absolute; top: 499px;'}).get_text().split(':')[1].split('Fax')[0]
 
 
 		# # Fees

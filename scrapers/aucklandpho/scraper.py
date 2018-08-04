@@ -53,66 +53,32 @@ def scrape(name):
 
 		scraper.setLatLng(coord)
 
-		# grr one of them has a different format >:(
-		if cells[0].get_text(strip=True) != "Meadowbank Medical Centre":
-			scraper.practice['prices'] =  [
-					{
-					'age': 0,
-					'price': float(cells[1].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 13,
-					'price': float(cells[2].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 18,
-					'price': float(cells[3].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 25,
-					'price': float(cells[4].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 45,
-					'price': float(cells[5].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 65,
-					'price': float(cells[6].get_text(strip=True).replace(" ", "").replace("$", ""))
-					}
-				]
-		else:
-			bad_cell = cells[1].get_text(strip=True).replace(" ", "").replace("$", "").replace("*", "").split("-")
-			scraper.practice['prices'] =  [
-					{
-					'age': 0,
-					'price': float(bad_cell[0])
-					},
-					{
-					'age': 6,
-					'price': float(bad_cell[1])
-					},
-					{
-					'age': 13,
-					'price': float(cells[2].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 18,
-					'price': float(cells[3].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 25,
-					'price': float(cells[4].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 45,
-					'price': float(cells[5].get_text(strip=True).replace(" ", "").replace("$", ""))
-					},
-					{
-					'age': 65,
-					'price': float(cells[6].get_text(strip=True).replace(" ", "").replace("$", ""))
-					}
-				]
+		scraper.practice['prices'] =  [
+				{
+				'age': 0,
+				'price': float(cells[1].get_text(strip=True).replace(" ", "").replace("$", ""))
+				},
+				{
+				'age': 13,
+				'price': float(cells[2].get_text(strip=True).replace(" ", "").replace("$", ""))
+				},
+				{
+				'age': 18,
+				'price': float(cells[3].get_text(strip=True).replace(" ", "").replace("$", ""))
+				},
+				{
+				'age': 25,
+				'price': float(cells[4].get_text(strip=True).replace(" ", "").replace("$", ""))
+				},
+				{
+				'age': 45,
+				'price': float(cells[5].get_text(strip=True).replace(" ", "").replace("$", ""))
+				},
+				{
+				'age': 65,
+				'price': float(cells[6].get_text(strip=True).replace(" ", "").replace("$", ""))
+				}
+			]
 
 		scraper.finishPractice()
 
