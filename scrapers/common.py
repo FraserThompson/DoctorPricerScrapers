@@ -63,7 +63,7 @@ class Scraper:
 
     # Geolocate using Google Maps API
     def geolocate(self):
-        if os.environ['ENV'] != "dev":
+        if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
             try:
                 result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
                 coord = result_array[0].coordinates
@@ -78,7 +78,7 @@ class Scraper:
     # Gets the place ID
     def get_place_id(self):
 
-        if os.environ['ENV'] != "dev":
+        if  os.environ.get('ENV') and os.environ['ENV'] != "dev":
 
             req_string = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + self.practice["name"] + ' &key=' + self.google_key
 

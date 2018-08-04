@@ -16,7 +16,7 @@ def one(name):
         return_object['error'] = traceback.format_exc()
         return return_object
 
-    if os.environ['ENV'] == "dev":
+    if os.environ.get('ENV') == "dev" or os.environ.get('ENV') == None:
         print(json.dumps(return_object, indent=4, sort_keys=True))
     
     return return_object
