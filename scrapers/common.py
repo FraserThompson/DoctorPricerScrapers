@@ -66,13 +66,13 @@ class Scraper:
     def geolocate(self):
         if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
             try:
-                result_array = Geocoder(google_key).geocode(self.practice["address"] + ", New Zealand")
+                result_array = Geocoder(Scraper.google_key).geocode(self.practice["address"] + ", New Zealand")
                 coord = result_array[0].coordinates
                 self.setLatLng(coord)
             except:
                 time.sleep(10)
                 try:
-                    result_array = Geocoder(google_key).geocode(self.practice["address"] + ", New Zealand")
+                    result_array = Geocoder(Scraper.google_key).geocode(self.practice["address"] + ", New Zealand")
                     coord = result_array[0].coordinates
                     self.setLatLng(coord)
                 except:
@@ -87,7 +87,7 @@ class Scraper:
 
         if  os.environ.get('ENV') and os.environ['ENV'] != "dev":
 
-            req_string = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + self.practice["name"] + ' &key=' + self.google_key
+            req_string = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + self.practice["name"] + ' &key=' + Scraper.google_key
 
             if 'lat' in self.practice:
                 req_string = req_string + "&location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30"
