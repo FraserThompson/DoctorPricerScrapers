@@ -84,7 +84,7 @@ def submit(module, data):
         practice = result['practice']
         exists = result['exists'] # whether or not it exists already in the database
 
-        practice_pho = models.Pho.objects.get_or_create(name=practice['pho'])
+        practice_pho, created = models.Pho.objects.get_or_create(name=practice['pho'])
 
         # Make the practice
         new_practice = models.Practice.objects.update_or_create( 
