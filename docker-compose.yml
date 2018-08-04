@@ -40,6 +40,7 @@ services:
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY
       - DATABASE_PASSWORD
+      - GEOLOCATION_API_KEY
     volumes:
       - migrations:/var/www/dp_server/migrations
       - socks:/run/django
@@ -58,6 +59,7 @@ services:
       - RABBITMQ_DEFAULT_PASS
       - SECRET_KEY
       - DATABASE_PASSWORD
+      - GEOLOCATION_API_KEY
     depends_on:
       - rabbit
     restart: always

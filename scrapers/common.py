@@ -9,6 +9,7 @@ import re, sys, os
 import codecs
 from datetime import datetime, date
 from pygeocoder import Geocoder
+import time
 
 ################### DATABASE ###########################################
 # Contains all logic for interacting with the database.
@@ -50,7 +51,7 @@ class Scraper:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-    google_key = 'AIzaSyCoNNjdQ4ZGHJhP5HwiLf0mnjydOc2iwik'
+    google_key = os.environ.get('GEOLOCATION_API_KEY')
 
     def newPractice(self, name, url, pho, restriction=""):
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
@@ -65,12 +66,18 @@ class Scraper:
     def geolocate(self):
         if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
             try:
-                result_array = Geocoder.geocode(self.practice["address"] + ", New Zealand")
+                result_array = Geocoder(google_key).geocode(self.practice["address"] + ", New Zealand")
                 coord = result_array[0].coordinates
                 self.setLatLng(coord)
             except:
-                self.addError("Could not geocode address: " + self.practice["address"])
-                return 0
+                time.sleep(10)
+                try:
+                    result_array = Geocoder(google_key).geocode(self.practice["address"] + ", New Zealand")
+                    coord = result_array[0].coordinates
+                    self.setLatLng(coord)
+                except:
+                    self.addError("Could not geocode address: " + self.practice["address"])
+                    return 0
         else:
             coord = ['-45.86101900000001', '170.51175549999994'] # dummy cordinates in dev so we don't deplete our google supply
             self.setLatLng(coord)
