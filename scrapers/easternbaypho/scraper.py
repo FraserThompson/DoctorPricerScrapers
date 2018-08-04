@@ -64,60 +64,63 @@ def scrape(name):
 
 		scraper.newPractice(name, url, "Eastern Bay PHO", "")
 
-		practiceSouped = scraper.openAndSoup().find('div', {'itemprop': 'articleBody'})
-		try:
-			if practiceSouped.find_all('a')[1].get_text(strip=True) == 'View map':
-				maps_url = practiceSouped.find_all('a')[1].get('href')
-			else:
-				plan_b = 1
-		except IndexError:
-			plan_b = 1
+		# If they have a website on this website then we can get details, otherwise we'll just use what we got
+		if ("https" not in url and "http" not in url):
+			practiceSouped = scraper.openAndSoup().find('div', {'itemprop': 'articleBody'})
 
-		if plan_b:
-			if scraper.practice['name'] == "Whakatohea Health Centre":
-				scraper.practice['address'] = "117 Church Street, Opotiki"
-				coord = scraper.geolocate()
-			elif scraper.practice['name'] == "Med Central":
-				scraper.practice['address']  = "52B King Street, Whakatane, NZ"
-				coord = scraper.geolocate()
-			elif scraper.practice['name'] == "Toi Ora":
-				scraper.practice['address'] = "32A King Street, Opotiki"
-				coord = scraper.geolocate()
-			else:
-				try:
-					i = 0
-					while coord == 0 and i < 4:
-						address = practiceSouped.find_all('p')[i].get_text()
-						address = re.sub('<br\s*?>', ', ', address).strip()
-						scraper.practice['address'] = regex.sub(' ', address)
-						coord = scraper.geolocate()
-						i += 1
-				except IndexError:
-					scraper.addError('Could not get address or coordinates during Plan B.')
-					fail = 1
-
-				if coord[0] == 0:
-					scraper.addError("Couldn't geocode address: " + address)
-					fail = 1
-		else:
 			try:
-				address = maps_url.split('q=')[1].split('&')[0]
-				coord = maps_url.split('ll=')[1].split('&')[0].split(',')
+				if practiceSouped.find_all('a')[1].get_text(strip=True) == 'View map':
+					maps_url = practiceSouped.find_all('a')[1].get('href')
+				else:
+					plan_b = 1
 			except IndexError:
+				plan_b = 1
+
+			if plan_b:
+				if scraper.practice['name'] == "Whakatohea Health Centre":
+					scraper.practice['address'] = "117 Church Street, Opotiki"
+					coord = scraper.geolocate()
+				elif scraper.practice['name'] == "Med Central":
+					scraper.practice['address']  = "52B King Street, Whakatane, NZ"
+					coord = scraper.geolocate()
+				elif scraper.practice['name'] == "Toi Ora":
+					scraper.practice['address'] = "32A King Street, Opotiki"
+					coord = scraper.geolocate()
+				else:
+					try:
+						i = 0
+						while coord == 0 and i < 4:
+							address = practiceSouped.find_all('p')[i].get_text()
+							address = re.sub('<br\s*?>', ', ', address).strip()
+							scraper.practice['address'] = regex.sub(' ', address)
+							coord = scraper.geolocate()
+							i += 1
+					except IndexError:
+						scraper.addError('Could not get address or coordinates during Plan B.')
+						fail = 1
+
+					if coord[0] == 0:
+						scraper.addError("Couldn't geocode address: " + address)
+						fail = 1
+			else:
 				try:
-					address = maps_url.split('place/')[1].split('/@')[0]
-					coord = maps_url.split('@')[1].split(',17z/')[0].split(',', maxsplit=1)
+					address = maps_url.split('q=')[1].split('&')[0]
+					coord = maps_url.split('ll=')[1].split('&')[0].split(',')
 				except IndexError:
+					try:
+						address = maps_url.split('place/')[1].split('/@')[0]
+						coord = maps_url.split('@')[1].split(',17z/')[0].split(',', maxsplit=1)
+					except IndexError:
+						scraper.addError(url + ': Could not get address or coordinates.')
+						fail = 1
+				try:
+					scraper.practice['lat'] = float(coord[0])
+					scraper.practice['lng'] = float(coord[1])
+				except ValueError:
 					scraper.addError(url + ': Could not get address or coordinates.')
 					fail = 1
-			try:
-				scraper.practice['lat'] = float(coord[0])
-				scraper.practice['lng'] = float(coord[1])
-			except ValueError:
-				scraper.addError(url + ': Could not get address or coordinates.')
-				fail = 1
-			
-			scraper.practice['address'] = address.replace('+', ' ')
+				
+				scraper.practice['address'] = address.replace('+', ' ')
 
 		try:
 			fees = scrapers.partial_match(scrapers.normalize(name), fees_dict)
@@ -131,4 +134,5 @@ def scrape(name):
 		scraper.practice['phone'] = "See website"
 		scraper.practice['prices'] = fees
 		scraper.finishPractice()
+
 	return scraper.finish()

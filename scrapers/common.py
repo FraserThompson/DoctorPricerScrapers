@@ -127,11 +127,20 @@ class Scraper:
     def finishPractice(self):
         self.exists = Database.findPractice(self.practice["name"])
 
-        # Use existing information if address hasn't changed
-        if self.exists and 'address' in self.practice and self.exists["address"] == self.practice["address"]:
-            self.practice["place_id"] = self.exists["place_id"]
-            self.practice["lat"] = self.exists["lat"]
-            self.practice["lng"] = self.exists["lng"]
+        if self.exists:
+
+            # If we're missing anything then use what we have
+            if 'address' not in self.practice:
+                self.practice['address'] = self.exists['address']
+
+            if 'phone' not in self.practice:
+                self.practice['phone'] = self.exists['phone']
+
+            # Use existing information if address hasn't changed
+            if 'address' in self.practice and self.exists["address"] == self.practice["address"]:
+                self.practice["place_id"] = self.exists["place_id"]
+                self.practice["lat"] = self.exists["lat"]
+                self.practice["lng"] = self.exists["lng"]
 
         # If we still don't have the place ID then get it (this will get the address too if that's not a thing)
         if 'place_id' not in self.practice or not self.practice["place_id"] or 'address' not in self.practice or not self.practice["address"]:
@@ -146,6 +155,10 @@ class Scraper:
             self.practice["phone"] = "None supplied"
         
         # Verify data
+        if 'address' not in self.practice or not self.practice.get('address'):
+            self.addError("No address.")
+            return
+
         ages = []
         for price in self.practice["prices"]:
 
