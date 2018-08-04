@@ -41,6 +41,7 @@ services:
       - SECRET_KEY
       - DATABASE_PASSWORD
     volumes:
+      - migrations /var/www/dp_server/migrations
       - socks:/run/django
       - static_files:/var/www/dp_server/assets  
     depends_on:
@@ -79,3 +80,4 @@ volumes:
   static_files:
   nginx-certs:
   database:
+  migrations:
