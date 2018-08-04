@@ -21,7 +21,7 @@ class Pho(models.Model):
     last_run = models.DateTimeField(auto_now=True)
     current_task_id = models.TextField(blank=True, null=True, default=None)
     number_of_practices = models.IntegerField(default=0)
-    average_prices = JSONField(default={"0":0})
+    average_prices = JSONField(blank=True, null=True, default=None)
     last_scrape = JSONField(blank=True, default=[])
     history = HistoricalRecords()
 
