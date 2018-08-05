@@ -69,7 +69,7 @@ class Scraper:
             try:
                 coord, place_id, address = get_lat_lng(search_key)
             except:
-                self.addError("Could not geocode because of an unspecified error: " + search_key])
+                self.addError("Could not geocode because of an unspecified error: " + search_key)
                 return 0
 
             if coord: self.setLatLng(coord)
