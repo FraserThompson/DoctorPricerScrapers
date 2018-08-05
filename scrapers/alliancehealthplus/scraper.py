@@ -2,79 +2,65 @@ import sys, codecs, os
 import json
 from scrapers import common as scrapers
 
-
-#### THIS SCRAPER DOESNT WORK BECAUSE THEIR ENTIRE SITE IS JS
-#### WILL NEED TO USE PHANTOMJS OR SOMETHING
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	root = 'http://www.alliancehealth.org.nz'
-	listUrlSouped = scrapers.openAndSoup(root + '/find-a-gp')
+	# this is a wix site and to get a wix site to return plain HTML you add /?_escaped_fragment_= on the end lol
+	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-gp/?_escaped_fragment_='
+	listUrlSouped = scrapers.openAndSoup(practice_list_url)
 
-	clinics = listUrlSouped.find_all('a', {'class': 'g-transparent-a'})
+	clinics = listUrlSouped.find('section', {'class': 'page'}).find_all('a')
 
 	for clinic in clinics:
-		coord = [0,0]
-		prices_list = []
 
-		if not clinic.get('href'):
-			continue
+		name = clinic.get_text(strip=True)
+		url = clinic.get('href')
 
-		if clinic.get('href') == "https://www.alliancehealth.org.nz/contact-us":
-			continue
+		scraper.newPractice(name, url, "Alliance Health Plus", "")
+		practice_soup = scrapers.openAndSoup(url + '/?_escaped_fragment_=')
 
-		# Info
-		scraper.newPractice(clinic.get_text(), clinic.get('href'), "Alliance Health Plus", "")
+		all_text = practice_soup.find_all('div', {'class': 'Text'})
 
-		infoUrlSouped = scrapers.openAndSoup(clinic.get('href'))
+		scraper.practice['prices'] = []
 
-		scraper.practice['address'] = infoUrlSouped.find('div', {'[style]': 'left: 778px; width: 169px; position: absolute; top: 207px;'}).get_text()
-		scraper.practice['phone'] = infoUrlSouped.find('div', {'[style]': 'left: 773px; width: 195px; position: absolute; top: 499px;'}).get_text().split(':')[1].split('Fax')[0]
+		# Get fees very looseley
+		for text_block in all_text:
+
+			if "$" in text_block.get_text(strip=True):
+
+				lines = text_block.find('ul').find_all('li')
+
+				for fee in lines:
+
+					fee_text = fee.get_text(strip=True)
+
+					# We've gone too far and we're done
+					if "After 5pm weekdays" in fee_text or "Saturdays" in fee_text:
+						break
+
+					# Probably some other random shit if no : so skip it
+					if ":" not in fee_text:
+						continue
+
+					fee_tuple = fee_text.split(":")
+
+					age = scrapers.getFirstNumber(fee_tuple[0])
+					price = scrapers.getFirstNumber(fee_tuple[1])
+
+					price_dict = {'age': age, 'price': price}
+
+					scraper.practice['prices'].append(price_dict)
+
+				break
 
 
-		# # Fees
-		# try:
-		# 	if (clinic_data.get_text() != 'Bader Drive Healthcare Manurewa'):
-		# 		info_lines2 = pracURLSouped.find('div', {'class' : 'info'}).find('ul').find_all('li')
-		# 	else: 
-		# 		info_lines2 = pracURLSouped.find('div', {'class' : 'info'}).find_all('ul')[1].find_all('li')
+		map = practice_soup.find('div', {'class': 'google-map'}).find('img')
+		coord = map.get('src').split('&sensor=true')[0].split('markers=color:red%7C')[1].split(',')
 
-		# 	count = 0
+		scraper.practice['lat'] = float(coord[0])
+		scraper.practice['lng'] = float(coord[1])
+		scraper.practice['address'] = map.get('alt')
 
-		# 	print(clinic_data.get_text() + ": ")
-		# 	for line in info_lines2:
-		# 		fees = line.get_text(strip=True).split(':')
-		# 		print(fees)
-		# 		if len(fees) == 2:
-		# 			# Dealing with the left hand side
-		# 			if (count == 0):
-		# 				fees[0] = 0
-		# 			else:
-		# 				fees[0] = fees[0].replace('-', ' ').replace('+', '')
-		# 				strip_numbers = [int(s) for s in fees[0].split() if s.isdigit()]
-		# 				if len(strip_numbers) > 0:
-		# 					fees[0] = strip_numbers[0]
-
-		# 			# Dealing with the right hand side
-		# 			fees[1] = fees[1].replace('\xa0', '').replace('&nbsp;', '').replace(' ', '')
-		# 			if fees[1] == 'Free' or fees[1] == 'FREE':
-		# 				fees[1] = 0;
-		# 			elif "Extended" in fees[1]:
-		# 				continue
-		# 			else:
-		# 				fees[1] = fees[1].split('(')[0]
-
-		# 			if (isinstance(fees[1], int) is not True):
-		# 				fees[1] = float(fees[1].replace("$", ""))
-
-		# 			prices_list.append({"age" : fees[0], "price": fees[1]})
-		# 			count += 1
-
-		# except AttributeError:
-		# 	scraper.addError("Couldn't get fees.")
-
-		# scraper.practice['prices'] = prices_list
-		# scraper.setLatLng(coord)
-		# scraper.finishPractice()
+		scraper.finishPractice()
 
 	return scraper.finish()

@@ -64,8 +64,7 @@ class Scraper:
     # Geolocate
     def geolocate(self):
 
-        # if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
-        if True:
+        if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
             search_key = self.practice["address"] + ", New Zealand" if self.practice.get('address') else self.practice['name']
             coord, place_id, address, error = get_lat_lng(search_key)
 
@@ -361,7 +360,7 @@ def urlify(input):
 # Returns the first number in a string. Also does some replacing of common words into numbers. Good for prices.
 def getFirstNumber(string):
     try:
-        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.replace("No charge", "0").replace("No Charge", "0").replace('Zero', '0').replace("Free", "0").replace("N/A", "999"))[0])
+        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0"))[0])
     except IndexError:
         result = 1000
     return result

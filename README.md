@@ -16,8 +16,9 @@ You'll just need Docker and docker-compose.
 * RABBITMQ_DEFAULT_PASS
 * DOCKER_USERNAME
 * DOCKER_PASSWORD
+* GEOLOCATION_API_KEY
 
-Start it up with `docker-compose up --build`
+Start it up with `docker-compose up --build -d`
 
 Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
 
@@ -25,11 +26,11 @@ Once Postgres is up run `docker-compose exec server migrate` to apply migrations
 
 Scripts in `./_ops` are for managing the live deployment.
 
-We user Dockerhub for our docker images, and it builds from git, so first commit and push changes to git.
+I use Dockerhub for my docker images, and it builds from git, so commit and push changes to git, then check Dockerhub to see when it's built.
 
-To deploy it cd into `_/ops` and then run `DP_SERVER=[server adddress] ./deploy.sh`.
+To deploy it run `./_ops/deploy.sh` from the root directory.
 
-To provision a new server run `DP_SERVER=[server adddress] ./provision.sh`.
+To provision a new server run `DP_SERVER=[server adddress] ./_ops/provision.sh`.
 
 ### Backups
 
@@ -51,7 +52,8 @@ In dev this is `fraserdev` and `dev`.
 4. Run `submit`on the new PHOs
 
 ### Adding scrapers
-Needs a file called scraper.py in the folder named after the pho.
+
+Needs a file called scraper.py in the folder named after the PHO.
 
 1. Start by importing the global module: `from scrapers import common as scrapers`
 1. Define a function called `scrape(name)`
@@ -59,7 +61,20 @@ Needs a file called scraper.py in the folder named after the pho.
 1. Use `scrapers.openAndSoup(url)` to open a url and turn it into something parseable
 1. When you've found a practice use `scraper.newPractice(name, url, PHO, restriction)` and add more details like this: `scraper.practice['phone'] = '5555'`
 1. When you've completed the practice use `scraper.finishPractice()` to finish with it
-1. When you've completed all practices `return scraper.finish()` 
+1. When you've completed all practices `return scraper.finish()`
+
+The pricing object should be under `scraper.practice['prices']` and should like a bit like this:
+
+```JSON
+[
+    {"age": 0, "price": 0},
+    {"age": 13, "price": 20},
+]
+```
+
+If don't provide a latitude, longitude then it will geolocate these based on the address. If you don't supply an address then it will try to geolocate based on the name. 
+
+If you don't provide a phone number it will default to "None supplied"
 
 other: `scraper.addError()`, `scraper.addWarning()`, `scraper.setLatLng([0, 0])`
 
@@ -69,22 +84,47 @@ Because of weirdness you've got to run a scraper like this when you're devving o
 
 `python -c "from scrapers import run; run.one('alliancehealthplus');"`
 
-Some day I'll improve this.
+Some day I'll improve this (or maybe just make a script which does this)
 
 ### Model
 
 #### PHO
 
-Create a PHO For each scraper.
+Each Scraper needs a PHO object.
+
+##### Required
+
+* name
+* module
+
+##### Optional
+
+* website
+* region
 
 #### Practice
 
 Scrapers make these when they scrape. Each is associated with a PHO.
 
+##### Required
+
+* name
+* address
+* pho
+* url
+* lat
+* lng
+
+##### Optional
+
+* phone
+* restriction
+* place_id
+
 #### Log
 
-A log is made each time a scraper is run.
+A log is made each time a scraper is run. These are displayed under each PHO/scraper at stats.doctorpricer.co.nz.
 
 ##### Prices
 
-Each practice has prices associated with it.
+Each practice has prices associated with it. These are seperate objects to make them easy to do database stuff with.
