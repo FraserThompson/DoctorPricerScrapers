@@ -16,7 +16,7 @@ def scrape(name):
 	phone_numbers = {}
 	ages = []
 
-	for deet in deets:
+	for deet in deets[1:]:
 		pairs = list(deet.stripped_strings)
 		phone_numbers[pairs[0]] = pairs[1]
 
