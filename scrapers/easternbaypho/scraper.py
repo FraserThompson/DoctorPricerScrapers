@@ -7,7 +7,7 @@ import re
 regex = re.compile(r'[\n\r\t]')
 
 fees_dict = {}
-root = 'http://www.ebpha.org.nz'
+root = 'http://www.ebpha.org.nz/'
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)

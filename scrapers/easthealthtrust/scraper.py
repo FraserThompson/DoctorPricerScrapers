@@ -14,7 +14,7 @@ def scrape(name):
 	for row in rows:
 
 		name = row.get_text(strip=True).replace(" >", "")
-		scraper.newPractice(name, row.get('href'), "Eastern Bay PHO", "")
+		scraper.newPractice(name, row.get('href'), "East Health Trust", "")
 
 		######## GOING IN DEEP #######
 		practiceUrlSouped = scraper.openAndSoup()
