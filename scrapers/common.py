@@ -51,7 +51,6 @@ class Scraper:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-    google_key = os.environ.get('GEOLOCATION_API_KEY')
 
     def newPractice(self, name, url, pho, restriction=""):
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
@@ -70,7 +69,7 @@ class Scraper:
             try:
                 coord, place_id, address = get_lat_lng(search_key)
             except:
-                self.addError("Could not geocode: " + search_key)
+                self.addError("Could not geocode because of an unspecified error: " + search_key])
                 return 0
 
             if coord: self.setLatLng(coord)
@@ -125,6 +124,10 @@ class Scraper:
             self.practice["phone"] = "None supplied"
         
         # Verifying data
+        if not self.practice.get("lat") or not self.practice.get("lng"):
+            self.addError("Could not geocode coordinates.")
+            return
+
         if not self.practice.get('address'):
             self.addError("No address.")
             return
@@ -168,10 +171,13 @@ class Scraper:
 # Get some details
 # returns a threeple of latlng, place_id and address
 def get_lat_lng(address):
-    result = geocoder.google(self.practice["address"] + ", New Zealand", key=google_key)
-    place_id = result.json['place'] if 'place' in result.json else None
-    address = result.json['address'] if 'address' in result.json else None
-    return (result.latlng, place_id, address)
+    result = geocoder.google(address, key=os.environ.get('GEOLOCATION_API_KEY'))
+    if result:
+        place_id = result.json['place'] if 'place' in result.json else None
+        address = result.json['address'] if 'address' in result.json else None
+        return (result.latlng, place_id, address)
+    else:
+        return (None, None, None)
 
 #####################################################################
 # Return student if student is contained in the string
