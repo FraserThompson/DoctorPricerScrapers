@@ -10,10 +10,10 @@ source .env
 ssh fraser@${DP_SERVER} "mkdir -p ~/docker-services/doctorpricer"
 
 # Copy the docker-compose files and remote scripts
-scp ../{docker-compose,docker-compose.extra}.yml ./remote_scripts/*.sh fraser@${DP_SERVER}:~/docker-services/doctorpricer
+scp ./{docker-compose,docker-compose.extra}.yml ./_ops/remote_scripts/*.sh fraser@${DP_SERVER}:~/docker-services/doctorpricer
 #########################################################################################################################
 
-ssh fraser@${DP_SERVER} mkdir -p ~/backup
+ssh fraser@${DP_SERVER} "mkdir -p ~/backups"
 
 # Run the script which fetches the images and brings up the containers
 ssh fraser@${DP_SERVER} "ENV=live DOCKER_USERNAME=${DOCKER_USERNAME} DOCKER_PASSWORD=${DOCKER_PASSWORD} ADMIN_PASSWORD=${ADMIN_PASSWORD} DATABASE_PASSWORD=${DATABASE_PASSWORD} RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS} SECRET_KEY=${SECRET_KEY} ~/docker-services/doctorpricer/backup.sh"

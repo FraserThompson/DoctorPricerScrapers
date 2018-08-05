@@ -3,7 +3,7 @@ version: '3'
 services:
 
   backup:
-    command: "/bin/sh -c 'pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup'"
+    command: "/bin/sh -c 'pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup.tar.gz'"
     environment:
       - PGPASSWORD=${DATABASE_PASSWORD:-password123}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
