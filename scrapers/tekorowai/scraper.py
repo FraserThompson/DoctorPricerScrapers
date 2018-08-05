@@ -14,23 +14,14 @@ def scrape(name):
 		prices.append({'age': scrapers.getFirstNumber(cells[0].get_text(strip=True).replace("Under 18s", "6")), 'price': float(cells[1].get_text(strip=True).replace("Free", "0").replace("$", ""))})
 
 	practiceListUrlSouped = scrapers.openAndSoup('http://www.korowai.co.nz/contact_us')
-	practiceRoot = practiceListUrlSouped.find('div', {'class': 'contact-info'})
-	practiceNames = practiceRoot.find_all('h2')
-	practiceDeets = practiceRoot.find_all('div')
-	i = 0
+	practiceRoot = practiceListUrlSouped.find('div', {'class': 'page-content'})
+	practiceNames = practiceRoot.find_all('h3')
 
 	for row in practiceNames:
 		scraper.newPractice(row.get_text(strip=True), "http://www.korowai.co.nz/", "Te Korowai", "")
-		scraper.practice['lat'] = float(row['data-latitude'])
-		scraper.practice['lng'] = float(row['data-longitude'])
-
-		details = practiceDeets[i].find_all('p')
-		scraper.practice['address'] = re.sub(' +', ' ', details[0].get_text().replace('\n', ', ').replace('\xa0', ' ')).strip(', ')
-
-		scraper.practice['phone'] = details[1].get_text(strip=True)
-		i = i + 1
-
 		scraper.practice['prices'] = prices
+
+		# they changed their website and got rid of useful info so we'll just use what we got for now I guess
 
 		scraper.finishPractice()
 
