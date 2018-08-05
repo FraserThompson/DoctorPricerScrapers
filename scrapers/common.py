@@ -64,17 +64,17 @@ class Scraper:
     # Geolocate
     def geolocate(self):
 
-        if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
+        # if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
+        if True:
             search_key = self.practice["address"] + ", New Zealand" if self.practice.get('address') else self.practice['name']
-            try:
-                coord, place_id, address = get_lat_lng(search_key)
-            except:
-                self.addError("Could not geocode because of an unspecified error: " + search_key)
-                return 0
+            coord, place_id, address, error = get_lat_lng(search_key)
 
-            if coord: self.setLatLng(coord)
-            if place_id: self.practice['place_id'] = place_id
-            if address: self.practice['address'] = address
+            if not error:
+                if coord: self.setLatLng(coord)
+                if place_id: self.practice['place_id'] = place_id
+                if address: self.practice['address'] = address
+            else:
+                self.addError("Could not geocode: " + error)
 
         else:
             coord = ['-45.86101900000001', '170.51175549999994'] # dummy cordinates in dev so we don't deplete our google supply
@@ -125,7 +125,7 @@ class Scraper:
         
         # Verifying data
         if not self.practice.get("lat") or not self.practice.get("lng"):
-            self.addError("Could not geocode coordinates.")
+            self.addError("No coordinates.")
             return
 
         if not self.practice.get('address'):
@@ -172,12 +172,14 @@ class Scraper:
 # returns a threeple of latlng, place_id and address
 def get_lat_lng(address):
     result = geocoder.google(address, key=os.environ.get('GEOLOCATION_API_KEY'))
-    if result:
-        place_id = result.json['place'] if 'place' in result.json else None
-        address = result.json['address'] if 'address' in result.json else None
-        return (result.latlng, place_id, address)
+    json_result = result.json
+
+    if result.ok:
+        place_id = json_result['place'] if 'place' in json_result else None
+        address = json_result['address'] if 'address' in json_result else None
+        return (result.latlng, place_id, address, False)
     else:
-        return (None, None, None)
+        return (None, None, None, result.error)
 
 #####################################################################
 # Return student if student is contained in the string
