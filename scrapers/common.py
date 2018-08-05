@@ -57,8 +57,8 @@ class Scraper:
 
     def openAndSoup(self):
         print("Accessing URL: " + self.practice["url"])
-        req = Request(self.practice["url"], None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'})
-        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+        req = Request(self.practice["url"], None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'})
+        context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
     # Geolocate
@@ -332,8 +332,8 @@ def scrapeHealthpagesDetails(soup):
 
 def openAndSoup(url):
     print("Accessing URL: " + url)
-    req = Request(url, None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36'})
-    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
+    req = Request(url, None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'})
+    context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
 # Give it a find('a').stripped_strings and it MIGHT end up with a better result than strip=true

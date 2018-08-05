@@ -4,6 +4,8 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 import re
 
+# last fee info i could find was here https://www.nph.org.nz/assets/Uploads/PK-Fees-Table.pdf
+
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 	url = 'http://www.nph.org.nz/our-clinics/'
@@ -17,7 +19,12 @@ def scrape(name):
 
 		scraper.newPractice(name, url, 'Ngati Porou Hauora', "")
 
-		scraper.practice['prices'] = []
+		scraper.practice['prices'] = [
+			{'age': 0, 'price:' 0},
+			{'age': 14, 'price:' 5},
+			{'age': 18, 'price:' 12}
+		]
+
 		prac_page = scrapers.openAndSoup(url)
 		contact_box = prac_page.find_all('div', {'class', 'grid_4'})[1].find_all('p')
 
