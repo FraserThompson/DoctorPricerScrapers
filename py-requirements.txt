@@ -4,7 +4,7 @@ wheel==0.26.0
 psycopg2==2.7.1
 bs4
 html5lib
-pygeocoder==1.2.5
+geocoder==1.38.1
 httplib2
 whitenoise==3.3.0
 requests==2.13.0

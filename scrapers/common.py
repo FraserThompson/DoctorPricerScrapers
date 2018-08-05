@@ -8,7 +8,7 @@ import httplib2
 import re, sys, os
 import codecs
 from datetime import datetime, date
-from pygeocoder import Geocoder
+import geocoder
 import time
 
 ################### DATABASE ###########################################
@@ -62,56 +62,24 @@ class Scraper:
         context = ssl.SSLContext(ssl.PROTOCOL_TLSv1)
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
-    # Geolocate using Google Maps API
+    # Geolocate
     def geolocate(self):
+
         if os.environ.get('ENV') and os.environ.get('ENV') != "dev":
+            search_key = self.practice["address"] + ", New Zealand" if self.practice.get('address') else self.practice['name']
             try:
-                result_array = Geocoder(Scraper.google_key).geocode(self.practice["address"] + ", New Zealand")
-                coord = result_array[0].coordinates
-                self.setLatLng(coord)
+                coord, place_id, address = get_lat_lng(search_key)
             except:
-                time.sleep(10)
-                try:
-                    result_array = Geocoder(Scraper.google_key).geocode(self.practice["address"] + ", New Zealand")
-                    coord = result_array[0].coordinates
-                    self.setLatLng(coord)
-                except:
-                    self.addError("Could not geocode address: " + self.practice["address"])
-                    return 0
+                self.addError("Could not geocode: " + search_key)
+                return 0
+
+            if coord: self.setLatLng(coord)
+            if place_id: self.practice['place_id'] = place_id
+            if address: self.practice['address'] = address
+
         else:
             coord = ['-45.86101900000001', '170.51175549999994'] # dummy cordinates in dev so we don't deplete our google supply
             self.setLatLng(coord)
-
-    # Gets the place ID
-    def get_place_id(self):
-
-        if  os.environ.get('ENV') and os.environ['ENV'] != "dev":
-
-            req_string = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=" + self.practice["name"] + ' &key=' + Scraper.google_key
-
-            if 'lat' in self.practice:
-                req_string = req_string + "&location=" + str(self.practice["lat"]) + "," + str(self.practice["lng"]) + "&radius=30"
-                
-            req = requests.get(req_string)
-
-            if req.json()["status"] == 'OK':
-
-                self.practice["place_id"] = req.json()["results"][0]["place_id"]
-
-                if "address" not in self.practice:
-                    self.practice["address"] = req.json()["results"][0]["formatted_address"]
-
-                if "lat" not in self.practice:
-                    self.practice["lat"] = req.json()["results"][0]["geometry"]["location"]["lat"]
-                    self.practice["lng"] = req.json()["results"][0]["geometry"]["location"]["lng"]
-
-                return 1
-            else:
-                print('GOOGLE MAPS API OVER LIMIT')
-                self.addWarning("Could not get place ID: " + req.json()["status"])
-                return 0
-        else:
-            self.practice["place_id"] = "100"
 
     def setLatLng(self, coord):
         self.practice["lat"] = coord[0]
@@ -134,35 +102,30 @@ class Scraper:
     def finishPractice(self):
         self.exists = Database.findPractice(self.practice["name"])
 
+        # Prefer to use existing information to save on API limits
         if self.exists:
 
-            # If we're missing anything then use what we have
-            if 'address' not in self.practice:
+            if not self.practice.get('address'):
                 self.practice['address'] = self.exists['address']
 
-            if 'phone' not in self.practice:
+            if not self.practice.get('phone'):
                 self.practice['phone'] = self.exists['phone']
 
-            # Use existing information if address hasn't changed
-            if 'address' in self.practice and self.exists["address"] == self.practice["address"]:
+            if self.exists["address"] == self.practice["address"]:
                 self.practice["place_id"] = self.exists["place_id"]
                 self.practice["lat"] = self.exists["lat"]
                 self.practice["lng"] = self.exists["lng"]
 
-        # If we still don't have the place ID then get it (this will get the address too if that's not a thing)
-        if 'place_id' not in self.practice or not self.practice["place_id"] or 'address' not in self.practice or not self.practice["address"]:
-            self.get_place_id()
-
-        # If we still don't have coordinate data then geolocate, if that fails then don't add it
-        if 'lat' not in self.practice or not self.practice['lat']:
+        # If we still don't have location details then get them
+        if not self.practice.get("place_id") or not self.practice.get("address") or not self.practice.get("lat"):
             if self.geolocate() == 0:
                 return
 
-        if 'phone' not in self.practice or not self.practice.get('phone'):
+        if not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
         
-        # Verify data
-        if 'address' not in self.practice or not self.practice.get('address'):
+        # Verifying data
+        if not self.practice.get('address'):
             self.addError("No address.")
             return
 
@@ -200,6 +163,15 @@ class Scraper:
         self.practice_list = []
         self.warning_list = []
         self.error_list = []
+
+#####################################################################
+# Get some details
+# returns a threeple of latlng, place_id and address
+def get_lat_lng(address):
+    result = geocoder.google(self.practice["address"] + ", New Zealand", key=google_key)
+    place_id = result.json['place'] if 'place' in result.json else None
+    address = result.json['address'] if 'address' in result.json else None
+    return (result.latlng, place_id, address)
 
 #####################################################################
 # Return student if student is contained in the string

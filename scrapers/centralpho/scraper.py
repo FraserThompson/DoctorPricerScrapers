@@ -31,7 +31,7 @@ def scrape(name):
 		cells = row.findAll('td')
 		title_element = row.find('td', {'class': 'views-field-title'})
 		title = title_element.get_text(strip=True)
-		url = title_element.find('a').get('href')
+		url = "http://www.centralpho.org.nz" + title_element.find('a').get('href')
 		
 		print(title)
 
