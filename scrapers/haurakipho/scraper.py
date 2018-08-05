@@ -1,73 +1,46 @@
 import sys, codecs, os
 import json, io
+import requests
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
-url = 'http://www.haurakipho.org.nz/medical-centres/hpho-practice-fees'
+# We found this API URL by looking at their public code in map.js and figured out how to get it to return the list used by the map
+url = 'https://www.haurakipho.org.nz/GoogleMapSetBlock/GetMapData'
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	listUrlSouped = scrapers.openAndSoup(url)
+	data = requests.post(url, json={"blockid": "308432"})
+	json_data = data.json()
 
-	fees_rows = listUrlSouped.find('table', {'style': 'width: 780px; border-collapse: collapse;'}).find_all('tr')
-	ages = []
+	for practice in json_data['Points']:
 
-	for index, row in enumerate(fees_rows[1:]):
+		if not practice['PageUrl']:
+			continue
 
-		cells = row.find_all('td')
-		everything = cells[0].get_text(strip=True).replace('\xa0', '').replace('–', '-')
+		scraper.newPractice(practice['Name'], "http://www.haurakipho.org.nz" + practice['PageUrl'] , "Hauraki PHO", "")
 
-		# Get ages
-		if index == 0:
+		scraper.practice['lat'] = practice['Lat']
+		scraper.practice['lng'] = practice['Lng']
+		scraper.practice['address'] = practice['Address']
+		scraper.practice['phone'] = practice['PhoneNumber']
 
-			for cell in cells[1:]:
-				age = scrapers.getFirstNumber(cell.get_text(strip=True))
+		practice_page = scraper.openAndSoup()
+		fees_table = practice_page.find('table', {'class': 'pricelist'})
 
-				if age != 1000:
-					ages.append(age)
+		if not fees_table:
+			scraper.addError("No fees table.")
+			continue
+
+		fees_rows = fees_table.find_all('tr')
+
+		for fees_row in fees_rows[1:]:
+			fees_cells = fees_row.find_all('td')
 			
-			continue
-
-		# Some of them don't do double spaces between name and address, most do
-		if everything.split(" ")[0] == "Raukura" or everything.split(" ")[1] == "Korowai":
-			working = everything.split(" ")
-			name_split = [' '.join(working[0:7]), ' '.join(working[7:])]
-		elif everything.split(" ")[0] == "Avalon":
-			working = everything.split(" ")
-			name_split = [' '.join(working[0:2]), ' '.join(working[2:])]
-		elif everything.split(" ")[0] == "University":
-			working = everything.split(" ")
-			name_split = [' '.join(working[0:3]), ' '.join(working[4:])]
-		elif everything.split(" ")[0] == "Raungaiti":
-			continue
-		else:
-			name_split = everything.split("  ")
-
-		try:
-			phone_split = name_split[1].split(" - Ph:")
-		except IndexError:
-			print("Problem: " + str(name_split))
-			continue
-
-		scraper.newPractice(name_split[0], "http://www.haurakipho.org.nz/medical-centres/our-medical-centres", "Hauraki PHO", "")
-
-		scraper.practice['prices'] = []
-
-		# Assign fees to prices
-		for index, age in enumerate(ages):
-	
-			if cells[index + 1].get_text(strip=True):
-				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True).replace('Koha', '$0').replace('(CSC)', '$15'))
-
-				# If it couldn't find a number it's PROBABLY because it's one of the ones where you're ineligible, right? Yeah.
-				if price == 1000:
-					price = 999
+			age = scrapers.getFirstNumber(fees_cells[0].get_text(strip=True).replace("Under 13", "0").replace("All enrolled patients", "0"))
+			price = scrapers.getFirstNumber(fees_cells[1].get_text(strip=True).replace('Koha', '$0').replace('(CSC)', '$15').replace('Free', '$0').replace('FREE', '$0').replace("NA", "999"))
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
-		
-		scraper.practice['address'] = phone_split[0].strip()
-		scraper.practice['phone'] = phone_split[1].strip()
 
 		scraper.finishPractice()
 
