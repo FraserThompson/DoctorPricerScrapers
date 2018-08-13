@@ -102,6 +102,24 @@ def submit(module, data):
             }
         )
 
+        old_prices = models.Prices.objects.filter(practice__name=practice['name'])
+
+        # If the age buckets have changed we must remain calm and act appropriately
+        if old_prices.count() != len(practice['prices']):
+
+            # Get all the ages we want
+            ages = []
+            for price in practice['prices']:
+                ages.append(price['age'])
+
+            # Delete prices which don't fit the age brackets we have or which are duplicates
+            for price in old_prices:
+
+                if models.Prices.objects.filter(practice__name=practice['name'], from_age=price.from_age).count() > 1:
+                    price.delete()
+                elif price.from_age not in ages:
+                    price.delete()
+
         # Submit prices
         for i, price in enumerate(practice['prices']):
 
@@ -115,6 +133,7 @@ def submit(module, data):
 
             old_price = models.Prices.objects.filter(practice__name=practice['name'], from_age=from_age).first()
 
+            # If there's already a price for that age group then we should update that one so we get history
             if old_price:
 
                 # If there's a change
@@ -130,6 +149,7 @@ def submit(module, data):
                     old_price.price = price['price']
                     old_price.save()
             
+            # Otherwise we should make a new price
             else:
 
                 new_prices = models.Prices.objects.update_or_create(
@@ -141,7 +161,7 @@ def submit(module, data):
                         'price': price['price']
                     }
                 )
-            
+
             # We should delete any prices matching the age with a different price
             bad_old_price = models.Prices.objects.filter(~Q(price=price['price']), practice__name=practice['name'], from_age=from_age)
             bad_old_price.delete()
