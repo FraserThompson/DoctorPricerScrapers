@@ -143,7 +143,7 @@ def submit(module, data):
                 )
             
             # We should delete any prices matching the age with a different price
-            bad_old_price = models.Prices.objects.filter(practice__name=exists['name'], from_age=from_age, ~Q(price=price['price']))
+            bad_old_price = models.Prices.objects.filter(~Q(price=price['price']), practice__name=exists['name'], from_age=from_age)
             bad_old_price.delete()
 
     # Update the PHO
