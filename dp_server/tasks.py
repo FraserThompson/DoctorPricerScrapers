@@ -115,7 +115,7 @@ def submit(module, data):
 
             old_price = models.Prices.objects.filter(practice__name=exists['name'], from_age=from_age).first()
 
-            if old_price.exists():
+            if old_price:
 
                 # If there's a change
                 if old_price.price != price['price']:
