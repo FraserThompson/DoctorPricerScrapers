@@ -9,6 +9,7 @@ from scrapers import run # someday we'll seperate these scrapers from the server
 
 from collections import defaultdict
 
+from django.db.models import Q
 from django.contrib.gis.geos import Point
 from django.db.models import Avg, Max, Min
 from django.forms.models import model_to_dict
@@ -101,57 +102,49 @@ def submit(module, data):
             }
         )
 
-        # Work out price changes if it already exists
-        if exists:
-
-            old_prices = models.Prices.objects.filter(practice__name=exists['name']).order_by('from_age')
-
-            if old_prices.exists():
-
-                new_prices = practice['prices']
-
-                if len(old_prices) != len(new_prices):
-                    print("something strange")
-                else:
-                    # Iterate the prices
-                    i = 0
-                    for old_price in old_prices:
-
-                        # There's a change
-                        if old_price.price != new_prices[i]['price']:
-
-                            if practice['name'] not in changes:
-                                changes[practice['name']] = {}
-
-                            # add it to the changes object
-                            changes[practice['name']][str(old_price.from_age)] = [str(old_price.price), str(new_prices[i]['price'])]
-
-                            # change the thing in the database
-                            # old_price.price = new_prices[i]['price']
-                            # old_price.save()
-
-                        i = i + 1
-
         # Submit prices
         for i, price in enumerate(practice['prices']):
 
             from_age = price['age']
-
             if i < len(practice['prices']) - 1:
                 to_age = practice['prices'][i+1]['age'] - 1
             else:
                 to_age = 150
 
             print('Submitting price for: ' + practice['name'])
-            new_prices = models.Prices.objects.update_or_create(
-                practice = new_practice[0],
-                pho = pho,
-                from_age = from_age,
-                to_age = to_age,
-                defaults={
-                    'price': price['price']
-                }
-            )
+
+            old_price = models.Prices.objects.filter(practice__name=exists['name'], from_age=from_age).first()
+
+            if old_price.exists():
+
+                # If there's a change
+                if old_price.price != price['price']:
+
+                    if practice['name'] not in changes:
+                        changes[practice['name']] = {}
+
+                    # add it to the changes object
+                    changes[practice['name']][str(old_price.from_age)] = [str(old_price.price), str(price['price'])]
+
+                    # change the thing in the database
+                    old_price.price = price['price']
+                    old_price.save()
+            
+            else:
+
+                new_prices = models.Prices.objects.update_or_create(
+                    practice = new_practice[0],
+                    pho = pho,
+                    from_age = from_age,
+                    to_age = to_age,
+                    defaults={
+                        'price': price['price']
+                    }
+                )
+            
+            # We should delete any prices matching the age with a different price
+            bad_old_price = models.Prices.objects.filter(practice__name=exists['name'], from_age=from_age, ~Q(price=price['price']))
+            bad_old_price.delete()
 
     # Update the PHO
     pho.number_of_practices = len(data['scraped'])
