@@ -113,7 +113,7 @@ def submit(module, data):
 
             print('Submitting price for: ' + practice['name'])
 
-            old_price = models.Prices.objects.filter(practice__name=exists['name'], from_age=from_age).first()
+            old_price = models.Prices.objects.filter(practice__name=practice['name'], from_age=from_age).first()
 
             if old_price:
 
