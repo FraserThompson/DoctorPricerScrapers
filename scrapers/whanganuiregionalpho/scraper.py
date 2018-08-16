@@ -19,7 +19,15 @@ def scrape(name):
 
 		practice_page = scrapers.openAndSoup(url)
 
-		scraper.practice['address'] = practice_page.find('div', {'class': 'field-name-field-street-address'}).find('div', {'class': 'field-items'}).get_text(strip=True)
+		street_address = practice_page.find('div', {'class': 'field-name-field-street-address'}).find('div', {'class': 'field-items'}).get_text(strip=True)
+		town_el = practice_page.find('div', {'class': 'field-name-field-city-town'})
+
+		if town_el:
+			town = town_el.find('div', {'class': 'field-items'}).get_text(strip=True)
+		else :
+			town = None
+
+		scraper.practice['address'] = street_address + (", " + town if town else "")
 		scraper.practice['phone'] = practice_page.find('div', {'class': 'field-name-field-phone'}).find('div', {'class': 'field-items'}).get_text(strip=True)
 
 		fees_table = practice_page.find('div', {'class': 'field-name-field-consult-fees'}).find_all('td')

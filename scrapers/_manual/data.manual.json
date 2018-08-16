@@ -19,15 +19,15 @@
             },
             {
                 "age": 18,
-                "price": 48.0
+                "price": 49.0
             },
             {
                 "age": 25,
-                "price": 54.0
+                "price": 55.0
             },
             {
                 "age": 65,
-                "price": 50.0
+                "price": 52.0
             }
         ],
         "restriction": "",
@@ -49,15 +49,15 @@
             },
             {
                 "age": 13,
-                "price": 44.0
-            },
-            {
-                "age": 18,
                 "price": 46.0
             },
             {
+                "age": 18,
+                "price": 48.0
+            },
+            {
                 "age": 65,
-                "price": 44.0
+                "price": 45.0
             }
         ],
         "restriction": "",
@@ -97,24 +97,20 @@
             },
             {
                 "age": 13,
-                "price": 34
-            },
-            {
-                "age": 18,
-                "price": 39
+                "price": 42
             },
             {
                 "age": 25,
-                "price": 44
+                "price": 47
             }
         ],
         "restriction": "",
         "url": "http://www.burnsidemedical.co.nz/"
     },
     {
-        "address": "71 Bealey Ave, Christchurch",
-        "lat": -43.5205903,
-        "lng": 172.628111,
+        "address": "5/25 Churchill St, Christchurch",
+        "lat": -43.5214291,
+        "lng": 172.6465347,
         "name": "298 Korowai Youth Wellbeing Trust",
         "active": true,
         "pho": "Christchurch PHO",
@@ -153,15 +149,15 @@
             },
             {
                 "age": 13,
-                "price": 36
+                "price": 37
             },
             {
                 "age": 18,
-                "price": 46
+                "price": 47
             },
             {
                 "age": 65,
-                "price": 41
+                "price": 42
             }
         ],
         "restriction": "",
@@ -183,11 +179,7 @@
             },
             {
                 "age": 13,
-                "price": 39
-            },
-            {
-                "age": 18,
-                "price": 47
+                "price": 49
             }
         ],
         "restriction": "",
@@ -205,10 +197,10 @@
         "prices": [
             {
                 "age": 0,
-                "price": 17.5
+                "price": 0
             }
         ],
-        "restriction": "",
+        "restriction": "Student",
         "url": "http://www.chchpho.org.nz/university-health-centre/"
     },
     {
