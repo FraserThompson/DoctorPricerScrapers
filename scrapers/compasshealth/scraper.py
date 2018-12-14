@@ -78,31 +78,31 @@ def scrape(name):
 				scraper.practice['prices'] = [
 						{
 						'age': 0,
-						'price': float(cells[1].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 6,
 						'price': float(cells[2].get_text(strip=True).replace("$", "")),
 						},
 						{
-						'age': 13,
+						'age': 6,
 						'price': float(cells[3].get_text(strip=True).replace("$", "")),
 						},
 						{
-						'age': 18,
+						'age': 14,
 						'price': float(cells[4].get_text(strip=True).replace("$", "")),
 						},
 						{
-						'age': 25,
+						'age': 18,
 						'price': float(cells[5].get_text(strip=True).replace("$", "")),
 						},
 						{
-						'age': 45,
+						'age': 25,
 						'price': float(cells[6].get_text(strip=True).replace("$", "")),
 						},
 						{
-						'age': 65,
+						'age': 45,
 						'price': float(cells[7].get_text(strip=True).replace("$", "")),
+						},
+						{
+						'age': 65,
+						'price': float(cells[8].get_text(strip=True).replace("$", "")),
 						},
 				]
 

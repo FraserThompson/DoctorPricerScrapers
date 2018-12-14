@@ -21,7 +21,7 @@ def scrape(name):
         for practice in response:
 
             scraper.newPractice(practice['PracticeName'], practice['WebSiteURL'] if practice['WebSiteURL'] else "http://procare.co.nz/", "Procare Networks", "")
-            scraper.practice['address'] = practice['Address1_Line1'] + ", " + ((practice['Address1_Line2'] + ", ") if practice['Address1_Line2'] else "") + practice['Address1_Line3'] + ", " + practice['Address1_City']
+            scraper.practice['address'] = practice['Address1_Line1'] + ", " + ((practice['Address1_Line2'] + ", ") if practice['Address1_Line2'] else "") + practice['Address1_Line3'] + ((", " + practice['Address1_City']) if practice['Address1_City'] else "")
             scraper.practice['phone'] = practice['Telephone']
 
             scraper.practice['prices'] = []

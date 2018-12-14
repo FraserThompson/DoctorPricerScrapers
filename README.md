@@ -80,11 +80,9 @@ other: `scraper.addError()`, `scraper.addWarning()`, `scraper.setLatLng([0, 0])`
 
 ### Testing scrapers
 
-Because of weirdness you've got to run a scraper like this when you're devving on them or testing them or whatever:
+I made a docker image for testing them in Docker so we don't have to mess up our user environment!!!!
 
-`python -c "from scrapers import run; run.one('alliancehealthplus');"`
-
-Some day I'll improve this (or maybe just make a script which does this)
+To do this run `docker-compose run scraper-test [scraper]`
 
 ### Model
 

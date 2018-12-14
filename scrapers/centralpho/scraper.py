@@ -42,47 +42,42 @@ def scrape(name):
 		if practices[title]['enrolling']:
 			scraper.notEnrolling()
 
-		zero = row.find('td', {'class': 'views-field-field-under-6'}).get_text(strip=True)
+		zero = row.find('td', {'class': 'views-field-field-0-to-13'}).get_text(strip=True)
+		fourteen = row.find('td', {'class': 'views-field-field-14-to-17'}).get_text(strip=True)
+		eighteen = row.find('td', {'class': 'views-field-field-18-to-24'}).get_text(strip=True)
+		twentyfive = row.find('td', {'class': 'views-field-field-25-to-44'}).get_text(strip=True)
+		fortyfive = row.find('td', {'class': 'views-field-field-45-to-65'}).get_text(strip=True)
+		oversixtyfive = row.find('td', {'class': 'views-field-field-over-65'}).get_text(strip=True)
 
-		# If there's no zero column then probably no prices so skip it
-		if zero != "":
-			six = row.find('td', {'class': 'views-field-field-6-to-12'}).get_text(strip=True)
-			thirteen = row.find('td', {'class': 'views-field-field-13-to-17'}).get_text(strip=True)
-			eighteen = row.find('td', {'class': 'views-field-field-18-to-24'}).get_text(strip=True)
-			twentyfive = row.find('td', {'class': 'views-field-field-25-to-44'}).get_text(strip=True)
-			fortyfive = row.find('td', {'class': 'views-field-field-45-to-65'}).get_text(strip=True)
-			oversixtyfive = row.find('td', {'class': 'views-field-field-over-65'}).get_text(strip=True)
+		if not zero:
+			continue
 
-			scraper.practice['prices'] = [
-				{
-				'age': 0,
-				'price': float(zero.replace("$", "")),
-				},
-				{
-				'age': 6,
-				'price': float(six.replace("$", "")),
-				},
-				{
-				'age': 13,
-				'price': float(thirteen.replace("$", "")),
-				},
-				{
-				'age': 18,
-				'price': float(eighteen.replace("$", "")),
-				},
-				{
-				'age': 25,
-				'price': float(twentyfive.replace("$", "")),
-				},
-				{
-				'age': 45,
-				'price': float(fortyfive.replace("$", "")),
-				},
-				{
-				'age': 65,
-				'price': float(oversixtyfive.replace("$", "")),
-				},
-			]
+		scraper.practice['prices'] = [
+			{
+			'age': 0,
+			'price': float(zero.replace("$", "")),
+			},
+			{
+			'age': 14,
+			'price': float(fourteen.replace("$", "")),
+			},
+			{
+			'age': 18,
+			'price': float(eighteen.replace("$", "")),
+			},
+			{
+			'age': 25,
+			'price': float(twentyfive.replace("$", "")),
+			},
+			{
+			'age': 45,
+			'price': float(fortyfive.replace("$", "")),
+			},
+			{
+			'age': 65,
+			'price': float(oversixtyfive.replace("$", "")),
+			},
+		]
 
 		scraper.finishPractice()
 

@@ -39,3 +39,8 @@ services:
         environment:
             - RABBITMQ_DEFAULT_USER=myuser
             - RABBITMQ_DEFAULT_PASS=mypass
+
+    scraper-test:
+        build: ./scrapers
+        volumes:
+            - ./scrapers:/scrapers:ro

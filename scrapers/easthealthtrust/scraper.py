@@ -23,6 +23,9 @@ def scrape(name):
 		for thing in could_be_anything:
 			text = thing.get_text(strip=True)
 
+			if "fees current" in text:
+				continue
+
 			if "Phone" in text:
 				scraper.practice['phone']= text.split("Phone")[1]
 				continue

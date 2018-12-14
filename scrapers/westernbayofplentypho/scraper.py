@@ -17,6 +17,9 @@ def scrape(name):
 	for row in fees_rows:
 		cells = row.find_all('td')
 
+		if not cells:
+			continue
+
 		name = cells[0].get_text(strip=True)
 		if name == '':
 			break
@@ -26,27 +29,27 @@ def scrape(name):
 		prices = [
 				{
 				'age': 0,
-				'price': float(cells[1].get_text(strip=True).replace('$', '')),
+				'price': 0,
 				},
 				{
-				'age': 13,
-				'price': float(cells[2].get_text(strip=True).replace('$', '')),
-				},
-				{
-				'age': 18,
-				'price': float(cells[3].get_text(strip=True).replace('$', '')),
-				},
-				{
-				'age': 25,
+				'age': 14,
 				'price': float(cells[4].get_text(strip=True).replace('$', '')),
 				},
 				{
-				'age': 45,
+				'age': 18,
 				'price': float(cells[5].get_text(strip=True).replace('$', '')),
 				},
 				{
-				'age': 65,
+				'age': 25,
 				'price': float(cells[6].get_text(strip=True).replace('$', '')),
+				},
+				{
+				'age': 45,
+				'price': float(cells[7].get_text(strip=True).replace('$', '')),
+				},
+				{
+				'age': 65,
+				'price': float(cells[8].get_text(strip=True).replace('$', '')),
 				}
 			]
 

@@ -4,8 +4,8 @@ import requests
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
-# We found this API URL by looking at their public code in map.js and figured out how to get it to return the list used by the map
-url = 'https://www.haurakipho.org.nz/GoogleMapSetBlock/GetMapData'
+# We found this API URL by looking at their public code in map.js and figured out how to get it to return the list used by the map (if it changes search their js for apiUrl)
+url = 'https://www.haurakipho.org.nz/umbraco/surface/GoogleMapItem/GetMapSet?pageId=4821'
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
@@ -26,7 +26,7 @@ def scrape(name):
 		scraper.practice['phone'] = practice['PhoneNumber']
 
 		practice_page = scraper.openAndSoup()
-		fees_table = practice_page.find('table', {'class': 'pricelist'})
+		fees_table = practice_page.find('table', {'class': 'pricelist'}) or practice_page.find('div', {'class': 'pricelist'})
 
 		if not fees_table:
 			scraper.addError("No fees table.")
