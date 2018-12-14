@@ -3,4 +3,4 @@ html5lib
 geocoder==1.38.1
 httplib2
 whitenoise==3.3.0
-requests==2.13.0
+requests==2.20.0
