@@ -15,7 +15,7 @@ def scrape(name):
 			prac_dict = json.load(inFile)
 
 			for practice in prac_dict:
-				if practice['prices'] and practice['lat']:
+				if 'prices' in practice and practice['prices'] and 'lat' in practice and practice['lat']:
 					print(practice['name'])
 					scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
 					scraper.practice = practice
