@@ -84,6 +84,26 @@ I made a docker image for testing them in Docker so we don't have to mess up our
 
 To do this run `docker-compose run scraper-test [scraper]`
 
+### Big disaster hints
+
+If you get:
+
+`OperationalError: could not access file "$libdir/postgis-X.X`
+
+On a new deploy that means the postgis image has updated their version of postgis. To fix it run the built in update-postgis script:
+
+`docker exec doctorpricer-postgres_1 update-postgis.s`
+
+If this gives you some annoying error about there not being a root role then you'll have to run its commands manually. 
+
+Get in the db with:
+
+`psql --user=postgres --dbname="postgres"`
+
+Then run those ALTER commands.
+
+https://github.com/appropriate/docker-postgis/blob/master/update-postgis.sh
+
 ### Model
 
 #### PHO

@@ -13,4 +13,4 @@ class PhoAdmin(admin.ModelAdmin):
 
 @admin.register(models.Prices)
 class PricesAdmin(admin.ModelAdmin):
-    search_fields = ('practice__name')
+    search_fields = ('practice__name',)
