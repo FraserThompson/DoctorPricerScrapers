@@ -2,3 +2,5 @@ http://www.kmc.co.nz/
 http://www.ropatamedicalcentre.co.nz/
 http://www.chchpho.org.nz/practices/
 http://nmo.org.nz/our-services/gp-clinics
+
+data.procare.json is JSON output of the procarenetworks scraper. I do this because my scraper server can't access their site, so instead I scrape from here.

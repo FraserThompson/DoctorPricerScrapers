@@ -7,15 +7,18 @@ def scrape(name):
 
 	scraper = scrapers.Scraper(name)
 
-	with open(current_dir + 'data.manual.json', 'r') as inFile:
+	files = ['data.manual.json', 'data.procare.json']
 
-		prac_dict = json.load(inFile)
+	for filename in files:
+		with open(current_dir + filename, 'r') as inFile:
 
-		for practice in prac_dict:
-			if practice['prices'] and practice['lat']:
-				print(practice['name'])
-				scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
-				scraper.practice = practice
-				scraper.finishPractice()
+			prac_dict = json.load(inFile)
+
+			for practice in prac_dict:
+				if practice['prices'] and practice['lat']:
+					print(practice['name'])
+					scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
+					scraper.practice = practice
+					scraper.finishPractice()
 
 	return scraper.finish()

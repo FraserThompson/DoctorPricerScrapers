@@ -51,7 +51,7 @@ def scrape(name):
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
 
-		scraper.practice['phone'] = phone_numbers[name]
+		scraper.practice['phone'] = phone_numbers[name] if name in phone_numbers else ""
 
 		scraper.finishPractice()
 

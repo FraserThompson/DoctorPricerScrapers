@@ -11,6 +11,6 @@ requests==2.20.0
 django-simple-history
 django-cors-headers
 pylibmc
-gunicorn
-celery
-django-celery-results
+gunicorn==19.9.0
+celery==4.2.1
+django-celery-results==1.0.4

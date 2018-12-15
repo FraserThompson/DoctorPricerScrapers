@@ -43,4 +43,4 @@ services:
     scraper-test:
         build: ./scrapers
         volumes:
-            - ./scrapers:/scrapers:ro
+            - ./scrapers:/scrapers:rw
