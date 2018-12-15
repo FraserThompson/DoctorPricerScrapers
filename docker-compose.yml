@@ -19,7 +19,7 @@ services:
 
   # Postgres for our database
   postgres:
-    image: mdillon/postgis
+    image: mdillon/postgis:9.6-alpine
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:

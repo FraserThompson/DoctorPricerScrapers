@@ -7,7 +7,7 @@ services:
     environment:
       - PGPASSWORD=${DATABASE_PASSWORD:-password123}
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
-    image: 'mdillon/postgis:latest'
+    image: mdillon/postgis:9.6-alpine
     restart: "no"
     volumes:
       - ~/backups:/backups
@@ -17,7 +17,7 @@ services:
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
       - PGPASSWORD=${DATABASE_PASSWORD:-password123}
-    image: mdillon/postgis
+    image: mdillon/postgis:9.6-alpine
     restart: "no"
     depends_on:
       - postgres
@@ -25,7 +25,7 @@ services:
       - ~/restore:/backups
 
   postgres:
-    image: mdillon/postgis
+    image: mdillon/postgis:9.6-alpine
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:
