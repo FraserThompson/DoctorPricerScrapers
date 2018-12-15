@@ -82,7 +82,7 @@ other: `scraper.addError()`, `scraper.addWarning()`, `scraper.setLatLng([0, 0])`
 
 I made a docker image for testing them in Docker so we don't have to mess up our user environment!!!!
 
-To do this run `docker-compose run scraper-test [scraper]`
+To do this run `docker-compose run scraper-test [scraper]`. It'll run the scraper and spit the output to scrapers/data.json for your perusal.
 
 ### Big disaster hints
 

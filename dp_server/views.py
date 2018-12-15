@@ -160,7 +160,7 @@ def price_history(request):
 @api_view(['GET'])
 def averages(request):
 
-    ages = [0, 6, 13, 18, 45, 65]
+    ages = [0, 6, 14, 18, 45, 65]
     response = []
     pho = request.GET.get('pho', None)
 
