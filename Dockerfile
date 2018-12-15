@@ -6,7 +6,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main' 9.6 > /
     apt-key add -
 
 RUN apt-get update && apt-get install postgresql-9.6 -y && apt-get clean
-RUN apt-get install postgresql-9.6-postgis-2.3 postgresql-contrib-9.6 postgresql-9.6-postgis-2.3-scripts python-psycopg2 libmemcached-dev zlib1g-dev -y && apt-get clean
+RUN apt-get install postgresql-9.6-postgis-2.4 postgresql-contrib-9.6 postgresql-9.6-postgis-2.4-scripts python-psycopg2 libmemcached-dev zlib1g-dev -y && apt-get clean
 
 COPY ["run_server.sh", "/run_server.sh"]
 COPY ["run_celery.sh", "/run_celery.sh"]
