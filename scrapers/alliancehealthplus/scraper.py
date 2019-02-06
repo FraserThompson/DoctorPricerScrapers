@@ -26,7 +26,13 @@ def scrape(name):
 		# Get fees very looseley
 		for text_block in all_text:
 
-			if "$" in text_block.get_text(strip=True):
+			text_gotten = text_block.get_text(strip=True)
+
+			if "Phone: " in text_gotten or "Ph: " in text_gotten:
+				phone_lines = text_block.find_all('p')
+				scraper.practice['phone'] = phone_lines[0].get_text(strip=True).split(":")[1].strip()
+
+			if "$" in text_gotten:
 
 				lines = text_block.find('ul').find_all('li')
 
