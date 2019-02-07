@@ -57,9 +57,6 @@ def scrape(name):
 
 					scraper.practice['prices'].append(price_dict)
 
-				break
-
-
 		map = practice_soup.find('div', {'class': 'google-map'}).find('img')
 		coord = map.get('src').split('&sensor=true')[0].split('markers=color:red%7C')[1].split(',')
 
