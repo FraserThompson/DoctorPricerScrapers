@@ -9,7 +9,7 @@ services:
   # Rabbit for Celery
   rabbit:
     hostname: rabbit
-    image: rabbitmq:3.6.0
+    image: rabbitmq:3.8.1
     environment:
       - RABBITMQ_DEFAULT_USER=rabbituser
       - RABBITMQ_DEFAULT_PASS

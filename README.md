@@ -6,6 +6,10 @@
 
 You'll just need Docker and docker-compose.
 
+Start it up with `docker-compose up --build -d`
+
+Then you can get to the admin interface on `https://localhost:8443/admin` and login with the dev credentials which are `fraserdev` and `dev`.
+
 ### Running it in production
 
 #### Environment variables
@@ -34,9 +38,19 @@ To provision a new server run `DP_SERVER=[server adddress] ./_ops/provision.sh`.
 
 ### Backups
 
+# Prod
+
+The scripts in `./_ops` are for fiddling with the remote server. To trigger a backup on the remote of the live data run `./_ops/backup.sh`.
+
+To get the latest backup you just made so you can use it locally run `./_ops/backup_get.sh`.
+
+# Dev
+
 To backup run `docker-compose -f docker-compose.extra.yml run backup` and it'll backup to `./backups` in a file called backup.
 
 To restore run `docker-compose -f docker-compose.extra.yml run restore` and it'll restore `./backups/backup`.
+
+DEV GOTCHA: In dev the password is `password123` so you might to prepend these commands with `PGPASSWORD=password123`
 
 ### Accessing the admin backend
 
