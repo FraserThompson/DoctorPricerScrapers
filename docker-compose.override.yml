@@ -44,3 +44,11 @@ services:
         build: ./scrapers
         volumes:
             - ./scrapers:/scrapers:rw
+
+    backup:
+        volumes:
+            - ./backups:/backups
+  
+    restore:
+        volumes:
+            - ./restore:/backups

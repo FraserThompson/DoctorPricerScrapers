@@ -10,7 +10,7 @@ services:
     image: mdillon/postgis:10-alpine
     restart: "no"
     volumes:
-      - ./backups:/backups
+      - ~/backups:/backups
   
   restore:
     command: /bin/sh -c "pg_restore --dbname=postgres --username=postgres --host=postgres /backups/backup.tar.gz"
@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./restore:/backups
+      - ~/restore:/backups
 
   postgres:
     image: mdillon/postgis:10-alpine

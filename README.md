@@ -32,9 +32,16 @@ Scripts in `./_ops` are for managing the live deployment.
 
 I use Dockerhub for my docker images, and it builds from git, so commit and push changes to git, then check Dockerhub to see when it's built.
 
-To deploy it run `./_ops/deploy.sh` from the root directory.
+To deploy it run `DP_SERVER=[whatever]./_ops/deploy.sh` from the root directory.
 
-To provision a new server run `DP_SERVER=[server adddress] ./_ops/provision.sh`.
+#### Provisioning a brand new server
+
+To provision a new server:
+
+1. Run `DP_SERVER=[whatever] ./_ops/provision.sh`. This upgrades the distribution and adds a user called fraser with sudo permissions
+1. SSH in to verify you can, and then disable SSH for the root user by editing `/etc/ssh/sshd_config` and changing `PermitRootLogin yes` to `PermitRootLogin no` then restart SSH with `service ssh restart`
+
+Now it's ready to be deployed with the deploy script.
 
 ### Backups
 
