@@ -183,7 +183,7 @@ def averages(request):
 @api_view(['POST'])
 def scrape(request):
 
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
 
         data = request.body.decode('utf-8')
         json_body = json.loads(data)
@@ -206,7 +206,7 @@ def scrape(request):
 @csrf_exempt
 @api_view(['POST'])
 def submit(request):
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
 
         data = request.body.decode('utf-8')
         json_body = json.loads(data)
@@ -240,7 +240,7 @@ def task_status(request):
             return JsonResponse(task_result.as_dict(), status=400, safe=False)
 
     elif request.method == 'DELETE':
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
 
             app.control.terminate(data['task_id'])
 
