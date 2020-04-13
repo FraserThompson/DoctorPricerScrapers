@@ -183,19 +183,19 @@ def submit(module, data):
 def update_pho_averages(pho):
 
     average_prices = [
-        {'age': 0, 'average': 0, 'min': 0, 'max': 0},
-        {'age': 6, 'average': 0, 'min': 0, 'max': 0},
-        {'age': 13, 'average': 0, 'min': 0, 'max': 0},
-        {'age': 18, 'average': 0, 'min': 0, 'max': 0},
-        {'age': 25, 'average': 0, 'min': 0, 'max': 0},
-        {'age': 45, 'average': 0, 'min': 0, 'max': 0},
-        {'age': 65, 'average': 0, 'min': 0, 'max': 0}
+        {'age': '0', 'average': '0', 'min': '0', 'max': '0'},
+        {'age': '6', 'average': '0', 'min': '0', 'max': '0'},
+        {'age': '13', 'average': '0', 'min': '0', 'max': '0'},
+        {'age': '18', 'average': '0', 'min': '0', 'max': '0'},
+        {'age': '25', 'average': '0', 'min': '0', 'max': '0'},
+        {'age': '45', 'average': '0', 'min': '0', 'max': '0'},
+        {'age': '65', 'average': '0', 'min': '0', 'max': '0'}
     ]
 
     # Update the average
     for price in average_prices:
         stats = get_pho_average(pho.id, price['age'])
-        price['average'] = stats['price__avg']
+        price['average'] = str(stats['price__avg'])
         price['min'] = str(stats['price__min'])
         price['max'] = str(stats['price__max'])
 
