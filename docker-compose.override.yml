@@ -46,9 +46,11 @@ services:
             - ./scrapers:/scrapers:rw
 
     backup:
+        image: mdillon/postgis:10-alpine
         volumes:
             - ./backups:/backups
   
     restore:
+        image: mdillon/postgis:10-alpine
         volumes:
             - ./restore:/backups

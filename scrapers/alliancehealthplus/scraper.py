@@ -6,7 +6,7 @@ def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	# this is a wix site and to get a wix site to return plain HTML you add /?_escaped_fragment_= on the end lol
-	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-gp/?_escaped_fragment_='
+	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-clinic/?_escaped_fragment_='
 	listUrlSouped = scrapers.openAndSoup(practice_list_url)
 
 	clinics = listUrlSouped.find('section', {'class': 'page'}).find_all('a')
@@ -15,6 +15,9 @@ def scrape(name):
 
 		name = clinic.get_text(strip=True)
 		url = clinic.get('href')
+
+		if not url:
+			continue
 
 		scraper.newPractice(name, url, "Alliance Health Plus", "")
 		practice_soup = scrapers.openAndSoup(url + '/?_escaped_fragment_=')
