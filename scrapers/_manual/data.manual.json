@@ -15,19 +15,19 @@
             },
             {
                 "age": 14,
-                "price": 40.0
+                "price": 44.0
             },
             {
                 "age": 18,
-                "price": 49.0
+                "price": 58.0
             },
             {
                 "age": 25,
-                "price": 55.0
+                "price": 58.0
             },
             {
                 "age": 65,
-                "price": 52.0
+                "price": 57.0
             }
         ],
         "restriction": "",
@@ -49,15 +49,15 @@
             },
             {
                 "age": 14,
-                "price": 46.0
+                "price": 47.0
             },
             {
                 "age": 18,
-                "price": 48.0
+                "price": 49.0
             },
             {
                 "age": 65,
-                "price": 45.0
+                "price": 46.0
             }
         ],
         "restriction": "",
@@ -75,11 +75,11 @@
         "prices": [
             {
                 "age": 0,
-                "price": 30
+                "price": 31.50
             }
         ],
         "restriction": "",
-        "url": "http://www.chchpho.org.nz/ara-health-centre/"
+        "url": "https://www.ara.ac.nz/services-and-support/health-and-wellbeing/health-centre"
     },
     {
         "address": "368 Wairakei Road, Christchurch",
@@ -97,11 +97,11 @@
             },
             {
                 "age": 14,
-                "price": 42
+                "price": 13
             },
             {
                 "age": 25,
-                "price": 47
+                "price": 19
             }
         ],
         "restriction": "",
@@ -148,16 +148,16 @@
                 "price": 0
             },
             {
-                "age": 13,
-                "price": 37
+                "age": 14,
+                "price": 36
             },
             {
                 "age": 18,
-                "price": 47
+                "price": 49
             },
             {
                 "age": 65,
-                "price": 42
+                "price": 19
             }
         ],
         "restriction": "",
@@ -178,8 +178,12 @@
                 "price": 0
             },
             {
-                "age": 13,
-                "price": 49
+                "age": 14,
+                "price": 45
+            },
+            {
+                "age": 65,
+                "price": 54
             }
         ],
         "restriction": "",
@@ -216,12 +220,12 @@
                 "price": 0
             },
             {
-                "age": 13,
-                "price": 12
+                "age": 14,
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18
+                "price": 19
             }
         ],
         "lat": "-37.6670637",
@@ -242,12 +246,12 @@
                 "price": 0
             },
             {
-                "age": 13,
-                "price": 12
+                "age": 14,
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18
+                "price": 19
             }
         ],
         "lat": "-37.7167852",
@@ -268,12 +272,12 @@
                 "price": 0
             },
             {
-                "age": 13,
-                "price": 12
+                "age": 14,
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18
+                "price": 19
             }
         ],
         "lat": "-37.6969909",
@@ -294,12 +298,12 @@
                 "price": 0
             },
             {
-                "age": 13,
-                "price": 12
+                "age": 14,
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18
+                "price": 19
             }
         ],
         "lat": "-37.7861649",

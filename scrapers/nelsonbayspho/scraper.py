@@ -11,9 +11,9 @@ def scrape(name):
 	listUrlSouped = scrapers.openAndSoup('http://nbph.org.nz/gp-fees-table')
 	rows = listUrlSouped.find('table', {'id': 'gp-fees-comparison'}).find_all('tr')
 
-	ages = []
-
 	for index, row in enumerate(rows):
+
+		ages = []
 
 		if index == 0:
 			cells = row.find_all('th')
@@ -28,7 +28,7 @@ def scrape(name):
 
 			for cell in cells[2:]:
 
-				age = scrapers.getFirstNumber(cell.get_text(strip=True).replace('13>', '0'))
+				age = scrapers.getFirstNumber(cell.get_text(strip=True).replace('13>', '0').replace('Under 14', '0'))
 
 				if age != 1000:
 					ages.append(age)
@@ -44,7 +44,12 @@ def scrape(name):
 			scraper.notEnrolling()
 
 		# Go into the practice to get the details
-		practiceUrlSouped = scrapers.openAndSoup(url)
+		try:
+			practiceUrlSouped = scrapers.openAndSoup(url)
+		except:
+			scraper.addWarning('Website URL is a 404 for some reason so couldnt get any details, skipping')
+			continue
+
 		deets = practiceUrlSouped.find("meta",  { "name": "description"}).attrs["content"].splitlines()
 		scraper.practice['address'] = deets[0]
 		scraper.practice['phone'] = deets[1]

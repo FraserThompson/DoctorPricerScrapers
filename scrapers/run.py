@@ -1,7 +1,20 @@
 import importlib, codecs, time, os, json
 import traceback
 
-failed = []
+def all():
+
+    return_object = {'results': None, 'failed': None}
+    scrapers = [ f.name for f in os.scandir('./') if f.is_dir() ]
+
+    for scraper in scrapers:
+        try:
+            result = one(scraper)
+            return_object['results'].append(result)
+        except:
+            print('FAILED ' + scraper)
+            return_object['failed'].append(scraper)
+
+    return return_object
 
 def one(name):
     

@@ -6,12 +6,12 @@ from scrapers import common as scrapers
 def scrape(name):
 	things = [
 		{
-		'listUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices/PracticeFees.aspx',
+		'feesUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices/PracticeFees.aspx',
 		'infoUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices.aspx',
 		'addressEl': "dnn_ctr484_Map_AddressLabel",
 		'phoneEl': "dnn_ctr484_Map_PhoneLabel"},
 		{
-		'listUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices/PracticeFees.aspx',
+		'feesUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices/PracticeFees.aspx',
 		'infoUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices.aspx',
 		'addressEl': "dnn_ctr499_Map_AddressLabel",
 		'phoneEl': "dnn_ctr499_Map_PhoneLabel"}
@@ -19,11 +19,13 @@ def scrape(name):
 
 	scraper = scrapers.Scraper(name)
 	for thing in things:
-		listUrlSouped = scrapers.openAndSoup(thing['listUrl'])
+		feesUrlSouped = scrapers.openAndSoup(thing['feesUrl'])
 		infoURLSouped = scrapers.openAndSoup(thing['infoUrl'])
-		rows = listUrlSouped.find('table', {'class': 'FeesTable'}).find_all('tr')
-		info_table = infoURLSouped.find('table', {'class': 'PracticeTable'})
-		info_list = [[cell.get_text(strip=True) or cell.find('img').get('alt') == "No" for cell in row("td")] for row in info_table("tr")[1:]]
+
+		rows = feesUrlSouped.find('table').find_all('tr')[1:]
+
+		info_table = infoURLSouped.find('table')
+		info_list = [[cell.get_text(strip=True) for cell in row("td")] for row in info_table("tr")[1:]]
 		info_dict = {}
 		for item in info_list:
 			info_dict[item[0]] = item[1:]
@@ -33,7 +35,7 @@ def scrape(name):
 			cells = row.findAll('td')
 			if len(cells) > 0:
 				deep = 0
-				scraper.newPractice(cells[0].find('a').get_text(), cells[0].find('a').get('href'), "Compass Health", "")
+				scraper.newPractice(cells[0].get_text(), "https://compasshealth.org.nz/Practices-and-Fees/Wellington-Practices", "Compass Health", "")
 
 				try:
 					if info_dict[scraper.practice['name']][0]:
@@ -78,31 +80,27 @@ def scrape(name):
 				scraper.practice['prices'] = [
 						{
 						'age': 0,
-						'price': float(cells[2].get_text(strip=True).replace("$", "")),
-						},
-						{
-						'age': 6,
-						'price': float(cells[3].get_text(strip=True).replace("$", "")),
+						'price': float(cells[1].get_text(strip=True).replace("$", "")),
 						},
 						{
 						'age': 14,
-						'price': float(cells[4].get_text(strip=True).replace("$", "")),
+						'price': float(cells[2].get_text(strip=True).replace("$", "")),
 						},
 						{
 						'age': 18,
-						'price': float(cells[5].get_text(strip=True).replace("$", "")),
+						'price': float(cells[3].get_text(strip=True).replace("$", "")),
 						},
 						{
 						'age': 25,
-						'price': float(cells[6].get_text(strip=True).replace("$", "")),
+						'price': float(cells[4].get_text(strip=True).replace("$", "")),
 						},
 						{
 						'age': 45,
-						'price': float(cells[7].get_text(strip=True).replace("$", "")),
+						'price': float(cells[5].get_text(strip=True).replace("$", "")),
 						},
 						{
 						'age': 65,
-						'price': float(cells[8].get_text(strip=True).replace("$", "")),
+						'price': float(cells[6].get_text(strip=True).replace("$", "")),
 						},
 				]
 

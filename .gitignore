@@ -8,6 +8,7 @@ backups
 /assets/bundles
 /dp_server/migrations
 db.sqlite3
+/scrapers/data.json
 conf/ssl
 npm-debug.log
 backups

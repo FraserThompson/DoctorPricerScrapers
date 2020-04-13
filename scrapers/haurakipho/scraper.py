@@ -37,8 +37,11 @@ def scrape(name):
 		for fees_row in fees_rows[1:]:
 			fees_cells = fees_row.find_all('td')
 			
+			if ('CSC' in fees_cells[0].get_text(strip=True)):
+				continue
+			
 			age = scrapers.getFirstNumber(fees_cells[0].get_text(strip=True).replace("Under 13", "0").replace("All enrolled patients", "0"))
-			price = scrapers.getFirstNumber(fees_cells[1].get_text(strip=True).replace('Koha', '$0').replace('(CSC)', '$15').replace('Free', '$0').replace('FREE', '$0').replace("NA", "999"))
+			price = scrapers.getFirstNumber(fees_cells[1].get_text(strip=True).replace('Koha', '$0').replace('Free', '$0').replace('FREE', '$0').replace("NA", "999"))
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
 

@@ -25,39 +25,12 @@ def scrape(name):
 			scraper.newPractice(name, url, "Southern PHO")
 
 			practice_page = scrapers.openAndSoup(url)
+	
+			start_of_details = practice_page.find(text='Contact')
+			scraper.practice['address'] = start_of_details.findNext('p').get_text(strip=True)
+			scraper.practice['phone'] = start_of_details.findNext('p').findNext('p').get_text(strip=True).split("Phone: ")[1]
 
-			# Completely non standard formatting means we have a different number of cells for a select few
-			practice_details = practice_page.find_all('td', {'class': 'table-content'})
-			number_of_cells = len(practice_details)
-
-			if name == "Doctors Allen, Adam and Ceveland":
-				details_modifier = 1
-				fees_modifier = 2
-			elif name == "Number 10 Youth Stop Shop":
-				details_modifier = 0
-				fees_modifier = 1
-			elif name == "Vercoe Brown and Associates" or name == "Lumsden Medical Centre":
-				details_modifier = 1
-				fees_modifier = 1
-			elif number_of_cells > 3 and name != "Mornington Health Centre":
-				details_modifier = 0
-				fees_modifier = details_modifier
-			else:
-				details_modifier = 1
-				fees_modifier = details_modifier
-
-			# The order of address/phone varies too
-			if "Phone: " in practice_details[1 - details_modifier].find_all('p')[1].get_text(strip=True):
-				scraper.practice['phone'] = practice_details[1 - details_modifier].find_all('p')[1].get_text(strip=True).replace('Phone: ', '')
-				scraper.practice['address'] = practice_details[1 - details_modifier].find_all('p')[0].get_text(strip=True)
-			else:
-				scraper.practice['phone'] = practice_details[1 - details_modifier].find_all('p')[0].get_text(strip=True).replace('Phone: ', '')
-
-			# These guys messed up and put their address instead of their email address lol
-			if name == "Gore Medical Centre":
-				scraper.practice['address'] = practice_details[1 - details_modifier].find_all('p')[2].get_text(strip=True).replace('Email: ', '')
-
-			fees = practice_details[3 - fees_modifier].find('table').find_all('tr')
+			fees = practice_page.find(text='Fees Information').findNext('div').find('table').find_all('tr')
 
 			for fee_row in fees:
 				cells = fee_row.find_all('td')

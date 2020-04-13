@@ -11,7 +11,7 @@ current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	listUrlSouped = scrapers.openAndSoup('http://www.comprehensivecare.co.nz/category/region/waitemata-pho/')
+	listUrlSouped = scrapers.openAndSoup('http://www.comprehensivecare.co.nz/category/region/comprehensive-care/')
 	rows = listUrlSouped.find_all('article', {'class': 'post type-post status-publish format-standard hentry category-post-formats has_thumbnail post-teaser'})
 
 	print("Done. Iterating rows...")
@@ -35,19 +35,35 @@ def scrape(name):
 
 		prices = []
 		count = 0
+
 		for fee in fees_list:
 			if fee.strip() == '':
 				continue
+
 			count += 1
+
 			if (count <= 1):
 				continue
 
-			print(fee)
 			fee = re.split('yrs|years', fee)
+
+			# Get the last age added to the prices list
 			try:
+				previous_age = prices[-1]['age']
+			except IndexError:
+				previous_age = None
+
+			try:
+				age = scrapers.getFirstNumber(fee[0]) if count != 2 else 0
+				price = scrapers.getFirstNumber(fee[1].replace("Free", "0"))
+
+				if previous_age and age < previous_age:
+					scraper.addWarning("Age " + str(age) + " is less than a previous price entry. Skipping this price entry.")
+					continue
+
 				prices.append({
-					'age': scrapers.getFirstNumber(fee[0]) if count != 2 else 0,
-					'price': scrapers.getFirstNumber(fee[1].replace("Free", "0"))
+					'age': age,
+					'price': price
 				})
 			except IndexError:
 				print("================================WTF====================")
