@@ -22,7 +22,7 @@ class Pho(models.Model):
     current_task_id = models.TextField(blank=True, null=True, default=None)
     number_of_practices = models.IntegerField(default=0)
     average_prices = JSONField(blank=True, null=True, default=dict)
-    last_scrape = JSONField(blank=True, null=True, default=[])
+    last_scrape = JSONField(blank=True, null=True, default=list)
     history = HistoricalRecords()
 
     def __str__(self):

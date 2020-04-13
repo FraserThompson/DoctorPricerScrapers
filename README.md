@@ -125,6 +125,10 @@ Then run those ALTER commands.
 
 https://github.com/appropriate/docker-postgis/blob/master/update-postgis.sh
 
+If you get some bullshit about the migration PKEY being wrong then I guess the migrations table got messed up somehow, try reindexing it after logging into psql:
+
+`REINDEX TABLE django_migrations;`
+
 ### Model
 
 #### PHO
