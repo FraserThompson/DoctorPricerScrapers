@@ -6,13 +6,13 @@ from scrapers import common as scrapers
 def scrape(name):
 	things = [
 		{
-		'feesUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices/PracticeFees.aspx',
-		'infoUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices.aspx',
+		'feesUrl': 'https://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices/PracticeFees.aspx',
+		'infoUrl': 'https://www.compasshealth.org.nz/PracticesandFees/WellingtonPractices.aspx',
 		'addressEl': "dnn_ctr484_Map_AddressLabel",
 		'phoneEl': "dnn_ctr484_Map_PhoneLabel"},
 		{
-		'feesUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices/PracticeFees.aspx',
-		'infoUrl': 'http://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices.aspx',
+		'feesUrl': 'https://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices/PracticeFees.aspx',
+		'infoUrl': 'https://www.compasshealth.org.nz/PracticesandFees/WairarapaPractices.aspx',
 		'addressEl': "dnn_ctr499_Map_AddressLabel",
 		'phoneEl': "dnn_ctr499_Map_PhoneLabel"}
 	]
