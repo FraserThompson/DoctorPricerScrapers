@@ -195,13 +195,14 @@ def coordsToFloat(coords):
 #####################################################################
 # Checks if a string is contained in something
 def partial_match(string, dictin):
-    result = ""
+    result = None
     for key in dictin:
         if key.startswith(string):
             result = dictin.get(key)
             break
     # Go for a less accurate search if nothing is found
-    if len(result) == 0:
+    # just try to match the first three words
+    if not result:
         for key in dictin:
             if key.startswith(' '.join(string.split()[:2])):
                 result = dictin.get(key)
