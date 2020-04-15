@@ -15,7 +15,7 @@ def scrape(name):
 
         prac_dict = json.load(inFile)
 
-        for practiceObj in prac_dict['data']['scraped']:
+        for practiceObj in prac_dict['scraped']:
 
             practice = practiceObj['practice'] if 'practice' in practiceObj else practiceObj
 
