@@ -16,9 +16,9 @@ def all():
 
     return return_object
 
-def one(name):
+def one(name, scraperFileName = "scraper"):
     
-    module = importlib.import_module("scrapers." + name + ".scraper")
+    module = importlib.import_module("scrapers." + name + "." + scraperFileName)
 
     return_object = {'data': None, 'error': None}
 

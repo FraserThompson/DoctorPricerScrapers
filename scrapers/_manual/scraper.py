@@ -7,7 +7,7 @@ def scrape(name):
 
 	scraper = scrapers.Scraper(name)
 
-	files = ['data.manual.json', 'data.procare.json']
+	files = ['data.manual.json']
 
 	for filename in files:
 		with open(current_dir + filename, 'r') as inFile:
