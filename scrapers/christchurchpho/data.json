@@ -1,0 +1,146 @@
+[
+    {
+        "address": "Corner Coventry and Barbadoes Street, Christchurch",
+        "lat": -43.5378326,
+        "lng": 172.6434906,
+        "name": "Ara Institute of Canterbury",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "940 7566",
+        "place_id": "ChIJK0jqPR-KMW0RE9bLGkXS3vw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 31.50
+            }
+        ],
+        "restriction": "",
+        "url": "https://www.ara.ac.nz/services-and-support/health-and-wellbeing/health-centre"
+    },
+    {
+        "address": "368 Wairakei Road, Christchurch",
+        "lat": -43.4964036,
+        "lng": 172.5766899,
+        "name": "Burnside Medical Centre",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "359 9974",
+        "place_id": "ChIJDeI1uD6LMW0R6RS2DE12bPE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 25,
+                "price": 19
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.burnsidemedical.co.nz/"
+    },
+    {
+        "address": "5/25 Churchill St, Christchurch",
+        "lat": -43.5214291,
+        "lng": 172.6465347,
+        "name": "298 Korowai Youth Wellbeing Trust",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "943 9298",
+        "place_id": "ChIJJRxuKSeKMW0R40bhXDoBrQg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 999
+            },
+            {
+                "age": 10,
+                "price": 0
+            },
+            {
+                "age": 25,
+                "price": 999
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.298.org.nz/"
+    },
+    {
+        "address": "3 Pilgrim Place, Christchurch",
+        "lat": -43.5408848,
+        "lng": 172.6397097,
+        "name": "Moorhouse Medical Centre",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "365 7900",
+        "place_id": "ChIJibgqNhqKMW0Rdn1YduYEUCI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 36
+            },
+            {
+                "age": 18,
+                "price": 49
+            },
+            {
+                "age": 65,
+                "price": 19
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.moorhousemedical.co.nz/"
+    },
+    {
+        "address": "6 Yaldhurst Road, Christchurch",
+        "lat": -43.5316597,
+        "lng": 172.5694784,
+        "name": "Riccarton Clinic",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "343 3661",
+        "place_id": "ChIJXS-R67eKMW0Rr6jCgutVBos",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 45
+            },
+            {
+                "age": 65,
+                "price": 54
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.riccartonclinic.co.nz/"
+    },
+    {
+        "address": "90 Ilam Road, Christchurch",
+        "lat": -43.5250532,
+        "lng": 172.578044,
+        "name": "University Health Centre",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "364 2402",
+        "place_id": "ChIJEdV9ScKKMW0RE1KCrbR-zCs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ],
+        "restriction": "Student",
+        "url": "http://www.chchpho.org.nz/university-health-centre/"
+    }
+]

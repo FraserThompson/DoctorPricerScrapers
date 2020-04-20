@@ -1,0 +1,66 @@
+[
+    {
+        "address": "11 Parkvale Road, Karori, Wellington",
+        "lat": -41.284061,
+        "lng": 174.736818,
+        "name": "Karori Medical Centre",
+        "active": true,
+        "pho": "Independant",
+        "phone": "920 4562 ",
+        "place_id": "ChIJqYsGgVOwOG0RjbedCemSzDY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 14,
+                "price": 44.0
+            },
+            {
+                "age": 18,
+                "price": 58.0
+            },
+            {
+                "age": 25,
+                "price": 58.0
+            },
+            {
+                "age": 65,
+                "price": 57.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.kmc.co.nz/"
+    },
+    {
+        "address": "577 High Street, Boulcott, Lower Hutt",
+        "lat": -41.2037162,
+        "lng": 174.91669520000005,
+        "name": "Ropata Medical Centre",
+        "active": true,
+        "pho": "Independant",
+        "phone": "(04) 920 0800",
+        "place_id": "ChIJlYemiWFVR20R8BbtDh1s-gs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0.0
+            },
+            {
+                "age": 14,
+                "price": 47.0
+            },
+            {
+                "age": 18,
+                "price": 49.0
+            },
+            {
+                "age": 65,
+                "price": 46.0
+            }
+        ],
+        "restriction": "",
+        "url": "http://www.ropatamedicalcentre.co.nz/"
+    }
+]

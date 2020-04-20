@@ -1,0 +1,106 @@
+[
+    {
+        "name": "Pirirākau Hauora",
+        "address": "3 Lochhead Road, Te Puna",
+        "pho": "Nga Mataapuna Oranga",
+        "active": true,
+        "phone": "Ph (07) 552 4573",
+        "url": "http://nmo.org.nz/our-services/gp-clinics",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ],
+        "lat": "-37.6670637",
+        "lng": "176.0794911",
+        "restriction": "",
+        "place_id": "ChIJj52Ti6TEbW0ROS4zKOPuwt4"
+    },
+    {
+        "name": "Tauranga Moana City Clinic",
+        "active": true,
+        "address": "53 Courtney Road, Gate Pā, Tauranga",
+        "pho": "Nga Mataapuna Oranga",
+        "phone": "Ph (07) 571 2017",
+        "url": "http://nmo.org.nz/our-services/gp-clinics",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ],
+        "lat": "-37.7167852",
+        "lng": "176.1443082",
+        "restriction": "",
+        "place_id": "ChIJh_0HxEvabW0RND_ZyovUTJw"
+    },
+    {
+        "name": "Te Ākau Hauora",
+        "active": true,
+        "address": "95a Hartford Avenue, Papamoa, Tauranga",
+        "pho": "Nga Mataapuna Oranga",
+        "phone": "Ph (07) 574 9830",
+        "url": "http://nmo.org.nz/our-services/gp-clinics",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ],
+        "lat": "-37.6969909",
+        "lng": "176.2657647",
+        "restriction": "",
+        "place_id": "ChIJWeNy6VJ2bm0Rw27i0OVOvzQ"
+    },
+    {
+        "name": "Waitaha Health Centre",
+        "active": true,
+        "address": "Palmer Court, Main Road, Te Puke",
+        "pho": "Nga Mataapuna Oranga",
+        "phone": "(07) 573 0141",
+        "url": "http://nmo.org.nz/our-services/gp-clinics",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ],
+        "lat": "-37.7861649",
+        "lng": "176.3254445",
+        "restriction": "",
+        "place_id": "ChIJA2F4Apt5bm0RbwPv58T2qlM"
+    }
+]
