@@ -15,7 +15,7 @@ scp ./{docker-compose,docker-compose.extra}.yml ./_ops/remote_scripts/*.sh frase
 
 ssh fraser@${DP_SERVER} 'mkdir -p ~/restore'
 
-scp ./restore/backup.tar.gz fraser@${DP_SERVER}:~/restore
+scp ./backups/backup.tar.gz fraser@${DP_SERVER}:~/restore
 
 # Run the script which fetches the images and brings up the containers
 ssh fraser@${DP_SERVER} "ENV=live DOCKER_USERNAME=${DOCKER_USERNAME} DOCKER_PASSWORD=${DOCKER_PASSWORD} ADMIN_PASSWORD=${ADMIN_PASSWORD} DATABASE_PASSWORD=${DATABASE_PASSWORD} RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS} SECRET_KEY=${SECRET_KEY} ~/docker-services/doctorpricer/restore.sh"

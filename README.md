@@ -41,7 +41,9 @@ To provision a new server:
 1. Run `DP_SERVER=[whatever] ./_ops/provision.sh`. This upgrades the distribution and adds a user called fraser with sudo permissions
 1. SSH in to verify you can, and then disable SSH for the root user by editing `/etc/ssh/sshd_config` and changing `PermitRootLogin yes` to `PermitRootLogin no` then restart SSH with `service ssh restart`
 
-Now it's ready to be deployed with the deploy script.
+Before you deploy you'll need to point the DNS at it since it needs to be on the domain for letsencrypt to work.
+
+Then it's ready to be deployed with the deploy script.
 
 ### Backups
 

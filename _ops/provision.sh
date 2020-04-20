@@ -1,3 +1,4 @@
+source .env
 ssh root@${DP_SERVER} << EOF
     apt-get update
     DEBIAN_FRONTEND=noninteractive apt-get --with-new-pkgs upgrade -y
