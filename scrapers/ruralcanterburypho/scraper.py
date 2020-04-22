@@ -7,63 +7,34 @@ import re
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	root = 'http://www.rcpho.org.nz/?page_id=16'
+	root = 'https://waitaha.health.nz/find-a-gp/'
 	listUrlSouped = scrapers.openAndSoup(root)
-	providers_rows = listUrlSouped.find('table', {'id': 'tablepress-1'}).find('tbody').find_all('tr')
+	providers_rows = listUrlSouped.findAll('div', {'class': 'gp-inner'})
 
 	for row in providers_rows:
-		cells = row.find_all('td')
+		name = row.find('div', {'class': 'gp-name'}).getText(strip=True)
+		url = row.find('div', {'class': 'more'}).find('a').get('href')
 
-		scraper.newPractice(cells[0].get_text(strip='true'), cells[0].find('a').get('href').replace('pracitces', 'practices'), "Rural Canterbury PHO", "")
+		scraper.newPractice(name, url, "Waitaha Primary Health", "")
+
+		scraper.practice['address'] = row.find('div', {'class': 'gp-address'}).getText(strip=True)
+		scraper.practice['phone'] = row.find('div', {'class': 'gp-phone'}).getText(strip=True).split("Phone:")[1]
 
 		practiceSouped = scraper.openAndSoup()
-		try:
-			infoTable = practiceSouped.find_all('table')[5].find('tbody').find_all('tr')
-			scraper.practice['address'] = ', '.join([infoTable[0].get_text(strip='true').replace('\t', ' '), infoTable[1].get_text(strip='true').replace('\t', ' ')])
-			for tr in infoTable:
-				if 'Phone: ' in tr.get_text(strip='true'):
-					scraper.practice['phone'] = tr.get_text(strip='true').split(': ')[1]
-		except IndexError:
-			scraper.addError("Cannot find contact details.")
-			continue
+		feeTable = practiceSouped.findAll('div', {'class': 'pricing-row'})
+	
+		prices = []
+		for feeRow in feeTable:
+			td = feeRow.findAll('div', {'class': 'pricing-col'})
+			ageCol = td[0].getText(strip=True)
+			priceCol = td[1].getText(strip=True)
 
+			if "CSC" in ageCol:
+				continue
 
-		scraper.practice['prices'] = [
-				{
-				'age': 0,
-				'price': float(cells[1].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 13,
-				'price': float(cells[2].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 18,
-				'price': float(cells[3].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 25,
-				'price': float(cells[4].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 45,
-				'price': float(cells[5].get_text(strip=True).replace("$", "")),
-				},
-				{
-				'age': 65,
-				'price': float(cells[6].get_text(strip=True).replace("$", "")),
-				}
-			]
+			prices.append({'age': scrapers.getFirstNumber(ageCol), 'price': scrapers.getFirstNumber(priceCol)})
 
-		scraper.practice['new_prices'] = [
-				{'from_age': 0, 'to_age': 13, 'price': float(cells[1].get_text(strip=True).replace("$", ""))},
-				{'from_age': 13, 'to_age': 18, 'price': float(cells[2].get_text(strip=True).replace("$", ""))},
-				{'from_age': 18, 'to_age': 25, 'price': float(cells[3].get_text(strip=True).replace("$", ""))},
-				{'from_age': 25, 'to_age': 45, 'price': float(cells[4].get_text(strip=True).replace("$", ""))},
-				{'from_age': 45, 'to_age': 65, 'price': float(cells[5].get_text(strip=True).replace("$", ""))},
-				{'from_age': 65, 'to_age': 150, 'price': float(cells[6].get_text(strip=True).replace("$", ""))}
-			]
-		
+		scraper.practice['prices'] = prices
 		scraper.finishPractice()
 
 	return scraper.finish()

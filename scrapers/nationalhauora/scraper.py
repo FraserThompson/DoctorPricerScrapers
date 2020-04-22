@@ -10,51 +10,51 @@ def scrape(name):
 	list_url = "https://www.nhc.maori.nz/clinic-network"
 	listUrlSouped = scrapers.openAndSoup(list_url)
 
-	maps = listUrlSouped.find_all('div', {'class': 'map-block'})
-	fees = listUrlSouped.find_all('div', {'class': 'sqs-block html-block sqs-block-html sqs-col-4 span-4 float float-left'})
+	practiceElements = listUrlSouped.findAll('div', {'class': 'et_pb_toggle_content'})
 
-	for fee in fees:
-		text = fee.get_text(strip=True)
+	for practiceEl in practiceElements:
 
-		if ":" not in text or "$" not in text:
+		try:
+			name = practiceEl.find('span', style=re.compile(r'#8dc63f*')).getText(strip=True)
+			print(name)
+			scraper.newPractice(name, "https://www.nhc.maori.nz/clinic-network", "National Hauora Coalition", "")
+
+			try: 
+				enrolling = practiceEl.find(text="Taking new patients? ").findNext("strong").getText(strip=True) == "Yes"
+			except AttributeError:
+				enrolling = not practiceEl.find(text="Taking new patients? No")
+
+			if not enrolling:
+				scraper.notEnrolling()
+
+			peas = practiceEl.findAll(["p"])
+			scraper.practice['phone'] = peas[1].getText(strip=True).split("P:")[1].split("F:")[0]
+			scraper.practice['address'] = peas[2].getText(strip=True)
+
+			pricesMaybe = scrapers.better_strip(peas[0].stripped_strings)
+			pricesArray = pricesMaybe.split(",")
+
+			prices = []
+			properThing = enumerate(pricesArray[1:len(pricesArray) - 1])
+
+			for idx, thing in properThing:
+				split = thing.split(":")
+				split = [x for x in split if x != '']
+				if len(split) > 1:
+					age = scrapers.getFirstNumber(split[0])
+					price = scrapers.getFirstNumber(split[1])
+				else:
+					age = scrapers.getFirstNumber(thing)
+					price = scrapers.getFirstNumber(pricesArray[idx + 2])
+					next(properThing, None)
+				# don't add price for an age which is already there
+				if len([x for x in prices if x['age'] == age]) == 0:
+					prices.append({'age': age, 'price': price})
+
+			scraper.practice['prices'] = prices
+			scraper.finishPractice()
+		except:
+			scraper.addError("Weird format")
 			continue
-
-		map = fee.find_previous_sibling()
-		name = map.find_previous_sibling().get_text(strip=True)
-
-		json_string = map.get('data-block-json')
-		json_data = json.loads(json_string)
-
-		scraper.newPractice(name, "https://www.nhc.maori.nz/clinic-network", "National Hauora Coalition", "")
-
-		scraper.practice['address'] = json_data['location']['addressLine1'] + ", " + json_data['location']['addressLine2']
-		scraper.practice['lat'] = json_data['location']['mapLat']
-		scraper.practice['lng'] = json_data['location']['mapLng']
-
-		lines = text.split(':')
-
-		prices = []
-		price_wip = {'age': 0, 'price': 0}
-
-		for line in lines[1:]:
-
-			line = line.replace('\xa0', '')
-
-			if "Ages" in line:
-				split_line = line.split("Ages")
-			elif "Age" in line:
-				split_line = line.split("Age")
-			else:
-				price_wip['price'] = scrapers.getFirstNumber(line)
-				prices.append(price_wip)
-				break
-		
-			price_wip['price'] = scrapers.getFirstNumber(split_line[0])
-			prices.append(price_wip)
-			price_wip = {'age': scrapers.getFirstNumber(split_line[1]), 'price': 0}
-
-		scraper.practice['prices'] = prices
-
-		scraper.finishPractice()
 	
 	return scraper.finish()
