@@ -62,7 +62,7 @@ def scrape(name):
 		lng = practice[2]
 		address = practice[4]
 		phone = practice[5]
-		url = practice[7]
+		url = practice[8]
 
 		scraper.newPractice(name, url, "SCDHB")
 
