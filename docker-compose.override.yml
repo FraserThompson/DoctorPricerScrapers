@@ -42,6 +42,8 @@ services:
 
     scraper-test:
         build: ./scrapers
+        environment:
+            - GEOLOCATION_API_KEY
         volumes:
             - ./scrapers:/scrapers:rw
 

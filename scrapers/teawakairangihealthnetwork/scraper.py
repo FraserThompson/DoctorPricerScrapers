@@ -6,66 +6,95 @@ from scrapers import common as scrapers
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	url = 'http://teawakairangihealth.org.nz/practice-info/practice-information-fees/'
-	listUrlSouped = scrapers.openAndSoup(url)
+	fees_url = 'https://teawakairangihealth.org.nz/practice-fees/'
+	practice_url = 'https://teawakairangihealth.org.nz/find-doctor/'
+	feesUrlSouped = scrapers.openAndSoup(fees_url)
 
+	tables = feesUrlSouped.find_all('table', {'class', 'uael-table'})
+	fees_table = tables[0]
+	csc_fees_table = tables[1]
+
+	ages_header = fees_table.find_all('th')
 	ages = []
-	fees_dict = {}
+	for age in ages_header[1:]:
+		ages.append(scrapers.getFirstNumber(age.get_text(strip=True)))
 
-	fees_rows = listUrlSouped.find('table', {'class', 'tg practice-price'}).find_all('tr')
+	fees_rows = fees_table.find('tbody').find_all('tr')
+	csc_fees_rows = csc_fees_table.find('tbody').find_all('tr')
+
+	fees_dict = {}
+	csc_fees_dict = {}
 
 	# Get the fees into a dict
-	for index, row in enumerate(fees_rows):
-
-		if index == 0:
-			cells = row.find_all('th')
-		else:
-			cells = row.find_all('td')
-
-		# Get ages
-		if index == 0:
-
-			for cell in cells[1:]:
-
-				age = scrapers.getFirstNumber(cell.get_text(strip=True).replace('Under 13', '0'))
-
-				if age != 1000:
-					ages.append(age)
-			
-			continue
-		
+	for row in fees_rows:
+		cells = row.find_all('td')
 		name = cells[0].get_text(strip=True)
+		name = name.split("(")[0].strip()
+
 		fees_dict[name] = []
 
-		# Assign prices to ages
-		for index, age in enumerate(ages):
-	
-			if cells[index + 1].get_text(strip=True):
-				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
+		for i, cell in enumerate(cells[1:]):
+			price = {
+				'age': ages[i],
+				'price': scrapers.getFirstNumber(cell.get_text(strip=True))
+			}
+			fees_dict[name].append(price)
 
-				if price == 1000:
-					continue
-
-				fees_dict[name].append({'age': age, 'price': price })
-
-
-	# Get practice details from the other table
-	prac_rows = listUrlSouped.find('table', {'class', 'practice-info'}).find_all('tr')[1:]
-
-	for row in prac_rows:
+	for row in csc_fees_rows:
 		cells = row.find_all('td')
+		name = cells[0].get_text(strip=True)
+		name = name.split("(")[0].strip()
 
-		name = row.find('td', {'class': 'practice-name'}).get_text(strip=True)
-		url = row.find('td', {'class': 'practice-name'}).find('a').attrs['href']
+		csc_fees_dict[name] = []
+
+		for i, cell in enumerate(cells[1:]):
+			price = {
+				'age': ages[i],
+				'price': scrapers.getFirstNumber(cell.get_text(strip=True))
+			}
+			csc_fees_dict[name].append(price)
+
+	practiceUrlSouped = scrapers.openAndSoup(practice_url)
+
+	practice_boxes = practiceUrlSouped.select('div[class*="elementor-inner-column"]')
+
+	for box in practice_boxes:
+
+		try:
+			name = box.find('h3').get_text(strip=True)
+		except AttributeError:
+			continue
+
+		try:
+			address = box.find('div', {'class': 'elementor-widget-icon-list'}).find('li').get_text(strip=True)
+		except AttributeError:
+			print("Skipping because it doesn't look like a practice: " + name)
+			continue
+
+		# Because they're inconsistent
+		name = name.split("(")[0].strip()
+
+		if name == "Whai Oranga O Te Iwi Health Centre":
+			name = "Whai Oranga O Te Iwi Health"
+
+		url = box.find_all('a')[-1].get('href')
 
 		scraper.newPractice(name, url, 'Te Awakairangi Health Network', "")
 
-		if cells[1].get_text(strip=True) == "No":
+		if "NOT" in box.find_all('div')[1].get_text(strip=True):
 			scraper.notEnrolling()
 
-		scraper.practice['phone'] = row.find('td', {'class': 'practice-phone'}).get_text(strip=True)
-		scraper.practice['address'] = row.find('td', {'class': 'practice-address'}).get_text(strip=True).replace('\n', ', ')
-		scraper.practice['prices'] = fees_dict[name]
+		scraper.practice['address'] = address + ", New Zealand"
+
+		phone = box.find('div', {'class': 'elementor-widget-icon-list'}).find_all('li')[1].get_text(strip=True)
+
+		scraper.practice['phone'] = phone if ": " not in phone else phone.split(": ")[1]
+
+		try:
+			scraper.practice['prices'] = fees_dict[name]
+			scraper.practice['prices_csc'] = csc_fees_dict[name]
+		except KeyError:
+			pass
 
 		scraper.finishPractice()
 

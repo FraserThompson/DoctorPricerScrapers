@@ -1,6 +1,4 @@
-bs4
-html5lib
-geocoder==1.38.1
-httplib2
-whitenoise==3.3.0
-requests==2.20.0
+beautifulsoup4==4.11.1
+html5lib==1.1
+geopy==2.2.0
+requests==2.28.0

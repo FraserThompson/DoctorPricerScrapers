@@ -1,0 +1,389 @@
+[
+    {
+        "name": "Colville Community Health Centre",
+        "address": "2299 Colville Road, Colville 3584, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 866 6618",
+        "url": "http://www.haurakipho.org.nz/practice-directory/colville-community-health-centre/",
+        "lat": -36.635377,
+        "lng": 175.4765944,
+        "restriction": "",
+        "place_id": "ChIJXdAMoW37cm0R8Qa7uafKQ3o",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Te Kohao Health Hamilton",
+        "address": "931 Wairere Dr, Hamilton",
+        "pho": "Hauraki PHO",
+        "phone": "07 856 1211",
+        "url": "http://www.haurakipho.org.nz/medical-centres/our-medical-centres",
+        "lat": -37.7938794,
+        "lng": 175.3068537,
+        "restriction": "",
+        "place_id": "ChIJeW00a9EYbW0R7BIB8b9xnVg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 18,
+                "price": 15
+            },
+            {
+                "age": 60,
+                "price": 0
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 18,
+                "price": 10
+            },
+            {
+                "age": 60,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "address": "Unit 2/41 Whatawhata Road, Dinsdale, Hamilton",
+        "lat": -37.7955905,
+        "lng": 175.2457286,
+        "name": "Te Rengarenga Medical Centre",
+        "active": true,
+        "pho": "Hauraki PHO",
+        "phone": "(07) 847 2383",
+        "place_id": "ChIJM7qjKCcibW0Rv2mg37AmZFg",
+        "restriction": "",
+        "url": "https://www.raukura.org.nz/english/clinics/enderley-medical-clinic/",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            },
+            {
+                "age": 65,
+                "price": 5
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 5
+            },
+            {
+                "age": 18,
+                "price": 15
+            },
+            {
+                "age": 65,
+                "price": 5
+            }
+        ]
+    },
+    {
+        "address": "29 River Road, Ngaruawahia",
+        "lat": -37.662825,
+        "lng": 175.1542428,
+        "name": "Nga Miro Medical Clinic",
+        "active": true,
+        "pho": "Hauraki PHO",
+        "phone": "(07) 824 8393",
+        "place_id": "ChIJFc0cQak7bW0Rap1MfzZpG5g",
+        "restriction": "",
+        "url": "https://www.raukura.org.nz/english/clinics/nga-miro-medical-clinic/",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            },
+            {
+                "age": 65,
+                "price": 5
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 5
+            },
+            {
+                "age": 18,
+                "price": 15
+            },
+            {
+                "age": 65,
+                "price": 5
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Central",
+        "address": "960 Victoria Street, Whitiora, Hamilton 3200, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 849 2767",
+        "url": "https://www.tuimedical.co.nz/location/central",
+        "lat": -37.7793877,
+        "lng": 175.2762593,
+        "restriction": "",
+        "place_id": "ChIJo4EllaEYbW0RmTYR9t6u0g8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 18,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Huntly",
+        "address": "183 Main Street, Huntly 3700, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 828 9503",
+        "url": "https://www.tuimedical.co.nz/location/huntly",
+        "lat": -37.5606016,
+        "lng": 175.1588122,
+        "restriction": "",
+        "place_id": "ChIJ47R-rpI4bW0RgR3MMFXKNag",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 5
+            },
+            {
+                "age": 18,
+                "price": 12.50
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Parkwood",
+        "address": "6 Gordonton Road, Huntington, Hamilton 3210, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 903 0055",
+        "url": "https://www.tuimedical.co.nz/location/parkwood",
+        "lat": -37.7491975,
+        "lng": 175.2940997,
+        "restriction": "",
+        "place_id": "ChIJ3_Vwc10YbW0R1q0Cq9YAE70",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 30
+            },
+            {
+                "age": 18,
+                "price": 45
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Rototuna",
+        "address": "Rototuna Shopping Centre, Waikato 3210, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 852 5377",
+        "url": "https://www.tuimedical.co.nz/location/rototuna",
+        "lat": -37.7290028,
+        "lng": 175.2740611,
+        "restriction": "",
+        "place_id": "ChIJ3VuHlwkYbW0RxqbVuvA0ssg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Te Rapa",
+        "address": "26 Bryant Road, Te Rapa, Hamilton 3200, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 849 4181",
+        "url": "https://www.tuimedical.co.nz/location/te-rapa",
+        "lat": -37.7576428,
+        "lng": 175.2468989,
+        "restriction": "",
+        "place_id": "ChIJn-DZL18ibW0Rm0xk0oA2ICU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Davies Corner",
+        "address": "31 Hukanui Road, Fairfield, Hamilton 3214, New Zealand",
+        "pho": "Hauraki PHO",
+        "phone": "07 855 5370",
+        "url": "https://www.tuimedical.co.nz/location/davies-corner",
+        "lat": -37.7618481,
+        "lng": 175.2871472,
+        "restriction": "",
+        "place_id": "ChIJ0VyxWokYbW0RddztWm3dMas",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Tui Medical - Borman",
+        "address": "1/60 Hare Puke Drive, Flagstaff, Hamilton, 3210",
+        "pho": "Hauraki PHO",
+        "phone": "0800 175 175",
+        "url": "https://www.tuimedical.co.nz/location/borman",
+        "lat": -37.7197685,
+        "lng": 175.2413787,
+        "restriction": "",
+        "place_id": "ChIJoYVxIM4ibW0RMtb6OPkCYSc",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 30
+            },
+            {
+                "age": 18,
+                "price": 45
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    }
+]

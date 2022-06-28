@@ -3,7 +3,7 @@
         "address": "Corner Coventry and Barbadoes Street, Christchurch",
         "lat": -43.5378326,
         "lng": 172.6434906,
-        "name": "Ara Institute of Canterbury",
+        "name": "Ara Health Centre",
         "active": true,
         "pho": "Christchurch PHO",
         "phone": "940 7566",
@@ -14,6 +14,12 @@
                 "price": 31.50
             }
         ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 19.50
+            }
+        ],
         "restriction": "",
         "url": "https://www.ara.ac.nz/services-and-support/health-and-wellbeing/health-centre"
     },
@@ -22,7 +28,7 @@
         "lat": -43.4964036,
         "lng": 172.5766899,
         "name": "Burnside Medical Centre",
-        "active": true,
+        "active": false,
         "pho": "Christchurch PHO",
         "phone": "359 9974",
         "place_id": "ChIJDeI1uD6LMW0R6RS2DE12bPE",
@@ -36,12 +42,30 @@
                 "price": 13
             },
             {
-                "age": 25,
-                "price": 19
+                "age": 18,
+                "price": 19.50
             }
         ],
         "restriction": "",
         "url": "http://www.burnsidemedical.co.nz/"
+    },
+    {
+        "address": "Cnr Springs Rd & Ellesmere Junction Rd, Lincoln 7647",
+        "lat": -43.6440,
+        "lng": 172.4669,
+        "name": "Lincoln University Health & Support",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "03 325 3835",
+        "place_id": "ChIJ0ze5btwbMm0RpcZsmr5Pys8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 10
+            }
+        ],
+        "restriction": "Student",
+        "url": "https://www.lincoln.ac.nz/student-support/health-and-wellbeing/student-health//"
     },
     {
         "address": "5/25 Churchill St, Christchurch",
@@ -78,6 +102,20 @@
         "pho": "Christchurch PHO",
         "phone": "365 7900",
         "place_id": "ChIJibgqNhqKMW0Rdn1YduYEUCI",
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 15
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
         "prices": [
             {
                 "age": 0,
@@ -85,15 +123,13 @@
             },
             {
                 "age": 14,
-                "price": 36
+                "price": 40,
+                "price_csc": 15
             },
             {
                 "age": 18,
-                "price": 49
-            },
-            {
-                "age": 65,
-                "price": 19
+                "price": 53,
+                "price_csc": 19.50
             }
         ],
         "restriction": "",
@@ -108,6 +144,20 @@
         "pho": "Christchurch PHO",
         "phone": "343 3661",
         "place_id": "ChIJXS-R67eKMW0Rr6jCgutVBos",
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
         "prices": [
             {
                 "age": 0,
@@ -115,11 +165,13 @@
             },
             {
                 "age": 14,
-                "price": 45
+                "price": 45,
+                "price_csc": 13
             },
             {
-                "age": 65,
-                "price": 54
+                "age": 18,
+                "price": 55,
+                "price_csc": 19.50
             }
         ],
         "restriction": "",
@@ -134,10 +186,17 @@
         "pho": "Christchurch PHO",
         "phone": "364 2402",
         "place_id": "ChIJEdV9ScKKMW0RE1KCrbR-zCs",
-        "prices": [
+        "prices_csc": [
             {
                 "age": 0,
                 "price": 0
+            }
+        ],
+        "prices": [
+            {
+                "age": 0,
+                "price": 15,
+                "price_csc": 0
             }
         ],
         "restriction": "Student",

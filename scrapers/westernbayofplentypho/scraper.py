@@ -9,6 +9,7 @@ def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	fees_dict = {}
+	fees_csc_dict = {}
 	root = 'https://www.wboppho.org.nz'
 	feesUrl = root + '/fees-and-subsidies/'
 
@@ -51,7 +52,23 @@ def scrape(name):
 			},
 		]
 
+		fees_csc = [
+			{
+				'age': 0,
+				'price': 0
+			},
+			{
+				'age': 14,
+				'price': float(row['ages_14_17_csc'])
+			},
+			{
+				'age': 18,
+				'price': float(row['ages_18up_csc'])
+			}
+		]
+
 		fees_dict[scrapers.normalize(name)] = fees
+		fees_csc_dict[scrapers.normalize(name)] = fees_csc
 
 	pracsURLSouped = scrapers.openAndSoup(root + '/medical-centres/')
 	pracs_rows = pracsURLSouped.find('div', {'class': 'medicalCentres'}).find('table').find('tbody').findAll('tr')
@@ -78,9 +95,16 @@ def scrape(name):
 			scraper.addWarning('Could not get fees.')
 			prices = []
 
+		try:
+			prices_csc = fees_csc_dict[scrapers.normalize(name)]
+		except:
+			scraper.addWarning('Could not get CSC fees.')
+			prices = []
+
 		scraper.practice['address'] = cells[1].get_text(strip=True)
 		scraper.practice['phone'] = cells[2].get_text(strip=True)
 		scraper.practice['prices'] = prices
+		scraper.practice['prices_csc'] = prices_csc
 
 		scraper.finishPractice()
 

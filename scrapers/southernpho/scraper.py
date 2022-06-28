@@ -32,14 +32,32 @@ def scrape(name):
 
 			fees = practice_page.find(text='Fees Information').findNext('div').find('table').find_all('tr')
 
+			price_col = 0
+			price_csc_col = None
+
 			for fee_row in fees:
 				cells = fee_row.find_all('td')
+	
+				# Checking if this is a CSC table
+				if cells[0].get_text(strip=True) == "Age":
+					for i, cell in enumerate(cells):
+						text = cell.get_text(strip=True)
+						if "Non" in text:
+							price_col = i
+						elif "CSC" in text:
+							price_csc_col = i
 
 				age = scrapers.getFirstNumber(cells[0].get_text(strip=True).replace("Under 6", "0").replace("Under 18", "0"))
-				price = scrapers.getFirstNumber(cells[1].get_text(strip=True).replace("Age 10-24", ""))
 
-				if age != 1000 and price != 1000:
-					scraper.practice['prices'].append({'age': age, 'price': price})
+				scraper.practice['prices_csc'] = []
+				scraper.practice['prices'] = []
+
+				if (price_csc_col):
+					price_csc = scrapers.getFirstNumber(cells[price_csc_col].get_text(strip=True).replace("Age 10-24", ""))
+					scraper.practice['prices_csc'].append({'age': age, 'price': price_csc})
+		
+				price = scrapers.getFirstNumber(cells[price_col].get_text(strip=True).replace("Age 10-24", ""))
+				scraper.practice['prices'].append({'age': age, 'price': price})
 
 			scraper.finishPractice()
 

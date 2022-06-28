@@ -1,0 +1,718 @@
+[
+    {
+        "name": "Eruera Medical Centre",
+        "address": "1325A Eruera Street, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 3478418",
+        "url": "www.erueramedicalcentre.com",
+        "lat": -38.1386136,
+        "lng": 176.2461882,
+        "restriction": "",
+        "place_id": "ChIJIeBpx3snbG0R22xvec2qBMI",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 32
+            },
+            {
+                "age": 18,
+                "price": 44
+            },
+            {
+                "age": 25,
+                "price": 44
+            },
+            {
+                "age": 25,
+                "price": 44
+            },
+            {
+                "age": 65,
+                "price": 44
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Three Lakes Clinic",
+        "address": "1131 Pukaki Street, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 346 1333",
+        "url": "https://www.facebook.com/ThreeLakesClinic/",
+        "lat": -38.133591,
+        "lng": 176.2527963,
+        "restriction": "",
+        "place_id": "ChIJ31-6534nbG0R7s7XneB13Jg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 29
+            },
+            {
+                "age": 18,
+                "price": 40
+            },
+            {
+                "age": 25,
+                "price": 42
+            },
+            {
+                "age": 25,
+                "price": 42
+            },
+            {
+                "age": 65,
+                "price": 40
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Westend Medical",
+        "address": "227 Old Taupo Road, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 350 1193",
+        "url": "http://www.raphs.org.nz/community/general-practice-details/",
+        "lat": -38.1452826,
+        "lng": 176.2375419,
+        "restriction": "",
+        "place_id": "ChIJedrzmGwnbG0RzYt4KXXLuWM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 28
+            },
+            {
+                "age": 18,
+                "price": 39
+            },
+            {
+                "age": 25,
+                "price": 41
+            },
+            {
+                "age": 25,
+                "price": 41
+            },
+            {
+                "age": 65,
+                "price": 39
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Te Ngae Medical Centre",
+        "address": "Redwood Centre, 5 Tarawera Road, Lynmore, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 345 6627",
+        "url": "www.tengaemedical.co.nz",
+        "lat": -38.1485844,
+        "lng": 176.2768836,
+        "restriction": "",
+        "place_id": "ChIJH9E4xWInbG0REAZdnYCpxno",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 29
+            },
+            {
+                "age": 18,
+                "price": 40
+            },
+            {
+                "age": 25,
+                "price": 42
+            },
+            {
+                "age": 25,
+                "price": 42
+            },
+            {
+                "age": 65,
+                "price": 40
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Ngongotaha Medical Centre",
+        "address": "17 Taui Street, Ngongotaha,  Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 357 1030",
+        "url": "www.nmc.org.nz",
+        "lat": -38.0808233,
+        "lng": 176.213585,
+        "restriction": "",
+        "place_id": "ChIJZ-uksoYobG0RNzIuUziscyw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 30
+            },
+            {
+                "age": 18,
+                "price": 40.50
+            },
+            {
+                "age": 25,
+                "price": 40.50
+            },
+            {
+                "age": 25,
+                "price": 40.50
+            },
+            {
+                "age": 65,
+                "price": 40.50
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Mangakino Health Service",
+        "address": "60 Rangatira Drive, Mangakino",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 882 8299",
+        "url": "www.mangakinohealth.com",
+        "lat": -38.3701283,
+        "lng": 175.7744198,
+        "restriction": "",
+        "place_id": "ChIJ_RYxoYNvbG0R97lXXPLPwM4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            },
+            {
+                "age": 25,
+                "price": 19.50
+            },
+            {
+                "age": 25,
+                "price": 19.50
+            },
+            {
+                "age": 65,
+                "price": 19.50
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Murupara Medical Centre",
+        "address": "27 Kowhai Avenue, Murupara",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 366 5555",
+        "url": "https://www.facebook.com/Murupara-Medical-Centre-919316288210493/",
+        "lat": -38.4576853,
+        "lng": 176.7062428,
+        "restriction": "",
+        "place_id": "ChIJC05a05jPbm0RKY25_oPyMFE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 11.50
+            },
+            {
+                "age": 18,
+                "price": 17
+            },
+            {
+                "age": 25,
+                "price": 17
+            },
+            {
+                "age": 25,
+                "price": 17
+            },
+            {
+                "age": 65,
+                "price": 17
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 9.50
+            },
+            {
+                "age": 18,
+                "price": 15
+            }
+        ]
+    },
+    {
+        "name": "Ranolf Medical Centre",
+        "address": "59 Ranolf Street, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 347 7537",
+        "url": "www.ranolfmedical.co.nz  www.facebook.com/Ranolf-Medical-Centre-1074093739276281/",
+        "lat": -38.14125629999999,
+        "lng": 176.2465092,
+        "restriction": "",
+        "place_id": "ChIJvY5PV2UnbG0RFJurjx6jWJg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 34
+            },
+            {
+                "age": 18,
+                "price": 42
+            },
+            {
+                "age": 25,
+                "price": 43.50
+            },
+            {
+                "age": 25,
+                "price": 43.50
+            },
+            {
+                "age": 65,
+                "price": 41.50
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Ruatahi Medical Centre",
+        "address": "1271 Hinemoa Street, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07  348-3002",
+        "url": "http://www.raphs.org.nz/community/general-practice-details/",
+        "lat": -38.1375749,
+        "lng": 176.2480653,
+        "restriction": "",
+        "place_id": "ChIJozchW3onbG0Rn3tU92lUwQU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 27
+            },
+            {
+                "age": 18,
+                "price": 39
+            },
+            {
+                "age": 25,
+                "price": 40
+            },
+            {
+                "age": 25,
+                "price": 40
+            },
+            {
+                "age": 65,
+                "price": 40
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Korowai Aroha\tHealth Centre",
+        "address": "1292 Hinemoa Street, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 348 8454",
+        "url": "www.korowai.org.nz",
+        "lat": -38.1381507,
+        "lng": 176.2474514,
+        "restriction": "",
+        "place_id": "ChIJJT5WYnonbG0RS5pBJ1J8wF8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 7
+            },
+            {
+                "age": 18,
+                "price": 15
+            },
+            {
+                "age": 25,
+                "price": 15
+            },
+            {
+                "age": 25,
+                "price": 15
+            },
+            {
+                "age": 65,
+                "price": 15
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 7
+            },
+            {
+                "age": 18,
+                "price": 15
+            }
+        ]
+    },
+    {
+        "name": "Kuirau Medical Centre",
+        "address": "19 Tarewa Road, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 349 1995",
+        "url": "http://www.raphs.org.nz/community/general-practice-details/",
+        "lat": -38.1312149,
+        "lng": 176.240921,
+        "restriction": "",
+        "place_id": "ChIJw8gt53UnbG0RkY78sqW8DDQ",
+        "price": 1000,
+        "distance": -1,
+        "all_prices": []
+    },
+    {
+        "name": "Rotorua Medical Group\t- Central Health",
+        "address": "1181 Amohia Street, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 347 0000",
+        "url": "www.rotoruamedical.co.nz",
+        "lat": -38.1355099,
+        "lng": 176.2483679,
+        "restriction": "",
+        "place_id": "ChIJYf6Eh3knbG0R128giEF7wQs",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            },
+            {
+                "age": 25,
+                "price": 19
+            },
+            {
+                "age": 25,
+                "price": 19
+            },
+            {
+                "age": 65,
+                "price": 19
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Tiaho Medical Centre",
+        "address": "553 Te Ngae Road, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 282 2909",
+        "url": "https://www.tiahomedical.co.nz",
+        "lat": -38.1296298,
+        "lng": 176.3024154,
+        "restriction": "",
+        "place_id": "ChIJBRdd0_icbm0RkEXxv_lLz00",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 12
+            },
+            {
+                "age": 18,
+                "price": 18
+            },
+            {
+                "age": 25,
+                "price": 18
+            },
+            {
+                "age": 25,
+                "price": 18
+            },
+            {
+                "age": 65,
+                "price": 18
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 12
+            },
+            {
+                "age": 18,
+                "price": 18
+            }
+        ]
+    },
+    {
+        "name": "Rotorua Medical Group - Fairy Springs",
+        "address": "Shop 10, Old Quarry Road, Corner Fairy Springs Road, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 3470000",
+        "url": "http://www.rotoruamedical.co.nz/",
+        "lat": -38.1155362,
+        "lng": 176.2258556,
+        "restriction": "",
+        "place_id": "ChIJry4AnbAnbG0RFu0ScMnObsE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 30.50
+            },
+            {
+                "age": 18,
+                "price": 38
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    },
+    {
+        "name": "Western Heights Health Centre",
+        "address": "1 Brookland Road, Rotorua",
+        "pho": "Rotorua Area PHO",
+        "phone": "07 347 0565",
+        "url": "https://www.facebook.com/WesternHeightHealthCentre/",
+        "lat": -38.1287908,
+        "lng": 176.2199441,
+        "restriction": "",
+        "place_id": "ChIJV-fcDaonbG0R5QUuDa6IHUQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            },
+            {
+                "age": 25,
+                "price": 19
+            },
+            {
+                "age": 25,
+                "price": 19
+            },
+            {
+                "age": 65,
+                "price": 19
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19
+            }
+        ]
+    }
+]

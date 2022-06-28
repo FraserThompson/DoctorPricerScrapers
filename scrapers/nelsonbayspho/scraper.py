@@ -9,30 +9,41 @@ def scrape(name):
 
 	# Access the URLs
 	listUrlSouped = scrapers.openAndSoup('http://nbph.org.nz/gp-fees-table')
-	rows = listUrlSouped.find('table', {'id': 'gp-fees-comparison'}).find_all('tr')
+	tables = listUrlSouped.find_all('table', {'id': 'gp-fees-comparison'})
 
-	for index, row in enumerate(rows):
+	heading = tables[0].find('thead').find_all('th')
+	rows = tables[0].find('tbody').find_all('tr')
+	rows_csc = tables[1].find('tbody').find_all('tr')
 
-		ages = []
+	ages = []
+	for cell in heading[2:]:
+		age = scrapers.getFirstNumber(cell.get_text(strip=True).replace('14<', '0'))
+		ages.append(age)
 
-		if index == 0:
-			cells = row.find_all('th')
-		else:
-			cells = row.find_all('td')
+	prices_csc = {}
 
-		if len(cells) <= 1:
+	for row in rows_csc:
+		cells = row.find_all('td')
+
+		if (len(cells) == 0):
 			continue
 
-		# Get ages
-		if index == 0:
+		name = cells[0].get_text(strip=True)
 
-			for cell in cells[2:]:
+		prices_csc[name] = []
 
-				age = scrapers.getFirstNumber(cell.get_text(strip=True).replace('13>', '0').replace('Under 14', '0'))
+		for i, age in enumerate(ages):
+			price_csc = {
+				'age': age,
+				'price': scrapers.getFirstNumber(cells[i + 2].get_text(strip=True))
+			}
+			prices_csc[name].append(price_csc)
+		
 
-				if age != 1000:
-					ages.append(age)
-			
+	for row in rows:
+		cells = row.find_all('td')
+
+		if (len(cells) == 0):
 			continue
 
 		name = cells[0].get_text(strip=True)
@@ -40,8 +51,19 @@ def scrape(name):
 
 		scraper.newPractice(name, url, "Nelson Bays PHO", "")
 
-		if cells[1].get_text(strip=True) == "No new":
+		if "No" in cells[1].get_text(strip=True):
 			scraper.notEnrolling()
+
+		scraper.practice['prices'] = []
+		for i, age in enumerate(ages):
+			price = {
+				'age': age,
+				'price': scrapers.getFirstNumber(cells[i + 2].get_text(strip=True))
+			}
+			scraper.practice['prices'].append(price)
+		
+		if prices_csc[name]:
+			scraper.practice['prices_csc'] = prices_csc[name]
 
 		# Go into the practice to get the details
 		try:
@@ -52,20 +74,12 @@ def scrape(name):
 
 		deets = practiceUrlSouped.find("meta",  { "name": "description"}).attrs["content"].splitlines()
 		scraper.practice['address'] = deets[0]
-		scraper.practice['phone'] = deets[1]
+		scraper.practice['phone'] = deets[1].replace("Phone: ", "")
 
 		# Delve into the map script to get the latlngs
 		map_deets = json.loads(urllib.parse.unquote(practiceUrlSouped.find("div", {"class": "map-block"}).attrs["data-block-json"]))
 		scraper.practice['lat'] = map_deets['location']['mapLat']
 		scraper.practice['lng'] = map_deets['location']['mapLng']
-
-		# Assign fees to prices
-		for index, age in enumerate(ages):
-	
-			if cells[index + 2].get_text(strip=True):
-				price = scrapers.getFirstNumber(cells[index + 2].get_text(strip=True))
-
-			scraper.practice['prices'].append({'age': age, 'price': price })
 
 		scraper.finishPractice()
 

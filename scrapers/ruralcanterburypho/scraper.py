@@ -24,17 +24,22 @@ def scrape(name):
 		feeTable = practiceSouped.findAll('div', {'class': 'pricing-row'})
 	
 		prices = []
+		prices_csc = [{
+			'age': 0,
+			'price': 0
+		}]
 		for feeRow in feeTable:
 			td = feeRow.findAll('div', {'class': 'pricing-col'})
 			ageCol = td[0].getText(strip=True)
 			priceCol = td[1].getText(strip=True)
 
 			if "CSC" in ageCol:
-				continue
-
-			prices.append({'age': scrapers.getFirstNumber(ageCol), 'price': scrapers.getFirstNumber(priceCol)})
+				prices_csc.append({'age': scrapers.getFirstNumber(ageCol), 'price': scrapers.getFirstNumber(priceCol)})
+			else:
+				prices.append({'age': scrapers.getFirstNumber(ageCol), 'price': scrapers.getFirstNumber(priceCol)})
 
 		scraper.practice['prices'] = prices
+		scraper.practice['prices_csc'] = prices_csc
 		scraper.finishPractice()
 
 	return scraper.finish()

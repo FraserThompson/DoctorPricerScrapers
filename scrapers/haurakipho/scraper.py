@@ -3,48 +3,65 @@ import json, io
 import requests
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
+current_dir = './scrapers/haurakipho/'
 
-# We found this API URL by looking at their public code in map.js and figured out how to get it to return the list used by the map (if it changes search their js for apiUrl)
-url = 'https://www.haurakipho.org.nz/umbraco/surface/GoogleMapItem/GetMapSet?pageId=4821'
+# These guys have like a bunch of guys under them with better website
+korowai_url = 'https://www.korowai.co.nz/book-appointment'
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	data = requests.post(url, json={"blockid": "308432"})
-	json_data = data.json()
+	######## Korowai practices
+	korowai_soup = scrapers.openAndSoup(korowai_url)
+	korowai_list = korowai_soup.find('section', {'class': 'location'}).find_all('div', {'class': 'add-list'})
+	fees_table = korowai_soup.find('div', {'class': 'fees-table'}).find_all('tr')
 
-	for practice in json_data['Points']:
+	prices = []
+	for row in fees_table[1:]:
+		age = scrapers.getFirstNumber(row.find('th').get_text(strip=True))
 
-		if not practice['PageUrl']:
-			continue
+		# If we couldnt get a number its time to go
+		if (age == 1000):
+			break
 
-		scraper.newPractice(practice['Name'], "http://www.haurakipho.org.nz" + practice['PageUrl'] , "Hauraki PHO", "")
+		price = {
+			'age': age,
+			'price': scrapers.getFirstNumber(row.find('td').get_text(strip=True))
+		}
+		prices.append(price)
 
-		scraper.practice['lat'] = practice['Lat']
-		scraper.practice['lng'] = practice['Lng']
-		scraper.practice['address'] = practice['Address']
-		scraper.practice['phone'] = practice['PhoneNumber']
+	for practice in korowai_list[1:]:
+		name = practice.find('h3').get_text(strip=True)
+		url = korowai_url
 
-		practice_page = scraper.openAndSoup()
-		fees_table = practice_page.find('table', {'class': 'pricelist'}) or practice_page.find('div', {'class': 'pricelist'})
+		scraper.newPractice(name, url , "Hauraki PHO", "")
 
-		if not fees_table:
-			scraper.addError("No fees table.")
-			continue
+		peas = practice.find_all('p')
 
-		fees_rows = fees_table.find_all('tr')
+		# This isn't reliable, so we'll just stick with what we have.
+		#scraper.practice['address'] = peas[0].get_text(strip=True).split("/n")[0]
 
-		for fees_row in fees_rows[1:]:
-			fees_cells = fees_row.find_all('td')
-			
-			if ('CSC' in fees_cells[0].get_text(strip=True)):
-				continue
-			
-			age = scrapers.getFirstNumber(fees_cells[0].get_text(strip=True).replace("Under 13", "0").replace("All enrolled patients", "0"))
-			price = scrapers.getFirstNumber(fees_cells[1].get_text(strip=True).replace('Koha', '$0').replace('Free', '$0').replace('FREE', '$0').replace("NA", "999"))
+		try:
+			scraper.practice['phone'] = peas[0].find('a').get_text(strip=True)
+		except AttributeError:
+			scraper.practice['phone'] = peas[2].find('a').get_text(strip=True)
 
-			scraper.practice['prices'].append({'age': age, 'price': price })
+		scraper.practice['prices'] = prices
 
 		scraper.finishPractice()
+	
+	###### All other practices come from data.json
+	with open(current_dir + 'data.json', 'r') as inFile:
+		
+		prac_dict = json.load(inFile)
+
+		for practiceObj in prac_dict:
+			
+			practice = practiceObj['practice'] if 'practice' in practiceObj else practiceObj
+
+			if 'prices' in practice and practice['prices'] and 'lat' in practice and practice['lat']:
+				scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
+				scraper.practice = practice
+				scraper.finishPractice()
 
 	return scraper.finish()

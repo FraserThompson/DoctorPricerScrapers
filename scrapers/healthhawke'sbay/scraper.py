@@ -10,54 +10,59 @@ def scrape(name):
 	rootUrl = 'http://www.ourhealthhb.nz'
 
 	feesUrlSouped = scrapers.openAndSoup(rootUrl + '/your-health/gp-fees-for-enrolled-patients/')
-	fees_table = feesUrlSouped.find('table').find_all('tr')
+	fees_table = feesUrlSouped.find('table').find('tbody').find_all('tr')
+	fees_header = feesUrlSouped.find('table').find('thead').find('tr').find_all('td')
 
 	ages = []
-	wairoa = False
+
+	for header_cell in fees_header[1:]:
+		text = header_cell.get_text(strip=True)
+		if (text != "CSC"):
+			age = scrapers.getFirstNumber(header_cell.get_text(strip=True))
+			ages.append(age)
 
 	allPrices = {}
 
-	for index, row in enumerate(fees_table):
+	for row in fees_table:
 
 		cells = row.find_all('td')
 		name = cells[0].get_text(strip=True)
 
-		if name == "WAIROA":
-			wairoa = True
-			continue
-
-		# Get ages
-		if index == 0 or wairoa:
-
-			if wairoa:
-				ages = []
-				cells = cells [0:4]
-				wairoa = False
-
-			ages.append(0)
-
-			for cell in cells[2:]:
-				age = scrapers.getFirstNumber(cell.get_text(strip=True))
-
-				if cell.get_text(strip=True) == "Adult":
-					age = 18
-
-				if age != 1000:
-					ages.append(age)
-			
-			continue
-
-		if len(cells) <= 3 or not name:
+		# These cells are different, lets just do them manually lol
+		if "Wairoa" in name:
+			prices = [
+				{
+					"age": 0,
+					"price": 0,
+				},
+				{
+					"age": 14,
+					"price": 0,
+				},
+				{
+					"age": 18,
+					"price": 19.50,
+				}
+			]
+			name = "Queen Street Practice"
+			allPrices[scrapers.normalize(name)] = prices
 			continue
 
 		prices = []
-		# Assign fees to prices
-		for index, age in enumerate(ages):
-	
-			if cells[index + 1].get_text(strip=True):
-				price = float(cells[index + 1].get_text(strip=True).replace('Free', '$0').replace("$", ""))
+		prices_csc = []
 
-			prices.append({'age': age, 'price': price })
+		csc_price = cells.pop() # last cell is always CSC price
+		prices_csc.append({
+			"age": 0,
+			"price": scrapers.getFirstNumber(csc_price.get_text(strip=True))
+		})
+
+		for i, cell in enumerate(cells[1:]):
+			text = cell.get_text(strip=True)
+			prices.append({
+				"age": ages[i],
+				"price": scrapers.getFirstNumber(text)
+			})
 		
 		allPrices[scrapers.normalize(name)] = prices
 
@@ -66,10 +71,14 @@ def scrape(name):
 
 	for practice in practiceList[1:-2]:
 		name = practice.getText(strip=True)
-		url = rootUrl + practice.get('href')
+		href = practice.get('href')
+		url = href if "http" in href else rootUrl + href
 		scraper.newPractice(name, url , "Health Hawke's Bay", "")
 
-		if practice.get('class') == 'red':
+		maybe_span = practice.find('span')
+		maybe_strong = practice.find('strong')
+		notenrolling = maybe_span.get('class') == 'red' if maybe_span else maybe_strong.get('class') == 'red'
+		if notenrolling:
 			scraper.notEnrolling()
 
 		practice_info = scrapers.openAndSoup(url)

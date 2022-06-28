@@ -1,15 +1,10 @@
-from bs4 import BeautifulSoup, Comment
+from bs4 import BeautifulSoup
 import json
 from urllib.request import urlopen, Request
 import urllib.parse
 import requests, ssl
-from requests.auth import HTTPBasicAuth
-import httplib2
-import re, sys, os
-import codecs
-from datetime import datetime, date
-import geocoder
-import time
+import re, os
+from geopy.geocoders import GoogleV3
 
 ################### DATABASE ###########################################
 # Contains all logic for interacting with the database.
@@ -52,12 +47,14 @@ class Scraper:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
+    GEOLOCATOR = GoogleV3(api_key=os.environ.get('GEOLOCATION_API_KEY'), domain="maps.googleapis.co.nz")
+
     def newPractice(self, name, url, pho, restriction=""):
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
 
-    def openAndSoup(self):
+    def openAndSoup(self, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'):
         print("Accessing URL: " + self.practice["url"])
-        req = Request(self.practice["url"], None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'})
+        req = Request(self.practice["url"], None, headers={'User-Agent': userAgent})
         context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
         return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
@@ -110,7 +107,7 @@ class Scraper:
                 self.practice['phone'] = self.exists['phone']
 
             if self.exists["address"] == self.practice["address"]:
-                self.practice["place_id"] = self.exists["place_id"]
+                self.practice["place_id"] = refreshPlaceID(self.exists["place_id"])
                 self.practice["lat"] = self.exists["lat"]
                 self.practice["lng"] = self.exists["lng"]
 
@@ -145,13 +142,16 @@ class Scraper:
                 self.addWarning("Possible issue with prices: " + str(price["price"]))
 
         if len(self.practice["name"]) > 60:
-            self.addWarning("Possible issue with: " + self.practice["name"])
+            self.addWarning("Possible issue with practice name: " + self.practice["name"])
 
         if len(self.practice["phone"]) > 14:
-            self.addWarning("Possible issue with: " + self.practice["phone"])
+            self.addWarning("Possible issue with practice phone: " + self.practice["phone"])
 
         if len(self.practice["address"]) > 100:
-            self.addWarning("Possible issue with: " + self.practice["address"])
+            self.addWarning("Possible issue with practice address: " + self.practice["address"])
+
+        if not self.practice["prices"] or len(self.practice["prices"]) == 0:
+            self.addError("No prices.")
 
         self.practice_list.append({'practice': self.practice, 'exists': self.exists})
 
@@ -167,18 +167,33 @@ class Scraper:
         self.error_list = []
 
 #####################################################################
-# Get some details
-# returns a threeple of latlng, place_id and address
+# Geocodes an address
+# Returns a threeple of latlng, place_id and address
 def get_lat_lng(address):
-    result = geocoder.google(address, key=os.environ.get('GEOLOCATION_API_KEY'))
-    json_result = result.json
+    result = Scraper.GEOLOCATOR.geocode(address, exactly_one=True, region="nz")
 
-    if result.ok:
-        place_id = json_result['place'] if 'place' in json_result else None
-        address = json_result['address'] if 'address' in json_result else None
-        return (result.latlng, place_id, address, False)
+    if result:
+        place_id = result.raw.place_id if 'place_id' in result.raw else None
+        address = result.address if 'address' in result else None
+        return ([result.latitude, result.longitude], place_id, address, False)
     else:
         return (None, None, None, result.error)
+
+#####################################################################
+# Refreshes the Place ID using Google's API (free request doesn't count towards limits)
+def refreshPlaceID(placeId):
+    req = requests.get('https://maps.googleapis.com/maps/api/place/details/json?place_id=' + placeId + '&key=' + os.environ.get('GEOLOCATION_API_KEY'))
+
+    if req.status_code != 200:
+        Scraper.cprint("Failed to get PlaceID, retaining original: " + req.text, "WARNING")
+        return placeId
+
+    res = req.json()
+    
+    if res['status'] != 'NOT_FOUND':
+        return res['result']['place_id']
+    else:
+        return placeId
 
 #####################################################################
 # Return student if student is contained in the string
@@ -210,150 +225,39 @@ def partial_match(string, dictin):
     return result
 
 #####################################################################
-# Does an Oauth request
-def oauth_request(url, params={}):
-    oauth_key = 'dj0yJmk9MGFaZE1MY1k3eVZYJmQ9WVdrOVVXTm1iWGRDTm1jbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD0xMg--'
-    oauth_secret = 'f57f0b969e9eab5262786c33e7f9519345bf24b2'
-    consumer = oauth.Consumer(key=oauth_key, secret=oauth_secret)
-    params["oauth_version"] = '1.0'
-    params["oauth_nonce"] = oauth.generate_nonce()
-    params["oauth_timestamp"] = str(int(time.time()))
-    params["oauth_consumer_key"] = consumer.key
-    req = oauth.Request(method="GET", url=url, parameters=params)
-    req.sign_request(oauth.SignatureMethod_HMAC_SHA1(), consumer, None)
-    return req
-
-#####################################################################
-# Healthpages get their own method because they're weird about stuff
-def getHealthpagesURLFromSearch(name):
-    name = name.replace('&', ' and ')
-    print('Trying to get url ' + name)
-    url = 'http://yboss.yahooapis.com/ysearch/web?q=' + urlify(name) +'&format=json&sites=www.healthpages.co.nz'
-    req = oauth_request(url)
-    req_opened = urlopen(req.to_url().replace('+', '%20'))
-    results = json.loads(req_opened.read().decode())
-    if results["bossresponse"]["responsecode"] != '200':
-        print("URL Error: " + results["bossresponse"]["responsecode"])
-        return 0
-    if results["bossresponse"]["web"]["totalresults"] != '0':
-        return results["bossresponse"]["web"]["results"][0]["url"]
-
-#########################################################################
-# Try's to find a practice URL by searching health websites.
-# Takes an array as a parameter to fill up with possible sites.
-# Returns 0 if fail, dict object of parameters if success
-def getDetailsFromSearch(name):
-    if name.strip() == '':
-        return 0
-    name = name.replace('&', ' and ')
-    print('Trying to get url ' + name)
-    results = bingSearch('(site:www.healthpages.co.nz OR site:www.healthpoint.co.nz OR site:www.itsmyhealth.co.nz) ' + name)["d"]["results"]
-
-    if len(results) == 0: #if we have no results then it's a fail
-        return 0
-
-    return scrapeDetails([results[0]["Url"]])
-
-########################################################################
-# Try's to scrape details from each site in an array
-# Returns result if success, and 0 if fail
-def scrapeDetails(urls):
-    for url in urls:
-        print("Trying to scrape from: " + url)
-        try:
-            soup = openAndSoup(url)
-        except:
-            print("Failed to open soup for url: " + url)
-            return 0
-
-        if "itsmyhealth" in url:
-            print("Scraping Itsmyhealth")
-            result = scrapeItsmyhealthDetails(soup)
-
-        elif "healthpages" in url:
-            print("Scraping Healthpages")
-            result = scrapeHealthpagesDetails(soup)
-
-        elif "healthpoint" in url:
-            print("Scraping Healthpoint")
-            result = scrapeHealthpointDetails(soup)
-
-        if result:
-            result["url"] = url
-            return result
-
-    print("Couldn't find any details.")
-    return 0
-
-def scrapeHealthpointDetails(soup):
-    result = {}
-    books = soup.find('div', {'id': 'section-books'})
-    if (books != None and books.find('h4').get_text() == 'Closed'):
-        return 2
-    try:
-        map_div = soup.find('section', {'class':'service-map'}).find('div', {'class':'map'})
-        result["address"] = ", ".join(map_div.find('p').strings)
-        result["phone"] = soup.find('ul', {'class':'contact-list'}).find('p').get_text()
-
-        coord = map_div.get('data-position').split(', ')
-        if not coord[0]:
-            coord = geolocate(result[0] + ", Auckland")
-        result["lat"] = float(coord[0])
-        result["lng"] = float(coord[1])
-    except AttributeError:
-        return 0
-    return result
-
-def scrapeItsmyhealthDetails(soup):
-    result = {}
-    try:
-        result["address"] = ', '.join(soup.find('dl', {'class':'medical-centre__address medical-centre__address_contact'}).find('dd').get_text().split('\n'))
-        result["phone"] = soup.find('dl', {'class': 'medical-centre__details medical-centre__details_contact'}).find('dd').get_text(strip=True)
-    except AttributeError:
-        return 0
-    try:
-        coord = soup.find('div', {'class':'white-frame clearfix'}).find_all('script')[2].get_text().split('LatLng(')[1].split('),')[0].split(',')
-        if coord == '' and coord == 0:
-            coord = geolocate(result[0] + ", Auckland")
-    except IndexError:
-        coord = geolocate(result[0] + ", Auckland")
-
-    result["lat"] = float(coord[0])
-    result["lng"] = float(coord[1])
-    return result
-
-def scrapeHealthpagesDetails(soup):
-    result = {}
-    result["phone"] = soup.find('th', {'class': 'phone-number'}).get_text(strip=True)
-    result["address"] = " ".join(soup.find('div', {'class': 'address_single'}).find('div', {'class', 'profile-contact'}).strings).strip()
-    coord = soup.find('a', {'class': 'view-map'})["onclick"].split('", ')[2].split(', ')
-    result["lat"] = float(coord[0])
-    result["lng"] = float(coord[1])
-    return result
-
-def openAndSoup(url):
+# Opens a URL and returns soup
+def openAndSoup(url, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'):
     print("Accessing URL: " + url)
-    req = Request(url, None, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'})
+    req = Request(url, None, headers={'User-Agent': userAgent})
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 
+#####################################################################
 # Give it a find('a').stripped_strings and it MIGHT end up with a better result than strip=true
-# good for addresses
+# Good for addresses
 def better_strip(string):
 	return ', '.join(string).replace('\xa0', ' ').replace('  ', ' ').strip()
 
+#####################################################################
+# Make a string more normal
 def normalize(input):
     string = re.sub('[^0-9a-zA-Z ]+', '', input.strip().lower().replace('mt ', 'mount '))
     return re.sub(' +',' ', string).replace(' ', '')
 
+#####################################################################
+# Replace spaces in a string with dashes
 def replaceSpacesWithDashes(input):
     normal = re.sub('[^0-9a-zA-Z ]+', '', input.strip())
     return normal.lower().replace(' ', '-') + "/"
 
+#####################################################################
+# Replace spaces in a string with plusses
 def replaceSpacesWithPluses(input):
     normal = re.sub('[^0-9a-zA-Z ]+', '', input.strip())
     return normal.lower().replace(' ', '+')
 
+#####################################################################
+# Turn a string into A URL
 def urlify(input):
     return input.replace("'", '%27').replace('"', '%27').replace('+', '%2b').replace(' ', '%20').replace(':', '%3a')
 
@@ -361,7 +265,26 @@ def urlify(input):
 # Returns the first number in a string. Also does some replacing of common words into numbers. Good for prices.
 def getFirstNumber(string):
     try:
-        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0"))[0])
+        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0").replace("--", "0"))[0])
     except IndexError:
         result = 1000
     return result
+
+#####################################################################
+# Scrape from a data.json file
+def localScrape(inFile, name):
+    
+    scraper = Scraper(name)
+
+    prac_dict = json.load(inFile)
+
+    for practiceObj in prac_dict:
+        
+        practice = practiceObj['practice'] if 'practice' in practiceObj else practiceObj
+
+        if 'prices' in practice and practice['prices'] and 'lat' in practice and practice['lat']:
+            scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
+            scraper.practice = practice
+            scraper.finishPractice()
+
+    return scraper.finish()

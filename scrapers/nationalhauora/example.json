@@ -1,0 +1,1037 @@
+[
+  [
+    1,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    "at",
+    "",
+    "",
+    1656297224202,
+    "",
+    "en_GB",
+    false,
+    [],
+    "https://www.google.co.nz/maps/d/viewer?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    "https://www.google.co.nz/maps/d/embed?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4\\u0026ehbc\\u003d2E312F",
+    "https://www.google.co.nz/maps/d/edit?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    "https://www.google.co.nz/maps/d/thumbnail?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    null,
+    null,
+    true,
+    "https://www.google.co.nz/maps/d/print?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    "https://www.google.co.nz/maps/d/pdf?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    "https://www.google.co.nz/maps/d/viewer?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    null,
+    false,
+    "/maps/d",
+    "maps/sharing",
+    "//www.google.com/intl/en_GB/help/terms_maps.html",
+    true,
+    "https://docs.google.com/picker",
+    [],
+    false,
+    null,
+    [
+      [
+        [
+          "//www.gstatic.com/mapspro/images/google-my-maps-logo-regular-001.png",
+          143,
+          25
+        ],
+        [
+          "//www.gstatic.com/mapspro/images/google-my-maps-logo-regular-2x-001.png",
+          286,
+          50
+        ]
+      ],
+      [
+        [
+          "//www.gstatic.com/mapspro/images/google-my-maps-logo-small-001.png",
+          113,
+          20
+        ],
+        [
+          "//www.gstatic.com/mapspro/images/google-my-maps-logo-small-2x-001.png",
+          226,
+          40
+        ]
+      ]
+    ],
+    1,
+    "https://www.gstatic.com/mapspro/_/js/k\\u003dmapspro.gmeviewer.en_GB.giAA7Y1ZQZ8.O/d\\u003d0/rs\\u003dABjfnFXOFLp4V9U0SEN3mQESNZaToCqf7g/m\\u003dgmeviewer_base",
+    null,
+    null,
+    true,
+    null,
+    "NZ",
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    false
+  ],
+  [
+    "mf.map",
+    "1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    "National Hauora Coalition Clinics in Auckland Central",
+    null,
+    [
+      174.56688470667365, -36.78305975884363, 175.02316064661505,
+      -36.9950424613655
+    ],
+    [174.7109122, -36.8311644, 175.2821223, -37.78799],
+    [
+      [
+        null,
+        "_xa9jBO83r4",
+        "Auckland Central",
+        "",
+        [
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/1492-wht-polygon-blank.png\\u0026filter\\u003dff7CB342"
+            ],
+            [],
+            1,
+            1,
+            [
+              [[174.7174317, -36.8311644, 174.8938996, -36.9555463]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.88391538697566, 174.8069886483322],
+              [0, 0],
+              "37FB9C1ED0086D9B"
+            ],
+            [["Auckland Central"]],
+            []
+          ],
+          [
+            [
+              "data:image/png;base64,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\\u003d\\u003d"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8469548, 174.77417]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8469548, 174.77417],
+              [0, 0],
+              "37FC2FA49758D837"
+            ],
+            [["National Hauora Coalition Head Office"]],
+            []
+          ],
+          [
+            [
+              "data:image/png;base64,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\\u003d\\u003d"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-37.78799, 175.2821223]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-37.78799, 175.2821223],
+              [0, 0],
+              "37FC3235C3786485"
+            ],
+            [["National Hauora Coalition Waikato Office"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1624-medical_4x.png\\u0026highlight\\u003dff000000,E65100\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.85955180000001, 174.7703856]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.85955180000001, 174.7703856],
+              [0, 0],
+              "37FC438E871DE974"
+            ],
+            [["Auckland City Hospital"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1624-medical_4x.png\\u0026highlight\\u003dff000000,E65100\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.88764259999999, 174.80076210000001]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.88764259999999, 174.8007621],
+              [0, 0],
+              "37FC44E44C81B78F"
+            ],
+            [["MercyAscot Greenlane, Ascot Hospital"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8461845, 174.76587]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8461845, 174.76587],
+              [0, 0],
+              "37F94297E3AA2518"
+            ],
+            [["109 Doctors"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8725862, 174.7518797]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8725862, 174.7518797],
+              [0, 0],
+              "37F95B0FA41CF0B6"
+            ],
+            [["Dominion Road Surgery\\n"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.87022760000001, 174.8655953]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8702276, 174.8655953],
+              [0, 0],
+              "3BB561D43653B631"
+            ],
+            [["Family Health Matters Limited"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.9410922, 174.8404141]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.9410922, 174.8404141],
+              [0, 0],
+              "37F96904CD3A30C9"
+            ],
+            [["Maxcare Medical Centre\\n"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.9240812, 174.78571030000003]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.9240812, 174.7857103],
+              [0, 0],
+              "37F95DA4D5662CD5"
+            ],
+            [["Onehunga Medical Practice\\n"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8608069, 174.82963470000004]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8608069, 174.8296347],
+              [0, 0],
+              "37F9672D1D6F0B77"
+            ],
+            [["Ōrākei Health Services – General Practise\\n"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.9468432, 174.8451655]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.9468432, 174.8451655],
+              [0, 0],
+              "37F96AA10F2674B8"
+            ],
+            [["Ōtāhuhu Health Centre\\n"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8699814, 174.7109122]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8699814, 174.7109122],
+              [0, 0],
+              "384EBF96BD99B8D4"
+            ],
+            [["Point Chevalier Medical \\u0026 Surgical Centre"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8992816, 174.8538665]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8992816, 174.8538665],
+              [0, 0],
+              "37F96D76EB2C4E8D"
+            ],
+            [["Tāmaki Family Health Centre"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8850082, 174.7356985]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8850082, 174.7356985],
+              [0, 0],
+              "37F96EEADAD174B5"
+            ],
+            [["St Lukes Medical\\n"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.90856960000001, 174.7551845]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.9085696, 174.7551845],
+              [0, 0],
+              "37F970873A0D54EA"
+            ],
+            [["Three Kings Accident and Medical Clinic"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.847517, 174.774487]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.847517, 174.774487],
+              [0, 0],
+              "37F95727E0E1D1FB"
+            ],
+            [["The Doctors QuayMed (Britomart)"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8445733, 174.7550103]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8445733, 174.7550103],
+              [0, 0],
+              "37F9723AD39F6C74"
+            ],
+            [["The Doctors Quaymed (Wynyard)"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.8904916, 174.7937052]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.8904916, 174.7937052],
+              [0, 0],
+              "384EBD64179FF426"
+            ],
+            [["The Doctors Greenlane"]],
+            []
+          ],
+          [
+            [
+              "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+            ],
+            [],
+            1,
+            1,
+            [
+              [null, [-36.9003452, 174.8561005]],
+              "0",
+              null,
+              "_xa9jBO83r4",
+              [-36.9003452, 174.8561005],
+              [0, 0],
+              "37F96BF755D7DCF4"
+            ],
+            [["Queens Road Medical\\n"]],
+            []
+          ]
+        ],
+        null,
+        null,
+        true,
+        null,
+        null,
+        null,
+        null,
+        [
+          [
+            "_xa9jBO83r4",
+            1,
+            null,
+            null,
+            null,
+            "https://www.google.co.nz/maps/d/kml?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4\\u0026lid\\u003d_xa9jBO83r4",
+            null,
+            null,
+            null,
+            null,
+            null,
+            2,
+            null,
+            [
+              [
+                [
+                  "37FB9C1ED0086D9B",
+                  [],
+                  [],
+                  [
+                    [
+                      [
+                        [
+                          [
+                            [[-36.8358358, 174.7308213]],
+                            [[-36.8465515, 174.7174317]],
+                            [[-36.8855549, 174.7270448]],
+                            [[-36.9289297, 174.764467]],
+                            [[-36.9352417, 174.7830064]],
+                            [[-36.9357906, 174.8190553]],
+                            [[-36.9555463, 174.8520143]],
+                            [[-36.9473154, 174.8585374]],
+                            [[-36.9352417, 174.8695237]],
+                            [[-36.9270086, 174.8650605]],
+                            [[-36.9116377, 174.8575074]],
+                            [[-36.9064218, 174.8616273]],
+                            [[-36.8811612, 174.8938996]],
+                            [[-36.8580898, 174.893213]],
+                            [[-36.8383088, 174.8743302]],
+                            [[-36.8446283, 174.8025758]],
+                            [[-36.8372097, 174.7905595]],
+                            [[-36.8311644, 174.7473008]]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ],
+                  0,
+                  [
+                    ["name", ["Auckland Central"], 1],
+                    [
+                      "description",
+                      ["National Hauora Coalition clinic Network"],
+                      1
+                    ],
+                    [],
+                    []
+                  ],
+                  null,
+                  0
+                ],
+                [
+                  "37FC2FA49758D837",
+                  [[[-36.8469548, 174.77417]]],
+                  [],
+                  [],
+                  1,
+                  [
+                    ["name", ["National Hauora Coalition Head Office"], 1],
+                    [
+                      "description",
+                      [
+                        "8 Mahuhu Crescent, Auckland CBD, Auckland 1010\\n\\nCONTACT\\nFor general enquiries: administration@nhc.maori.nz\\nPhone: 0800 100 NHC / (09) 950 3325\\nwww.nhc.maori.nz\\n\\nOPENING HOURS\\nMonday – Friday: 8:00AM – 6:00PM\\nSaturday – Sunday: Closed"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJI6X5pdhADW0REgB5UtwZeIs", false]
+                  ],
+                  null,
+                  1
+                ],
+                [
+                  "37FC3235C3786485",
+                  [[[-37.78799, 175.2821223]]],
+                  [],
+                  [],
+                  1,
+                  [
+                    ["name", ["National Hauora Coalition Waikato Office"], 1],
+                    [
+                      "description",
+                      [
+                        "Level 4/11 Garden Place, Hamilton Central, Hamilton 3204\\n\\nCONTACT\\nFor general enquiries: administration@nhc.maori.nz\\nPhone: 0800 100 NHC / (09) 950 3325\\nwww.nhc.maori.nz\\n\\nOPENING HOURS\\nMonday – Friday: 8:00AM – 6:00PM\\nSaturday – Sunday: Closed"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJx-n8TqUYbW0ReyJU2YI3l3I", false]
+                  ],
+                  null,
+                  2
+                ],
+                [
+                  "37FC438E871DE974",
+                  [[[-36.85955180000001, 174.7703856]]],
+                  [],
+                  [],
+                  2,
+                  [
+                    ["name", ["Auckland City Hospital"], 1],
+                    null,
+                    [],
+                    [],
+                    [null, "ChIJS_Xn2eBHDW0RYT4ASzgM6F4", true]
+                  ],
+                  null,
+                  3
+                ],
+                [
+                  "37FC44E44C81B78F",
+                  [[[-36.88764259999999, 174.8007621]]],
+                  [],
+                  [],
+                  2,
+                  [
+                    ["name", ["MercyAscot Greenlane, Ascot Hospital"], 1],
+                    null,
+                    [],
+                    [],
+                    [null, "ChIJV4Z7hnpIDW0RmTg6bG-PwRk", true]
+                  ],
+                  null,
+                  4
+                ],
+                [
+                  "37F94297E3AA2518",
+                  [[[-36.8461845, 174.76587]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["109 Doctors"], 1],
+                    [
+                      "description",
+                      [
+                        "ADDRESS\\n109 Queen Street,\\nAuckland City, Auckland\\n\\nCONTACT\\nP: (09) 366 0109\\nF: (09) 366 7109\\nE: Doctors109@gmail.com\\nW: www.doc109.co.nz\\n\\nOPENING HOURS\\nMon-Fri: 9:00am-5:30pm, Sat-Sun: Closed\\n\\nLANGUAGES:\\nEnglish, Hindi, Cantonese, Hokkien, Indian, Mandarin, Hakka, Japanese\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJk5pUsftHDW0Rtt5_LCv6vpQ", false]
+                  ],
+                  null,
+                  5
+                ],
+                [
+                  "37F95B0FA41CF0B6",
+                  [[[-36.8725862, 174.7518797]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Dominion Road Surgery\\n"], 1],
+                    [
+                      "description",
+                      [
+                        "123D Dominion Road,\\nMt Eden,\\nAuckland\\n\\nCONTACT\\nP: (09) 630 1212\\nF: (09) 630 1247\\nW: https://www.dominionroadsurgery.co.nz/\\n\\nOPENING HOURS\\nMon-Fri: 9:00am-5:30pm, Sat-Sun: Closed\\n\\nCONSULTATION FEES\\nUnder 14: Free\\nAges 14-17: $13.00\\nAges 18-64: $19.50\\nAge 65+: $19.50\\n\\n LANGUAGES\\nEnglish, Arabic, Bengali, Hindi, Mandarin, Nepali, Punjabi\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJMRvg2rdHDW0RmUWXlfVPG0g", false]
+                  ],
+                  null,
+                  6
+                ],
+                [
+                  "3BB561D43653B631",
+                  [[[-36.8702276, 174.8655953]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Family Health Matters Limited"], 1],
+                    [
+                      "description",
+                      [
+                        "2/137 West Tāmaki Road, Glen Innes,\\nAuckland\\n\\nCONTACT\\nP: (09) 973 4106\\nE: reception@fhm.co.nz\\nW: www.familyhealthmatters.nz\\n\\nOPENING HOURS\\nMon – Fri: 8:30am-4:00pm\\n\\nFEES\\nUnder 14: Free\\nAges 14- 17: $13.00\\nAges 17+: $18.50\\n\\nTaking new patients? YES"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJv85mamFIDW0RRG3Zak0VI3Y", false]
+                  ],
+                  null,
+                  7
+                ],
+                [
+                  "37F96904CD3A30C9",
+                  [[[-36.9410922, 174.8404141]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Maxcare Medical Centre\\n"], 1],
+                    [
+                      "description",
+                      [
+                        "5/225 Great South Road,\\nŌtāhuhu,\\nAuckland\\n\\nCONTACT\\nP: (09) 360 6890\\nF: (09) 360 6891\\nW: www.maxcaremed.co.nz\\n\\nOPENING HOURS\\nMon – Fri: 9:00am-5:00pm\\nSat: 9:00am-2:00pm\\nSun: Closed\\n\\nFEES\\nUnder 14: Free\\nAges 14- 17: Free\\nAges 18- 64: $18.00\\nAges 65+: $18.00\\nACC – 18 \\u0026 over: Free\\n\\nLANGUAGES\\nEnglish, Tongan, Cook Island Māori, Hindi\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\nNo Appointment Necessary\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJs0jomrlODW0RyJo-1rsLcrQ", false]
+                  ],
+                  null,
+                  8
+                ],
+                [
+                  "37F95DA4D5662CD5",
+                  [[[-36.9240812, 174.7857103]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Onehunga Medical Practice\\n"], 1],
+                    [
+                      "description",
+                      [
+                        "147 Onehunga Mall,\\nOnehunga,\\nAuckland\\n\\nCONTACT\\nP: (09) 636 5119\\nF: (09) 636 1390\\n\\nOPENING HOURS\\nMon – Fri: 9:00am-5:00pm\\nSat: 9:00am – 2:00pm\\nSun: Closed\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $13.00\\nAges 18-64: $19.00\\nAge 65+: $19.00\\n\\nLANGUAGES\\nEnglish, Hindi, Punjabi\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJlQuK5bJIDW0RQw_rMC_Zi-Q", false]
+                  ],
+                  null,
+                  9
+                ],
+                [
+                  "37F9672D1D6F0B77",
+                  [[[-36.8608069, 174.8296347]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    [
+                      "name",
+                      ["Ōrākei Health Services – General Practise\\n"],
+                      1
+                    ],
+                    [
+                      "description",
+                      [
+                        "Eastridge Shopping Centre\\n25/215 Kepa Road,\\nMission Bay, Auckland 1071\\n\\nCONTACT\\nP: (09) 578 0956\\nF: (09) 578 0957\\nhttp://www.orakeihealth.co.nz/\\n\\nOPENING HOURS\\nMon, 8:00am-6:00pm\\nTue, 8:00am-8:00pm\\nWed-Fri, 8:00am-6:00pm\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $12.50\\nAges 18-24: $18.50\\nAge 25-44: $18.50\\nAges 45-64: $18.50\\nAge 65+: $18.50\\n\\nLANGUAGES\\nEnglish, Maori\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJsTdv38ZJDW0R3SfNmPQ5ZXA", false]
+                  ],
+                  null,
+                  10
+                ],
+                [
+                  "37F96AA10F2674B8",
+                  [[[-36.9468432, 174.8451655]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Ōtāhuhu Health Centre\\n"], 1],
+                    [
+                      "description",
+                      [
+                        "6/507 Great South Road,\\nŌtāhuhu,\\nAuckland\\n\\nCONTACT\\nP: (09) 276 1190\\nF: (09) 276 1192\\nE: info@otahuhuhealth.co.nz\\nW: www.otahuhuhealth.co.nz\\n\\nOPENING HOURS\\nMon – Fri: 8:30am-5:00pm\\nSat: 9:00am-1:00pm\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: Free\\nAges 18-64: $15.00\\nAge 65+: $5.00\\n\\nLANGUAGES\\nEnglish, Hindi, Punjabi, Samoan, Mandarin, Māori, Indian, Malay\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\nAppointments Necessary\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJ8YHc3bxODW0RM8AaKWibCQg", false]
+                  ],
+                  null,
+                  11
+                ],
+                [
+                  "384EBF96BD99B8D4",
+                  [[[-36.8699814, 174.7109122]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    [
+                      "name",
+                      ["Point Chevalier Medical \\u0026 Surgical Centre"],
+                      1
+                    ],
+                    [
+                      "description",
+                      [
+                        "1181 Great North Road\\nPt Chevalier\\nAuckland\\n\\nCONTACT\\n09 846 6244\\nhttp://ptchevmedical.co.nz/\\n\\nOPENING HOURS\\nMon – Fri, 8:00am – 5:30pm\\nSaturdays, 9:00 – 11.00am \\nSunday and public holidays, closed\\n\\nFEES\\nUnder 14: $35.00, with CSC: FREE\\nAges 14 – 17: $40.00, with CSC: $15.00\\nAges 18 \\u0026 over: $48.00, with CSC: $19.00\\n\\nTaking new patients? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJc_boCxhHDW0RuCRjPcnuEYk", false]
+                  ],
+                  null,
+                  12
+                ],
+                [
+                  "37F96D76EB2C4E8D",
+                  [[[-36.8992816, 174.8538665]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Tāmaki Family Health Centre"], 1],
+                    [
+                      "description",
+                      [
+                        "2-4 Clifton Court,\\nPanmure,\\nAuckland\\n\\nCONTACT\\nP: (09) 527 3344\\nF: (09) 527 3545\\nW: www.tfhc.co.nz\\n\\nOPENING HOURS\\nMon – Fri: 8:30am-5:45pm\\nSat: 9:00am-1:00pm\\nSun: Closed\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $10.00\\nAges 18-64: $19.00\\nAge 65+: $19.00\\n\\nLANGUAGES\\nEnglish, Filipino, Tagalog, Bisaya, Ilocano\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJMXt4BGNJDW0R6L6t593C9TY", false]
+                  ],
+                  null,
+                  13
+                ],
+                [
+                  "37F96EEADAD174B5",
+                  [[[-36.8850082, 174.7356985]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["St Lukes Medical\\n"], 1],
+                    [
+                      "description",
+                      [
+                        "99 St Lukes Road,\\nMt Albert,\\nAuckland\\n\\nCONTACT\\nP: (09) 815 1124\\nF: (09) 815 0838\\nE: stlukesmanager@gmail.com \\nW: www.stlukesmed.co.nz\\n\\nOPENING HOURS\\nMon – Fri: 9:00am-5:30pm\\nSat: 9:00am-1:00pm\\nSun: Closed\\n\\n FEES\\nUnder 14: Free\\nAges 14-17: $13.00\\nAges 18-64: $19.50\\nAge 65+: $19.50\\n\\nLANGUAGES\\nEnglish, Bangla, Bengali, Hindi\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJxaE4FFRGDW0R-D-wyD-fVMo", false]
+                  ],
+                  null,
+                  14
+                ],
+                [
+                  "37F970873A0D54EA",
+                  [[[-36.9085696, 174.7551845]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Three Kings Accident and Medical Clinic"], 1],
+                    [
+                      "description",
+                      [
+                        "536 Mt Albert Road,\\nThree Kings,\\nAuckland\\n\\nCONTACT\\nP: (09) 625 2999\\nF: (09) 625 2991\\nW: www.threekings.co.nz\\n\\nOPENING HOURS\\nMon – Thu: 8:00am-8:00pm\\nFri – Sun: 8:00am-8:00pm\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $13.00\\nAges 18-64: $19.00\\nAge 65+: $19.00\\n\\nLANGUAGES\\nCantonese, Hindi, Cook Island Māori, Mandarin, English, Sinhalese, German, Tongan\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\nNo Appointment Necessary\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJUVX9gxNGDW0RXVAwVfNB2p8", false]
+                  ],
+                  null,
+                  15
+                ],
+                [
+                  "37F95727E0E1D1FB",
+                  [[[-36.847517, 174.774487]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["The Doctors QuayMed (Britomart)"], 1],
+                    [
+                      "description",
+                      [
+                        "Quay Park Health Centre,\\n68 Beach Road,\\nAuckland\\n\\nCONTACT\\nP: (09) 919 2555\\nF: (09) 307 8053\\nE: info@quaymed.co.nz\\nW: www.quaymed.co.nz\\n\\nOPENING HOURS\\nMon – Fri, 9:00am-5:00pm\\nSaturday: 9:00am-1:00pm\\nSunday: Closed\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $13.00\\nAges 18-64: $19.50\\nAge 65+: $19.50\\n\\nLANGUAGES\\nEnglish, Mandarin, Cantonese, Korean\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\nNo Appointment Necessary\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJCZ4SngdIDW0RqimRYNoyX10", false]
+                  ],
+                  null,
+                  16
+                ],
+                [
+                  "37F9723AD39F6C74",
+                  [[[-36.8445733, 174.7550103]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["The Doctors Quaymed (Wynyard)"], 1],
+                    [
+                      "description",
+                      [
+                        "Datacom Building,\\n5 Gaunt Street,\\nCBD\\nAuckland.\\n\\nCONTACT\\nP: (09) 930 9980\\nE: wynyard@quaymed.co.nz \\nW: www.quaymed.co.nz\\n\\nOPENING HOURS\\nMon – Thurs: 9:00am -5:00pm\\nFri: 8:00am-4:00pm\\nSat – Sun: Closed\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $13.00\\nAges 18-64: $19.50\\nAge 65+: $19.50\\n\\nLANGUAGES\\nEnglish, Mandarin, Cantonese, Korean\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\nNo Appointment Necessary\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJ-YoSefNHDW0Rw2AQ6p1cByE", false]
+                  ],
+                  null,
+                  17
+                ],
+                [
+                  "384EBD64179FF426",
+                  [[[-36.8904916, 174.7937052]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["The Doctors Greenlane"], 1],
+                    [
+                      "description",
+                      [
+                        "205 Great South Road\\nGreenlane\\nAuckland 1051\\n\\nCONTACT\\n09 553 6666\\nhttps://www.thedoctors.co.nz/The-Doctors-greenlane\\n\\nOPENING HOURS\\nMon – Fri, 8:30am – 5:30pm\\nSaturdays by appointment for surgeries only\\nSunday and public holidays, closed\\n\\nFEES\\nUnder 14: FREE\\nAges 14 – 17: $50.00, with CSC: $13.00\\nAges 18 – 24: $68.00, with CSC: $19.50\\nAges 25-64: $68.00, with CSC: $19.50\\nAge 65+: $68.00. with CSC: $19.50\\n\\nLANGUAGES\\nEnglish, Mandarin, Cantonese, Japanese, Hindi, Kannada, Hokkien\\n\\nTaking new patients? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJ6weNdmBJDW0RWnoGC9E-esE", false]
+                  ],
+                  null,
+                  18
+                ],
+                [
+                  "37F96BF755D7DCF4",
+                  [[[-36.9003452, 174.8561005]]],
+                  [],
+                  [],
+                  3,
+                  [
+                    ["name", ["Queens Road Medical\\n"], 1],
+                    [
+                      "description",
+                      [
+                        "136 Queens Road,\\nPanmure, Auckland 1072\\n\\nCONTACT\\nP: (09) 528 9800\\nF: (09) 528 9800\\n0800 332 203\\nE:admin@hsmc.nz\\n\\nOPENING HOURS\\nMon- Fri: 9:00am-5:00pm\\nSat: 9am-1pm\\nSun: Closed\\n\\nFEES\\nUnder 14: Free\\nAges 14-17: $10.00\\nAges 18-64: $19.00\\nAge 65+: $19.00\\n\\nLANGUAGES\\nEnglish, Cook Island Māori, Samoan, Tongan, Arabic, Hindi, Punjabi, Tagalog\\n\\nTaking new patients? YES\\nCornerstone accredited? YES\\n"
+                      ],
+                      1
+                    ],
+                    [],
+                    [],
+                    [null, "ChIJFzU9bmJJDW0RaqlxHyEQxGM", false]
+                  ],
+                  null,
+                  19
+                ]
+              ],
+              [
+                [
+                  [
+                    "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-pin-container-bg_4x.png,icons/onion/SHARED-mymaps-pin-container_4x.png,icons/onion/1899-blank-shape_pin_4x.png\\u0026highlight\\u003dff000000,7CB342\\u0026scale\\u003d2.0",
+                    [32, 64]
+                  ],
+                  [["7CB342", 1], 1200],
+                  [["7CB342", 0.30980392156862746], ["7CB342", 1], 1200]
+                ],
+                [
+                  [
+                    "data:image/png;base64,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\\u003d\\u003d",
+                    null,
+                    0.25
+                  ],
+                  [["000000", 1], 1200],
+                  [["000000", 0.30196078431372547], ["000000", 1], 1200]
+                ],
+                [
+                  [
+                    "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1624-medical_4x.png\\u0026highlight\\u003dff000000,E65100\\u0026scale\\u003d2.0"
+                  ],
+                  [["E65100", 1], 1200],
+                  [["E65100", 0.30196078431372547], ["E65100", 1], 1200]
+                ],
+                [
+                  [
+                    "https://mt.googleapis.com/vt/icon/name\\u003dicons/onion/SHARED-mymaps-container-bg_4x.png,icons/onion/SHARED-mymaps-container_4x.png,icons/onion/1558-doctor-bag_4x.png\\u0026highlight\\u003dff000000,0288D1\\u0026scale\\u003d2.0"
+                  ],
+                  [["000000", 1], 1200],
+                  [["000000", 0.30196078431372547], ["000000", 1], 1200]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [],
+        null,
+        null,
+        null,
+        null,
+        1
+      ]
+    ],
+    [
+      1,
+      "[{'elementType':'labels','stylers':[{'visibility':'off'}]},{'elementType':'geometry','stylers':[{'visibility':'on'},{'saturation':-60},{'lightness':-2}]},{'featureType':'administrative','elementType':'geometry','stylers':[{'visibility':'off'}]},{'featureType':'administrative.country','elementType':'labels','stylers':[{'hue':'#CCCCCC'},{'saturation':-90},{'lightness':60},{'visibility':'on'}]},{'featureType':'administrative.locality','elementType':'labels','stylers':[{'hue':'#CCCCCC'},{'saturation':-90},{'lightness':50},{'gamma':1},{'visibility':'on'}]},{'featureType':'road','elementType':'geometry','stylers':[{'visibility':'off'}]},{'featureType':'poi.park','stylers':[{'visibility':'off'}]},{'featureType':'poi','stylers':[{'saturation':-55},{'gamma':0.79},{'visibility':'off'}]},{'featureType':'transit','stylers':[{'visibility':'off'}]}]",
+      ""
+    ],
+    null,
+    null,
+    "mapspro_in_drive",
+    "1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    "https://drive.google.com/abuse?id\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    true,
+    false,
+    false,
+    "National Hauora Coalition Clinics in Tāmaki Makaurau Region",
+    2,
+    false,
+    "https://www.google.co.nz/maps/d/kml?mid\\u003d1YL02u_dyCJr2q-ErnVaGFhmtDL2Xd5G4",
+    2427,
+    true,
+    false,
+    "National Hauora Coalition Clinics in Tāmaki Makaurau Region",
+    true,
+    "",
+    true,
+    null,
+    [null, null, [1639105576, 682000000], [1639105576, 682000000]],
+    false
+  ]
+]

@@ -1,6 +1,8 @@
 import sys, codecs, os
 import json
 import re
+from bs4 import BeautifulSoup
+import requests
 sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
 
@@ -8,67 +10,55 @@ details_dict = {}
 coords_list = []
 current_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
+api_url = "https://comprehensivecare.co.nz/find-a-practice/?num=20&sort=post_title&_ajax_=%23drts-platform-render-62b7deb4a6a35-1%20.drts-view-entities-container&_=1656217277811&_page="
+
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	listUrlSouped = scrapers.openAndSoup('http://www.comprehensivecare.co.nz/category/region/comprehensive-care/')
-	rows = listUrlSouped.find_all('article', {'class': 'post type-post status-publish format-standard hentry category-post-formats has_thumbnail post-teaser'})
+	i = 1
+	pages = 3
 
-	print("Done. Iterating rows...")
-	for row in rows:
-		coord = [0,0]
-		scraper.newPractice(row.find('a').get_text(strip=True), row.find('header').find('a').get('href'), "Comprehensive Care", "")
-		# address = row.find('div').find('span', {'class': 'address1'}).get_text()
-		scraper.practice['phone'] = row.find('div').find('span', {'class': 'address2'}).get_text()
+	while i <= pages:
+		# Get info to build a dict
+		r = requests.get(api_url + str(i), verify=False)
+		info_json = r.json()
+		markers = info_json['markers']
+		i = i + 1
 
-		# Go deeper
-		pracUrlSouped = scraper.openAndSoup()
-		fees_list = pracUrlSouped.find_all('div', {'class': 'wpb_wrapper'})[2].get_text().splitlines()
-		address_el = pracUrlSouped.find_all('div', {'class': 'wpb_wrapper'})[0].get_text().splitlines()[4:6]
-		scraper.practice['address'] = ', '.join(address_el).replace('\t', '')
+		for marker in markers:
 
-		# Try find the coordinates of the address for Google Maps to display
-		coord = scraper.geolocate()
-		if coord:
-			scraper.addError("Couldn't geocode address: " + scraper.practice['address'])
-			continue
+			soup = BeautifulSoup(marker['content'])
+			name = soup.find('div', {'class': 'drts-bs-card-title'}).get_text(strip=True)
+			url = soup.find('div', {'class': 'drts-bs-card-title'}).find('a').get('href')
 
-		prices = []
-		count = 0
+			scraper.newPractice(name, url, "Comprehensive Care", "")
+			scraper.setLatLng([marker['lat'], marker['lng']])
 
-		for fee in fees_list:
-			if fee.strip() == '':
-				continue
+			scraper.practice['address'] = soup.find('address', {'class': 'drts-map-marker-address'}).get_text(strip=True)
 
-			count += 1
+			deeper = scrapers.openAndSoup(url)
 
-			if (count <= 1):
-				continue
+			price_table = deeper.find('table', {'class': 'my-table'}).find('tbody').find_all('tr')
 
-			fee = re.split('yrs|years', fee)
+			scraper.practice['prices'] = []
+			scraper.practice['prices_csc'] = []
 
-			# Get the last age added to the prices list
-			try:
-				previous_age = prices[-1]['age']
-			except IndexError:
-				previous_age = None
+			for row in price_table:
+				cols = row.find_all('td')
 
-			try:
-				age = scrapers.getFirstNumber(fee[0]) if count != 2 else 0
-				price = scrapers.getFirstNumber(fee[1].replace("Free", "0"))
+				price = {
+					'age': scrapers.getFirstNumber(cols[0].get_text(strip=True)),
+					'price': scrapers.getFirstNumber(cols[2].get_text(strip=True)),
+				}
 
-				if previous_age and age < previous_age:
-					scraper.addWarning("Age " + str(age) + " is less than a previous price entry. Skipping this price entry.")
-					continue
+				price_csc = {
+					'age': scrapers.getFirstNumber(cols[0].get_text(strip=True)),
+					'price': scrapers.getFirstNumber(cols[1].get_text(strip=True)),
+				}
 
-				prices.append({
-					'age': age,
-					'price': price
-				})
-			except IndexError:
-				print("================================WTF====================")
-				scraper.addWarning("Couldn't get all the prices?")
+				scraper.practice['prices'].append(price)
+				scraper.practice['prices_csc'].append(price_csc)
 
-		scraper.practice['prices'] = prices
-		scraper.finishPractice()
+			scraper.finishPractice()
+
 	return scraper.finish()

@@ -4,12 +4,12 @@ services:
 
   # Memcached for Django
   memcached:
-    image: memcached:alpine
+    image: memcached:1.6.15-alpine
 
   # Rabbit for Celery
   rabbit:
     hostname: rabbit
-    image: rabbitmq:3.8.1
+    image: rabbitmq:3.10.5
     environment:
       - RABBITMQ_DEFAULT_USER=rabbituser
       - RABBITMQ_DEFAULT_PASS
@@ -19,7 +19,7 @@ services:
 
   # Postgres for our database
   postgres:
-    image: mdillon/postgis:10-alpine
+    image: postgis/postgis:13-3.2-alpine
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:

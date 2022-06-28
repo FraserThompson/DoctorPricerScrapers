@@ -1,3 +1,28 @@
-- I can't scrape from itsmyhealth since yahoo started charging for their BOSS API
-- I have the address/phone/other information already scraped in legacy_data.json so the new scraper just updates fee information
-and uses the existing other information
+This is scraped from Google Maps. Example.json is the full JSON data we're parsing.
+
+The code basically digs out this bit:
+
+[
+    "37FC3235C3786485",
+    [[[-37.78799, 175.2821223]]],
+    [],
+    [],
+    1,
+    [
+    ["name", ["National Hauora Coalition Waikato Office"], 1],
+    [
+        "description",
+        [
+        "Level 4/11 Garden Place, Hamilton Central, Hamilton 3204\\n\\nCONTACT\\nFor general enquiries: administration@nhc.maori.nz\\nPhone: 0800 100 NHC / (09) 950 3325\\nwww.nhc.maori.nz\\n\\nOPENING HOURS\\nMonday – Friday: 8:00AM – 6:00PM\\nSaturday – Sunday: Closed"
+        ],
+        1
+    ],
+    [],
+    [],
+    [null, "ChIJx-n8TqUYbW0ReyJU2YI3l3I", false]
+    ],
+    null,
+    2
+],
+
+And then grabs all the info from that.

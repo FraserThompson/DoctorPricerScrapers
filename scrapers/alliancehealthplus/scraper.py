@@ -5,11 +5,10 @@ from scrapers import common as scrapers
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	# this is a wix site and to get a wix site to return plain HTML you add /?_escaped_fragment_= on the end lol
-	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-clinic/?_escaped_fragment_='
-	listUrlSouped = scrapers.openAndSoup(practice_list_url)
+	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-clinic/'
+	listUrlSouped = scrapers.openAndSoup(practice_list_url, 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/102.0.0.0 Safari/537.36')
 
-	clinics = listUrlSouped.find('section', {'class': 'page'}).find_all('a')
+	clinics = listUrlSouped.find('main', {'id': 'PAGES_CONTAINER'}).find_all('a', {'data-testid': "linkElement"})
 
 	for clinic in clinics:
 
@@ -20,7 +19,7 @@ def scrape(name):
 			continue
 
 		scraper.newPractice(name, url, "Alliance Health Plus", "")
-		practice_soup = scrapers.openAndSoup(url + '/?_escaped_fragment_=')
+		practice_soup = scrapers.openAndSoup(url, 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/102.0.0.0 Safari/537.36')
 
 		all_text = practice_soup.find_all('div', {'class': 'Text'})
 
@@ -60,12 +59,16 @@ def scrape(name):
 
 					scraper.practice['prices'].append(price_dict)
 
-		map = practice_soup.find('div', {'class': 'google-map'}).find('img')
-		coord = map.get('src').split('&sensor=true')[0].split('markers=color:red%7C')[1].split(',')
+		potential_addresses = practice_soup.find_all('div', {'class': '_1Q9if'})
 
-		scraper.practice['lat'] = float(coord[0])
-		scraper.practice['lng'] = float(coord[1])
-		scraper.practice['address'] = map.get('alt')
+		for i, p_address in enumerate(potential_addresses):
+			if p_address.get_text(strip=True) == "Location":
+				address = scrapers.better_strip(potential_addresses[i + 1].stripped_strings)
+
+				if "not currently taking" in address:
+					scraper.notEnrolling()
+
+				scraper.practice['address'] = scrapers.better_strip(potential_addresses[i + 1].stripped_strings)
 
 		scraper.finishPractice()
 

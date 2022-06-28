@@ -12,8 +12,8 @@ def scrape(name):
 
 	feesUrl = rootUrl + '/fees'
 	feesUrlSouped = scrapers.openAndSoup(feesUrl)
-	feesBlob = feesUrlSouped.find('input', {'id': 'clinic-fees-data'}).get('value')
-	feesDict = json.loads(feesBlob)
+	feesBlob = feesUrlSouped.find('input', {'id': 'clinic-fees-data'})
+	feesDict = json.loads(feesBlob.get('value'))
 
 	rows = listUrlSouped.findAll('li', {'class': ['c-clinic-list']})
 
@@ -30,14 +30,26 @@ def scrape(name):
 		scraper.practice['phone'] = row.find('ul', {'class': 'c-find-a-clinic__contact-list'}).find('span').get_text(strip=True)
 
 		practicePage = scrapers.openAndSoup(url)
-		clinicCode = practicePage.find('input', {'id': 'clinic-fees-code'}).get('value')
 
-		filteredFees = [x for x in feesDict if x['ClinicCode'] == clinicCode and x['ServiceType'] == "Normal Hours Medical Consult" and x['EnrolmentStatus'] == "Casual" and x['CSCCardStatus'] == "No CSC"]
+		try:
+			clinicCode = practicePage.find('input', {'id': 'clinic-fees-code'}).get('value')
+		except AttributeError:
+			scraper.addError("No fee data available, skipping.")
+			scraper.finishPractice()
+			continue
+
+		filteredFees = [x for x in feesDict if x['ClinicCode'] == clinicCode and x['ServiceType'] == "Normal Hours Medical Consult" and (x['EnrolmentStatus'] == "Enrolled" or x['EnrolmentStatus'] == "Enrolled + CSC") ]
+
 		scraper.practice['prices'] = []
-		print(filteredFees)
+		scraper.practice['prices_csc'] = []
+
 		for fee in filteredFees:
-			feeObj = {'age': scrapers.getFirstNumber(fee['AgeGroup']), 'price': scrapers.getFirstNumber(fee['Price'])}
-			scraper.practice['prices'].append(feeObj)
+			if fee['CSCCardStatus'] == "With CSC" or fee['EnrolmentStatus'] == "Enrolled + CSC":
+				feeObj = {'age': scrapers.getFirstNumber(fee['AgeGroup']), 'price': scrapers.getFirstNumber(fee['Price'])}
+				scraper.practice['prices_csc'].append(feeObj)
+			else:
+				feeObj = {'age': scrapers.getFirstNumber(fee['AgeGroup']), 'price': scrapers.getFirstNumber(fee['Price'])}
+				scraper.practice['prices'].append(feeObj)
 
 		scraper.finishPractice()
 

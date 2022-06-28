@@ -1,0 +1,129 @@
+
+[
+    {
+        "name": "Puhi Kaiti Medical Centre",
+        "address": "508 Wainui Road, Kaiti Mall, Gisborne",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": "06 8678550",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/puhi-kaiti-medical-centre/",
+        "lat": -38.6795343,
+        "lng": 178.026876,
+        "restriction": "",
+        "place_id": "ChIJhTR49iN4Zm0RU8TLiW7J0k4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Matakaoa Community Health Centre",
+        "address": "22 Paikea Street Te Araroa  4087 ",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": "(06) 864 4801",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/matakaoa-community-health-centre-te-araroa/",
+        "lat": -37.6341922,
+        "lng": 178.368101,
+        "restriction": "",
+        "place_id": "ChIJgb05XdHpZG0Rp5oyaKs0xGw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Ruatoria Community Health Centre",
+        "address": "3 Tuparoa Road, Ruatoria",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": "06 864 8316",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/ruatoria-community-health-centre/",
+        "lat": -37.8899199,
+        "lng": 178.3195447,
+        "restriction": "",
+        "place_id": "ChIJU0qvh_z5ZG0RXiqAiDVjOCg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Tawhiti Clinic in Te Puia Hospital",
+        "address": "4 McKenzie St  Te Puia Springs ",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": "(06) 864 6803",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/tawhiti-clinic-in-te-puia-hospital//",
+        "lat": -38.055755,
+        "lng": 178.302442,
+        "restriction": "",
+        "place_id": "ChIJN0nzLspQZG0RaUFEB9Clcf0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Tokomaru Bay Community Health Centre",
+        "address": "4 Tokomaru Street,  Tokomaru Bay ",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": " (06) 864 5859",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/tokomaru-bay-community-health-centre/",
+        "lat": -38.1261743,
+        "lng": 178.3154096,
+        "restriction": "",
+        "place_id": "ChIJPWLmQQVQZG0RYpHDH19eRg0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Uawa Community Health Centre",
+        "address": "40 Banks Street,  Tolaga Bay",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": " (06) 862 6650",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/uawa-community-health-centre/",
+        "lat": -38.3696726,
+        "lng": 178.2956701,
+        "restriction": "",
+        "place_id": "ChIJuUEfWz43ZG0RWRm5ctDWQX0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    },
+    {
+        "name": "Puhi Kaiti Community Health Centre",
+        "address": "Puhi Kaiti Clinic508 Wainui Road, Kaiti Mall, Gisborne",
+        "pho": "Ngati Porou Hauora",
+        "active": true,
+        "phone": "06 8678550",
+        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/puhi-kaiti-medical-centre/",
+        "lat": -38.662334,
+        "lng": 178.017649,
+        "restriction": "",
+        "place_id": "ChIJhTR49iN4Zm0RU8TLiW7J0k4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            }
+        ]
+    }
+]

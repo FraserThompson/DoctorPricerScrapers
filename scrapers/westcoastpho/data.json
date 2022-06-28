@@ -1,0 +1,367 @@
+[
+    {
+        "name": "Coast Medical Limited",
+        "address": "161 Palmerston Street, Westport",
+        "pho": "West Coast PHO",
+        "active": true,
+        "phone": "03 789 5000",
+        "url": "http://www.westcoastpho.org.nz/general-practices/coast-medical-limited",
+        "lat": -41.7561903,
+        "lng": 171.5991692,
+        "restriction": "",
+        "place_id": "ChIJmQsRXwkGJW0RIdFnZ06ngh0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 22
+            },
+            {
+                "age": 18,
+                "price": 28
+            },
+            {
+                "age": 65,
+                "price": 25
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Buller Medical Services",
+        "address": "45 Derby Street, Westport",
+        "pho": "West Coast PHO",
+        "phone": "(03) 788 9277",
+        "url": "http://www.westcoastpho.org.nz/general-practices/buller",
+        "lat": -41.7467295,
+        "lng": 171.6041268,
+        "restriction": "",
+        "place_id": "ChIJe2-TUt8FJW0R-knbaN-oNHg",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Coastal Health Limited",
+        "address": "70-74 Cowper Street, Greymouth",
+        "pho": "West Coast PHO",
+        "phone": "(03) 768 5942",
+        "url": "https://westcoastpho.org.nz/Coastal%20Health%20Ltd",
+        "lat": -42.4600843,
+        "lng": 171.1982543,
+        "restriction": "",
+        "place_id": "ChIJ-5_SWxhrL20RzP6DtpUeWb8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Fox Clinic",
+        "address": "State Highway 6, Fox Glacier",
+        "pho": "West Coast PHO",
+        "phone": "(03) 751 0836",
+        "url": "http://www.westcoastpho.org.nz/general-practices/fox-clinic",
+        "lat": -43.4810487,
+        "lng": 169.9925486,
+        "restriction": "",
+        "place_id": "ChIJDfXgdapS5okRxmAxrk0W23w",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Franz Clinic",
+        "address": "97 Cron Street, Franz Josef Glacier",
+        "pho": "West Coast PHO",
+        "phone": "(03) 752 0700",
+        "url": "http://www.westcoastpho.org.nz/general-practices/franz-clinic",
+        "lat": -43.3827593,
+        "lng": 170.1867886,
+        "restriction": "",
+        "place_id": "ChIJc65_KXF754gRS4POmWchzuY",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Haast Clinic",
+        "address": "Jacksons Bay Road, Haast",
+        "pho": "West Coast PHO",
+        "phone": "(03) 750 0800",
+        "url": "http://www.westcoastpho.org.nz/general-practices/haast-clinic",
+        "lat": -43.8791768,
+        "lng": 168.9702869,
+        "restriction": "",
+        "place_id": "ChIJS89YS0xP1akR-Jd7qZV8ouw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Hari Hari Clinic",
+        "address": "Hari Hari",
+        "pho": "West Coast PHO",
+        "phone": "(03) 753 3008",
+        "url": "http://www.westcoastpho.org.nz/general-practices/hari-hari-clinic",
+        "lat": -43.1482977,
+        "lng": 170.5514366,
+        "restriction": "",
+        "place_id": "ChIJX0VwnNNHKW0RMHR5hIbvAAU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Karamea Health Clinic",
+        "address": "Waverley Street, Karamea",
+        "pho": "West Coast PHO",
+        "phone": "(03) 782 6710",
+        "url": "http://www.westcoastpho.org.nz/general-practices/karamea-health-clinic",
+        "lat": -41.24924499999999,
+        "lng": 172.119847,
+        "restriction": "",
+        "place_id": "ChIJLZjicwG0JG0RI0wPfg_zSyQ",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Ngakawau Health Centre",
+        "address": "Main Road, Hector",
+        "pho": "West Coast PHO",
+        "phone": "(03) 788 5062",
+        "url": "http://www.westcoastpho.org.nz/general-practices/ngakawau-health-centre",
+        "lat": -41.6036485,
+        "lng": 171.8803635,
+        "restriction": "",
+        "place_id": "ChIJvYiz40IcJW0RgNx5hIbvAAU",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Reefton Health",
+        "address": "103 Shiel Street, Reefton",
+        "pho": "West Coast PHO",
+        "phone": "(03) 769 7440",
+        "url": "http://www.westcoastpho.org.nz/general-practices/reefton-health",
+        "lat": -42.118651,
+        "lng": 171.8604846,
+        "restriction": "",
+        "place_id": "ChIJmypHPvZnJW0RiQbQpseAyMM",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Te Nikau Health Centre",
+        "address": "71 Water Walk Road, Greymouth",
+        "pho": "West Coast PHO",
+        "phone": " (03) 769 7400",
+        "url": "https://westcoastpho.org.nz/general-practices/greymouth-medical-centre",
+        "lat": -42.462214,
+        "lng": 171.1936099,
+        "restriction": "",
+        "place_id": "ChIJIzCiPTlqL20Rn2cIwAnHX_8",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Westland Medical Centre",
+        "address": "54A Sewell Street, Hokitika",
+        "pho": "West Coast PHO",
+        "phone": "  (03) 755 8180",
+        "url": "http://www.westcoastpho.org.nz/general-practices/westland-medical-centre",
+        "lat": -42.7172867,
+        "lng": 170.9648306,
+        "restriction": "",
+        "place_id": "ChIJCWertRQvL20R8XSIcmBzH2M",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Whataroa Clinic",
+        "address": "Scally Road, Whataroa",
+        "pho": "West Coast PHO",
+        "phone": " (03) 756 1080Freephone:  0800 794 325",
+        "url": "http://www.westcoastpho.org.nz/general-practices/whataroa-clinic",
+        "lat": -43.2644702,
+        "lng": 170.3734626,
+        "restriction": "",
+        "place_id": "ChIJCWw4pM9lKW0RQ6ixjAwGkOA",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Lake Brunner Clinic",
+        "address": "49 Koe Street, Moana",
+        "pho": "West Coast PHO",
+        "phone": "(03) 738 0003",
+        "url": "http://www.westcoastpho.org.nz/node/136",
+        "lat": -42.572196,
+        "lng": 171.4829371,
+        "restriction": "",
+        "place_id": "ChIJibeiWe8KL20R8YwBinMmwzw",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    }
+]

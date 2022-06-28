@@ -1,4 +1,6 @@
-FROM python:3.7.1-alpine3.8
+FROM python:3.9.13-alpine3.16
+
+RUN apk --update add ca-certificates && update-ca-certificates
 
 COPY py-requirements.txt .
 RUN pip install --no-cache-dir -r py-requirements.txt
