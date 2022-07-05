@@ -1,6 +1,6 @@
 from django.db import models
 from django.core import serializers
-from django.contrib.postgres.fields import JSONField
+from django.db.models import JSONField
 from django.contrib.gis.db import models
 from simple_history.models import HistoricalRecords
 from django.conf import settings
@@ -23,6 +23,7 @@ class Pho(models.Model):
     number_of_practices = models.IntegerField(default=0)
     average_prices = JSONField(blank=True, null=True, default=dict)
     last_scrape = JSONField(blank=True, null=True, default=list)
+    scraper_source = models.TextField(blank=True, null=True)
     history = HistoricalRecords()
 
     def __str__(self):
@@ -62,16 +63,25 @@ class Practice(models.Model):
     def lng(self):
         return self.location.x
 
-    def price(self, age=0):
-        return_obj = 1000
+    def __getPrice(self, age=0, csc=False):
+        prices = self.prices_set.filter(to_age__gte=age, from_age__lte=age, csc=csc).first()
+        if prices:
+            return prices.price
 
-        if age:
-            prices = self.prices_set.filter(to_age__gte=age, from_age__lte=age).first()
+    def price(self, age=0, csc=False):
+        price = None
 
-            if prices:
-                return_obj = prices.price
+        # If there's no age we're outta here
+        if not age:
+            return 1000
+        
+        price = self.__getPrice(age, csc)
 
-        return return_obj
+        # If there was no CSC price, try get a normal price
+        if csc and not price:
+            price = self.__getPrice(age, False)
+
+        return price or 1000
 
     def distance(self):
         return -1
@@ -97,6 +107,7 @@ class Prices(models.Model):
     from_age = models.IntegerField()
     to_age = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
+    csc = models.BooleanField(default=False, blank=True, null=True)
     history = HistoricalRecords()
 
     def __str__(self):

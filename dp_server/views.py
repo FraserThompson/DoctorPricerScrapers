@@ -1,3 +1,4 @@
+from datetime import date
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -24,7 +25,8 @@ from dp_server import serializers
 from django.core import serializers as core_serializers
 from dp_server import models
 
-import logging, json
+import logging
+import json
 from django.db.models.base import ObjectDoesNotExist
 
 from collections import defaultdict
@@ -36,9 +38,12 @@ logger = logging.getLogger(__name__)
 ######################################################
 # Django REST Framework views
 ######################################################
+
+
 class PhoViewSet(viewsets.ModelViewSet):
     queryset = models.Pho.objects.all().order_by('name')
     serializer_class = serializers.PhoSerializer
+
 
 class UserViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
@@ -46,11 +51,13 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by('-date_joined')
     serializer_class = serializers.UserSerializer
 
+
 class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
 
     queryset = Group.objects.all()
     serializer_class = serializers.GroupSerializer
+
 
 class PricesViewSet(viewsets.ModelViewSet):
     queryset = models.Prices.objects.all()
@@ -69,7 +76,7 @@ class PricesViewSet(viewsets.ModelViewSet):
 
 ####################################################
 # Returns some practices
-# Params: 
+# Params:
 #         name will return a specific practice
 #         pho will return all practices from a pho
 #         lat=x,lng=x will return practices within 60,000km of that coordinate.
@@ -87,6 +94,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         lat = self.request.query_params.get('lat', None)
         lng = self.request.query_params.get('lng', None)
         age = self.request.query_params.get('age', None)
+        csc = self.request.query_params.get('csc', None)
         pho = self.request.query_params.get('pho', None)
         all_prices = self.request.query_params.get('all_prices', None)
         distance = self.request.query_params.get('distance', '60000')
@@ -105,17 +113,19 @@ class PracticeViewSet(viewsets.ModelViewSet):
         # Location lookup
         if lat is not None and lng is not None:
             pnt = Point(x=float(lng), y=float(lat), srid=4326)
-            queryset = queryset.filter(location__distance_lte=(pnt, D(m=distance))).annotate(distance=Distance('location', pnt)).order_by('distance')
+            queryset = queryset.filter(location__distance_lte=(pnt, D(m=distance))).annotate(
+                distance=Distance('location', pnt)).order_by('distance')
 
         # Prices
         if age is not None:
             for practice in queryset:
-                practice.price = practice.price(age=age)
+                practice.price = practice.price(age=age, csc=csc)
         elif all_prices:
             for practice in queryset:
                 practice.all_prices = practice.all_prices(True)
 
         return queryset
+
 
 class LogsViewSet(viewsets.ModelViewSet):
     queryset = models.Logs.objects.all()
@@ -135,46 +145,112 @@ class LogsViewSet(viewsets.ModelViewSet):
 ######################################################
 
 ####################################################
-# Returns the history of price changes for a particular practice or the history of PHO averages
+# Returns the history of price changes for overall averages
 @csrf_exempt
 @api_view(['GET'])
 def price_history(request):
 
-    practice = request.GET.get('practice', None)
-    pho = request.GET.get('pho', None)
     response = {}
 
-    if practice is not None:
-        queryset = models.Prices.history.filter(practice__name=practice).order_by('-history_date')
-        response = core_serializers.serialize('json', list(queryset), fields=('price','from_age','to_age', 'history_date', 'history_id'))
-    elif pho is not None:
-        queryset = models.Pho.history.filter(name=pho).order_by('-history_date')
-        response = core_serializers.serialize('json', list(queryset), fields=('average_prices', 'history_date', 'history_id'))
+    queryset = models.Prices.history.all().order_by('history_date').values()
+
+    averages = {}
+
+    for thing in queryset:
+
+        date_string = thing['history_date'].strftime("%Y-%m")
+        age = thing['from_age']
+
+        if date_string not in averages:
+            averages[date_string] = {}
+
+        if age not in averages[date_string]:
+            averages[date_string][age] = {'count': 0, 'price': 0}
+
+        averages[date_string][age]['count'] += 1
+        averages[date_string][age]['price'] += float(thing['price'])
+
+    for key, average in averages.items():
+        for key, value in average.items():
+            value['price'] = value['price'] / value['count']
+
+    response = json.dumps(averages)
 
     return HttpResponse(response, content_type="application/json")
 
 ####################################################
+# Returns the history of price changes for a particular practice or PHO
+@csrf_exempt
+@api_view(['GET'])
+def model_price_history(request, type=None):
+
+    name = request.GET.get('name', None)
+
+    averages = {}
+
+    match type:
+        case "pho":
+            queryset = models.Pho.history.filter(name=name).order_by('history_date').values('average_prices', 'history_date')
+
+            for thing in queryset:
+                date_string = thing['history_date'].strftime("%Y-%m")
+
+                if date_string not in averages:
+                    averages[date_string] = {}
+
+                for thing in thing['average_prices']:
+
+                    age = thing['age'] if thing['age'] != 13 else 14
+
+                    if age not in averages[date_string]:
+                        averages[date_string][age] = {'price': 0}
+
+                    averages[date_string][age]['price'] = thing['average']
+
+    return JsonResponse(averages, status=200, safe=False)
+
+####################################################
+# Gets averages for a pho
+@csrf_exempt
+@api_view(['GET'])
+def model_averages(request, type=None):
+
+    ages = [0, 6, 14, 18, 25, 45, 65]
+    response = []
+    name = request.GET.get('name', None)
+
+    for age in ages:
+
+        match type:
+            case "pho":
+                queryset = models.Prices.objects.filter(
+                    pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999)
+
+        queryset = queryset.aggregate(Avg('price'), Max(
+            'price'), Min('price'), Max('from_age'))
+        response.append(queryset)
+
+    return JsonResponse(response, status=200, safe=False)
+
+####################################################
 # Gets averages for all practices
-# or for a PHO
 @csrf_exempt
 @api_view(['GET'])
 def averages(request):
 
-    ages = [0, 6, 14, 18, 45, 65]
+    ages = [0, 6, 14, 18, 25, 45, 65]
     response = []
-    pho = request.GET.get('pho', None)
 
     for age in ages:
-        
-        if pho is not None:
-            queryset = models.Prices.objects.filter(pho__name=pho, to_age__gte=age, from_age__lte=age, price__lt=999)
-        else:
-            queryset = models.Prices.objects.filter(to_age__gte=age, from_age__lte=age, price__lt=999)
+        queryset = models.Prices.objects.filter(
+            to_age__gte=age, from_age__lte=age, price__lt=999)
 
-        queryset = queryset.aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
+        queryset = queryset.aggregate(Avg('price'), Max(
+            'price'), Min('price'), Max('from_age'))
         response.append(queryset)
 
     return JsonResponse(response, status=200, safe=False)
+
 
 ####################################################
 # Runs a scraper
@@ -211,7 +287,8 @@ def submit(request):
         data = request.body.decode('utf-8')
         json_body = json.loads(data)
 
-        task = tasks.submit.delay(json_body['module'], json_body['data'] if 'data' in json_body else None)
+        task = tasks.submit.delay(
+            json_body['module'], json_body['data'] if 'data' in json_body else None)
 
         return JsonResponse({'task_id': task.task_id}, status=200)
 
@@ -249,5 +326,5 @@ def task_status(request):
             pho.save()
 
             return HttpResponse('Killed it')
-    
+
     return HttpResponseBadRequest("You're not cool enough to do that.")

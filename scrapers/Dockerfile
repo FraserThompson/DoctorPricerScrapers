@@ -1,4 +1,4 @@
-FROM python:3.9.13-alpine3.16
+FROM python:3.10.5-alpine3.16
 
 RUN apk --update add ca-certificates && update-ca-certificates
 

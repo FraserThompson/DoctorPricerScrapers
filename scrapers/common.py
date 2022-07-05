@@ -97,6 +97,8 @@ class Scraper:
     def finishPractice(self):
         self.exists = Database.findPractice(self.practice["name"])
 
+        self.practice['scraper_source'] = "Web" if 'scraper_source' not in self.practice else self.practice['scraper_source']
+
         # Prefer to use existing information to save on API limits
         if self.exists:
 
@@ -271,6 +273,40 @@ def getFirstNumber(string):
     return result
 
 #####################################################################
+# Takes a stab at scraping details from a healthpoint page.
+# Returns a practice object and takes a soup.
+def scrapeHealthpoint(url):
+    practiceSouped = openAndSoup(url)
+    practice = {}
+
+    practice['name'] = practiceSouped.find('div', {'id': 'heading'}).find('h1').get_text(strip=True)
+    practice['address'] = practiceSouped.find('div', {'class': 'service-location'}).get_text(strip=True)
+    practice['phone'] = practiceSouped.find('ul', {'class', 'contact-list'}).find('p').get_text(strip=True)
+    
+    coords = practiceSouped.find('div', {'class', 'map'}).get('data-position').split(", ")
+    practice['lat'] = coords[0]
+    practice['lng'] = coords[1]
+
+    enrolling = practiceSouped.find('div', {'id': 'section-books'}).find('h4').get_text(strip=True) == "Yes"
+    if not enrolling:
+        practice['active'] = False
+
+    fees_table = practiceSouped.find('div', {'id': 'section-fees'}).find('table').find_all('tr')
+
+    practice['prices'] = []
+
+    for row in fees_table:
+        price = {
+            'age': getFirstNumber(row.find('th').get_text(strip=True)),
+            'price':  getFirstNumber(row.find('td').get_text(strip=True)),
+        }
+
+        practice['prices'].append(price)
+
+    return practice
+
+
+#####################################################################
 # Scrape from a data.json file
 def localScrape(inFile, name):
     
@@ -285,6 +321,13 @@ def localScrape(inFile, name):
         if 'prices' in practice and practice['prices'] and 'lat' in practice and practice['lat']:
             scraper.newPractice(practice['name'], practice['url'], practice['pho'], practice['restriction'])
             scraper.practice = practice
+            scraper.practice['scraper_source'] = "Manual"
             scraper.finishPractice()
 
     return scraper.finish()
+
+def parseAgeHeader(th):
+    ages = []
+    for age in th[1:]:
+        ages.append(getFirstNumber(age.get_text(strip=True)))
+    return ages

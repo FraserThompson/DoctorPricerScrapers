@@ -32,7 +32,7 @@ def one(name, scraperFileName = "scraper"):
     if os.environ.get('ENV') == "dev" or os.environ.get('ENV') == None:
         print(json.dumps(return_object, indent=4, sort_keys=True))
 
-        with open('/scrapers/data.json', 'w') as outfile:
+        with open('./scrapers/data.json', 'w+') as outfile:
             json.dump(return_object, outfile)
     
     return return_object

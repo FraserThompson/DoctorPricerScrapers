@@ -48,11 +48,17 @@ services:
             - ./scrapers:/scrapers:rw
 
     backup:
-        image: mdillon/postgis:10-alpine
+        image: postgis/postgis:13-3.2-alpine
+        environment:
+            - PGPASSWORD=password123
+            - POSTGRES_PASSWORD=password123
         volumes:
             - ./backups:/backups
   
     restore:
-        image: mdillon/postgis:10-alpine
+        image: postgis/postgis:13-3.2-alpine
+        environment:
+            - PGPASSWORD=password123
+            - POSTGRES_PASSWORD=password123
         volumes:
             - ./restore:/backups

@@ -3,21 +3,21 @@ version: '3'
 services:
 
   backup:
+    image: postgis/postgis:13-3.2-alpine
     command: "/bin/sh -c 'pg_dump --dbname=postgres --username=postgres --host=postgres -Fc > /backups/backup.tar.gz'"
     environment:
-      - PGPASSWORD=${DATABASE_PASSWORD:-password123}
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
-    image: mdillon/postgis:10-alpine
+      - PGPASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     restart: "no"
     volumes:
       - ./backups:/backups
   
   restore:
+    image: postgis/postgis:13-3.2-alpine
     command: /bin/sh -c "pg_restore --dbname=postgres --username=postgres --host=postgres /backups/backup.tar.gz"
     environment:
-      - POSTGRES_PASSWORD=${DATABASE_PASSWORD:-password123}
-      - PGPASSWORD=${DATABASE_PASSWORD:-password123}
-    image: mdillon/postgis:10-alpine
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - PGPASSWORD=${DATABASE_PASSWORD}
     restart: "no"
     depends_on:
       - postgres
@@ -25,7 +25,7 @@ services:
       - ./restore:/backups
 
   postgres:
-    image: mdillon/postgis:10-alpine
+    image: postgis/postgis:13-3.2-alpine
     environment:
       - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
     ports:

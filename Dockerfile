@@ -1,4 +1,4 @@
-FROM python:3.9.13-bullseye
+FROM python:3.10.5-bullseye
 ENV PYTHONUNBUFFERED 1
 
 # Getting postresql and its dependencies

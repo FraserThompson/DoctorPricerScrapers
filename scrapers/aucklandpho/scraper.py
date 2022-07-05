@@ -24,14 +24,18 @@ def scrape(name):
 		name = linkEl.get_text(strip=True)
 		practiceInfo[name] = {}
 		practiceInfo[name]['name'] = name
-		practiceInfo[name]['url'] = linkEl.get('href') if rootURL in linkEl.get('href') else rootURL + linkEl.get('href')
+		practiceInfo[name]['url'] = linkEl.get('href') if '://' in linkEl.get('href') else rootURL + linkEl.get('href')
 		practiceInfo[name]['address'] = el.get_text(strip=True).split("Address:")[1]
-		practiceUrlSouped = scrapers.openAndSoup(practiceInfo[name]['url'])
 
-		try:
-			practiceInfo[name]['phone'] = practiceUrlSouped.find('h4', {'class': 'vc_custom_heading'}).get_text(strip=True).split("phone")[1]
-		except IndexError:
-			practiceInfo[name]['phone'] = None
+		if "healthpoint" in practiceInfo[name]['url']:
+			practiceInfo[name] = practiceInfo[name] | scrapers.scrapeHealthpoint(practiceInfo[name]['url'])
+		elif "aucklandpho" in practiceInfo[name]['url']:
+			practiceUrlSouped = scrapers.openAndSoup(practiceInfo[name]['url'])
+
+			try:
+				practiceInfo[name]['phone'] = practiceUrlSouped.find('h4', {'class': 'vc_custom_heading'}).get_text(strip=True).split("phone")[1]
+			except IndexError:
+				practiceInfo[name]['phone'] = None
 
 	print("Done. Iterating fee rows...")
 
@@ -49,35 +53,56 @@ def scrape(name):
 
 		scraper.newPractice(name, info['url'], "Auckland PHO", "")
 
-		scraper.practice['address'] = info['address']
-		scraper.practice['phone'] = info['phone']
+		scraper.practice = scraper.practice | info
 
-		scraper.practice['prices'] =  [
-				{
-				'age': 0,
-				'price': float(cells[1].get_text(strip=True).replace(" ", "").replace("$", ""))
-				},
-				{
-				'age': 14,
-				'price': float(cells[4].get_text(strip=True).replace(" ", "").replace("$", ""))
-				},
-				{
-				'age': 18,
-				'price': float(cells[5].get_text(strip=True).replace(" ", "").replace("$", ""))
-				},
-				{
-				'age': 25,
-				'price': float(cells[6].get_text(strip=True).replace(" ", "").replace("$", ""))
-				},
-				{
-				'age': 45,
-				'price': float(cells[7].get_text(strip=True).replace(" ", "").replace("$", ""))
-				},
-				{
-				'age': 65,
-				'price': float(cells[8].get_text(strip=True).replace(" ", "").replace("$", ""))
-				}
-			]
+		if len(scraper.practice['prices']) == 0:
+
+			# If even regular prices arent applicable then clearly its a weird one, just skip it
+			if "N/A" in cells[4].get_text(strip=True):
+				continue
+		
+			scraper.practice['prices'] =  [
+					{
+					'age': 0,
+					'price': 0
+					},
+					{
+					'age': 14,
+					'price': float(cells[4].get_text(strip=True).replace(" ", "").replace("$", ""))
+					},
+					{
+					'age': 18,
+					'price': float(cells[5].get_text(strip=True).replace(" ", "").replace("$", ""))
+					},
+					{
+					'age': 25,
+					'price': float(cells[6].get_text(strip=True).replace(" ", "").replace("$", ""))
+					},
+					{
+					'age': 45,
+					'price': float(cells[7].get_text(strip=True).replace(" ", "").replace("$", ""))
+					},
+					{
+					'age': 65,
+					'price': float(cells[8].get_text(strip=True).replace(" ", "").replace("$", ""))
+					}
+				]
+
+			if "N/A" not in cells[1].get_text(strip=True):
+				scraper.practice['prices_csc'] =  [
+						{
+						'age': 0,
+						'price': 0
+						},
+						{
+						'age': 14,
+						'price': float(cells[2].get_text(strip=True).replace(" ", "").replace("$", ""))
+						},
+						{
+						'age': 18,
+						'price': float(cells[3].get_text(strip=True).replace(" ", "").replace("$", ""))
+						}
+					]
 
 		scraper.finishPractice()
 

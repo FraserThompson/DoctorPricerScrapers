@@ -15,9 +15,7 @@ def scrape(name):
 	csc_fees_table = tables[1]
 
 	ages_header = fees_table.find_all('th')
-	ages = []
-	for age in ages_header[1:]:
-		ages.append(scrapers.getFirstNumber(age.get_text(strip=True)))
+	ages = scrapers.parseAgeHeader(ages_header)
 
 	fees_rows = fees_table.find('tbody').find_all('tr')
 	csc_fees_rows = csc_fees_table.find('tbody').find_all('tr')

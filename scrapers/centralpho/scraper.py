@@ -44,7 +44,7 @@ def scrape(name):
 		
 		print(title)
 
-		scraper.newPractice(title, url, "Central PHO", "")
+		scraper.newPractice(title, url, "THINK Hauora", "")
 		scraper.practice['phone'] = practices[title]['phone']
 		scraper.practice['address'] = practices[title]['address']
 		

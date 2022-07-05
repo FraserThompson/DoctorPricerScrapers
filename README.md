@@ -4,9 +4,9 @@
 
 ### Setup
 
-You'll just need Docker and docker-compose.
+You'll just need Docker and docker-compose (and node if you want to use the easy npm scripts)
 
-Start it up with `docker-compose up --build -d`
+Start it up with `npm start`
 
 Then you can get to the admin interface on `https://localhost:8443/admin` and login with the dev credentials which are `fraserdev` and `dev`.
 
@@ -22,13 +22,13 @@ Then you can get to the admin interface on `https://localhost:8443/admin` and lo
 * DOCKER_PASSWORD
 * GEOLOCATION_API_KEY
 
-Start it up with `docker-compose up --build -d`
+Start it up with `npm start`
 
-Once Postgres is up run `docker-compose exec server migrate` to apply migrations.
+Once Postgres is up run `npm run migrate` to apply migrations.
 
 #### Deploying it
 
-Scripts in `./_ops` are for managing the live deployment.
+Scripts in `./_ops` are for managing the live deployment. These are bash scripts, so you gotta run them in a bashg shell.
 
 I use Dockerhub for my docker images, and it builds from git, so commit and push changes to git, then check Dockerhub to see when it's built.
 
@@ -55,11 +55,9 @@ To get the latest backup you just made so you can use it locally run `./_ops/bac
 
 # Dev
 
-To backup run `docker-compose -f docker-compose.extra.yml run backup` and it'll backup to `./backups` in a file called backup.
+To backup run `npm run backup-dev` and it'll backup to `./backups` in a file called backup.
 
-To restore run `docker-compose -f docker-compose.extra.yml run restore` and it'll restore `./backups/backup`.
-
-DEV GOTCHA: In dev the password is `password123` so you might to prepend these commands with `PGPASSWORD=password123`
+To restore run `npm run restore-dev` and it'll restore `./backups/backup`.
 
 ### Accessing the admin backend
 
@@ -105,7 +103,7 @@ other: `scraper.addError()`, `scraper.addWarning()`, `scraper.setLatLng([0, 0])`
 
 I made a docker image for testing them in Docker so we don't have to mess up our user environment!!!!
 
-To do this run `docker-compose run scraper-test [scraper]`. It'll run the scraper and spit the output to scrapers/data.json for your perusal.
+To do this run `npm run test [scraper]`. It'll run the scraper and spit the output to scrapers/data.json for your perusal.
 
 ### Big disaster hints
 
@@ -130,6 +128,14 @@ https://github.com/appropriate/docker-postgis/blob/master/update-postgis.sh
 If you get some bullshit about the migration PKEY being wrong then I guess the migrations table got messed up somehow, try reindexing it after logging into psql:
 
 `REINDEX TABLE django_migrations;`
+
+If you have an issue with old data needing to be altered for a scheme change you can get into a db shell with
+
+`python manage.py dbshell`
+
+Then run a query like:
+
+`UPDATE dp_server_prices SET csc = False;`
 
 ### Model
 

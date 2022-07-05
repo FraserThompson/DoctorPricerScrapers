@@ -1,0 +1,14 @@
+{
+    "scripts": {
+      "start": "docker-compose up --build -d",
+      "destroy": "docker-compose down -v --remove-orphans",
+      "test": "docker-compose run scraper-test",
+      "logs": "docker-compose logs django",
+      "migrate": "docker-compose exec django migrate",
+      "restore-dev": "docker-compose -f docker-compose.extra.yml -f docker-compose.override.yml -f docker-compose.yml run restore",
+      "backup-dev": "docker-compose -f docker-compose.extra.yml -f docker-compose.override.yml -f docker-compose.yml run backup",
+      "sh": "docker-compose exec django /bin/bash",
+      "dbshell": "docker-compose exec django python manage.py dbshell"
+    }
+  }
+  

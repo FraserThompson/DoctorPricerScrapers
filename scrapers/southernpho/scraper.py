@@ -22,7 +22,7 @@ def scrape(name):
 				# This practice is literally at north end so we don't need it
 				continue
 
-			scraper.newPractice(name, url, "Southern PHO")
+			scraper.newPractice(name, url, "WellSouth PHO")
 
 			practice_page = scrapers.openAndSoup(url)
 	
