@@ -28,11 +28,11 @@ Once Postgres is up run `npm run migrate` to apply migrations.
 
 #### Deploying it
 
-Scripts in `./_ops` are for managing the live deployment. These are bash scripts, so you gotta run them in a bashg shell.
+Scripts in `./_ops` are for managing the live deployment. These are bash scripts, so you gotta run them in a bash shell. We also have a package.json for standardizing how we run scripts across projects.
 
-I use Dockerhub for my docker images, and it builds from git, so commit and push changes to git, then check Dockerhub to see when it's built.
+I use Dockerhub for my docker images. To build and push use `npm run docker-push`.
 
-To deploy it run `DP_SERVER=[whatever]./_ops/deploy.sh` from the root directory.
+To deploy it run `npm run deploy` from the root directory.
 
 #### Provisioning a brand new server
 
@@ -49,9 +49,11 @@ Then it's ready to be deployed with the deploy script.
 
 # Prod
 
-The scripts in `./_ops` are for fiddling with the remote server. To trigger a backup on the remote of the live data run `./_ops/backup.sh`.
+To trigger a backup on the remote of the live data run `npm run backup-live`.
 
-To get the latest backup you just made so you can use it locally run `./_ops/backup_get.sh`.
+To get the latest backup you just made so you can use it locally run `npm run backup-get`.
+
+To restore the latest backup on the remote, put a backup file in `~/docker-services/doctorpricer/restore` then run `npm run restore-live`.
 
 # Dev
 

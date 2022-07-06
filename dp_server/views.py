@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.cache import cache_page
 
 from dp_server.celery import app
 
@@ -148,6 +149,7 @@ class LogsViewSet(viewsets.ModelViewSet):
 # Returns the history of price changes for overall averages
 @csrf_exempt
 @api_view(['GET'])
+@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
 def price_history(request):
 
     response = {}
@@ -182,6 +184,7 @@ def price_history(request):
 # Returns the history of price changes for a particular practice or PHO
 @csrf_exempt
 @api_view(['GET'])
+@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
 def model_price_history(request, type=None):
 
     name = request.GET.get('name', None)
@@ -213,6 +216,7 @@ def model_price_history(request, type=None):
 # Gets averages for a pho
 @csrf_exempt
 @api_view(['GET'])
+@cache_page(60 * 60 * 24)
 def model_averages(request, type=None):
 
     ages = [0, 6, 14, 18, 25, 45, 65]
@@ -236,6 +240,7 @@ def model_averages(request, type=None):
 # Gets averages for all practices
 @csrf_exempt
 @api_view(['GET'])
+@cache_page(60 * 60 * 24)
 def averages(request):
 
     ages = [0, 6, 14, 18, 25, 45, 65]

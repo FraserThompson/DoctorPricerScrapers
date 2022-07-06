@@ -13,6 +13,12 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
 
+class Region(models.Model):
+    name = models.CharField(unique=True, max_length=30)
+
+    def __str__(self):
+        return str(self.name)
+
 class Pho(models.Model):
     name = models.CharField(unique=True, max_length=30)
     module = models.CharField(max_length=30, null=True, blank=True)

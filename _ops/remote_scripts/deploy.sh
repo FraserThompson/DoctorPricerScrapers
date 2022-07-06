@@ -7,7 +7,6 @@
 echo "BRINGING UP CONTAINERS. Environment is ${ENV}."
 
 cd ~/docker-services/doctorpricer
-docker-compose down
 docker login --username=${DOCKER_USERNAME} --password=${DOCKER_PASSWORD}
 docker-compose pull
 docker-compose up --build -d

@@ -1,44 +1,45 @@
+import sys, codecs, os
+import json, io
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + '//..//')
 from scrapers import common as scrapers
+import re
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	fees_url = "https://waitaha.health.nz/your-health/fees/"
-	fees_table = scrapers.openAndSoup(fees_url).find('table', {'id': 'tablepress-1'})
+	root = 'https://waitaha.health.nz/find-a-gp/'
+	listUrlSouped = scrapers.openAndSoup(root)
+	providers_rows = listUrlSouped.findAll('div', {'class': 'gp-inner'})
 
-	ages = scrapers.parseAgeHeader(fees_table.find('thead').find_all('th'))
+	for row in providers_rows:
+		name = row.find('div', {'class': 'gp-name'}).getText(strip=True)
+		url = row.find('div', {'class': 'more'}).find('a').get('href')
 
-	practice_rows = fees_table.find('tbody').find_all('tr')
+		scraper.newPractice(name, url, "Waitaha PHO", "")
 
-	practice_fees = {}
-	for row in practice_rows:
-		cells = row.find_all('td')
+		scraper.practice['address'] = row.find('div', {'class': 'gp-address'}).getText(strip=True)
+		scraper.practice['phone'] = row.find('div', {'class': 'gp-phone'}).getText(strip=True).split("Phone:")[1]
 
-		name = cells[0].get_text(strip=True)
-
+		practiceSouped = scraper.openAndSoup()
+		feeTable = practiceSouped.findAll('div', {'class': 'pricing-row'})
+	
 		prices = []
-		for i, cell in enumerate(cells[1:]):
-			price = {
-				"age": ages[i],
-				"price": scrapers.getFirstNumber(cell.get_text(strip=True))
-			}
-			prices.append(price)
+		prices_csc = [{
+			'age': 0,
+			'price': 0
+		}]
+		for feeRow in feeTable:
+			td = feeRow.findAll('div', {'class': 'pricing-col'})
+			ageCol = td[0].getText(strip=True)
+			priceCol = td[1].getText(strip=True)
 
-		practice_fees[name] = prices
+			if "CSC" in ageCol:
+				prices_csc.append({'age': scrapers.getFirstNumber(ageCol), 'price': scrapers.getFirstNumber(priceCol)})
+			else:
+				prices.append({'age': scrapers.getFirstNumber(ageCol), 'price': scrapers.getFirstNumber(priceCol)})
 
-	practice_url = "https://waitaha.health.nz/find-a-gp/"
-	practices = scrapers.openAndSoup(practice_url).find_all('div', {'class': 'gp-inner'})
-
-	for practice in practices:
-		name = practice.find('div', {'class': 'gp-name'}).get_text(strip=True)
-		url = practice.find('a', {'class', 'button-multi'}).get('href')
-
-		scraper.newPractice(name, url, "Waitaha PHO")
-
-		scraper.practice['address'] = practice.find('div', {'class', 'gp-address'}).get_text(strip=True)
-		scraper.practice['phone'] = practice.find('div', {'class', 'gp-phone'}).find("a").get_text(strip=True)
-		scraper.practice['prices'] = practice_fees[name]
-
+		scraper.practice['prices'] = prices
+		scraper.practice['prices_csc'] = prices_csc
 		scraper.finishPractice()
 
 	return scraper.finish()
