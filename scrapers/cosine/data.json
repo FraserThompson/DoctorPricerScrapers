@@ -5,7 +5,7 @@
         "lng": 174.736818,
         "name": "Karori Medical Centre",
         "active": true,
-        "pho": "Cosine PHO",
+        "pho": "Cosine",
         "phone": "920 4562 ",
         "place_id": "ChIJqYsGgVOwOG0RjbedCemSzDY",
         "prices": [
@@ -39,7 +39,7 @@
         "lng": 174.91669520000005,
         "name": "Ropata Medical Centre",
         "active": true,
-        "pho": "Cosine PHO",
+        "pho": "Cosine",
         "phone": "(04) 920 0800",
         "place_id": "ChIJlYemiWFVR20R8BbtDh1s-gs",
         "prices": [

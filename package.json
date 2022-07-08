@@ -10,6 +10,7 @@
       "backup-dev": "docker-compose -f docker-compose.extra.yml -f docker-compose.override.yml -f docker-compose.yml run backup",
       "sh": "docker-compose exec django /bin/bash",
       "dbshell": "docker-compose exec django python manage.py dbshell",
+      "shell": "docker-compose exec django python manage.py shell",
       "deploy": "bash ./_ops/deploy.sh",
       "stop-live": "bash ./_ops/stop.sh",
       "destroy-live": "bash ./_ops/destroy-live.sh",

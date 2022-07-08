@@ -5,16 +5,16 @@ admin.site.register(models.Logs)
 
 @admin.register(models.Practice)
 class PracticeAdmin(admin.ModelAdmin):
-    search_fields = ('name', 'address')
+    search_fields = ('name', 'address',)
 
 @admin.register(models.Pho)
 class PhoAdmin(admin.ModelAdmin):
-    search_fields = ('name', 'module')
+    search_fields = ('name', 'module',)
 
 @admin.register(models.Prices)
 class PricesAdmin(admin.ModelAdmin):
-    search_fields = ('practice__name')
+    search_fields = ('practice__name',)
 
 @admin.register(models.Region)
 class PricesAdmin(admin.ModelAdmin):
-    search_fields = ('name')
+    search_fields = ('name',)

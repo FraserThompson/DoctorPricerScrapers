@@ -83,9 +83,10 @@ def submit(module, data):
     for result in data['scraped']:
 
         practice = result['practice']
-        exists = result['exists'] # whether or not it exists already in the database
 
-        practice_pho, created = models.Pho.objects.get_or_create(name=practice['pho'], defaults={'scraper_source': practice['scraper_source']})
+        practice_pho, created = models.Pho.objects.get_or_create(name=practice['pho'], defaults={'scraper_source': practice.get('scraper_source', 'Web')})
+
+        print("Making or updating practice: " + practice['name'])
 
         # Make the practice
         new_practice = models.Practice.objects.update_or_create( 
@@ -97,19 +98,32 @@ def submit(module, data):
                 'url': practice['url'],
                 'location': Point( float(practice['lng']), float(practice['lat']) ),
                 'restriction': practice['restriction'],
-                'active': practice['active'] if 'active' in practice else True,
+                'active': practice.get('active', True),
                 'place_id': practice['place_id'] if 'place_id' in practice and practice['place_id'] is not None else ''
             }
         )
 
-        if practice['name'] not in changes:
-            changes[practice['name']] = {}
+        if practice.get('prices'):
 
-        price_changes = process_prices(practice, pho, new_practice, False)
-        changes[practice['name']]["non-csc"] = price_changes
+            price_changes = process_prices(practice, pho, new_practice, False)
 
-        csc_price_changes = process_prices(practice, pho, new_practice, True)
-        changes[practice['name']]["csc"] = csc_price_changes
+            if len(price_changes):
+                
+                if practice['name'] not in changes:
+                    changes[practice['name']] = {}
+
+                changes[practice['name']]["non-csc"] = price_changes
+
+        if practice.get('prices_csc'):
+
+            csc_price_changes = process_prices(practice, pho, new_practice, True)
+
+            if len(csc_price_changes):
+                
+                if practice['name'] not in changes:
+                    changes[practice['name']] = {}
+
+                changes[practice['name']]["csc"] = csc_price_changes
 
 
     # Update the PHO
@@ -131,13 +145,15 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
     old_prices = models.Prices.objects.filter(practice__name=practice['name'], csc=cscPrices)
     changes = {}
 
+    prices_key = 'prices' if not cscPrices else 'prices_csc'
+
     # If the age buckets have changed we must remain calm and act appropriately
-    if old_prices.count() != len(practice['prices']):
+    if old_prices.count() != len(practice[prices_key]):
 
         # Get all the ages we want
         ages = []
-        for price in practice['prices']:
-            ages.append(price['age'])
+        for price in practice[prices_key]:
+            ages.append(int(price['age']))
 
         # Delete prices which don't fit the age brackets we have or which are duplicates
         for price in old_prices:
@@ -148,11 +164,13 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
                 price.delete()
 
     # Submit prices
-    for i, price in enumerate(practice['prices']):
+    for i, price in enumerate(practice[prices_key]):
 
-        from_age = price['age']
-        if i < len(practice['prices']) - 1:
-            to_age = practice['prices'][i+1]['age'] - 1
+        rounded_price = round(float(price['price']), 2)
+
+        from_age = int(price['age'])
+        if i < len(practice[prices_key]) - 1:
+            to_age = int(practice[prices_key][i+1]['age']) - 1
         else:
             to_age = 150
 
@@ -163,31 +181,32 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
         # If there's already a price for that age group then we should update that one so we get history
         if old_price:
 
+            rounded_old_price = round(float(old_price.price), 2)
             # If there's a change
-            if old_price.price != price['price']:
+            if rounded_old_price != rounded_price:
 
                 # add it to the changes object
-                changes[str(old_price.from_age)] = [str(old_price.price), str(price['price'])]
+                changes[str(old_price.from_age)] = [str(rounded_old_price), str(rounded_price)]
 
                 # change the thing in the database
-                old_price.price = price['price']
+                old_price.pho = pho
+                old_price.price = rounded_price
                 old_price.save()
         
         # Otherwise we should make a new price
         else:
 
-            new_prices = models.Prices.objects.update_or_create(
+            new_prices = models.Prices.objects.create(
                 practice = new_practice[0],
-                pho = pho,
                 from_age = from_age,
                 to_age = to_age,
-                defaults={
-                    'price': price['price']
-                }
+                pho = pho,
+                price = rounded_price,
+                csc = cscPrices,
             )
 
-        # We should delete any prices matching the age with a different price
-        bad_old_price = models.Prices.objects.filter(~Q(price=price['price']), practice__name=practice['name'], from_age=from_age)
+        # We should delete any prices matching the age with a different price (~Q is how you do do not equal in django)
+        bad_old_price = models.Prices.objects.filter(~Q(price=rounded_price), practice__name=practice['name'], from_age=from_age, csc=cscPrices)
         bad_old_price.delete()
 
     return changes
@@ -209,14 +228,13 @@ def get_pho_averages(pho):
     # Update the average
     for price in average_prices:
         stats = get_pho_average(pho.id, price['age'])
-        price['average'] = str(stats['price__avg'])
-        price['min'] = str(stats['price__min'])
-        price['max'] = str(stats['price__max'])
-
+        price['average'] = "{:.2f}".format(stats['price__avg'])
+        price['min'] = "{:.2f}".format(stats['price__min'])
+        price['max'] = "{:.2f}".format(stats['price__max'])
     return average_prices
 
 # Helper: Gets the average price for a particular age over a PHO.
 # Params: pho name, age
 def get_pho_average(pho, age):
-    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age, price__lt=999).aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
+    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False).aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
     return result

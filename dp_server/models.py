@@ -92,12 +92,12 @@ class Practice(models.Model):
     def distance(self):
         return -1
 
-    def all_prices(self, do=False):
+    def all_prices(self, do=False, csc=False):
 
         return_obj = []
 
         if do:
-            raw_prices =  serializers.serialize('python', self.prices_set.all().order_by('from_age'), fields=('price','from_age'))
+            raw_prices =  serializers.serialize('python', self.prices_set.filter(csc=csc).order_by('from_age'), fields=('price','from_age'))
 
             if raw_prices:
                 return_obj = [d['fields'] for d in raw_prices]

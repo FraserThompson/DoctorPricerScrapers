@@ -1,9 +1,11 @@
+import time
 from bs4 import BeautifulSoup
 import json
 from urllib.request import urlopen, Request
 import urllib.parse
 import requests, ssl
 import re, os
+from difflib import SequenceMatcher as SM
 from geopy.geocoders import GoogleV3
 
 ################### DATABASE ###########################################
@@ -47,7 +49,7 @@ class Scraper:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-    GEOLOCATOR = GoogleV3(api_key=os.environ.get('GEOLOCATION_API_KEY'), domain="maps.googleapis.co.nz")
+    GEOLOCATOR = GoogleV3(api_key=os.environ.get('GEOLOCATION_API_KEY'))
 
     def newPractice(self, name, url, pho, restriction=""):
         self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
@@ -89,12 +91,15 @@ class Scraper:
     def notEnrolling(self):
         Scraper.cprint("Not enrolling.", "WARNING")
         self.practice["active"] = False
-        self.addError("Not enrolling patients.")
+        self.addWarning("Not enrolling patients.")
 
     def cprint(message, style):
         print(getattr(Scraper, style) + message + Scraper.ENDC)
 
-    def finishPractice(self):
+    # Finish this practice.
+    # One argument: An array of fields which should allow existing data to take priority over new data.
+    # This is useful if the site sucks now, but it was ok in the past.
+    def finishPractice(self, prioritizeExisting=[]):
         self.exists = Database.findPractice(self.practice["name"])
 
         self.practice['scraper_source'] = "Web" if 'scraper_source' not in self.practice else self.practice['scraper_source']
@@ -102,21 +107,21 @@ class Scraper:
         # Prefer to use existing information to save on API limits
         if self.exists:
 
-            if not self.practice.get('address'):
+            if not self.practice.get('address') or 'address' in prioritizeExisting:
                 self.practice['address'] = self.exists['address']
 
-            if not self.practice.get('phone'):
+            if not self.practice.get('phone') or 'phone' in prioritizeExisting:
                 self.practice['phone'] = self.exists['phone']
 
-            if self.exists["address"] == self.practice["address"]:
+            # If the address hasn't changed we can use the existing co-ordinates
+            if fuzzyMatch(self.exists["address"], self.practice["address"]):
                 self.practice["place_id"] = refreshPlaceID(self.exists["place_id"])
                 self.practice["lat"] = self.exists["lat"]
                 self.practice["lng"] = self.exists["lng"]
 
         # If we still don't have location details then get them
         if not self.practice.get("place_id") or not self.practice.get("address") or not self.practice.get("lat"):
-            if self.geolocate() == 0:
-                return
+            self.geolocate()
 
         if not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
@@ -136,12 +141,34 @@ class Scraper:
             if price["age"] in ages:
                 self.addWarning("Price already exists for this age: " + str(price["age"]))
 
-            ages.append(price["age"])
+            ages.append(int(price["age"]))
 
             if price["age"] > 80:
                 self.addWarning("Possible issue with ages: " + str(price["age"]))
             if price["price"] > 100 and price["price"] != 999:
                 self.addWarning("Possible issue with prices: " + str(price["price"]))
+
+        # If we had prices but no zero price, we should add a zero price
+        if 0 not in ages and len(self.practice["prices"]):
+            self.practice["prices"].insert(0, {'age': 0, 'price': 0})
+
+        if "prices_csc" in self.practice:
+            ages_csc = []
+            for price in self.practice["prices_csc"]:
+
+                if price["age"] in ages_csc:
+                    self.addWarning("Price already exists for this age: " + str(price["age"]))
+
+                ages_csc.append(int(price["age"]))
+
+                if price["age"] > 80:
+                    self.addWarning("Possible issue with ages: " + str(price["age"]))
+                if price["price"] > 100 and price["price"] != 999:
+                    self.addWarning("Possible issue with prices: " + str(price["price"]))
+
+            # If we had CSC prices but no zero, we should add a zero
+            if 0 not in ages_csc and len(self.practice["prices_csc"]):
+                self.practice["prices_csc"].insert(0, {'age': 0, 'price': 0})
 
         if len(self.practice["name"]) > 60:
             self.addWarning("Possible issue with practice name: " + self.practice["name"])
@@ -175,7 +202,7 @@ def get_lat_lng(address):
     result = Scraper.GEOLOCATOR.geocode(address, exactly_one=True, region="nz")
 
     if result:
-        place_id = result.raw.place_id if 'place_id' in result.raw else None
+        place_id = result.raw.get('place_id', None)
         address = result.address if 'address' in result else None
         return ([result.latitude, result.longitude], place_id, address, False)
     else:
@@ -210,6 +237,12 @@ def coordsToFloat(coords):
     return [float(string) for string in coords]
 
 #####################################################################
+# Does a fuzzy string comparison and returns true if they're pretty similar
+def fuzzyMatch(s1, s2):
+    return True if SM(None, s1, s2).quick_ratio() > 0.7 else False
+
+
+#####################################################################
 # Checks if a string is contained in something
 def partial_match(string, dictin):
     result = None
@@ -229,6 +262,7 @@ def partial_match(string, dictin):
 #####################################################################
 # Opens a URL and returns soup
 def openAndSoup(url, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'):
+    time.sleep(3) # don't want to be too aggressive
     print("Accessing URL: " + url)
     req = Request(url, None, headers={'User-Agent': userAgent})
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
@@ -267,7 +301,7 @@ def urlify(input):
 # Returns the first number in a string. Also does some replacing of common words into numbers. Good for prices.
 def getFirstNumber(string):
     try:
-        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0").replace("--", "0"))[0])
+        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("adults", "18").replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0").replace("--", "0"))[0])
     except IndexError:
         result = 1000
     return result
@@ -280,28 +314,91 @@ def scrapeHealthpoint(url):
     practice = {}
 
     practice['name'] = practiceSouped.find('div', {'id': 'heading'}).find('h1').get_text(strip=True)
-    practice['address'] = practiceSouped.find('div', {'class': 'service-location'}).get_text(strip=True)
+    practice['address'] = practiceSouped.find('div', {'class': 'service-location'}).find('h3').get_text(strip=True)
     practice['phone'] = practiceSouped.find('ul', {'class', 'contact-list'}).find('p').get_text(strip=True)
     
-    coords = practiceSouped.find('div', {'class', 'map'}).get('data-position').split(", ")
-    practice['lat'] = coords[0]
-    practice['lng'] = coords[1]
+    map_el = practiceSouped.find('div', {'class', 'map'})
+    if (map_el):
+        coords = map_el.get('data-position').split(", ")
+        practice['lat'] = coords[0]
+        practice['lng'] = coords[1]
 
-    enrolling = practiceSouped.find('div', {'id': 'section-books'}).find('h4').get_text(strip=True) == "Yes"
-    if not enrolling:
-        practice['active'] = False
+    enrolling_el = practiceSouped.find('div', {'id': 'section-books'})
 
-    fees_table = practiceSouped.find('div', {'id': 'section-fees'}).find('table').find_all('tr')
+    if enrolling_el:
+        enrolling = enrolling_el.find('h4').get_text(strip=True) == "Yes"
+        if not enrolling:
+            practice['active'] = False
 
-    practice['prices'] = []
+    fees_section = practiceSouped.find('div', {'id': 'section-fees'})
 
-    for row in fees_table:
-        price = {
-            'age': getFirstNumber(row.find('th').get_text(strip=True)),
-            'price':  getFirstNumber(row.find('td').get_text(strip=True)),
-        }
+    if fees_section:
+        fees_table = fees_section.find('table')
 
-        practice['prices'].append(price)
+        if fees_table:
+            fees_rows = fees_table.find_all('tr')
+
+            practice['prices'] = []
+            practice['prices_csc'] = []
+
+            header_count = 0
+            ages_added = []
+
+            for row in fees_rows:
+                age_cell = row.find('th')
+                
+                # Most tables put the age in a th, some don't
+                if age_cell:
+                    age_text = age_cell.get_text(strip=True)
+                    price_text = row.find('td').get_text(strip=True)
+                else:
+                    cells = row.find_all('td')
+
+                    # If we're on a row with only one cell skip it
+                    if len(cells) < 2:
+                        continue
+
+                    age_cell = cells[0]
+
+                    # Guessing if we're in a header based on boldness of the text
+                    if age_cell.find('strong'):
+
+                        header_count += 1
+                        
+                        # If we're in the next section we've gone too far
+                        if header_count == 2:
+                            break
+
+                        continue
+
+                    age_text = age_cell.get_text(strip=True)
+
+                    price_cell = cells[1]
+                    price_text = price_cell.get_text(strip=True)
+
+                age = int(getFirstNumber(age_text))
+                price = getFirstNumber(price_text)
+
+                # If we already have this age... Well I mean we can't have it again
+                if age in ages_added:
+                    continue
+
+                # If we couldn't get an age, we can probably bounce
+                if age == 1000:
+                    break
+
+                price = {
+                    'age': age,
+                    'price':  price,
+                }
+
+                age_text_lower = age_text.lower()
+                
+                if ("community services" in age_text_lower and "without" not in age_text_lower) or ("csc" in age_text_lower and "without" not in age_text_lower):
+                    practice['prices_csc'].append(price)
+                else:
+                    ages_added.append(age)
+                    practice['prices'].append(price)
 
     return practice
 

@@ -16,7 +16,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 
 from django.contrib.auth.models import User, Group
-from django.db.models import Avg, Max, Min
+from django.db.models import Avg, Max, Min, Q
 
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -95,13 +95,10 @@ class PracticeViewSet(viewsets.ModelViewSet):
         lat = self.request.query_params.get('lat', None)
         lng = self.request.query_params.get('lng', None)
         age = self.request.query_params.get('age', None)
-        csc = self.request.query_params.get('csc', None)
+        csc = self.request.query_params.get('csc', False)
         pho = self.request.query_params.get('pho', None)
         all_prices = self.request.query_params.get('all_prices', None)
         distance = self.request.query_params.get('distance', '60000')
-
-        # We only want active ones
-        queryset = queryset.filter(active=True)
 
         # Specific practice
         if name is not None:
@@ -123,7 +120,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
                 practice.price = practice.price(age=age, csc=csc)
         elif all_prices:
             for practice in queryset:
-                practice.all_prices = practice.all_prices(True)
+                practice.all_prices = practice.all_prices(True, csc)
 
         return queryset
 
@@ -149,12 +146,12 @@ class LogsViewSet(viewsets.ModelViewSet):
 # Returns the history of price changes for overall averages
 @csrf_exempt
 @api_view(['GET'])
-@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
+#@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
 def price_history(request):
 
     response = {}
 
-    queryset = models.Prices.history.all().order_by('history_date').values()
+    queryset = models.Prices.history.filter(Q(csc=False) | Q(csc=None)).order_by('history_date').values()
 
     averages = {}
 
@@ -184,7 +181,7 @@ def price_history(request):
 # Returns the history of price changes for a particular practice or PHO
 @csrf_exempt
 @api_view(['GET'])
-@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
+#@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
 def model_price_history(request, type=None):
 
     name = request.GET.get('name', None)
@@ -193,7 +190,7 @@ def model_price_history(request, type=None):
 
     match type:
         case "pho":
-            queryset = models.Pho.history.filter(name=name).order_by('history_date').values('average_prices', 'history_date')
+            queryset = models.Pho.history.filter(module=name).order_by('history_date').values('average_prices', 'history_date')
 
             for thing in queryset:
                 date_string = thing['history_date'].strftime("%Y-%m")
@@ -216,7 +213,7 @@ def model_price_history(request, type=None):
 # Gets averages for a pho
 @csrf_exempt
 @api_view(['GET'])
-@cache_page(60 * 60 * 24)
+#@cache_page(60 * 60 * 24 * 14)
 def model_averages(request, type=None):
 
     ages = [0, 6, 14, 18, 25, 45, 65]
@@ -228,7 +225,7 @@ def model_averages(request, type=None):
         match type:
             case "pho":
                 queryset = models.Prices.objects.filter(
-                    pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999)
+                    pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
 
         queryset = queryset.aggregate(Avg('price'), Max(
             'price'), Min('price'), Max('from_age'))
@@ -240,7 +237,7 @@ def model_averages(request, type=None):
 # Gets averages for all practices
 @csrf_exempt
 @api_view(['GET'])
-@cache_page(60 * 60 * 24)
+#@cache_page(60 * 60 * 24 * 14)
 def averages(request):
 
     ages = [0, 6, 14, 18, 25, 45, 65]
@@ -248,7 +245,7 @@ def averages(request):
 
     for age in ages:
         queryset = models.Prices.objects.filter(
-            to_age__gte=age, from_age__lte=age, price__lt=999)
+            to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
 
         queryset = queryset.aggregate(Avg('price'), Max(
             'price'), Min('price'), Max('from_age'))
