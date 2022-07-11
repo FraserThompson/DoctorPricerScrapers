@@ -40,9 +40,6 @@ def scrape(name):
 
 			name = practice[0][1][0].replace("\\n", "")
 
-			if name != "Whānau Ora Community Clinics (Huakina)":
-				continue
-
 			if scraper.doWeHaveItAlready(name):
 				continue
 
@@ -51,10 +48,16 @@ def scrape(name):
 			except TypeError:
 				continue
 
-			address_start = 0 if info[0] != "ADDRESS" else 1
-			sections = ["CONTACT", "Contact", "OPENING HOURS", "FEES", "WHĀNAU ORA COMMUNITY CLINICS", "HUAKINA", "PAPATOETOE", "MANUKAU (Head Office)"]
+			if "ADDRESS" in info[0]:
+				address_start = 1
+			elif "COMMUNITY CLINICS" in info[0]:
+				address_start = 3
+			else:
+				address_start = 0
+
+			sections = ["CONTACT", "Contact", "OPENING HOURS", "FEES"]
 			address = ""
-			print(info)
+
 			for thing in info[address_start:]:
 				if thing not in sections:
 					address = address + " " + thing

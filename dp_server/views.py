@@ -13,7 +13,7 @@ from django.contrib.gis.db.models.functions import Distance
 from django.contrib.gis.measure import D
 
 from django.contrib.auth.models import User, Group
-from django.db.models import Avg, Max, Min, Q
+from django.db.models import Avg, Max, Min, Q, Count
 
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
@@ -91,7 +91,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         csc = self.request.query_params.get('csc', False)
         pho = self.request.query_params.get('pho', None)
         all_prices = self.request.query_params.get('all_prices', None)
-        distance = self.request.query_params.get('distance', '60000')
+        distance = self.request.query_params.get('distance', '6000000000')
 
         queryset = queryset.filter(disabled=False)
 
@@ -351,6 +351,10 @@ def clean(request):
         return HttpResponseBadRequest("You're not cool enough to do that.")
 
     dry_run = request.query_params.get('dry')
+    name_search = request.query_params.get('names')
+    location_search = request.query_params.get('location')
+    smart_search = request.query_params.get('smart')
+    dumb_search = request.query_params.get('dumb')
 
     # Probably a cool way to do this with db queries but whatever
     all_queryset = models.Practice.objects.filter(disabled=False).values()
@@ -362,66 +366,129 @@ def clean(request):
     # disabled: A list of the IDs of practices which were disabled.
     matches = {'very_confident': [], 'quite_confident': [], 'less_confident': [], 'disabled': []}
 
-    # Find practices which have similar names, similar addresses, and similar locations
-    for practice in all_queryset:
-    
-        fuzzy_name =  practice['name'].rsplit(sep=" ", maxsplit=2)[0].lower()
-        address_split = practice['address'].split(", ")
-        fuzzy_address = address_split[0].lower()
+    if name_search:
+        # # Find practices with identical names but weird newline stuff 
+        for practice in all_queryset:
+            escaped_name = practice['name'].replace("(", "\(").replace(")", "\)")
+            name_identical = models.Practice.objects.filter(disabled=False, name__iregex=r'^[\s]*%s[\s]*$' % (escaped_name)).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
+            
+            if len(name_identical) > 1:
+                very_confident = []
 
-        # No commas in address, split by space
-        if len(address_split) == 1:
-            address_split = practice['address'].replace(",", " ").split(" ")
-            fuzzy_address = address_split[0:2]
-            fuzzy_address = (" ").join(fuzzy_address).lower()
+                for thing in name_identical:
+                    match_obj = {
+                        'id': thing['id'], 
+                        'name': thing['name'],
+                        'address': thing['address'],
+                        'updated_at': thing['updated_at']
+                    }
+                    
+                    very_confident.append(match_obj)
 
-        # Address starts with something more generic, move to the next piece
-        if "po box" in fuzzy_address or "level" in fuzzy_address or "unit" in fuzzy_address or "shop" in fuzzy_address or "gate" in fuzzy_address:
-            fuzzy_address = address_split[1].lower()
+                matches['very_confident'].append(very_confident)
 
-        name_close = models.Practice.objects.filter(Q(disabled=False) & Q(name__icontains=fuzzy_name) & Q(address__icontains=fuzzy_address)).annotate(
-                distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
+        # Delete the older ones
+        matches['disabled'] += clean_delete(matches['very_confident'], dry_run)
 
-        if len(name_close) > 1:
-            quite_confident = []
-            less_confident = []
+        # Get again so we don't disable ones we just disabled
+        all_queryset = models.Practice.objects.filter(disabled=False).values()
 
-            for thing in name_close:
-                match_obj = {'search_params': [fuzzy_name, fuzzy_address], 'distance': str(thing['distance']), 'id': thing['id'], 'name': thing['name'], 'updated_at': thing['updated_at'], 'address': thing['address']}
-                
-                if thing['distance'].m < 100:
-                    quite_confident.append(match_obj)
-                else:
-                    if len(less_confident) == 0:
-                        less_confident.append({'id': practice['id'], 'name': practice['name'], 'updated_at': practice['updated_at'], 'address': practice['address']})
+    if location_search:
+        # Find practices on top of each other
+        for practice in all_queryset:
+
+            physically_close = models.Practice.objects.filter(disabled=False, location__distance_lte=(practice['location'], D(m=10))).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
+        
+            if len(physically_close) > 1:
+                physical_duplicates = []
+                for thing in physically_close:
+                    physical_duplicates.append(
+                        {
+                            'id': thing['id'], 
+                            'name': thing['name'], 
+                            'address': thing['address'], 
+                            'updated_at': thing['updated_at']
+                        }
+                    )
+
+                matches['very_confident'].append(physical_duplicates)
+        
+        # Delete the very confident ones
+        matches['disabled'] += clean_delete(matches['very_confident'], dry_run)
+
+        # Get again so we don't disable ones we just disabled
+        all_queryset = models.Practice.objects.filter(disabled=False).values()
+
+    if smart_search:
+        # Find practices which have similar names, similar addresses, and similar locations
+        for practice in all_queryset:
+        
+            fuzzy_name =  practice['name'].rsplit(sep=" ", maxsplit=2)[0].lower()
+            address_split = practice['address'].split(" ")
+            fuzzy_address = " ".join(address_split[0:2]).lower()
+
+            # Address starts with something more generic, move to the next piece
+            if "po box" in fuzzy_address or "level" in fuzzy_address or "unit" in fuzzy_address or "shop" in fuzzy_address or "gate" in fuzzy_address:
+                fuzzy_address = " ".join(address_split[2:5]).lower()
+
+            name_close = models.Practice.objects.filter(Q(disabled=False) & Q(name__icontains=fuzzy_name) & Q(address__icontains=fuzzy_address)).annotate(
+                    distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
+
+            if len(name_close) > 1:
+                quite_confident = []
+                less_confident = []
+
+                for thing in name_close:
+                    match_obj = {
+                        'id': thing['id'], 
+                        'name': thing['name'],
+                        'address': thing['address'],
+                        'distance': str(thing['distance']),
+                        'updated_at': thing['updated_at'],
+                        'search_params': [fuzzy_name, fuzzy_address], 
+                    }
+                    
+                    if thing['distance'].m < 200:
+                        quite_confident.append(match_obj)
+                    else:
+                        if len(less_confident) == 0:
+                            less_confident.append({'id': practice['id'], 'name': practice['name'], 'address': practice['address'], 'updated_at': practice['updated_at']})
+                        less_confident.append(match_obj)
+
+                if len(less_confident) > 1:
+                    matches['less_confident'].append(less_confident)
+
+                if len(quite_confident) > 1:
+                    matches['quite_confident'].append(quite_confident)
+
+        # Delete the quite confident ones
+        matches['disabled'] += clean_delete(matches['quite_confident'], dry_run)
+
+        # Get again so we don't disable ones we just disabled
+        all_queryset = models.Practice.objects.filter(disabled=False).values()
+
+    if dumb_search:
+        # Find practices with just similar names
+        for practice in all_queryset:
+            name_close = models.Practice.objects.filter(disabled=False, name__icontains=practice['name']).annotate(
+                    distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
+
+            if len(name_close) > 1:
+                less_confident = []
+
+                for thing in name_close:
+                    match_obj = {
+                        'id': thing['id'], 
+                        'name': thing['name'],
+                        'address': thing['address'],
+                        'distance': str(thing['distance']),
+                        'updated_at': thing['updated_at'],
+                        'search_params': [practice['name']], 
+                    }
+
                     less_confident.append(match_obj)
 
-            if len(less_confident) > 1:
                 matches['less_confident'].append(less_confident)
-
-            if len(quite_confident) > 1:
-                matches['quite_confident'].append(quite_confident)
-
-    # Delete the older ones
-    matches['disabled'] += clean_delete(matches['quite_confident'], dry_run)
-
-    # Get again so we don't disable ones we just disabled
-    all_queryset = models.Practice.objects.filter(disabled=False).values()
-
-    # Find practices on top of each other
-    for practice in all_queryset:
-
-        physically_close = models.Practice.objects.filter(disabled=False, location__distance_lte=(practice['location'], D(m=10))).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
-    
-        if len(physically_close) > 1:
-            physical_duplicates = []
-            for thing in physically_close:
-                physical_duplicates.append({'id': thing['id'], 'name': thing['name'], 'updated_at': thing['updated_at'], 'address': thing['address']})
-
-            matches['very_confident'].append(physical_duplicates)
-    
-    # Delete the older ones
-    matches['disabled'] += clean_delete(matches['very_confident'], dry_run)
 
     return JsonResponse(matches, status=200, safe=False)
 

@@ -37,6 +37,14 @@ class Pho(models.Model):
     def number_of_practices(self):
         return Practice.objects.filter(pho_link=self, disabled=False).count()
 
+    @property
+    def number_enrolling(self):
+        return Practice.objects.filter(pho_link=self, disabled=False, active=True).count()
+
+    @property
+    def number_notenrolling(self):
+        return Practice.objects.filter(pho_link=self, disabled=False, active=False).count()
+        
     def __str__(self):
         return str(self.name)
 
@@ -62,7 +70,7 @@ class Practice(models.Model):
     phone = models.TextField(blank=True)
     url = models.TextField()
     location = models.PointField(srid=4326, geography=True)
-    restriction = models.TextField(default='')
+    restriction = models.TextField(default='', blank=True, null=True)
     place_id = models.TextField(default='', blank=True)
     active = models.BooleanField(default=True)
     disabled = models.BooleanField(default=False)

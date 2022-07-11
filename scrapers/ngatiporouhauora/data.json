@@ -107,23 +107,5 @@
                 "price": 0
             }
         ]
-    },
-    {
-        "name": "Puhi Kaiti Community Health Centre",
-        "address": "Puhi Kaiti Clinic508 Wainui Road, Kaiti Mall, Gisborne",
-        "pho": "Ngati Porou Hauora",
-        "active": true,
-        "phone": "06 8678550",
-        "url": "https://www.healthpoint.co.nz/gps-accident-urgent-medical-care/gp/puhi-kaiti-medical-centre/",
-        "lat": -38.662334,
-        "lng": 178.017649,
-        "restriction": "",
-        "place_id": "ChIJhTR49iN4Zm0RU8TLiW7J0k4",
-        "prices": [
-            {
-                "age": 0,
-                "price": 0
-            }
-        ]
     }
 ]

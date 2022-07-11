@@ -104,6 +104,8 @@ class Scraper:
 
         self.practice['scraper_source'] = "Web" if 'scraper_source' not in self.practice else self.practice['scraper_source']
 
+        self.practice["name"] = self.practice["name"].strip()
+
         # Prefer to use existing information to save on API limits
         if self.exists:
 
@@ -125,6 +127,13 @@ class Scraper:
 
         if not self.practice.get('phone'):
             self.practice["phone"] = "None supplied"
+        else:
+            self.practice["phone"] = self.practice["phone"].strip()
+
+        self.practice["address"] = self.practice["address"].strip()
+
+        if "new zealand" not in self.practice["address"].lower():
+            self.practice["address"] += ", New Zealand"
         
         # Verifying data
         if not self.practice.get("lat") or not self.practice.get("lng"):
@@ -327,6 +336,7 @@ def scrapeHealthpoint(url):
     practiceSouped = openAndSoup(url)
     practice = {}
 
+    practice['url'] = url
     practice['name'] = practiceSouped.find('div', {'id': 'heading'}).find('h1').get_text(strip=True)
     practice['address'] = practiceSouped.find('div', {'class': 'service-location'}).find('h3').get_text(strip=True)
     practice['phone'] = practiceSouped.find('ul', {'class', 'contact-list'}).find('p').get_text(strip=True)

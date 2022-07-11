@@ -72,6 +72,21 @@ def scrape(name):
 		except KeyError:
 			scraper.addError("No prices.")
 
+		scraper.practice['prices_csc'] = [
+			{
+				'age': 0,
+				'price': 0
+			},
+			{
+				'age': 14,
+				'price': 13
+			},
+			{
+				'age': 18,
+				'price': 19.50
+			},
+		]
+
 		scraper.practice['address'] = address
 		scraper.practice['phone'] = phone
 		scraper.practice['lat'] = lat

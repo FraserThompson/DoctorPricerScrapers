@@ -11,7 +11,7 @@
       "sh": "docker compose exec django /bin/bash",
       "dbshell": "docker compose exec django python manage.py dbshell",
       "shell": "docker compose exec django python manage.py shell",
-      "deploy": "bash ./_ops/deploy.sh",
+      "deploy": "npm run docker-push && bash ./_ops/deploy.sh",
       "stop-live": "bash ./_ops/stop.sh",
       "destroy-live": "bash ./_ops/destroy-live.sh",
       "backup-get": "bash ./_ops/backup_get.sh",

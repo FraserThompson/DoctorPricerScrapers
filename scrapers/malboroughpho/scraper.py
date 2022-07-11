@@ -10,17 +10,33 @@ def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	listUrlSouped = scrapers.openAndSoup('http://www.marlboroughpho.org.nz/general-practices-fees/')
-	rows = listUrlSouped.find('table', {'class': 'omsc-custom-table omsc-style-1'}).find_all('tr')
-	deets = listUrlSouped.find_all('h6')
+	fee_rows = listUrlSouped.find('table', {'class': 'omsc-custom-table omsc-style-1'}).find_all('tr')
+	names = listUrlSouped.find_all('h6')
+	images = listUrlSouped.select('img.size-cta-thumbnail.alignleft')
 
-	phone_numbers = {}
+	practice_details = {}
+
+	for i, image in enumerate(images):
+		link = image.find_parent('a')
+		pairs = list(names[i].stripped_strings)
+		name = pairs[0].lower()
+		
+		if not link:
+			continue
+
+		link = link.get('href')
+
+		if "healthpoint" not in link:
+			continue
+
+		healthpoint_details = scrapers.scrapeHealthpoint(link)
+		practice_details[name] = healthpoint_details
+
 	ages = []
 
-	for deet in deets[1:]:
-		pairs = list(deet.stripped_strings)
-		phone_numbers[pairs[0]] = pairs[1]
+	print(practice_details)
 
-	for index, row in enumerate(rows):
+	for index, row in enumerate(fee_rows):
 
 		if index == 0:
 			cells = row.find_all('th')
@@ -41,7 +57,16 @@ def scrape(name):
 			
 			continue
 
-		scraper.newPractice(name, "http://www.marlboroughpho.org.nz/general-practices-fees/", "Malborough PHO", "")
+		scraper.newPractice(name, "https://www.marlboroughpho.org.nz/general-practices-fees/", "Malborough PHO", "")
+
+		# Get details
+		try:
+			practice = practice_details[name.lower()]
+		except KeyError:
+			scraper.addError("Couldn't get details.")
+			continue
+
+		scraper.practice = scraper.practice | practice
 
 		# Assign fees to prices
 		for index, age in enumerate(ages):
@@ -51,7 +76,6 @@ def scrape(name):
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
 
-		scraper.practice['phone'] = phone_numbers[name] if name in phone_numbers else ""
 
 		scraper.finishPractice()
 
