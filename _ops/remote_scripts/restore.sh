@@ -3,4 +3,4 @@
 echo "Restoring a backup..."
 
 cd ~/docker-services/doctorpricer
-docker-compose -f docker-compose.extra.yml run restore
+docker-compose exec -it django python manage.py dbrestore

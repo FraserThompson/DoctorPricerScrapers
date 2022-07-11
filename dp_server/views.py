@@ -1,15 +1,12 @@
-from datetime import date
+import re
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 
 from dp_server.celery import app
 
 from dp_server import tasks
-
-from scrapers import run
 
 from django.contrib.gis.geos import Point
 from django.contrib.gis.db.models.functions import Distance
@@ -23,14 +20,10 @@ from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
 
 from dp_server import serializers
-from django.core import serializers as core_serializers
 from dp_server import models
 
 import logging
 import json
-from django.db.models.base import ObjectDoesNotExist
-
-from collections import defaultdict
 
 from django_celery_results.models import TaskResult
 
@@ -99,6 +92,8 @@ class PracticeViewSet(viewsets.ModelViewSet):
         pho = self.request.query_params.get('pho', None)
         all_prices = self.request.query_params.get('all_prices', None)
         distance = self.request.query_params.get('distance', '60000')
+
+        queryset = queryset.filter(disabled=False)
 
         # Specific practice
         if name is not None:
@@ -224,8 +219,7 @@ def model_averages(request, type=None):
 
         match type:
             case "pho":
-                queryset = models.Prices.objects.filter(
-                    pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
+                queryset = models.Prices.objects.filter(pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
 
         queryset = queryset.aggregate(Avg('price'), Max(
             'price'), Min('price'), Max('from_age'))
@@ -244,8 +238,7 @@ def averages(request):
     response = []
 
     for age in ages:
-        queryset = models.Prices.objects.filter(
-            to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
+        queryset = models.Prices.objects.filter(to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
 
         queryset = queryset.aggregate(Avg('price'), Max(
             'price'), Min('price'), Max('from_age'))
@@ -261,22 +254,20 @@ def averages(request):
 @api_view(['POST'])
 def scrape(request):
 
-    if request.user.is_authenticated:
-
-        data = request.body.decode('utf-8')
-        json_body = json.loads(data)
-
-        pho = models.Pho.objects.get(module=json_body['module'])
-
-        if pho.current_task_id:
-            return HttpResponseBadRequest("We're already scraping: " + pho.current_task_id)
-
-        task = tasks.scrape.delay(json_body['module'])
-
-        return JsonResponse({'task_id': task.task_id}, status=200)
-
-    else:
+    if not request.user.is_authenticated:
         return HttpResponseBadRequest("You're not cool enough to do that.")
+
+    data = request.body.decode('utf-8')
+    json_body = json.loads(data)
+
+    pho = models.Pho.objects.get(module=json_body['module'])
+
+    if pho.current_task_id:
+        return HttpResponseBadRequest("We're already scraping: " + pho.current_task_id)
+
+    task = tasks.scrape.delay(json_body['module'])
+
+    return JsonResponse({'task_id': task.task_id}, status=200)
 
 ####################################################
 # Submits to database
@@ -284,18 +275,16 @@ def scrape(request):
 @csrf_exempt
 @api_view(['POST'])
 def submit(request):
-    if request.user.is_authenticated:
-
-        data = request.body.decode('utf-8')
-        json_body = json.loads(data)
-
-        task = tasks.submit.delay(
-            json_body['module'], json_body['data'] if 'data' in json_body else None)
-
-        return JsonResponse({'task_id': task.task_id}, status=200)
-
-    else:
+    if not request.user.is_authenticated:
         return HttpResponseBadRequest("You're not cool enough to do that.")
+
+    data = request.body.decode('utf-8')
+    json_body = json.loads(data)
+
+    task = tasks.submit.delay(
+        json_body['module'], json_body['data'] if 'data' in json_body else None)
+
+    return JsonResponse({'task_id': task.task_id}, status=200)
 
 
 ####################################################
@@ -330,3 +319,109 @@ def task_status(request):
             return HttpResponse('Killed it')
 
     return HttpResponseBadRequest("You're not cool enough to do that.")
+
+####################################################
+# Helper function for the clean() method. Does the actual deletion.
+def clean_delete(matches, dry_run=True):
+
+    disabled = []
+    
+    # Because this was when the field got populated for the first time
+    never_updated_string = "2022-07-09T22:46:51.445203+00:00"
+
+    for delete in matches:
+        # If the newest one has never been updated then let's just go by ID
+        if delete[0]['updated_at'].isoformat() == never_updated_string:
+            delete.sort(key=lambda a: a['id'], reverse=True)
+
+        for disable in delete[1:]:
+            disabled.append(disable['id'])
+            if not dry_run:
+                models.Practice.objects.filter(id=disable['id']).update(disabled=True)
+
+    return disabled
+
+####################################################
+# Does a search for points on top of each other and deletes the oldest
+@csrf_exempt
+@api_view(['GET'])
+def clean(request):
+
+    if not request.user.is_authenticated:
+        return HttpResponseBadRequest("You're not cool enough to do that.")
+
+    dry_run = request.query_params.get('dry')
+
+    # Probably a cool way to do this with db queries but whatever
+    all_queryset = models.Practice.objects.filter(disabled=False).values()
+
+    # We sort matches into buckets based on confidence...
+    # very_confident: Practices which are located within 5m of each other physically. These are automatically deleted.
+    # quite_confident. Practices which have similar names, similar addresses, and are within 100m of each other physically. These are automatically deleted.
+    # less_confident: Practices with similar names and addresses, but more than 100m apart. These are NOT automatically deleted.
+    # disabled: A list of the IDs of practices which were disabled.
+    matches = {'very_confident': [], 'quite_confident': [], 'less_confident': [], 'disabled': []}
+
+    # Find practices which have similar names, similar addresses, and similar locations
+    for practice in all_queryset:
+    
+        fuzzy_name =  practice['name'].rsplit(sep=" ", maxsplit=2)[0].lower()
+        address_split = practice['address'].split(", ")
+        fuzzy_address = address_split[0].lower()
+
+        # No commas in address, split by space
+        if len(address_split) == 1:
+            address_split = practice['address'].replace(",", " ").split(" ")
+            fuzzy_address = address_split[0:2]
+            fuzzy_address = (" ").join(fuzzy_address).lower()
+
+        # Address starts with something more generic, move to the next piece
+        if "po box" in fuzzy_address or "level" in fuzzy_address or "unit" in fuzzy_address or "shop" in fuzzy_address or "gate" in fuzzy_address:
+            fuzzy_address = address_split[1].lower()
+
+        name_close = models.Practice.objects.filter(Q(disabled=False) & Q(name__icontains=fuzzy_name) & Q(address__icontains=fuzzy_address)).annotate(
+                distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
+
+        if len(name_close) > 1:
+            quite_confident = []
+            less_confident = []
+
+            for thing in name_close:
+                match_obj = {'search_params': [fuzzy_name, fuzzy_address], 'distance': str(thing['distance']), 'id': thing['id'], 'name': thing['name'], 'updated_at': thing['updated_at'], 'address': thing['address']}
+                
+                if thing['distance'].m < 100:
+                    quite_confident.append(match_obj)
+                else:
+                    if len(less_confident) == 0:
+                        less_confident.append({'id': practice['id'], 'name': practice['name'], 'updated_at': practice['updated_at'], 'address': practice['address']})
+                    less_confident.append(match_obj)
+
+            if len(less_confident) > 1:
+                matches['less_confident'].append(less_confident)
+
+            if len(quite_confident) > 1:
+                matches['quite_confident'].append(quite_confident)
+
+    # Delete the older ones
+    matches['disabled'] += clean_delete(matches['quite_confident'], dry_run)
+
+    # Get again so we don't disable ones we just disabled
+    all_queryset = models.Practice.objects.filter(disabled=False).values()
+
+    # Find practices on top of each other
+    for practice in all_queryset:
+
+        physically_close = models.Practice.objects.filter(disabled=False, location__distance_lte=(practice['location'], D(m=10))).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
+    
+        if len(physically_close) > 1:
+            physical_duplicates = []
+            for thing in physically_close:
+                physical_duplicates.append({'id': thing['id'], 'name': thing['name'], 'updated_at': thing['updated_at'], 'address': thing['address']})
+
+            matches['very_confident'].append(physical_duplicates)
+    
+    # Delete the older ones
+    matches['disabled'] += clean_delete(matches['very_confident'], dry_run)
+
+    return JsonResponse(matches, status=200, safe=False)
+

@@ -1,5 +1,4 @@
 from __future__ import absolute_import, unicode_literals
-import json
 
 from celery import shared_task
 from django_celery_results.models import TaskResult
@@ -127,7 +126,6 @@ def submit(module, data):
 
 
     # Update the PHO
-    pho.number_of_practices = len(data['scraped'])
     pho.save()
 
     average_prices = get_pho_averages(pho)
@@ -166,7 +164,8 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
     # Submit prices
     for i, price in enumerate(practice[prices_key]):
 
-        rounded_price = round(float(price['price']), 2)
+        # We can only store a value as high as 1000 in our price column, so we gotta do this
+        rounded_price = round(float(price['price']), 2) if float(price['price']) != 1000.0 else 1000
 
         from_age = int(price['age'])
         if i < len(practice[prices_key]) - 1:
@@ -181,7 +180,7 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
         # If there's already a price for that age group then we should update that one so we get history
         if old_price:
 
-            rounded_old_price = round(float(old_price.price), 2)
+            rounded_old_price = round(float(old_price.price), 2) if float(old_price.price) != 1000.0 else 1000
             # If there's a change
             if rounded_old_price != rounded_price:
 
@@ -189,18 +188,16 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
                 changes[str(old_price.from_age)] = [str(rounded_old_price), str(rounded_price)]
 
                 # change the thing in the database
-                old_price.pho = pho
                 old_price.price = rounded_price
                 old_price.save()
         
         # Otherwise we should make a new price
         else:
-
+            print("trying to insert: " + str(rounded_price))
             new_prices = models.Prices.objects.create(
                 practice = new_practice[0],
                 from_age = from_age,
                 to_age = to_age,
-                pho = pho,
                 price = rounded_price,
                 csc = cscPrices,
             )
@@ -212,7 +209,7 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
     return changes
 
 # Helper: Updates the averages prices for a PHO
-# Params: pho name
+# Params: pho object
 def get_pho_averages(pho):
 
     average_prices = [
@@ -228,13 +225,16 @@ def get_pho_averages(pho):
     # Update the average
     for price in average_prices:
         stats = get_pho_average(pho.id, price['age'])
-        price['average'] = "{:.2f}".format(stats['price__avg'])
-        price['min'] = "{:.2f}".format(stats['price__min'])
-        price['max'] = "{:.2f}".format(stats['price__max'])
+        try:
+            price['average'] = "{:.2f}".format(stats['price__avg'])
+            price['min'] = "{:.2f}".format(stats['price__min'])
+            price['max'] = "{:.2f}".format(stats['price__max'])
+        except TypeError:
+            pass
     return average_prices
 
 # Helper: Gets the average price for a particular age over a PHO.
-# Params: pho name, age
+# Params: pho id, age
 def get_pho_average(pho, age):
-    result = models.Prices.objects.filter(pho__id=pho, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False).aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
+    result = models.Prices.objects.filter(practice__pho_link=pho, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False).aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
     return result

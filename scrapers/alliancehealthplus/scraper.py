@@ -21,54 +21,88 @@ def scrape(name):
 		scraper.newPractice(name, url, "Alliance Health Plus", "")
 		practice_soup = scrapers.openAndSoup(url, 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/102.0.0.0 Safari/537.36')
 
-		all_text = practice_soup.find_all('div', {'class': 'Text'})
+		all_text = practice_soup.find_all('div', {'class': '_3bcaz'})
 
 		scraper.practice['prices'] = []
 
+		fees_start = 0
+		address_start = 0
+
 		# Get fees very looseley
-		for text_block in all_text:
+		for i, text_block in enumerate(all_text):
 
 			text_gotten = text_block.get_text(strip=True)
+
+			#print(str(i) + text_gotten)
 
 			if "Phone: " in text_gotten or "Ph: " in text_gotten:
 				phone_lines = text_block.find_all('p')
 				scraper.practice['phone'] = phone_lines[0].get_text(strip=True).split(":")[1].strip()
 
-			if "$" in text_gotten:
+			if "Fees" in text_gotten:
+				fees_start = i
 
-				lines = text_block.find('ul').find_all('li')
+			if "Location" in text_gotten:
+				address_start = i
+				
+			# This would mean we're in the paragraph with the fees (hopefully, but we'll check)
+			if fees_start > 0 and i == fees_start+1:
+				print(text_gotten)
+				if "$" not in text_gotten:
+					# We got it wrong. It's probably the next one?
+					fees_start = fees_start + 1
+					continue
 
-				for fee in lines:
+				lists = text_block.find_all('ul')
 
-					fee_text = fee.get_text(strip=True)
+				for i, list in enumerate(lists):
+					lines = list.find_all('li')
 
-					# We've gone too far and we're done
-					if "After 5pm weekdays" in fee_text or "Saturdays" in fee_text:
-						break
+					for fee in lines:
 
-					# Probably some other random shit if no : so skip it
-					if ":" not in fee_text:
-						continue
+						fee_text = fee.get_text(strip=True)
 
-					fee_tuple = fee_text.split(":")
+						# We've gone too far and we're done
+						if "After 5pm weekdays" in fee_text or "Saturdays" in fee_text:
+							break
 
-					age = scrapers.getFirstNumber(fee_tuple[0])
-					price = scrapers.getFirstNumber(fee_tuple[1])
+						# Probably some other random shit if no : so skip it
+						if ":" not in fee_text:
+							continue
 
-					price_dict = {'age': age, 'price': price}
+						fee_tuple = fee_text.split(":")
 
-					scraper.practice['prices'].append(price_dict)
+						# One of them has a double price, lets just skip it
+						if "in an educational programme" in fee_tuple[0]:
+							continue
 
-		potential_addresses = practice_soup.find_all('div', {'class': '_1Q9if'})
+						age = scrapers.getFirstNumber(fee_tuple[0])
+						price = scrapers.getFirstNumber(fee_tuple[1])
 
-		for i, p_address in enumerate(potential_addresses):
-			if p_address.get_text(strip=True) == "Location":
-				address = scrapers.better_strip(potential_addresses[i + 1].stripped_strings)
+						# Means it couldn't get a number, so probably not a real price
+						if age == 1000:
+							continue
+
+						price_dict = {'age': age, 'price': price}
+
+						# The first table is not CSC, the second is CSC
+						if i == 0 and "with CSC" not in fee_tuple[1]:
+							scraper.practice['prices'].append(price_dict)
+						else:
+
+							if not scraper.practice.get('prices_csc'):
+								scraper.practice['prices_csc'] = []
+
+							scraper.practice['prices_csc'].append(price_dict)
+
+			# This would mean we're in the paragraph with the address (hopefully)
+			if address_start > 0 and i == address_start+1:
+				address = scrapers.better_strip(text_block.stripped_strings)
 
 				if "not currently taking" in address:
 					scraper.notEnrolling()
 
-				scraper.practice['address'] = scrapers.better_strip(potential_addresses[i + 1].stripped_strings)
+				scraper.practice['address'] = address
 
 		scraper.finishPractice()
 

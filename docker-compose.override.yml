@@ -46,19 +46,3 @@ services:
             - GEOLOCATION_API_KEY
         volumes:
             - ./scrapers:/scrapers:rw
-
-    backup:
-        image: postgis/postgis:13-3.2-alpine
-        environment:
-            - PGPASSWORD=password123
-            - POSTGRES_PASSWORD=password123
-        volumes:
-            - ./backups:/backups
-  
-    restore:
-        image: postgis/postgis:13-3.2-alpine
-        environment:
-            - PGPASSWORD=password123
-            - POSTGRES_PASSWORD=password123
-        volumes:
-            - ./restore:/backups

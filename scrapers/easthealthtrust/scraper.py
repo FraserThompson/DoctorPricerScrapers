@@ -24,8 +24,18 @@ def scrape(name):
 		scraper.practice['address'] = bits[1].get_text(strip=True).split("Physical Address")[1]
 		scraper.practice['phone'] = bits[2].get_text(strip=True).split("Phone")[1]
 
-		ages = bits[7].find_all('p')
-		prices = ' '.join(re.split('\\xa0|\\n', other_bits[1].get_text())).split()
+		fees_start = 0
+		for i, bit in enumerate(bits):
+			text = bit.get_text(strip=True)
+			if "Fees" in text:
+				fees_start = i
+				break
+
+		ages = bits[fees_start + 1].find_all('p')
+
+		prices_el = bits[fees_start + 2]
+		prices = prices_el.find_all('p')
+		prices = list(map(lambda a : a.get_text(strip=True), prices))
 
 		# this one is weird
 		if "Juliet" in name:
@@ -40,9 +50,8 @@ def scrape(name):
 			ages = ages_new
 			prices = prices_new
 
-		if len(prices) != len(ages):
-			thing = bits[8].find_all('p')
-			prices = list(map(lambda a : a.get_text(strip=True), thing))
+		if len(prices) != len(ages) or "Community Service Card" in prices_el.get_text(strip=True):
+			prices = ' '.join(re.split('\\xa0|\\n', other_bits[1].get_text())).split()
 		
 		if len(prices) != len(ages):
 			scraper.addError('Could not get prices, instead got: ' + str(prices))
@@ -65,10 +74,17 @@ def scrape(name):
 		]
 
 		for i, age in enumerate(ages):
+			age_num = scrapers.getFirstNumber(age if isinstance(age, str) else age.get_text(strip=True))
+			price_num = scrapers.getFirstNumber(prices[i])
+
 			price = {
-				'age': scrapers.getFirstNumber(age if isinstance(age, str) else age.get_text(strip=True)),
-				'price': scrapers.getFirstNumber(prices[i])
+				'age': age_num,
+				'price': price_num
 			}
+
+			# If it wasn't a number we're probably done
+			if (age_num == 1000 or price_num == 1000):
+				continue
 
 			scraper.practice['prices'].append(price)
 

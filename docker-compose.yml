@@ -44,7 +44,8 @@ services:
     volumes:
       - migrations:/var/www/dp_server/migrations
       - socks:/run/django
-      - static_files:/var/www/dp_server/assets  
+      - static_files:/var/www/dp_server/assets
+      - ./backups:/backups
     depends_on:
       - postgres
     restart: always

@@ -99,7 +99,7 @@ class Scraper:
     # Finish this practice.
     # One argument: An array of fields which should allow existing data to take priority over new data.
     # This is useful if the site sucks now, but it was ok in the past.
-    def finishPractice(self, prioritizeExisting=[]):
+    def finishPractice(self, prioritizeExisting=[], debug=False):
         self.exists = Database.findPractice(self.practice["name"])
 
         self.practice['scraper_source'] = "Web" if 'scraper_source' not in self.practice else self.practice['scraper_source']
@@ -182,7 +182,15 @@ class Scraper:
         if not self.practice["prices"] or len(self.practice["prices"]) == 0:
             self.addError("No prices.")
 
+        if debug:
+            print(self.practice)
+
         self.practice_list.append({'practice': self.practice, 'exists': self.exists})
+
+    def doWeHaveItAlready(self, name):
+        for practice in self.practice_list:
+            if practice.get('practice') and practice['practice']['name'] == name:
+                return True
 
     def finish(self):
         return {"name": self.name, "scraped": self.practice_list, "errors": self.error_list, "warnings": self.warning_list }
@@ -211,18 +219,19 @@ def get_lat_lng(address):
 #####################################################################
 # Refreshes the Place ID using Google's API (free request doesn't count towards limits)
 def refreshPlaceID(placeId):
-    req = requests.get('https://maps.googleapis.com/maps/api/place/details/json?place_id=' + placeId + '&key=' + os.environ.get('GEOLOCATION_API_KEY'))
+    req = requests.get('https://maps.googleapis.com/maps/api/place/details/json?fields=place_id&place_id=' + placeId + '&key=' + os.environ.get('GEOLOCATION_API_KEY'))
 
     if req.status_code != 200:
-        Scraper.cprint("Failed to get PlaceID, retaining original: " + req.text, "WARNING")
-        return placeId
+        Scraper.cprint("Failed to get PlaceID, will get new one: " + req.text, "WARNING")
+        return None
 
     res = req.json()
     
-    if res['status'] != 'NOT_FOUND':
+    if res['status'] != 'NOT_FOUND' and res['status'] != 'INVALID_REQUEST':
         return res['result']['place_id']
     else:
-        return placeId
+        Scraper.cprint("Failed to get PlaceID, retaining original: " + req.text, "WARNING")
+        return None
 
 #####################################################################
 # Return student if student is contained in the string
@@ -241,13 +250,14 @@ def coordsToFloat(coords):
 def fuzzyMatch(s1, s2):
     return True if SM(None, s1, s2).quick_ratio() > 0.7 else False
 
-
 #####################################################################
 # Checks if a string is contained in something
 def partial_match(string, dictin):
     result = None
     for key in dictin:
+        print('does ' + key + ' start with ' + string)
         if key.startswith(string):
+            print('yes')
             result = dictin.get(key)
             break
     # Go for a less accurate search if nothing is found
@@ -276,9 +286,13 @@ def better_strip(string):
 
 #####################################################################
 # Make a string more normal
-def normalize(input):
+def normalize(input, keepSpaces=False):
     string = re.sub('[^0-9a-zA-Z ]+', '', input.strip().lower().replace('mt ', 'mount '))
-    return re.sub(' +',' ', string).replace(' ', '')
+    string = re.sub(' +',' ', string)
+    if keepSpaces:
+        return string
+    else:
+        return string.replace(' ', '')
 
 #####################################################################
 # Replace spaces in a string with dashes
@@ -301,7 +315,7 @@ def urlify(input):
 # Returns the first number in a string. Also does some replacing of common words into numbers. Good for prices.
 def getFirstNumber(string):
     try:
-        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("adults", "18").replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0").replace("--", "0"))[0])
+        result = float(re.findall('[-+]?\d*\.\d+|\d+', string.lower().replace("koha", "0").replace("adults", "18").replace("no charge", "0").replace('zero', '0').replace("free", "0").replace("n/a", "999").replace("under", "0").replace("--", "0"))[0])
     except IndexError:
         result = 1000
     return result

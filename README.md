@@ -59,7 +59,7 @@ To restore the latest backup on the remote, put a backup file in `~/docker-servi
 
 To backup run `npm run backup-dev` and it'll backup to `./backups` in a file called backup.
 
-To restore run `npm run restore-dev` and it'll restore `./backups/backup`.
+To restore run `npm run restore-dev` and it'll restore `./backups/backup`. You'll need to run `npm start` after to get the dev user back.
 
 ### Accessing the admin backend
 
@@ -107,6 +107,21 @@ I made a docker image for testing them in Docker so we don't have to mess up our
 
 To do this run `npm run test [scraper]`. It'll run the scraper and spit the output to scrapers/data.json for your perusal.
 
+### Cleaning
+
+It turns out that practices will change their names quite a lot online for no good reason, meaning we end up with lots of duplicated practices.
+
+To combat this I made a cleaning method which can be accessed from the homepage of the scrapers UI and does this:
+
+1. Search for practices with addresses similar to other addresses (ie. 39 Something Road, Suburb, Auckland and 39 Something Road, Auckland)
+1. Search for practices within 10m of each other
+1. Delete them following this algorithm
+
+1. If one is newer, keep that and disable the others
+1. If they're all the initial date (ie. haven't been touched since we added creation dates) disable the ones with the smallest IDs (these are presumably older)
+
+We don't delete anything because then we'd lose price history, so we just disable them which means they won't show up anywhere.
+
 ### Big disaster hints
 
 If you get:
@@ -138,6 +153,10 @@ If you have an issue with old data needing to be altered for a scheme change you
 Then run a query like:
 
 `UPDATE dp_server_prices SET csc = False;`
+
+If the backup can't backup because of permissions, make sure the directory outside Docker has the same UID as the one inside. This means for Django www-data.
+
+`sudo chown www-data:www-data backups`
 
 ### Model
 

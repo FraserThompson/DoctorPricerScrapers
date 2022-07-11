@@ -65,6 +65,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.gis',
+    'dbbackup', #django-dbbackup
     'rest_framework',
     'rest_framework.authtoken',
     'dp_server',
@@ -73,6 +74,9 @@ INSTALLED_APPS = (
     'celery',
     'django_celery_results',
 )
+
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': '/backups'}
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',

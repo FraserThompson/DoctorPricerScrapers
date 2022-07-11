@@ -40,17 +40,24 @@ def scrape(name):
 
 			name = practice[0][1][0].replace("\\n", "")
 
+			if name != "Whānau Ora Community Clinics (Huakina)":
+				continue
+
+			if scraper.doWeHaveItAlready(name):
+				continue
+
 			try:
 				info = practice[1][1][0].split("\\n")
 			except TypeError:
 				continue
 
 			address_start = 0 if info[0] != "ADDRESS" else 1
-			sections = ["CONTACT", "Contact", "OPENING HOURS", "FEES"]
+			sections = ["CONTACT", "Contact", "OPENING HOURS", "FEES", "WHĀNAU ORA COMMUNITY CLINICS", "HUAKINA", "PAPATOETOE", "MANUKAU (Head Office)"]
 			address = ""
+			print(info)
 			for thing in info[address_start:]:
 				if thing not in sections:
-					address = address + thing
+					address = address + " " + thing
 				else:
 					break
 
@@ -80,20 +87,37 @@ def scrape(name):
 			scraper.practice['prices'] = []
 
 			ages_done = []
+			ages_done_csc = []
 
 			if prices_array:
+				csc = False
 				for price_line in prices_array:
-
 					if "Duration" in price_line:
 						continue
 
-					split = price_line.split(": ")
+					# Some of them do this ['-- With CSC', 'Under 13: Free', 'Ages 13-17: $12.00', 'Ages 18-64: $19.50', 'Age 65+: $19.50', '-- Without CSC', 'Under 13: Free'...
+					if "with csc" in price_line.lower():
+						csc = True
+						continue
+
+					if "without csc" in price_line.lower():
+						csc = False
+						continue
+
+					# Most of them do this 'Under 13: Free'
+					split = price_line.split(":")
+
+					# Some of them do this 'Under 6 years $0'
+					if len(split) == 1:
+						split = price_line.split("$")
+
+					# Some of them do this 'Under 6 years FREE'
+					if len(split) == 1:
+						split = price_line.split("years")
 
 					try:
 						age = scrapers.getFirstNumber(split[0])
 						price = scrapers.getFirstNumber(split[1])
-
-						ages_done.append(age)
 
 						if age not in ages_done:
 							price = {
@@ -101,7 +125,16 @@ def scrape(name):
 								'price':  price
 							}
 
-							scraper.practice['prices'].append(price)
+							if not csc:
+								ages_done.append(age)
+								scraper.practice['prices'].append(price)
+							else:
+								
+								if not scraper.practice.get('prices_csc'):
+									scraper.practice['prices_csc'] = [] 
+
+								ages_done_csc.append(age)
+								scraper.practice['prices_csc'].append(price)
 					except IndexError:
 						# We've probably hit the next section, get out
 						break

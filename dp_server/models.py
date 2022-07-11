@@ -26,11 +26,16 @@ class Pho(models.Model):
     region = models.TextField(blank=True)
     last_run = models.DateTimeField(auto_now=True)
     current_task_id = models.TextField(blank=True, null=True, default=None)
-    number_of_practices = models.IntegerField(default=0)
     average_prices = JSONField(blank=True, null=True, default=dict)
     last_scrape = JSONField(blank=True, null=True, default=list)
     scraper_source = models.TextField(blank=True, null=True)
     history = HistoricalRecords()
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    @property
+    def number_of_practices(self):
+        return Practice.objects.filter(pho_link=self, disabled=False).count()
 
     def __str__(self):
         return str(self.name)
@@ -43,6 +48,7 @@ class Logs(models.Model):
     errors = JSONField(default=dict)
     warnings = JSONField(default=dict)
 
+    @property
     def module(self):
         return self.source.module
 
@@ -59,13 +65,19 @@ class Practice(models.Model):
     restriction = models.TextField(default='')
     place_id = models.TextField(default='', blank=True)
     active = models.BooleanField(default=True)
+    disabled = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
+    @property
     def pho(self):
         return str(self.pho_link.name) if self.pho_link else 'None'
 
+    @property
     def lat(self):
         return self.location.y
 
+    @property
     def lng(self):
         return self.location.x
 
@@ -109,12 +121,16 @@ class Practice(models.Model):
 
 class Prices(models.Model):
     practice = models.ForeignKey(Practice, on_delete=models.CASCADE)
-    pho = models.ForeignKey(Pho, on_delete=models.CASCADE)
     from_age = models.IntegerField()
     to_age = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     csc = models.BooleanField(default=False, blank=True, null=True)
     history = HistoricalRecords()
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    def pho(self):
+        return self.practice.pho_link.name
 
     def __str__(self):
         return str(self.practice.name)

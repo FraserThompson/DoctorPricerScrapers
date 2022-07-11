@@ -64,13 +64,14 @@ def scrape(name):
 				"price": scrapers.getFirstNumber(text)
 			})
 		
-		allPrices[scrapers.normalize(name)] = prices
+		allPrices[scrapers.normalize(name, True)] = prices
 
 	listUrlSouped = scrapers.openAndSoup('http://www.ourhealthhb.nz/your-health/find-a-family-doctor-or-gp/')
 	practiceList = listUrlSouped.find('div', {'class': 'rightbar'}).findAll('a')
 
 	for practice in practiceList[1:-2]:
 		name = practice.getText(strip=True)
+
 		href = practice.get('href')
 		url = href if "http" in href else rootUrl + href
 		scraper.newPractice(name, url , "Health Hawke's Bay", "")
@@ -87,7 +88,7 @@ def scrape(name):
 
 		scraper.practice['phone'] = scrapers.better_strip(content.find('h3').stripped_strings).split("Phone ")[1].split("Fax ")[0]
 		scraper.practice['address'] = scrapers.better_strip(content.find_all('p')[0].stripped_strings)
-		foundPrices = scrapers.partial_match(scrapers.normalize(name), allPrices)
+		foundPrices = scrapers.partial_match(scrapers.normalize(name, True), allPrices)
 
 		if foundPrices == None:
 			scraper.addError('No prices found in fee table (could be name mismatch)')

@@ -10,7 +10,6 @@ router.register(r'logs', views.LogsViewSet)
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
 router.register(r'practices', views.PracticeViewSet)
-router.register(r'prices', views.PricesViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
@@ -21,5 +20,6 @@ urlpatterns = [
     path('scrape/', views.scrape, name='scrape'),
     path('submit/', views.submit, name='submit'),
     path('task_status/', views.task_status, name='task_status'),
+    path('clean/', views.clean, name='clean'),
     path('login/', rest_views.obtain_auth_token),
 ]
