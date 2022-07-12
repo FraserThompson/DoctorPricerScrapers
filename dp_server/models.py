@@ -93,6 +93,8 @@ class Practice(models.Model):
         prices = self.prices_set.filter(to_age__gte=age, from_age__lte=age, csc=csc).first()
         if prices:
             return prices.price
+        else:
+            return None
 
     def price(self, age=0, csc=False):
         price = None
@@ -104,10 +106,10 @@ class Practice(models.Model):
         price = self.__getPrice(age, csc)
 
         # If there was no CSC price, try get a normal price
-        if csc and not price:
+        if csc and price is None:
             price = self.__getPrice(age, False)
 
-        return price or 1000
+        return price if price is not None else 1000
 
     def distance(self):
         return -1

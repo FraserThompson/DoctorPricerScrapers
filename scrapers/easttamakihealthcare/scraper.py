@@ -7,8 +7,8 @@ from scrapers import common as scrapers
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
-	rootUrl = 'http://www.ethc.co.nz'
-	listUrlSouped = scrapers.openAndSoup(rootUrl + "/121/all-clinics")
+	rootUrl = 'https://www.localdoctors.co.nz/'
+	listUrlSouped = scrapers.openAndSoup(rootUrl + "clinic-directory")
 
 	feesUrl = rootUrl + '/fees'
 	feesUrlSouped = scrapers.openAndSoup(feesUrl)
@@ -24,7 +24,7 @@ def scrape(name):
 
 		name =  row.find('a').get_text(strip=True)
 		url = rootUrl + row.find('a').get('href')
-		scraper.newPractice(name, url, "East Tamaki Healthcare", "")
+		scraper.newPractice(name, url, "Local Doctors", "")
 
 		scraper.practice['address'] = row.find('p', {'class': 'u-mb--xs'}).get_text(strip=True)
 		scraper.practice['phone'] = row.find('ul', {'class': 'c-find-a-clinic__contact-list'}).find('span').get_text(strip=True)

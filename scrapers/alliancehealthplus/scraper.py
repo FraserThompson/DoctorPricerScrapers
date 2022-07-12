@@ -102,7 +102,7 @@ def scrape(name):
 				if "not currently taking" in address:
 					scraper.notEnrolling()
 
-				scraper.practice['address'] = address
+				scraper.practice['address'] = address.split("This practice")[0]
 
 		scraper.finishPractice()
 

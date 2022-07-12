@@ -12,6 +12,7 @@ def scrape(name):
 	listUrlSouped = scrapers.openAndSoup('http://www.marlboroughpho.org.nz/general-practices-fees/')
 	fee_rows = listUrlSouped.find('table', {'class': 'omsc-custom-table omsc-style-1'}).find_all('tr')
 	names = listUrlSouped.find_all('h6')
+	names.pop(len(names) - 2) #second to last one has no image, so we remove it from the names list
 	images = listUrlSouped.select('img.size-cta-thumbnail.alignleft')
 
 	practice_details = {}
@@ -33,8 +34,6 @@ def scrape(name):
 		practice_details[name] = healthpoint_details
 
 	ages = []
-
-	print(practice_details)
 
 	for index, row in enumerate(fee_rows):
 
@@ -62,11 +61,9 @@ def scrape(name):
 		# Get details
 		try:
 			practice = practice_details[name.lower()]
+			scraper.practice = scraper.practice | practice
 		except KeyError:
-			scraper.addError("Couldn't get details.")
-			continue
-
-		scraper.practice = scraper.practice | practice
+			scraper.addWarning("Couldn't get details, will use existing")
 
 		# Assign fees to prices
 		for index, age in enumerate(ages):
@@ -75,7 +72,6 @@ def scrape(name):
 				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
-
 
 		scraper.finishPractice()
 

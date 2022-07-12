@@ -52,7 +52,7 @@ class Scraper:
     GEOLOCATOR = GoogleV3(api_key=os.environ.get('GEOLOCATION_API_KEY'))
 
     def newPractice(self, name, url, pho, restriction=""):
-        self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": []}
+        self.practice = {"name": name, "url": url, "pho": pho, "restriction": restriction, "active": True, "prices": [], "prices_csc": []}
 
     def openAndSoup(self, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'):
         print("Accessing URL: " + self.practice["url"])
@@ -116,7 +116,7 @@ class Scraper:
                 self.practice['phone'] = self.exists['phone']
 
             # If the address hasn't changed we can use the existing co-ordinates
-            if fuzzyMatch(self.exists["address"], self.practice["address"]):
+            if self.exists["address"] == self.practice["address"]:
                 self.practice["place_id"] = refreshPlaceID(self.exists["place_id"])
                 self.practice["lat"] = self.exists["lat"]
                 self.practice["lng"] = self.exists["lng"]
@@ -129,11 +129,6 @@ class Scraper:
             self.practice["phone"] = "None supplied"
         else:
             self.practice["phone"] = self.practice["phone"].strip()
-
-        self.practice["address"] = self.practice["address"].strip()
-
-        if "new zealand" not in self.practice["address"].lower():
-            self.practice["address"] += ", New Zealand"
         
         # Verifying data
         if not self.practice.get("lat") or not self.practice.get("lng"):
@@ -143,6 +138,12 @@ class Scraper:
         if not self.practice.get('address'):
             self.addError("No address.")
             return
+
+        # Clean address
+        self.practice["address"] = self.practice["address"].strip()
+
+        if "new zealand" not in self.practice["address"].lower():
+            self.practice["address"] += ", New Zealand"
 
         ages = []
         for price in self.practice["prices"]:
@@ -161,7 +162,7 @@ class Scraper:
         if 0 not in ages and len(self.practice["prices"]):
             self.practice["prices"].insert(0, {'age': 0, 'price': 0})
 
-        if "prices_csc" in self.practice:
+        if "prices_csc" in self.practice and len(self.practice["prices_csc"]) > 0:
             ages_csc = []
             for price in self.practice["prices_csc"]:
 
@@ -283,7 +284,7 @@ def partial_match(string, dictin):
 def openAndSoup(url, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'):
     time.sleep(3) # don't want to be too aggressive
     print("Accessing URL: " + url)
-    req = Request(url, None, headers={'User-Agent': userAgent})
+    req = Request(urllib.parse.quote_from_bytes(url.encode('utf-8'), safe='/:'), None, headers={'User-Agent': userAgent})
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 

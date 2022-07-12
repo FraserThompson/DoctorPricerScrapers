@@ -1,6 +1,7 @@
 import re
 from django.http import HttpResponse, HttpResponseBadRequest
 from django.http import JsonResponse
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.cache import cache_page
 
@@ -81,6 +82,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
     queryset = models.Practice.objects.all()
     serializer_class = serializers.PracticeSerializer
 
+    @method_decorator(cache_page(60 * 60 * 24 * 1)) # 1 day caching
     def get_queryset(self):
         queryset = models.Practice.objects.all()
 
@@ -141,7 +143,7 @@ class LogsViewSet(viewsets.ModelViewSet):
 # Returns the history of price changes for overall averages
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
+#@cache_page(60 * 60 * 24 * 1) # 1 day caching
 def price_history(request):
 
     response = {}
@@ -176,7 +178,7 @@ def price_history(request):
 # Returns the history of price changes for a particular practice or PHO
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 14) # 2 week caching because this rarely changes
+#@cache_page(60 * 60 * 24 * 1) # 1 day caching
 def model_price_history(request, type=None):
 
     name = request.GET.get('name', None)
@@ -208,7 +210,7 @@ def model_price_history(request, type=None):
 # Gets averages for a pho
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 14)
+#@cache_page(60 * 60 * 24 * 1) # 1 day caching
 def model_averages(request, type=None):
 
     ages = [0, 6, 14, 18, 25, 45, 65]
@@ -231,7 +233,7 @@ def model_averages(request, type=None):
 # Gets averages for all practices
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 14)
+#@cache_page(60 * 60 * 24 * 1) # 1 day caching
 def averages(request):
 
     ages = [0, 6, 14, 18, 25, 45, 65]
@@ -356,6 +358,9 @@ def clean(request):
     smart_search = request.query_params.get('smart')
     dumb_search = request.query_params.get('dumb')
 
+    # These places are allowed to be on top of each other because they are
+    whitelist = ["Otahuhu Whitecross", "Otahuhu Local Doctors"]
+
     # Probably a cool way to do this with db queries but whatever
     all_queryset = models.Practice.objects.filter(disabled=False).values()
 
@@ -402,16 +407,17 @@ def clean(request):
             if len(physically_close) > 1:
                 physical_duplicates = []
                 for thing in physically_close:
-                    physical_duplicates.append(
-                        {
-                            'id': thing['id'], 
-                            'name': thing['name'], 
-                            'address': thing['address'], 
-                            'updated_at': thing['updated_at']
-                        }
-                    )
-
-                matches['very_confident'].append(physical_duplicates)
+                    if thing['name'] not in whitelist:
+                        physical_duplicates.append(
+                            {
+                                'id': thing['id'], 
+                                'name': thing['name'], 
+                                'address': thing['address'], 
+                                'updated_at': thing['updated_at']
+                            }
+                        )
+                if len(physical_duplicates):
+                    matches['very_confident'].append(physical_duplicates)
         
         # Delete the very confident ones
         matches['disabled'] += clean_delete(matches['very_confident'], dry_run)
@@ -439,21 +445,22 @@ def clean(request):
                 less_confident = []
 
                 for thing in name_close:
-                    match_obj = {
-                        'id': thing['id'], 
-                        'name': thing['name'],
-                        'address': thing['address'],
-                        'distance': str(thing['distance']),
-                        'updated_at': thing['updated_at'],
-                        'search_params': [fuzzy_name, fuzzy_address], 
-                    }
-                    
-                    if thing['distance'].m < 200:
-                        quite_confident.append(match_obj)
-                    else:
-                        if len(less_confident) == 0:
-                            less_confident.append({'id': practice['id'], 'name': practice['name'], 'address': practice['address'], 'updated_at': practice['updated_at']})
-                        less_confident.append(match_obj)
+                    if thing['name'] not in whitelist:
+                        match_obj = {
+                            'id': thing['id'], 
+                            'name': thing['name'],
+                            'address': thing['address'],
+                            'distance': str(thing['distance']),
+                            'updated_at': thing['updated_at'],
+                            'search_params': [fuzzy_name, fuzzy_address], 
+                        }
+                        
+                        if thing['distance'].m < 200:
+                            quite_confident.append(match_obj)
+                        else:
+                            if len(less_confident) == 0:
+                                less_confident.append({'id': practice['id'], 'name': practice['name'], 'address': practice['address'], 'updated_at': practice['updated_at']})
+                            less_confident.append(match_obj)
 
                 if len(less_confident) > 1:
                     matches['less_confident'].append(less_confident)
