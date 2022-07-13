@@ -139,6 +139,11 @@ class Prices(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
+    @property
+    def disabled(self):
+        return self.practice.disabled
+
+    @property
     def pho(self):
         return self.practice.pho_link.name
 

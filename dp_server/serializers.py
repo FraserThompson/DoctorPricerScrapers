@@ -64,6 +64,11 @@ class PracticeSerializer(serializers.HyperlinkedModelSerializer):
             'updated_at'
         )
 
+class SortedPracticeSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=10)
+    distance = serializers.IntegerField()
+    practices = PracticeSerializer(many=True, read_only=True)
+
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group

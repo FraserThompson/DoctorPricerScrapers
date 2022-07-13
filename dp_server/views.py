@@ -78,11 +78,12 @@ class PricesViewSet(viewsets.ModelViewSet):
 #         distance=x will override the default 60,000km distance setting.
 #         if age is specified it will also calculate prices.
 #         all_prices=true will return the price set for each practice (expensive)
+#         sort: Only supported with lat/lng. Will sort it into buckets for frontend.
 class PracticeViewSet(viewsets.ModelViewSet):
     queryset = models.Practice.objects.all()
     serializer_class = serializers.PracticeSerializer
 
-    @method_decorator(cache_page(60 * 60 * 24 * 1)) # 1 day caching
+    #@method_decorator(cache_page(60 * 60 * 24 * 1)) # 1 day caching
     def get_queryset(self):
         queryset = models.Practice.objects.all()
 
@@ -93,7 +94,8 @@ class PracticeViewSet(viewsets.ModelViewSet):
         csc = self.request.query_params.get('csc', False)
         pho = self.request.query_params.get('pho', None)
         all_prices = self.request.query_params.get('all_prices', None)
-        distance = self.request.query_params.get('distance', '6000000000')
+        distance = self.request.query_params.get('distance', '60000')
+        sort = self.request.query_params.get('sort', False)
 
         queryset = queryset.filter(disabled=False)
 
@@ -118,9 +120,13 @@ class PracticeViewSet(viewsets.ModelViewSet):
         elif all_prices:
             for practice in queryset:
                 practice.all_prices = practice.all_prices(True, csc)
+        
+        # Sorting into radius buckets
+        if lat is not None and lng is not None and sort is not False:
+            queryset = sortPractices(queryset)
+            self.serializer_class = serializers.SortedPracticeSerializer
 
         return queryset
-
 
 class LogsViewSet(viewsets.ModelViewSet):
     queryset = models.Logs.objects.all()
@@ -134,6 +140,25 @@ class LogsViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(source__module=source).order_by('-id')
 
         return queryset
+
+def sortPractices(practices):
+
+    supportedRadius = [2000, 5000, 10000, 30000, 60000]
+
+    # The radius buckets
+    sortedPractices = list(map(lambda a : {'name': str(int(a / 1000)) + "km", 'distance': a, 'practices': []}, supportedRadius))
+
+    bucket_index = 0
+
+    for practice in practices:
+
+        if practice.distance.m > sortedPractices[bucket_index]['distance']:
+            bucket_index += 1
+        
+        bucket = sortedPractices[bucket_index]
+        bucket['practices'].append(practice)
+
+    return sortedPractices
 
 ######################################################
 # Normal views

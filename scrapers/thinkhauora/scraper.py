@@ -57,6 +57,11 @@ def scrape(name):
 		twentyfive = row.find('div', {'class': 'feefour'}).find('p').get_text(strip=True)
 		fortyfive = row.find('div', {'class': 'feefive'}).find('p').get_text(strip=True)
 		oversixtyfive = row.find('div', {'class': 'feesix'}).find('p').get_text(strip=True)
+		
+		if "youth" in scraper.practice['name'].lower():
+			twentyfive = "999"
+			fortyfive = "999"
+			oversixtyfive = "999"
 
 		if not zero:
 			continue
@@ -64,20 +69,21 @@ def scrape(name):
 		if zero == "-":
 			continue
 
-		scraper.practice['prices_csc'] = [
-			{
-			'age': 0,
-			'price': 0,
-			},
-			{
-			'age': 14,
-			'price': 13,
-			},
-			{
-			'age': 18,
-			'price': 19.50,
-			},
-		]
+		if "youth" not in scraper.practice['name'].lower():
+			scraper.practice['prices_csc'] = [
+				{
+				'age': 0,
+				'price': 0,
+				},
+				{
+				'age': 14,
+				'price': 13,
+				},
+				{
+				'age': 18,
+				'price': 19.50,
+				},
+			]
 
 		scraper.practice['prices'] = [
 			{

@@ -42,7 +42,7 @@ def enable_practices(modeladmin, request, queryset):
 
 @admin.register(models.Practice)
 class PracticeAdmin(admin.ModelAdmin):
-    search_fields = ('name', 'address', 'pho_link__name')
+    search_fields = ('name', 'address')
     list_display = ('name', 'pho_link', 'updated_at', 'disabled')
     list_filter = ('disabled', 'active', 'pho_link__name')
     actions = [disable_practices, enable_practices]
@@ -57,6 +57,7 @@ class PhoAdmin(admin.ModelAdmin):
 
 @admin.register(models.Prices)
 class PricesAdmin(admin.ModelAdmin):
-    search_fields = ('practice__name', 'pho__name')
-    list_display = ('practice', 'pho', 'from_age', 'to_age', 'price', 'csc')
-    history_list_display = ('price',)
+    search_fields = ('practice__name',)
+    list_display = ('practice', 'pho', 'from_age', 'to_age', 'price', 'csc', 'disabled')
+    list_filter = ('practice__disabled', 'practice__pho_link',)
+    history_list_display = ('price')
