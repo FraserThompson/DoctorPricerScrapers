@@ -14,13 +14,14 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
         Token.objects.create(user=instance)
 
 class Region(models.Model):
-    name = models.CharField(unique=True, max_length=30)
+    name = models.CharField(unique=True, max_length=30, db_index=True)
+    geo = models.PolygonField(srid=4326, geography=True, verbose_name="bounding box", null=True, blank=True)
 
     def __str__(self):
         return str(self.name)
 
 class Pho(models.Model):
-    name = models.CharField(unique=True, max_length=30)
+    name = models.CharField(unique=True, max_length=30, db_index=True)
     module = models.CharField(max_length=30, null=True, blank=True)
     website = models.TextField(blank=True, null=True)
     region = models.TextField(blank=True)
@@ -64,12 +65,12 @@ class Logs(models.Model):
         return str(self.scraped)
 
 class Practice(models.Model):
-    name = models.TextField(unique=True)
+    name = models.TextField(unique=True, db_index=True)
     address = models.TextField()
     pho_link = models.ForeignKey(Pho, on_delete=models.CASCADE, blank=True, null=True)
     phone = models.TextField(blank=True)
     url = models.TextField()
-    location = models.PointField(srid=4326, geography=True)
+    location = models.PointField(srid=4326, geography=True, db_index=True)
     restriction = models.TextField(default='', blank=True, null=True)
     place_id = models.TextField(default='', blank=True)
     active = models.BooleanField(default=True)

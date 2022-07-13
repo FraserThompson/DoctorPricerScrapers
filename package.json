@@ -4,7 +4,7 @@
       "destroy": "docker compose down -v --remove-orphans",
       "docker-push": "docker build -t fraserthompson/doctorpricerscrapers . && docker push fraserthompson/doctorpricerscrapers",
       "test": "docker compose run scraper-test",
-      "logs": "docker compose logs django",
+      "logs": "docker compose logs -f django",
       "migrate": "docker compose exec django migrate",
       "restore-dev": "docker compose exec django python manage.py dbrestore --noinput",
       "backup-dev": "docker compose exec django python manage.py dbbackup",

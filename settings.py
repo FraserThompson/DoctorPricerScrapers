@@ -72,6 +72,7 @@ INSTALLED_APPS = (
     'simple_history',
     'corsheaders',
     'celery',
+    'leaflet', #django-leaflet
     'django_celery_results',
 )
 
