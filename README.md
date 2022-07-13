@@ -158,6 +158,8 @@ If the backup can't backup because of permissions, make sure the directory outsi
 
 `sudo chown www-data:www-data backups`
 
+If you can't restore a backup because of index not existing errors... Just edit the .psql file and replace `DROP INDEX` with `DROP INDEX IF EXISTS ` (this is weird, idk why it does that)
+
 ### Model
 
 #### PHO
