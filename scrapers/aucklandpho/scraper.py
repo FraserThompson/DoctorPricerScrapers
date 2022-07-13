@@ -45,13 +45,20 @@ def scrape(name):
 		cells = row.find_all('td')
 		name = cells[0].get_text(strip=True)
 
+		# Two cases where the name differs between tables
+		if "Symonds Street Medical Centre" in name:
+			name = "Symonds Street Medical Centre"
+		
+		if name == "Tend":
+			name = "Tend Health"
+
+		scraper.newPractice(name, "https://aucklandpho.co.nz/practices/", "Auckland PHO", "")
+		
 		try:
 			info = practiceInfo[name]
 		except KeyError:
 			scraper.addError("Could not find details.")
 			continue
-
-		scraper.newPractice(name, info['url'], "Auckland PHO", "")
 
 		scraper.practice = scraper.practice | info
 

@@ -182,7 +182,15 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
         if old_price:
 
             rounded_old_price = round(float(old_price.price), 2) if float(old_price.price) != 1000.0 else 1000
-            # If there's a change
+
+            changed = False
+
+            # If there's a change in age categories
+            if old_price.to_age != to_age:
+                old_price.to_age = to_age
+                changed = True
+    
+            # If there's a change in price
             if rounded_old_price != rounded_price:
 
                 # add it to the changes object
@@ -190,6 +198,10 @@ def process_prices(practice, pho, new_practice, cscPrices=False):
 
                 # change the thing in the database
                 old_price.price = rounded_price
+
+                changed = True
+
+            if changed:
                 old_price.save()
         
         # Otherwise we should make a new price

@@ -195,7 +195,7 @@ Scrapers make these when they scrape. Each is associated with a PHO.
 
 #### Log
 
-A log is made each time a scraper is run. These are displayed under each PHO/scraper at stats.doctorpricer.co.nz.
+A log is made each time a scraper is run. These are displayed under each PHO/scraper at data.doctorpricer.co.nz.
 
 ##### Prices
 
