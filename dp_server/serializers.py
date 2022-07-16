@@ -6,11 +6,13 @@ class PhoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Pho
         fields = (
+            'id',
             'name',
             'module',
             'last_run',
             'last_scrape',
             'current_task_id',
+            'region',
             'number_of_practices',
             'number_enrolling',
             'number_notenrolling',
@@ -22,11 +24,6 @@ class LogsSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Logs
         fields = ('module', 'date', 'changes', 'scraped', 'errors', 'warnings', 'id')
-
-class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = User
-        fields = ('__all__')
 
 class PricesSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
@@ -47,6 +44,7 @@ class PracticeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = models.Practice
         fields = (
+            'id',
             'name',
             'address',
             'pho',
@@ -64,12 +62,39 @@ class PracticeSerializer(serializers.HyperlinkedModelSerializer):
             'updated_at'
         )
 
+class RegionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Region
+        fields = (
+            'id',
+            'name',
+            'number_of_practices',
+            'number_enrolling',
+            'number_notenrolling',
+            'averages',
+            'price_history',
+            'geojson'
+        )
+
+class RegionWithPracticesSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = models.Region
+        fields = (
+            'id',
+            'name',
+            'number_of_practices',
+            'number_enrolling',
+            'number_notenrolling',
+            'averages',
+            'price_history',
+            'practices',
+            'phos',
+            'geojson'
+        )
+
+    practices = PracticeSerializer(many=True, read_only=True)
+
 class SortedPracticeSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=10)
     distance = serializers.IntegerField()
     practices = PracticeSerializer(many=True, read_only=True)
-
-class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
-        model = Group
-        fields = ('__all__')

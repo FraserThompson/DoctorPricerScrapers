@@ -7,15 +7,13 @@ from . import views
 router = routers.DefaultRouter()
 router.register(r'pho', views.PhoViewSet)
 router.register(r'logs', views.LogsViewSet)
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
+router.register(r'region', views.RegionViewSet)
 router.register(r'practices', views.PracticeViewSet)
 
 urlpatterns = [
     path('api/', include(router.urls)),
     path('history/', views.price_history, name='history'),
     path('history/<str:type>/', views.model_price_history, name='model_history'),
-    path('averages/', views.averages, name='averages'),
     path('averages/<str:type>/', views.model_averages, name='model_averages'),
     path('scrape/', views.scrape, name='scrape'),
     path('submit/', views.submit, name='submit'),

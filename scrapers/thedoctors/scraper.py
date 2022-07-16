@@ -13,7 +13,7 @@ def scrape(name):
 
     for practice in practices:
         url = practice.get('href')
-        name = practice.get_text(strip=True)
+        name = practice.get_text(strip=True).replace("*", "").strip()
 
         if "https://www.thedoctors.co.nz" not in url:
             continue

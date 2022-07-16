@@ -30,30 +30,45 @@ from django_celery_results.models import TaskResult
 
 logger = logging.getLogger(__name__)
 
-######################################################
+###########################################################
 # Django REST Framework views
-######################################################
+###########################################################
 
+###########################################################
+# Returns regions, with optional data for each region
+# Params:
+#         name: will return a specific region
+#         practices: if specified will return all practices in that region
+class RegionViewSet(viewsets.ModelViewSet):
+    queryset = models.Region.objects.all().order_by('name')
+    serializer_class = serializers.RegionSerializer
 
+    @method_decorator(cache_page(60*60*24)) # 1 day
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    def get_queryset(self):
+        queryset = models.Region.objects.all()
+
+        name = self.request.query_params.get('name', None)
+        practices = self.request.query_params.get('practices', None)
+
+        if name is not None:
+            queryset = queryset.filter(name=name)
+
+            if practices is not None:
+                self.serializer_class = serializers.RegionWithPracticesSerializer
+
+        return queryset
+
+###########################################################
+# Returns PHOs
 class PhoViewSet(viewsets.ModelViewSet):
     queryset = models.Pho.objects.all().order_by('name')
     serializer_class = serializers.PhoSerializer
 
-
-class UserViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
-
-    queryset = User.objects.all().order_by('-date_joined')
-    serializer_class = serializers.UserSerializer
-
-
-class GroupViewSet(viewsets.ModelViewSet):
-    permission_classes = (IsAuthenticated,)
-
-    queryset = Group.objects.all()
-    serializer_class = serializers.GroupSerializer
-
-
+###########################################################
+# Returns prices
 class PricesViewSet(viewsets.ModelViewSet):
     queryset = models.Prices.objects.all()
     serializer_class = serializers.PricesSerializer
@@ -68,8 +83,7 @@ class PricesViewSet(viewsets.ModelViewSet):
 
         return queryset
 
-
-####################################################
+###########################################################
 # Returns some practices
 # Params:
 #         name will return a specific practice
@@ -128,6 +142,10 @@ class PracticeViewSet(viewsets.ModelViewSet):
 
         return queryset
 
+###########################################################
+# Returns submission logs
+# Params:
+#         source: will return logs from a particular module
 class LogsViewSet(viewsets.ModelViewSet):
     queryset = models.Logs.objects.all()
     serializer_class = serializers.LogsSerializer
@@ -141,6 +159,7 @@ class LogsViewSet(viewsets.ModelViewSet):
 
         return queryset
 
+# Helper method for the practices view
 def sortPractices(practices):
 
     supportedRadius = [2000, 5000, 10000, 30000, 60000]
@@ -160,11 +179,11 @@ def sortPractices(practices):
 
     return sortedPractices
 
-######################################################
+###########################################################
 # Normal views
-######################################################
+###########################################################
 
-####################################################
+###########################################################
 # Returns the history of price changes for overall averages
 @csrf_exempt
 @api_view(['GET'])
@@ -254,25 +273,10 @@ def model_averages(request, type=None):
 
     return JsonResponse(response, status=200, safe=False)
 
+
 ####################################################
-# Gets averages for all practices
-@csrf_exempt
-@api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 1) # 1 day caching
-def averages(request):
-
-    ages = [0, 6, 14, 18, 25, 45, 65]
-    response = []
-
-    for age in ages:
-        queryset = models.Prices.objects.filter(to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
-
-        queryset = queryset.aggregate(Avg('price'), Max(
-            'price'), Min('price'), Max('from_age'))
-        response.append(queryset)
-
-    return JsonResponse(response, status=200, safe=False)
-
+#################### ADMIN VIEWS ###################
+####################################################
 
 ####################################################
 # Runs a scraper
@@ -335,17 +339,17 @@ def task_status(request):
             return JsonResponse(task_result.as_dict(), status=400, safe=False)
 
     elif request.method == 'DELETE':
-        if request.user.is_authenticated:
 
-            app.control.terminate(data['task_id'])
+        if not request.user.is_authenticated:
+            return HttpResponseBadRequest("You're not cool enough to do that.")
 
-            pho = models.Pho.objects.get(module=data['module'])
-            pho.current_task_id = None
-            pho.save()
+        app.control.terminate(data['task_id'])
 
-            return HttpResponse('Killed it')
+        pho = models.Pho.objects.get(module=data['module'])
+        pho.current_task_id = None
+        pho.save()
 
-    return HttpResponseBadRequest("You're not cool enough to do that.")
+        return HttpResponse('Killed it')
 
 ####################################################
 # Helper function for the clean() method. Does the actual deletion.

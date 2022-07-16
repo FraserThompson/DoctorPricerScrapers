@@ -1,9 +1,12 @@
+import json
 from django.db import models
 from django.core import serializers
+from django.db.models import Avg, Max, Min, Q, Count
 from django.db.models import JSONField
 from django.contrib.gis.db import models
 from simple_history.models import HistoricalRecords
 from django.conf import settings
+from django.utils.functional import cached_property
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from rest_framework.authtoken.models import Token
@@ -17,6 +20,74 @@ class Region(models.Model):
     name = models.CharField(unique=True, max_length=30, db_index=True)
     geo = models.PolygonField(srid=4326, geography=True, verbose_name="bounding box", null=True, blank=True)
 
+    @property
+    def geojson(self):
+        return self.geo.geojson
+
+    @cached_property
+    def phos(self):
+        practices = self.practices
+        phos = []
+        for practice in practices:
+            if practice.pho_link.id not in phos:
+                phos.append(practice.pho_link.id)
+        return phos
+
+    @cached_property
+    def practices(self):
+        return Practice.objects.filter(disabled=False, location__intersects=self.geo)
+
+    @cached_property
+    def price_history(self):
+        queryset = Prices.history.filter(Q(csc=False) | Q(csc=None), practice__in=self.practices).order_by('history_date').values()
+        averages = {}
+
+        for thing in queryset:
+
+            date_string = thing['history_date'].strftime("%Y-%m")
+            age = thing['from_age']
+
+            if date_string not in averages:
+                averages[date_string] = {}
+
+            if age not in averages[date_string]:
+                averages[date_string][age] = {'count': 0, 'price': 0}
+
+            averages[date_string][age]['count'] += 1
+            averages[date_string][age]['price'] += float(thing['price'])
+
+        for key, average in averages.items():
+            for key, value in average.items():
+                value['price'] = value['price'] / value['count']
+
+        return json.dumps(averages)
+
+    @cached_property
+    def averages(self):
+        ages = [0, 6, 14, 18, 25, 45, 65]
+        response = []
+
+        practices = self.practices
+
+        for age in ages:
+            queryset = Prices.objects.filter(practice__in=practices, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
+            queryset = queryset.aggregate(Avg('price'), Max('price'), Min('price'), Max('from_age'))
+            response.append(queryset)
+        
+        return response
+
+    @cached_property
+    def number_of_practices(self):
+        return self.practices.count()
+
+    @cached_property
+    def number_enrolling(self):
+        return Practice.objects.filter(disabled=False, active=True, location__intersects=self.geo).count()
+
+    @cached_property
+    def number_notenrolling(self):
+        return Practice.objects.filter(disabled=False, active=False, location__intersects=self.geo).count()
+
     def __str__(self):
         return str(self.name)
 
@@ -24,7 +95,7 @@ class Pho(models.Model):
     name = models.CharField(unique=True, max_length=30, db_index=True)
     module = models.CharField(max_length=30, null=True, blank=True)
     website = models.TextField(blank=True, null=True)
-    region = models.TextField(blank=True)
+    region = models.ForeignKey(Region, on_delete=models.DO_NOTHING, blank=True, null=True)
     last_run = models.DateTimeField(auto_now=True)
     current_task_id = models.TextField(blank=True, null=True, default=None)
     average_prices = JSONField(blank=True, null=True, default=dict)
