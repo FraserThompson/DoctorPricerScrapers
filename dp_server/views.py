@@ -39,11 +39,14 @@ logger = logging.getLogger(__name__)
 # Params:
 #         name: will return a specific region
 #         practices: if specified will return all practices in that region
+###########################################################
+
+
 class RegionViewSet(viewsets.ModelViewSet):
     queryset = models.Region.objects.all().order_by('name')
     serializer_class = serializers.RegionSerializer
 
-    @method_decorator(cache_page(60*60*24)) # 1 day
+    @method_decorator(cache_page(60*60*24))  # 1 day
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
@@ -59,16 +62,27 @@ class RegionViewSet(viewsets.ModelViewSet):
             if practices is not None:
                 self.serializer_class = serializers.RegionWithPracticesSerializer
 
+                for region in queryset:
+                    for practice in region.practices:
+                        practice.all_prices = practice.all_prices(
+                            True, csc=False)
+
         return queryset
 
 ###########################################################
 # Returns PHOs
+###########################################################
+
+
 class PhoViewSet(viewsets.ModelViewSet):
     queryset = models.Pho.objects.all().order_by('name')
     serializer_class = serializers.PhoSerializer
 
 ###########################################################
 # Returns prices
+###########################################################
+
+
 class PricesViewSet(viewsets.ModelViewSet):
     queryset = models.Prices.objects.all()
     serializer_class = serializers.PricesSerializer
@@ -93,11 +107,13 @@ class PricesViewSet(viewsets.ModelViewSet):
 #         if age is specified it will also calculate prices.
 #         all_prices=true will return the price set for each practice (expensive)
 #         sort: Only supported with lat/lng. Will sort it into buckets for frontend.
+###########################################################
+
+
 class PracticeViewSet(viewsets.ModelViewSet):
     queryset = models.Practice.objects.all()
     serializer_class = serializers.PracticeSerializer
 
-    #@method_decorator(cache_page(60 * 60 * 24 * 1)) # 1 day caching
     def get_queryset(self):
         queryset = models.Practice.objects.all()
 
@@ -134,7 +150,7 @@ class PracticeViewSet(viewsets.ModelViewSet):
         elif all_prices:
             for practice in queryset:
                 practice.all_prices = practice.all_prices(True, csc)
-        
+
         # Sorting into radius buckets
         if lat is not None and lng is not None and sort is not False:
             queryset = sortPractices(queryset)
@@ -146,6 +162,9 @@ class PracticeViewSet(viewsets.ModelViewSet):
 # Returns submission logs
 # Params:
 #         source: will return logs from a particular module
+###########################################################
+
+
 class LogsViewSet(viewsets.ModelViewSet):
     queryset = models.Logs.objects.all()
     serializer_class = serializers.LogsSerializer
@@ -160,12 +179,15 @@ class LogsViewSet(viewsets.ModelViewSet):
         return queryset
 
 # Helper method for the practices view
+
+
 def sortPractices(practices):
 
     supportedRadius = [2000, 5000, 10000, 30000, 60000]
 
     # The radius buckets
-    sortedPractices = list(map(lambda a : {'name': str(int(a / 1000)) + "km", 'distance': a, 'practices': []}, supportedRadius))
+    sortedPractices = list(map(lambda a: {'name': str(
+        int(a / 1000)) + "km", 'distance': a, 'practices': []}, supportedRadius))
 
     bucket_index = 0
 
@@ -173,7 +195,7 @@ def sortPractices(practices):
 
         if practice.distance.m > sortedPractices[bucket_index]['distance']:
             bucket_index += 1
-        
+
         bucket = sortedPractices[bucket_index]
         bucket['practices'].append(practice)
 
@@ -185,14 +207,16 @@ def sortPractices(practices):
 
 ###########################################################
 # Returns the history of price changes for overall averages
+###########################################################
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 1) # 1 day caching
+@cache_page(60 * 60 * 24 * 1)  # 1 day caching
 def price_history(request):
 
     response = {}
 
-    queryset = models.Prices.history.filter(Q(csc=False) | Q(csc=None)).order_by('history_date').values()
+    queryset = models.Prices.history.filter(
+        Q(csc=False) | Q(csc=None)).order_by('history_date').values()
 
     averages = {}
 
@@ -218,11 +242,12 @@ def price_history(request):
 
     return HttpResponse(response, content_type="application/json")
 
-####################################################
+###########################################################
 # Returns the history of price changes for a particular practice or PHO
+###########################################################
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 1) # 1 day caching
+@cache_page(60 * 60 * 24 * 1)  # 1 day caching
 def model_price_history(request, type=None):
 
     name = request.GET.get('name', None)
@@ -231,7 +256,8 @@ def model_price_history(request, type=None):
 
     match type:
         case "pho":
-            queryset = models.Pho.history.filter(module=name).order_by('history_date').values('average_prices', 'history_date')
+            queryset = models.Pho.history.filter(module=name).order_by(
+                'history_date').values('average_prices', 'history_date')
 
             for thing in queryset:
                 date_string = thing['history_date'].strftime("%Y-%m")
@@ -250,11 +276,12 @@ def model_price_history(request, type=None):
 
     return JsonResponse(averages, status=200, safe=False)
 
-####################################################
+###########################################################
 # Gets averages for a pho
+###########################################################
 @csrf_exempt
 @api_view(['GET'])
-#@cache_page(60 * 60 * 24 * 1) # 1 day caching
+@cache_page(60 * 60 * 24 * 1)  # 1 day caching
 def model_averages(request, type=None):
 
     ages = [0, 6, 14, 18, 25, 45, 65]
@@ -265,7 +292,8 @@ def model_averages(request, type=None):
 
         match type:
             case "pho":
-                queryset = models.Prices.objects.filter(pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
+                queryset = models.Prices.objects.filter(
+                    pho__name=name, to_age__gte=age, from_age__lte=age, price__lt=999, csc=False)
 
         queryset = queryset.aggregate(Avg('price'), Max(
             'price'), Min('price'), Max('from_age'))
@@ -274,13 +302,14 @@ def model_averages(request, type=None):
     return JsonResponse(response, status=200, safe=False)
 
 
-####################################################
-#################### ADMIN VIEWS ###################
-####################################################
+###########################################################
+#################### ADMIN VIEWS ##########################
+###########################################################
 
-####################################################
+###########################################################
 # Runs a scraper
 # Expects a 'module' param specifying what to run
+###########################################################
 @csrf_exempt
 @api_view(['POST'])
 def scrape(request):
@@ -300,9 +329,10 @@ def scrape(request):
 
     return JsonResponse({'task_id': task.task_id}, status=200)
 
-####################################################
+###########################################################
 # Submits to database
 # Expects a 'module' param, optional 'data' param or it will submit last_scrape for the PHO
+###########################################################
 @csrf_exempt
 @api_view(['POST'])
 def submit(request):
@@ -318,9 +348,10 @@ def submit(request):
     return JsonResponse({'task_id': task.task_id}, status=200)
 
 
-####################################################
+###########################################################
 # GETs the status of a task or DELETES one
 # Expects 'task_id' param, to DELETE it also needs 'module'
+###########################################################
 @csrf_exempt
 @api_view(['GET', 'DELETE'])
 def task_status(request):
@@ -351,12 +382,15 @@ def task_status(request):
 
         return HttpResponse('Killed it')
 
-####################################################
+###########################################################
 # Helper function for the clean() method. Does the actual deletion.
+###########################################################
+
+
 def clean_delete(matches, dry_run=True):
 
     disabled = []
-    
+
     # Because this was when the field got populated for the first time
     never_updated_string = "2022-07-09T22:46:51.445203+00:00"
 
@@ -368,12 +402,14 @@ def clean_delete(matches, dry_run=True):
         for disable in delete[1:]:
             disabled.append(disable['id'])
             if not dry_run:
-                models.Practice.objects.filter(id=disable['id']).update(disabled=True)
+                models.Practice.objects.filter(
+                    id=disable['id']).update(disabled=True)
 
     return disabled
 
-####################################################
+###########################################################
 # Does a search for points on top of each other and deletes the oldest
+###########################################################
 @csrf_exempt
 @api_view(['GET'])
 def clean(request):
@@ -398,25 +434,28 @@ def clean(request):
     # quite_confident. Practices which have similar names, similar addresses, and are within 100m of each other physically. These are automatically deleted.
     # less_confident: Practices with similar names and addresses, but more than 100m apart. These are NOT automatically deleted.
     # disabled: A list of the IDs of practices which were disabled.
-    matches = {'very_confident': [], 'quite_confident': [], 'less_confident': [], 'disabled': []}
+    matches = {'very_confident': [], 'quite_confident': [],
+               'less_confident': [], 'disabled': []}
 
     if name_search:
-        # # Find practices with identical names but weird newline stuff 
+        # # Find practices with identical names but weird newline stuff
         for practice in all_queryset:
-            escaped_name = practice['name'].replace("(", "\(").replace(")", "\)")
-            name_identical = models.Practice.objects.filter(disabled=False, name__iregex=r'^[\s]*%s[\s]*$' % (escaped_name)).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
-            
+            escaped_name = practice['name'].replace(
+                "(", "\(").replace(")", "\)")
+            name_identical = models.Practice.objects.filter(disabled=False, name__iregex=r'^[\s]*%s[\s]*$' % (
+                escaped_name)).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
+
             if len(name_identical) > 1:
                 very_confident = []
 
                 for thing in name_identical:
                     match_obj = {
-                        'id': thing['id'], 
+                        'id': thing['id'],
                         'name': thing['name'],
                         'address': thing['address'],
                         'updated_at': thing['updated_at']
                     }
-                    
+
                     very_confident.append(match_obj)
 
                 matches['very_confident'].append(very_confident)
@@ -431,23 +470,24 @@ def clean(request):
         # Find practices on top of each other
         for practice in all_queryset:
 
-            physically_close = models.Practice.objects.filter(disabled=False, location__distance_lte=(practice['location'], D(m=10))).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
-        
+            physically_close = models.Practice.objects.filter(disabled=False, location__distance_lte=(
+                practice['location'], D(m=10))).values('id', 'name', 'address', 'updated_at').order_by('-updated_at')
+
             if len(physically_close) > 1:
                 physical_duplicates = []
                 for thing in physically_close:
                     if thing['name'] not in whitelist:
                         physical_duplicates.append(
                             {
-                                'id': thing['id'], 
-                                'name': thing['name'], 
-                                'address': thing['address'], 
+                                'id': thing['id'],
+                                'name': thing['name'],
+                                'address': thing['address'],
                                 'updated_at': thing['updated_at']
                             }
                         )
                 if len(physical_duplicates):
                     matches['very_confident'].append(physical_duplicates)
-        
+
         # Delete the very confident ones
         matches['disabled'] += clean_delete(matches['very_confident'], dry_run)
 
@@ -457,8 +497,9 @@ def clean(request):
     if smart_search:
         # Find practices which have similar names, similar addresses, and similar locations
         for practice in all_queryset:
-        
-            fuzzy_name =  practice['name'].rsplit(sep=" ", maxsplit=2)[0].lower()
+
+            fuzzy_name = practice['name'].rsplit(
+                sep=" ", maxsplit=2)[0].lower()
             address_split = practice['address'].split(" ")
             fuzzy_address = " ".join(address_split[0:2]).lower()
 
@@ -467,7 +508,7 @@ def clean(request):
                 fuzzy_address = " ".join(address_split[2:5]).lower()
 
             name_close = models.Practice.objects.filter(Q(disabled=False) & Q(name__icontains=fuzzy_name) & Q(address__icontains=fuzzy_address)).annotate(
-                    distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
+                distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
 
             if len(name_close) > 1:
                 quite_confident = []
@@ -476,19 +517,20 @@ def clean(request):
                 for thing in name_close:
                     if thing['name'] not in whitelist:
                         match_obj = {
-                            'id': thing['id'], 
+                            'id': thing['id'],
                             'name': thing['name'],
                             'address': thing['address'],
                             'distance': str(thing['distance']),
                             'updated_at': thing['updated_at'],
-                            'search_params': [fuzzy_name, fuzzy_address], 
+                            'search_params': [fuzzy_name, fuzzy_address],
                         }
-                        
+
                         if thing['distance'].m < 200:
                             quite_confident.append(match_obj)
                         else:
                             if len(less_confident) == 0:
-                                less_confident.append({'id': practice['id'], 'name': practice['name'], 'address': practice['address'], 'updated_at': practice['updated_at']})
+                                less_confident.append(
+                                    {'id': practice['id'], 'name': practice['name'], 'address': practice['address'], 'updated_at': practice['updated_at']})
                             less_confident.append(match_obj)
 
                 if len(less_confident) > 1:
@@ -498,7 +540,8 @@ def clean(request):
                     matches['quite_confident'].append(quite_confident)
 
         # Delete the quite confident ones
-        matches['disabled'] += clean_delete(matches['quite_confident'], dry_run)
+        matches['disabled'] += clean_delete(
+            matches['quite_confident'], dry_run)
 
         # Get again so we don't disable ones we just disabled
         all_queryset = models.Practice.objects.filter(disabled=False).values()
@@ -507,19 +550,19 @@ def clean(request):
         # Find practices with just similar names
         for practice in all_queryset:
             name_close = models.Practice.objects.filter(disabled=False, name__icontains=practice['name']).annotate(
-                    distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
+                distance=Distance('location', practice['location'])).values('id', 'name', 'address', 'updated_at', 'distance').order_by('-updated_at')
 
             if len(name_close) > 1:
                 less_confident = []
 
                 for thing in name_close:
                     match_obj = {
-                        'id': thing['id'], 
+                        'id': thing['id'],
                         'name': thing['name'],
                         'address': thing['address'],
                         'distance': str(thing['distance']),
                         'updated_at': thing['updated_at'],
-                        'search_params': [practice['name']], 
+                        'search_params': [practice['name']],
                     }
 
                     less_confident.append(match_obj)
@@ -527,4 +570,3 @@ def clean(request):
                 matches['less_confident'].append(less_confident)
 
     return JsonResponse(matches, status=200, safe=False)
-

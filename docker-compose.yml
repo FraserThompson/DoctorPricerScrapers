@@ -5,6 +5,7 @@ services:
   # Memcached for Django
   memcached:
     image: memcached:1.6.15-alpine
+    command: memcached -I 10m
 
   # Rabbit for Celery
   rabbit:
