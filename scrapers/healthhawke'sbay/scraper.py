@@ -82,7 +82,11 @@ def scrape(name):
 		if notenrolling:
 			scraper.notEnrolling()
 
-		practice_info = scrapers.openAndSoup(url)
+		try:
+			practice_info = scrapers.openAndSoup(url)
+		except:
+			scraper.addError("Couldn't access practice page, skipping.")
+			continue
 
 		content = practice_info.find('div', {'class': 'col-md-6 main-content print-center-children'})
 

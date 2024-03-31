@@ -11,7 +11,7 @@ def scrape(name):
 	rootURL = 'https://aucklandpho.co.nz'
 
 	# build a dict with practice info keyed to practice name
-	listUrlSouped = scrapers.openAndSoup(rootURL + '/practices/')
+	listUrlSouped = scrapers.openAndSoup(rootURL + '/practices-fees/')
 	practiceEls = listUrlSouped.find('div', {'class': 'practices-fees-items'}).find_all('p')
 
 	practiceInfo = {}

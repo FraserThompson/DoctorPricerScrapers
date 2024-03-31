@@ -18,9 +18,6 @@ def scrape(name):
 	rows = listUrlSouped.findAll('li', {'class': ['c-clinic-list']})
 
 	for row in rows:
-		enrolling = row.find('span', {'class': 'c-find-a-clinic__open-tagline'})
-		if "Open" not in enrolling:
-			scraper.notEnrolling()
 
 		name =  row.find('a').get_text(strip=True)
 		url = rootUrl + row.find('a').get('href')
@@ -29,7 +26,11 @@ def scrape(name):
 		scraper.practice['address'] = row.find('p', {'class': 'u-mb--xs'}).get_text(strip=True)
 		scraper.practice['phone'] = row.find('ul', {'class': 'c-find-a-clinic__contact-list'}).find('span').get_text(strip=True)
 
-		practicePage = scrapers.openAndSoup(url)
+		try:
+			practicePage = scrapers.openAndSoup(url)
+		except:
+			scraper.addError("Couldn't access practice page, skipping.")
+			continue
 
 		try:
 			clinicCode = practicePage.find('input', {'id': 'clinic-fees-code'}).get('value')

@@ -17,11 +17,11 @@
             },
             {
                 "age": 14,
-                "price": 35
+                "price": 37
             },
             {
                 "age": 18,
-                "price": 40
+                "price": 42
             }
         ],
         "prices_csc": [
@@ -85,11 +85,11 @@
             },
             {
                 "age": 14,
-                "price": 43.50
+                "price": 46
             },
             {
                 "age": 18,
-                "price":43.50
+                "price":51
             }
         ],
         "prices_csc": [
@@ -139,11 +139,11 @@
             },
             {
                 "age": 14,
-                "price": 12
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18.50
+                "price": 19.50
             }
         ]
     },
@@ -165,11 +165,11 @@
             },
             {
                 "age": 14,
-                "price": 34
+                "price": 33
             },
             {
                 "age": 18,
-                "price": 46
+                "price": 47
             }
         ],
         "prices_csc": [
@@ -205,11 +205,11 @@
             },
             {
                 "age": 14,
-                "price": 22
+                "price": 24
             },
             {
                 "age": 18,
-                "price":44.50
+                "price":49
             }
         ],
         "prices_csc": [
@@ -265,6 +265,20 @@
         "restriction": "",
         "place_id": "ChIJ_SdGeLkDQG0RMlP0KNESbCI",
         "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 35
+            },
+            {
+                "age": 18,
+                "price": 46.70
+            }
+        ],
+        "prices_csc": [
             {
                 "age": 0,
                 "price": 0
@@ -374,7 +388,11 @@
                 "price": 0
             },
             {
-                "age": 25,
+                "age": 13,
+                "price": 19.50
+            },
+            {
+                "age": 18,
                 "price": 19.50
             }
         ]
@@ -397,11 +415,11 @@
             },
             {
                 "age": 14,
-                "price": 33
+                "price": 36
             },
             {
                 "age": 18,
-                "price": 43
+                "price": 48
             }
         ],
         "prices_csc": [

@@ -16,23 +16,23 @@
             },
             {
                 "age": 14,
-                "price": 32
+                "price": 35
             },
             {
                 "age": 18,
-                "price": 44
+                "price": 47
             },
             {
                 "age": 25,
-                "price": 44
+                "price": 47
             },
             {
-                "age": 25,
-                "price": 44
+                "age": 45,
+                "price": 47
             },
             {
                 "age": 65,
-                "price": 44
+                "price": 47
             }
         ],
         "prices_csc": [
@@ -67,19 +67,19 @@
             },
             {
                 "age": 14,
-                "price": 29
+                "price": 35
             },
             {
                 "age": 18,
-                "price": 40
+                "price": 35
+            },
+            {
+                "age": 45,
+                "price": 45
             },
             {
                 "age": 25,
-                "price": 42
-            },
-            {
-                "age": 25,
-                "price": 42
+                "price": 45
             },
             {
                 "age": 65,
@@ -118,23 +118,23 @@
             },
             {
                 "age": 14,
-                "price": 28
+                "price": 31
             },
             {
                 "age": 18,
-                "price": 39
+                "price": 43
             },
             {
                 "age": 25,
-                "price": 41
+                "price": 45
             },
             {
-                "age": 25,
-                "price": 41
+                "age": 45,
+                "price": 45
             },
             {
                 "age": 65,
-                "price": 39
+                "price": 43
             }
         ],
         "prices_csc": [
@@ -169,23 +169,23 @@
             },
             {
                 "age": 14,
-                "price": 29
+                "price": 33.50
             },
             {
                 "age": 18,
-                "price": 40
+                "price": 46
             },
             {
                 "age": 25,
-                "price": 42
+                "price": 48
             },
             {
-                "age": 25,
-                "price": 42
+                "age": 45,
+                "price": 48
             },
             {
                 "age": 65,
-                "price": 40
+                "price": 46
             }
         ],
         "prices_csc": [
@@ -220,23 +220,23 @@
             },
             {
                 "age": 14,
-                "price": 30
+                "price": 33
             },
             {
                 "age": 18,
-                "price": 40.50
+                "price": 47
             },
             {
                 "age": 25,
-                "price": 40.50
+                "price": 47
             },
             {
-                "age": 25,
-                "price": 40.50
+                "age": 45,
+                "price": 47
             },
             {
                 "age": 65,
-                "price": 40.50
+                "price": 47
             }
         ],
         "prices_csc": [
@@ -373,23 +373,23 @@
             },
             {
                 "age": 14,
-                "price": 34
+                "price": 40
             },
             {
                 "age": 18,
-                "price": 42
+                "price": 48
             },
             {
                 "age": 25,
-                "price": 43.50
+                "price": 49.50
             },
             {
-                "age": 25,
-                "price": 43.50
+                "age": 45,
+                "price": 49.50
             },
             {
                 "age": 65,
-                "price": 41.50
+                "price": 47.50
             }
         ],
         "prices_csc": [
@@ -424,23 +424,23 @@
             },
             {
                 "age": 14,
-                "price": 27
+                "price": 32
             },
             {
                 "age": 18,
-                "price": 39
+                "price": 46
             },
             {
                 "age": 25,
-                "price": 40
+                "price": 47
             },
             {
-                "age": 25,
-                "price": 40
+                "age": 45,
+                "price": 47
             },
             {
                 "age": 65,
-                "price": 40
+                "price": 45
             }
         ],
         "prices_csc": [
@@ -454,12 +454,12 @@
             },
             {
                 "age": 18,
-                "price": 19
+                "price": 19.50
             }
         ]
     },
     {
-        "name": "Korowai Aroha\tHealth Centre",
+        "name": "Korowai Aroha Health Centre",
         "address": "1292 Hinemoa Street, Rotorua",
         "pho": "Rotorua Area PHO",
         "phone": "07 348 8454",
@@ -475,7 +475,7 @@
             },
             {
                 "age": 14,
-                "price": 7
+                "price": 10
             },
             {
                 "age": 18,
@@ -486,7 +486,7 @@
                 "price": 15
             },
             {
-                "age": 25,
+                "age": 45,
                 "price": 15
             },
             {
@@ -501,7 +501,7 @@
             },
             {
                 "age": 14,
-                "price": 7
+                "price": 10
             },
             {
                 "age": 18,
@@ -524,7 +524,7 @@
         "all_prices": []
     },
     {
-        "name": "Rotorua Medical Group\t- Central Health",
+        "name": "Rotorua Medical Group - Central Health",
         "address": "1181 Amohia Street, Rotorua",
         "pho": "Rotorua Area PHO",
         "phone": "07 347 0000",
@@ -544,19 +544,19 @@
             },
             {
                 "age": 18,
-                "price": 19
+                "price": 19.50
             },
             {
                 "age": 25,
-                "price": 19
+                "price": 19.50
             },
             {
-                "age": 25,
-                "price": 19
+                "age": 45,
+                "price": 19.50
             },
             {
                 "age": 65,
-                "price": 19
+                "price": 19.50
             }
         ],
         "prices_csc": [
@@ -570,7 +570,7 @@
             },
             {
                 "age": 18,
-                "price": 19
+                "price": 19.50
             }
         ]
     },
@@ -591,23 +591,23 @@
             },
             {
                 "age": 14,
-                "price": 12
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18
+                "price": 19
             },
             {
                 "age": 25,
-                "price": 18
+                "price": 19
             },
             {
-                "age": 25,
-                "price": 18
+                "age": 45,
+                "price": 19
             },
             {
                 "age": 65,
-                "price": 18
+                "price": 19
             }
         ],
         "prices_csc": [
@@ -617,11 +617,11 @@
             },
             {
                 "age": 14,
-                "price": 12
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 18
+                "price": 19
             }
         ]
     },
@@ -642,11 +642,11 @@
             },
             {
                 "age": 14,
-                "price": 30.50
+                "price": 13
             },
             {
                 "age": 18,
-                "price": 38
+                "price": 19.50
             }
         ],
         "prices_csc": [
@@ -660,7 +660,7 @@
             },
             {
                 "age": 18,
-                "price": 19
+                "price": 19.50
             }
         ]
     },
@@ -692,7 +692,7 @@
                 "price": 19
             },
             {
-                "age": 25,
+                "age": 45,
                 "price": 19
             },
             {

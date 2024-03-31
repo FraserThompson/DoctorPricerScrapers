@@ -339,14 +339,19 @@ def scrapeHealthpoint(url):
 
     practice['url'] = url
     practice['name'] = practiceSouped.find('div', {'id': 'heading'}).find('h1').get_text(strip=True)
-    practice['address'] = practiceSouped.find('div', {'class': 'service-location'}).find('h3').get_text(strip=True)
+
+    try:
+        practice['address'] = practiceSouped.find('div', {'class': 'service-location'}).find('h3').get_text(strip=True)
+    except:
+        return
+
     practice['phone'] = practiceSouped.find('ul', {'class', 'contact-list'}).find('p').get_text(strip=True)
     
     map_el = practiceSouped.find('div', {'class', 'map'})
     if (map_el):
-        coords = map_el.get('data-position').split(", ")
-        practice['lat'] = coords[0]
-        practice['lng'] = coords[1]
+        coords = map_el.get('data-position').split(",")
+        practice['lat'] = coords[0].strip()
+        practice['lng'] = coords[1].strip()
 
     enrolling_el = practiceSouped.find('div', {'id': 'section-books'})
 

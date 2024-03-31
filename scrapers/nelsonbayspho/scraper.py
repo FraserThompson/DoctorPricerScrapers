@@ -8,7 +8,7 @@ def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	# Access the URLs
-	listUrlSouped = scrapers.openAndSoup('http://nbph.org.nz/gp-fees-table')
+	listUrlSouped = scrapers.openAndSoup('http://nbph.org.nz/services/gp-fees-table')
 	tables = listUrlSouped.find_all('table', {'id': 'gp-fees-comparison'})
 
 	heading = tables[0].find('thead').find_all('th')

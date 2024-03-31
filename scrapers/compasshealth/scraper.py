@@ -51,6 +51,22 @@ def scrape(name):
             if not info['active']:
                 scraper.notEnrolling()
 
+            if csc:
+                scraper.practice['prices_csc'] = [
+                    {
+                    'age': 0,
+                    'price': 0,
+                    },
+                    {
+                    'age': 14,
+                    'price': 13,
+                    },
+                    {
+                    'age': 18,
+                    'price': 19.50,
+                    },
+                ]
+
             scraper.practice['prices'] = [
                 {
                 'age': 0,

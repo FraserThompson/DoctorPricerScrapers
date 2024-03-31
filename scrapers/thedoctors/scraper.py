@@ -91,12 +91,18 @@ def scrape(name):
         ages = []
         csc_ages = []
         for row in rows:
+
             cells = row.find_all('td')
+
+            if not cells:
+                scraper.addWarning('A price row was empty, skipping it.')
+                continue
 
             age_text = cells[0].get_text(strip=True)
 
             age = scrapers.getFirstNumber(age_text)
-            price = scrapers.getFirstNumber(cells[1].get_text(strip=True))
+            price_text = cells[1].get_text(strip=True)
+            price = scrapers.getFirstNumber(price_text if price_text else cells[2].get_text(strip=True))
 
             # Some of them put the header in tbody so they fail and we can skip
             if age == 1000 or price == 1000:

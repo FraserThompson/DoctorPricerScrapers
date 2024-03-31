@@ -39,7 +39,21 @@
             },
             {
                 "age": 14,
-                "price": 13
+                "price": 54
+            },
+            {
+                "age": 18,
+                "price": 59
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price":13
             },
             {
                 "age": 18,
@@ -48,6 +62,126 @@
         ],
         "restriction": "",
         "url": "http://www.burnsidemedical.co.nz/"
+    },
+    {
+        "address": "53 Caulfield Avenue, Halswell, Christchurch 8025",
+        "lat": -43.578346,
+        "lng": 172.5465135,
+        "name": "Halwswellhealth at Longhurst Health",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "322 8121",
+        "place_id": "ChIJwWgZGpsfMm0RlN74xSucXXc",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 51
+            },
+            {
+                "age": 18,
+                "price": 63
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price":13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
+        "restriction": "",
+        "url": "https://halswellhealth.co.nz/"
+    },
+    {
+        "address": "36 Ensign Street, Halswell, Christchurch 8025",
+        "lat": -43.5744296,
+        "lng": 172.5685139,
+        "name": "Halwswellhealth",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "322 8121",
+        "place_id": "ChIJ4-G1r5AfMm0R6BzFVinZHW4",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 51
+            },
+            {
+                "age": 18,
+                "price": 63
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price":13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
+        "restriction": "",
+        "url": "https://halswellhealth.co.nz/"
+    },
+    {
+        "address": "9 Coupling Close, Prebbleton 7604",
+        "lat": -43.5805039,
+        "lng": 172.5118157,
+        "name": "Halwswellhealth at Prebbleton",
+        "active": true,
+        "pho": "Christchurch PHO",
+        "phone": "322 8121",
+        "place_id": "ChIJ2SOU_DofMm0R-Ym7N55cKjE",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 51
+            },
+            {
+                "age": 18,
+                "price": 63
+            }
+        ],
+        "prices_csc": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price":13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ],
+        "restriction": "",
+        "url": "https://halswellhealth.co.nz/"
     },
     {
         "address": "Cnr Springs Rd & Ellesmere Junction Rd, Lincoln 7647",
@@ -68,32 +202,6 @@
         "url": "https://www.lincoln.ac.nz/student-support/health-and-wellbeing/student-health//"
     },
     {
-        "address": "5/25 Churchill St, Christchurch",
-        "lat": -43.5214291,
-        "lng": 172.6465347,
-        "name": "298 Korowai Youth Wellbeing Trust",
-        "active": true,
-        "pho": "Christchurch PHO",
-        "phone": "943 9298",
-        "place_id": "ChIJJRxuKSeKMW0R40bhXDoBrQg",
-        "prices": [
-            {
-                "age": 0,
-                "price": 999
-            },
-            {
-                "age": 10,
-                "price": 0
-            },
-            {
-                "age": 25,
-                "price": 999
-            }
-        ],
-        "restriction": "",
-        "url": "http://www.298.org.nz/"
-    },
-    {
         "address": "3 Pilgrim Place, Christchurch",
         "lat": -43.5408848,
         "lng": 172.6397097,
@@ -109,7 +217,7 @@
             },
             {
                 "age": 14,
-                "price": 15
+                "price": 13
             },
             {
                 "age": 18,
@@ -123,13 +231,11 @@
             },
             {
                 "age": 14,
-                "price": 40,
-                "price_csc": 15
+                "price": 55
             },
             {
                 "age": 18,
-                "price": 53,
-                "price_csc": 19.50
+                "price": 65
             }
         ],
         "restriction": "",
@@ -165,13 +271,11 @@
             },
             {
                 "age": 14,
-                "price": 45,
-                "price_csc": 13
+                "price": 55
             },
             {
                 "age": 18,
-                "price": 55,
-                "price_csc": 19.50
+                "price": 65
             }
         ],
         "restriction": "",
@@ -195,8 +299,7 @@
         "prices": [
             {
                 "age": 0,
-                "price": 15,
-                "price_csc": 0
+                "price": 15
             }
         ],
         "restriction": "Student",

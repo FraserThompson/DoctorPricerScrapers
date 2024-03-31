@@ -1,52 +1,12 @@
 [
     {
-        "name": "Coast Medical Limited",
-        "address": "161 Palmerston Street, Westport",
-        "pho": "West Coast PHO",
-        "active": true,
-        "phone": "03 789 5000",
-        "url": "http://www.westcoastpho.org.nz/general-practices/coast-medical-limited",
-        "lat": -41.7561903,
-        "lng": 171.5991692,
-        "restriction": "",
-        "place_id": "ChIJmQsRXwkGJW0RIdFnZ06ngh0",
-        "prices": [
-            {
-                "age": 0,
-                "price": 0
-            },
-            {
-                "age": 14,
-                "price": 22
-            },
-            {
-                "age": 18,
-                "price": 28
-            },
-            {
-                "age": 65,
-                "price": 25
-            }
-        ],
-        "prices_csc": [
-            {
-                "age": 0,
-                "price": 0
-            },
-            {
-                "age": 18,
-                "price": 19.50
-            }
-        ]
-    },
-    {
-        "name": "Buller Medical Services",
-        "address": "45 Derby Street, Westport",
+        "name": "Buller Health",
+        "address": "46B Cobden Street, Westport",
         "pho": "West Coast PHO",
         "phone": "(03) 788 9277",
         "url": "http://www.westcoastpho.org.nz/general-practices/buller",
-        "lat": -41.7467295,
-        "lng": 171.6041268,
+        "lat": -41.7485981,
+        "lng": 171.6060327,
         "restriction": "",
         "place_id": "ChIJe2-TUt8FJW0R-knbaN-oNHg",
         "prices": [
@@ -200,6 +160,49 @@
         "restriction": "",
         "place_id": "ChIJLZjicwG0JG0RI0wPfg_zSyQ",
         "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 13
+            },
+            {
+                "age": 18,
+                "price": 19.50
+            }
+        ]
+    },
+    {
+        "name": "Kawatiri Health",
+        "address": "6 Bentham Street, Westport",
+        "pho": "West Coast PHO",
+        "phone": "03 789 5000",
+        "url": "https://westcoastpho.org.nz/general-practices/coast-medical-limited",
+        "lat": -41.7631478,
+        "lng": 171.5968539,
+        "restriction": "",
+        "place_id": "ChIJmQsRXwkGJW0RIdFnZ06ngh0",
+        "prices": [
+            {
+                "age": 0,
+                "price": 0
+            },
+            {
+                "age": 14,
+                "price": 25
+            },
+            {
+                "age": 18,
+                "price": 32
+            },
+            {
+                "age": 65,
+                "price": 30
+            }
+        ],
+        "prices_csc": [
             {
                 "age": 0,
                 "price": 0

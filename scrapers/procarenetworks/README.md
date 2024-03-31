@@ -8,4 +8,4 @@ So we have a `local-scraper.py` which we run locally to scrape to a JSON file, a
 
 To run this locally:
 
-`docker-compose run scraper-test procarenetworks local-scraper`
+`docker compose run scraper-test procarenetworks local-scraper`
