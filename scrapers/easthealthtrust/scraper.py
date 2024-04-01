@@ -14,15 +14,15 @@ def scrape(name):
 		url = button.get('href')
 		practiceSouped = scrapers.openAndSoup(url)
 
-		bits = practiceSouped.find_all('div', {'class': '_1Q9if'})
-		other_bits = practiceSouped.find_all('div', {'class': '_2Hij5'})
+		# Class of the element which contains most of teh stuff on the page
+		bits = practiceSouped.find_all('div', {'class': 'QxJLC3'})
 
-		name = bits[0].get_text(strip=True)
+		name = bits[1].get_text(strip=True)
 
 		scraper.newPractice(name, url, "East Health Trust", "")	
 
-		scraper.practice['address'] = bits[1].get_text(strip=True).split("Physical Address")[1]
-		scraper.practice['phone'] = bits[2].get_text(strip=True).split("Phone")[1]
+		scraper.practice['address'] = bits[2].get_text(strip=True).split("Physical Address")[1]
+		scraper.practice['phone'] = bits[3].get_text(strip=True).split("Phone")[1]
 
 		fees_start = 0
 		for i, bit in enumerate(bits):
@@ -49,9 +49,6 @@ def scrape(name):
 
 			ages = ages_new
 			prices = prices_new
-
-		if len(prices) != len(ages) or "Community Service Card" in prices_el.get_text(strip=True):
-			prices = ' '.join(re.split('\\xa0|\\n', other_bits[1].get_text())).split()
 		
 		if len(prices) != len(ages):
 			scraper.addError('Could not get prices, instead got: ' + str(prices))

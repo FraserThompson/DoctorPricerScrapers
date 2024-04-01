@@ -3,33 +3,28 @@ from scrapers import common as scrapers
 
 current_dir = './scrapers/compasshealth/'
 
-fee_url = 'https://tuora.org.nz/api/public/tuora-portal/practice-fees/filter?pageSize=10&showOnPracticeList=true&page=1&dhb='
-info_url = 'https://tuora.org.nz/api/public/tuora-portal/practices/filter?page=1&pageSize=100&showOnPracticeList=true&dhb='
+fee_url = 'https://tuora.org.nz/api/tuora-profile/practice-fees/filter?page=1&pageSize=100&showOnPracticeList=true&dhb='
+info_url = 'https://tuora.org.nz/api/tuora-profile/practice-fees/practices-except-after-care'
 
 def scrape(name):
 
     scraper = scrapers.Scraper(name)
 
-    # compass splits their lists into two sub-dhb type jams
-    dhbs = [2, 3]
+    # Get info to build a dict
+    r = requests.get(info_url, verify=False)
+    practice_info = r.json()
+    practice_dict = {}
 
+    for info in practice_info:
+        name = info['name']
+        practice_dict[name] = info
+
+    # fees requests are per DHB
+    dhbs = [2, 3, 9]
+
+    # Get fees to add the practices
     for dhb in dhbs:
-        # Get info to build a dict
-        r = requests.get(info_url + str(dhb), verify=False)
-        info_json = r.json()
-        practice_info = info_json['content']
-        practice_dict = {}
 
-        for info in practice_info:
-            name = info['name']
-            practice_dict[name] = {
-                'address': info['address'],
-                'phone': info['phone'],
-                'active': info['acceptingNewPatients'],
-                'url': info['webSite']
-            }
-
-        # Get fees to add the practices
         r = requests.get(fee_url + str(dhb), verify=False)
         fees_json = r.json()
         practice_fees = fees_json['content']
@@ -44,11 +39,12 @@ def scrape(name):
                 scraper.addError("Practice exists in Fees but not in info. Skipping.")
                 continue
 
-            scraper.newPractice(name, info['url'], "Compass Health", "")
+            scraper.newPractice(name, info['webSite'], "Compass Health", "")
+            scraper.setLatLng([info['coordinates']['lat'], info['coordinates']['lng']])
             scraper.practice['phone'] = info['phone']
             scraper.practice['address'] = info['address']
 
-            if not info['active']:
+            if not info['acceptingNewPatients']:
                 scraper.notEnrolling()
 
             if csc:

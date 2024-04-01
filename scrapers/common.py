@@ -281,10 +281,10 @@ def partial_match(string, dictin):
 
 #####################################################################
 # Opens a URL and returns soup
-def openAndSoup(url, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.23 Safari/537.36'):
+def openAndSoup(url, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'):
     time.sleep(3) # don't want to be too aggressive
     print("Accessing URL: " + url)
-    req = Request(urllib.parse.quote_from_bytes(url.encode('utf-8'), safe='/:'), None, headers={'User-Agent': userAgent})
+    req = Request(urllib.parse.quote_from_bytes(url.encode('utf-8'), safe='/:?&='), None, headers={'User-Agent': userAgent})
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
 

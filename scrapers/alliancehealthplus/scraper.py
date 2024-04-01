@@ -1,14 +1,20 @@
 import sys, codecs, os
 import json
+from urllib.request import urlopen, Request
 from scrapers import common as scrapers
 
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-clinic/'
-	listUrlSouped = scrapers.openAndSoup(practice_list_url, 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/102.0.0.0 Safari/537.36')
+	listUrlSouped = scrapers.openAndSoup(practice_list_url)
 
-	clinics = listUrlSouped.find('main', {'id': 'PAGES_CONTAINER'}).find_all('a', {'data-testid': "linkElement"})
+	pageContent = listUrlSouped.find('iframe', {'title': 'Wix FAQ'})
+	print(pageContent.attrs)
+	response = urlopen(pageContent.attrs['src'])
+	iframe_soup = scrapers.openAndSoup(response)
+
+	clinics = iframe_soup.find('main', {'id': 'PAGES_CONTAINER'}).find_all('a', {'data-testid': "linkElement"})
 
 	for clinic in clinics:
 
@@ -19,7 +25,7 @@ def scrape(name):
 			continue
 
 		scraper.newPractice(name, url, "Alliance Health Plus", "")
-		practice_soup = scrapers.openAndSoup(url, 'Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/102.0.0.0 Safari/537.36')
+		practice_soup = scrapers.openAndSoup(url)
 
 		all_text = practice_soup.find_all('div', {'class': '_3bcaz'})
 

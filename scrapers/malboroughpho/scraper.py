@@ -10,39 +10,32 @@ def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	listUrlSouped = scrapers.openAndSoup('http://www.marlboroughpho.org.nz/general-practices-fees/')
-	fee_rows = listUrlSouped.find('table', {'class': 'omsc-custom-table omsc-style-1'}).find_all('tr')
-	names = listUrlSouped.find_all('h6')
-	names.pop(len(names) - 2) #second to last one has no image, so we remove it from the names list
-	images = listUrlSouped.select('img.size-cta-thumbnail.alignleft')
+	tables = listUrlSouped.find_all('table', {'class': 'omsc-custom-table omsc-style-1'})
+
+	practice_cells = tables[0].find_all('td')
 
 	practice_details = {}
 
-	for i, image in enumerate(images):
-		link = image.find_parent('a')
-		pairs = list(names[i].stripped_strings)
-		name = pairs[0].lower()
-		
-		if not link:
-			continue
+	# Get practice details from box at top
+	for cell in practice_cells:
+		lines = cell.get_text(strip=True, separator='\n').splitlines()
+		name = lines[0].strip().lower()
+		practice_details[name] = {
+			'address': lines[1].strip(),
+			'phone': lines[2].strip()
+		}
 
-		link = link.get('href')
-
-		if "healthpoint" not in link:
-			continue
-
-		healthpoint_details = scrapers.scrapeHealthpoint(link)
-		practice_details[name] = healthpoint_details
-
+	# The second table on the page is CSC prices
+	csc_prices = {}
+	csc_rows = tables[2].find_all('tr')
 	ages = []
 
-	for index, row in enumerate(fee_rows):
+	for index, row in enumerate(csc_rows):
 
 		if index == 0:
 			cells = row.find_all('th')
 		else:
 			cells = row.find_all('td')
-
-		name = cells[0].get_text(strip=True).replace('#', '')
 
 		# Get ages
 		if index == 0:
@@ -56,11 +49,47 @@ def scrape(name):
 			
 			continue
 
+		name = cells[0].get_text(strip=True).replace('#', '').strip().lower()
+		csc_prices[name] = []
+
+		# Assign fees to prices
+		for index, age in enumerate(ages):
+	
+			if cells[index + 1].get_text(strip=True):
+				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
+
+			csc_prices[name].append({'age': age, 'price': price })
+
+
+	# Get the normal prices and finish the practice
+	fee_rows = tables[1].find_all('tr')
+	ages = []
+
+	for index, row in enumerate(fee_rows):
+
+		if index == 0:
+			cells = row.find_all('th')
+		else:
+			cells = row.find_all('td')
+
+		# Get ages
+		if index == 0:
+
+			for cell in cells[1:]:
+
+				age = scrapers.getFirstNumber(cell.get_text(strip=True))
+
+				if age != 1000:
+					ages.append(age)
+			
+			continue
+
+		name = cells[0].get_text(strip=True).replace('#', '')
 		scraper.newPractice(name, "https://www.marlboroughpho.org.nz/general-practices-fees/", "Malborough PHO", "")
 
 		# Get details
 		try:
-			practice = practice_details[name.lower()]
+			practice = practice_details[name.strip().lower()]
 			scraper.practice = scraper.practice | practice
 		except KeyError:
 			scraper.addWarning("Couldn't get details, will use existing")
@@ -72,6 +101,11 @@ def scrape(name):
 				price = scrapers.getFirstNumber(cells[index + 1].get_text(strip=True))
 
 			scraper.practice['prices'].append({'age': age, 'price': price })
+
+		try:
+			scraper.practice['prices_csc'] = csc_prices[name.strip().lower()]
+		except KeyError:
+			scraper.addWarning("No CSC prices.")
 
 		scraper.finishPractice()
 
