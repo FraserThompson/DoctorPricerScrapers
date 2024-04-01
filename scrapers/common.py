@@ -7,6 +7,8 @@ import requests, ssl
 import re, os
 from difflib import SequenceMatcher as SM
 from geopy.geocoders import GoogleV3
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
 ################### DATABASE ###########################################
 # Contains all logic for interacting with the database.
@@ -287,6 +289,26 @@ def openAndSoup(url, userAgent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleW
     req = Request(urllib.parse.quote_from_bytes(url.encode('utf-8'), safe='/:?&='), None, headers={'User-Agent': userAgent})
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     return BeautifulSoup(urlopen(req, context=context).read().decode('utf-8', 'ignore'), 'html5lib')
+
+#####################################################################
+# Opens a URL via Selenium webdriver and soups it. Slower but works with dynamic stuff.
+# Params: an optional CSS selector to get contents of an iframe on the page.
+def seleniumAndSoup(url, iframeSelector=None):
+    print("Accessing URL: " + url)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.get(url)
+    time.sleep(8) # don't want to be too aggressive
+    
+    if iframeSelector:
+        el = driver.find_element(By.CSS_SELECTOR, iframeSelector)
+        driver.switch_to.frame(el)
+
+    html = driver.page_source
+    return BeautifulSoup(html, 'html5lib')
 
 #####################################################################
 # Give it a find('a').stripped_strings and it MIGHT end up with a better result than strip=true

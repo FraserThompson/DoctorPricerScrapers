@@ -18,13 +18,17 @@ def searchForValue(target, searchValue, parent=[], result=[]):
 					searchForValue(y, searchValue, target, result)
 	return result
 
+# Ok this one is kind of black magic... 
+# Their info is inside Google Maps embeds, Google stores it in unstructured arrays, so we can get it...
+# But it's kind of unreliable. This is a best effort sort of deal.
 def scrape(name):
 	scraper = scrapers.Scraper(name)
 
-	list_url = "https://www.nhc.maori.nz/clinic-network"
+	list_url = "https://www.nhc.maori.nz/providers/information-for-general-practices/our-practices/"
 	listUrlSouped = scrapers.openAndSoup(list_url)
 
-	mapElements = listUrlSouped.find_all('iframe', {'class': 'no-lazyload'})
+	regex = re.compile('/maps')
+	mapElements = listUrlSouped.find_all('iframe', {'src': regex})
 
 	for map in mapElements:
 		
@@ -45,7 +49,7 @@ def scrape(name):
 
 			try:
 				info = practice[1][1][0].split("\\n")
-			except TypeError:
+			except:
 				continue
 
 			if "ADDRESS" in info[0]:
@@ -79,7 +83,7 @@ def scrape(name):
 
 			try:
 				scraper.setLatLng(practice_info_blob[1][0][0])
-			except IndexError:
+			except:
 				# All good, just dont bother
 				pass
 			
@@ -120,6 +124,10 @@ def scrape(name):
 
 					try:
 						age = scrapers.getFirstNumber(split[0])
+
+						if age == 1000:
+							continue
+
 						price = scrapers.getFirstNumber(split[1])
 
 						if age not in ages_done:

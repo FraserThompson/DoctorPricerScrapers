@@ -7,19 +7,14 @@ def scrape(name):
 	scraper = scrapers.Scraper(name)
 
 	practice_list_url = 'https://www.alliancehealth.org.nz/find-a-clinic/'
-	listUrlSouped = scrapers.openAndSoup(practice_list_url)
+	listUrlSouped = scrapers.seleniumAndSoup(practice_list_url)
 
-	pageContent = listUrlSouped.find('iframe', {'title': 'Wix FAQ'})
-	print(pageContent.attrs)
-	response = urlopen(pageContent.attrs['src'])
-	iframe_soup = scrapers.openAndSoup(response)
-
-	clinics = iframe_soup.find('main', {'id': 'PAGES_CONTAINER'}).find_all('a', {'data-testid': "linkElement"})
+	clinics = listUrlSouped.find_all('div', {'class': "accordion-item"})
 
 	for clinic in clinics:
 
-		name = clinic.get_text(strip=True)
-		url = clinic.get('href')
+		name = clinic.find('h3').get_text(strip=True)
+		url = clinic.find('a').get('href')
 
 		if not url:
 			continue

@@ -11,35 +11,37 @@ def scrape(name):
 	rootURL = 'https://aucklandpho.co.nz'
 
 	# build a dict with practice info keyed to practice name
-	listUrlSouped = scrapers.openAndSoup(rootURL + '/practices-fees/')
-	practiceEls = listUrlSouped.find('div', {'class': 'practices-fees-items'}).find_all('p')
+	listUrlSouped = scrapers.seleniumAndSoup(rootURL + '/practices-fees/')
+	practiceEls = listUrlSouped.find_all('div', {'data-testid': 'mesh-container-content'})
 
 	practiceInfo = {}
+	
+	regex = re.compile('tel:')
+	
 	for el in practiceEls:
-		
-		linkEl = el.find('a')
-		if not linkEl:
-			break
 
-		name = linkEl.get_text(strip=True)
+		nameEl = el.find('h6')
+
+		if not nameEl:
+			continue
+
+		linkEl = nameEl.find('a')
+
+		name = nameEl.get_text(strip=True)
 		practiceInfo[name] = {}
 		practiceInfo[name]['name'] = name
-		practiceInfo[name]['url'] = linkEl.get('href') if '://' in linkEl.get('href') else rootURL + linkEl.get('href')
-		practiceInfo[name]['address'] = el.get_text(strip=True).split("Address:")[1]
+		practiceInfo[name]['url'] = linkEl.get('href') if linkEl else rootURL
+		practiceInfo[name]['address'] = el.find('div', {'data-testid': 'richTextElement'}).get_text(strip=True)
 
-		if "healthpoint" in practiceInfo[name]['url']:
-			practiceInfo[name] = practiceInfo[name] | scrapers.scrapeHealthpoint(practiceInfo[name]['url'])
-		elif "aucklandpho" in practiceInfo[name]['url']:
-			practiceUrlSouped = scrapers.openAndSoup(practiceInfo[name]['url'])
+		phoneEl = el.find('a', {'href': regex})
 
-			try:
-				practiceInfo[name]['phone'] = practiceUrlSouped.find('h4', {'class': 'vc_custom_heading'}).get_text(strip=True).split("phone")[1]
-			except IndexError:
-				practiceInfo[name]['phone'] = None
+		if phoneEl:
+			practiceInfo[name]['phone'] = phoneEl.get_text(strip=True)
 
 	print("Done. Iterating fee rows...")
 
-	feeEls = listUrlSouped.find('table').find_all('tr')[3:]
+	feesiFrameSouped = scrapers.seleniumAndSoup(rootURL + '/practices-fees/', 'iframe')
+	feeEls = feesiFrameSouped.find('tbody').find_all('tr')
 
 	for row in feeEls:
 		cells = row.find_all('td')
@@ -52,7 +54,7 @@ def scrape(name):
 		if name == "Tend":
 			name = "Tend Health"
 
-		scraper.newPractice(name, "https://aucklandpho.co.nz/practices/", "Auckland PHO", "")
+		scraper.newPractice(name, "https://www.aucklandpho.co.nz/practices-fees/", "Auckland PHO", "")
 		
 		try:
 			info = practiceInfo[name]
