@@ -306,6 +306,7 @@ def seleniumAndSoup(url, iframeSelector=None):
     if iframeSelector:
         el = driver.find_element(By.CSS_SELECTOR, iframeSelector)
         driver.switch_to.frame(el)
+        time.sleep(5)
 
     html = driver.page_source
     return BeautifulSoup(html, 'html5lib')

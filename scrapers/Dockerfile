@@ -1,6 +1,6 @@
-FROM python:3.10.5-alpine3.16
+FROM python:3.10.5-bullseye
 
-RUN apk --update add ca-certificates chromium-chromedriver chromium && update-ca-certificates
+RUN  apt-get update && apt-get install ca-certificates chromium-driver chromium -y && apt-get clean && update-ca-certificates
 
 COPY py-requirements.txt .
 RUN pip install --no-cache-dir -r py-requirements.txt

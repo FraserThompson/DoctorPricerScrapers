@@ -3,7 +3,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Getting postresql and its dependencies
 RUN apt-get update && apt-get install postgresql -y && apt-get clean
-RUN apt-get install postgresql-13-postgis-3 postgresql-contrib-13 postgresql-13-postgis-3-scripts python3-psycopg2 libmemcached-dev zlib1g-dev chromium-chromedriver chromium -y && apt-get clean
+RUN apt-get install postgresql-13-postgis-3 postgresql-contrib-13 postgresql-13-postgis-3-scripts python3-psycopg2 libmemcached-dev zlib1g-dev chromium-driver chromium -y && apt-get clean
 
 COPY ["run_server.sh", "/run_server.sh"]
 COPY ["run_celery.sh", "/run_celery.sh"]
