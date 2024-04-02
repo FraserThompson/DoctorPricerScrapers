@@ -57,10 +57,13 @@ class Region(models.Model):
             age = thing['from_age']
 
             if date_string not in averages:
-                averages[date_string] = {}
+                averages[date_string] = {'total': {'count': 0, 'price': 0}}
 
             if age not in averages[date_string]:
                 averages[date_string][age] = {'count': 0, 'price': 0}
+
+            averages[date_string]['total']['count'] += 1
+            averages[date_string]['total']['price'] += float(thing['price'])
 
             averages[date_string][age]['count'] += 1
             averages[date_string][age]['price'] += float(thing['price'])

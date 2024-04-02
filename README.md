@@ -45,6 +45,14 @@ Before you deploy you'll need to point the DNS at it since it needs to be on the
 
 Then it's ready to be deployed with the deploy script.
 
+#### Clearing the cache
+
+For performance all properties on models which are computationally expensive to get, or require database joins, are cached permanently. This includes stuff like price history, averages, and metadata around the number of practices in each PHO.
+
+There is a custom command to clear caches which you can run by jumping in the container and doing this:
+
+`python manage.py clearcache`
+
 ### Backups
 
 # Prod
