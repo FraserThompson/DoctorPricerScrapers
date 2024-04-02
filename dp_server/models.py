@@ -53,7 +53,7 @@ class Region(models.Model):
 
         for thing in queryset:
 
-            date_string = thing['history_date'].strftime("%Y-%m")
+            date_string = thing['history_date'].strftime("%Y")
             age = thing['from_age']
 
             if date_string not in averages:

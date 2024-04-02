@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from corsheaders.defaults import default_headers
 
 BASE_DIR = "/var/www/dp_server/"
 
@@ -51,6 +52,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
+CORS_ALLOW_HEADERS = default_headers + ('cache-control',)
 
 # Cached sessions
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'

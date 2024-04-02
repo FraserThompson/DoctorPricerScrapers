@@ -222,7 +222,7 @@ def price_history(request):
 
     for thing in queryset:
 
-        date_string = thing['history_date'].strftime("%Y-%m")
+        date_string = thing['history_date'].strftime("%Y")
         age = thing['from_age']
 
         if date_string not in averages:
@@ -260,7 +260,7 @@ def model_price_history(request, type=None):
                 'history_date').values('average_prices', 'history_date')
 
             for thing in queryset:
-                date_string = thing['history_date'].strftime("%Y-%m")
+                date_string = thing['history_date'].strftime("%Y")
 
                 if date_string not in averages:
                     averages[date_string] = {}
