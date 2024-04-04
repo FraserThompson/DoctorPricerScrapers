@@ -1,8 +1,9 @@
 import json
 from django.db import models
 from django.core import serializers
-from django.db.models import Avg, Max, Min, Q, Count
+from django.db.models import Avg, Max, Min, Q, Count, Sum
 from django.db.models import JSONField
+from django.db.models.functions import TruncYear
 from django.contrib.gis.db import models
 from simple_history.models import HistoricalRecords
 from django.conf import settings
@@ -42,35 +43,32 @@ class Region(models.Model):
 
     @cached_property
     def price_history(self):
-        queryset = Prices.history.filter(
-            Q(csc=False) | Q(csc=None),
-            practice__in=self.practices,
-            price__lt=999,
-            practice__restriction='',
-        ).order_by('history_date').values()
-
+        ages = [0, 6, 14, 18, 25, 45, 65]
         averages = {}
 
-        for thing in queryset:
+        for age in ages:
 
-            date_string = thing['history_date'].strftime("%Y")
-            age = thing['from_age']
+            queryset_test = Prices.history.filter(
+                Q(csc=False) | Q(csc=None),
+                practice__in=self.practices,
+                to_age__gte=age,
+                from_age__lte=age,
+                price__lt=999,
+                practice__restriction='',
+            )
+            queryset_test = queryset_test.annotate(year=TruncYear('history_date'), age=Max('from_age'))
+            queryset_test = queryset_test.values('year', 'age')
+            queryset_test = queryset_test.annotate(avg=Avg('price'))
 
-            if date_string not in averages:
-                averages[date_string] = {'total': {'count': 0, 'price': 0}}
+            for thing in queryset_test:
+                year = thing['year'].strftime("%Y")
+                avg = str(thing['avg'])
 
-            if age not in averages[date_string]:
-                averages[date_string][age] = {'count': 0, 'price': 0}
+                if year not in averages:
+                    averages[year] = {}
 
-            averages[date_string]['total']['count'] += 1
-            averages[date_string]['total']['price'] += float(thing['price'])
-
-            averages[date_string][age]['count'] += 1
-            averages[date_string][age]['price'] += float(thing['price'])
-
-        for key, average in averages.items():
-            for key, value in average.items():
-                value['price'] = value['price'] / value['count']
+                if age not in averages[year]:
+                    averages[year][age] = {'price': avg}
 
         return json.dumps(averages)
 

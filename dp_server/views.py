@@ -422,6 +422,7 @@ def clean(request):
     location_search = request.query_params.get('location')
     smart_search = request.query_params.get('smart')
     dumb_search = request.query_params.get('dumb')
+    price_search = request.query_params.get('price_search')
 
     # These places are allowed to be on top of each other because they are
     whitelist = ["Otahuhu Whitecross", "Otahuhu Local Doctors"]
@@ -568,5 +569,24 @@ def clean(request):
                     less_confident.append(match_obj)
 
                 matches['less_confident'].append(less_confident)
+
+    # Find practices where the <14 price is greater than 0
+    if price_search:
+        sus_prices = models.Prices.objects.filter(
+            to_age__lte=14,
+            from_age=0,
+            price__gt=0,
+            practice__disabled=False
+        ).values('id', 'practice__name')
+
+        very_confident = []
+
+        for thing in sus_prices:
+            very_confident.append({
+                'id': thing['id'],
+                'name': thing['practice__name'],
+            })
+        
+        matches['very_confident'].append(very_confident)
 
     return JsonResponse(matches, status=200, safe=False)
